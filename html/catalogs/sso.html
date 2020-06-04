@@ -1,0 +1,207 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: Tables" -->
+<HEAD>
+<TITLE>Catalog Search Tool: Solar System Objects
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Catalog Search Tool: Solar System Objects</h2>
+
+<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A> <br>
++<A href="#objname">Object Name</A><br>
++<A href="#mpc">MPC Input</A><br>
++<A href="#orbit">Orbit Element Input</A><br>
++<A href="#time">Observation Time</A><br>
+<P>&nbsp;<P>
+
+
+<h3><A name="overview">Overview</A></h3>
+
+For some IRSA catalogs, it is possible to search for moving objects
+(Solar System objects) using the Catalog Search Tool. This is useful
+for a "pre-covery" search, looking for possible prior observations of
+a known target, whether or not that target was known or identified at
+the time. This search mode is only available for catalogs having
+single-epoch position and timestamp information within them, such as
+the WISE All-Sky Single Exposure (Level 1b) Source Table, or the
+NEOWISE-R Single Exposure (Level 1b) Source Table. The object's
+ephemeris is used to calculate predicted positions within the time
+range of the catalog of interest, and then a position cone search
+match against the catalog is done. Additional constraints may be
+supplied by the user, e.g. adjusting the search radius in the Moving
+Object Match Radius box.<p> 
+
+
+ There are three Solar System object/orbit search types:
+<ul>
+<li> by the object name or numeric designation; </li>
+<li> using the Minor Planet Center (MPC) one-line element format; or </li>
+<li> using the six orbital elements at a given epoch supplied
+        by the user.</li>
+</ul>  
+
+<p>Using the object name or numeric designation is preferred, as the
+osculating orbital elements nearest in time to the observations will
+be used. </p>
+
+<h3><A name="objname">Object Name</A></h3>
+
+<p>Search by object name by entering the name or numeric
+designation in the "Single Object Search" field.  For
+asteroids, one can enter either the ID number, name, or
+designation; e.g. 1917, Cuyo, or 1968 AA. It can handle names
+with apostrophes and dashes like O'Connell and
+Pic-du-Midi. For comets one can enter the numeric ID,
+e.g. 10P for 10P/Tempel 2, or a designation, e.g. 2009 WJ50
+for 233P/La Sagra. Planetary satellites (and planets, where
+possible) can be input by name, e.g. Titan.  </p>
+
+<p>There can be name ambiguities.  For example, entering
+"WISE" is a problem as there were many asteroids and comets
+discovered by the WISE mission.  Entering "Neptune" is unclear
+as there are ephemeris files for both Neptune and the Neptune
+system barycenter.  The tool will deliver a messsage if there is
+an ambiguity, either via the web page, or via a link to a log
+file for a non-interactive session.  The message will contain
+suggested <a href="https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/naif_ids.html">NAIF <img src="img/jumpout.jpg" height="10"></a>
+ID's, and you can use them as follows, e.g. "1003094:NID"
+for comet 317P/WISE or "899:NID" for Neptune. In a few cases,
+there are satellites and asteroids with the same name, and you
+may distinguish them by, e.g. "Europa:SAT" and
+"Europa:AST".</p>
+ 
+
+
+<h3><A name="mpc">MPC Input</A></h3>
+
+<p> One can also search using a Minor Planet 
+Center input string. The format is given here for
+<a href="http://www.minorplanetcenter.net/iau/info/MPOrbitFormat.html">minor planets <img src="img/jumpout.jpg" height="10"></a> and <a href="http://www.minorplanetcenter.net/iau/info/CometOrbitFormat.html">comets <img src="img/jumpout.jpg" height="10"></a>.</p>
+
+<p>If the data were taken at the same epoch as the epoch of the
+MPC orbital elements, one could cut-and-paste a line directly from a
+table, e.g. the
+<a href="http://www.minorplanetcenter.net/iau/MPCORB.html">MPC Orbit (MPCORB) Database <img src="img/jumpout.jpg" height="10">.</a></p>
+
+MPC One-line Element Input Examples, where e=eccentricity, a=semimajor
+axis, M=mean anomaly,  i=inclination, Node=longitude of the ascending
+node, w=argument of perihelion, q=perihelion distance,  Tp=time of
+perihelion passage, n=mean motion, H=absolute magnitude and  G=slope
+parameter. <p>
+
+ASTEROID: Icarus<p>
+
+<table width="100%" cellspacing="2" cellpadding="2" border="1">
+
+<tbody><tr><td style="text-align: center;">Designation </td><td
+style="text-align: center;">H </td><td style="text-align: center;">G
+</td><td style="text-align: center;">Epoch </td><td style="text-align:
+center;">M </td><td style="text-align: center;">w </td><td
+style="text-align: center;">Node </td><td style="text-align:
+center;">i </td><td style="text-align: center;">e </td><td
+style="text-align: center;">n </td><td style="text-align:
+center;">a</td></tr> <tr><td style="text-align: center;">01566
+</td><td style="text-align: center;">16.9 </td><td style="text-align:
+center;">0.15 </td><td style="text-align: center;">K1128 </td><td
+style="text-align: center;">78.13687 </td><td style="text-align:
+center;">31.35339 </td><td style="text-align: center;">88.02734
+</td><td style="text-align: center;">22.82772 </td><td
+style="text-align: center;">0.8268277 </td><td style="text-align:
+center;">0.88069351 </td><td style="text-align:
+center;">1.0779191</td></tr> </tbody> </table>
+
+<P>
+COMET: C/2010 A4 (Siding Spring)<p>
+
+<table width="100%" cellspacing="2" cellpadding="2" border="1">
+<tbody><tr><td style="text-align: center;">Name/Design <br>
+</td><td style="text-align: center;">      Tp <br>
+</td><td style="text-align: center;">     q <br>
+</td><td style="text-align: center;">   e <br>
+</td><td style="text-align: center;">   w <br>
+</td><td style="text-align: center;"> Node <br>
+</td><td style="text-align: center;">    i <br>
+</td><td style="text-align: center;">   Epoch <br>
+</td><td style="text-align: center;">   H <br>
+</td><td style="text-align: center;">  G <br>
+</td><td style="text-align: center;">   Name</td></tr>
+<tr><td style="text-align: center;">CK10A040</td><td style="text-align: center;">  2010 10  8.7896 <br>
+</td><td style="text-align: center;"> 2.738033 <br>
+</td><td style="text-align: center;"> 0.990439 <br>
+</td><td style="text-align: center;"> 271.6989 <br>
+</td><td style="text-align: center;">
+346.6856 <br>
+</td><td style="text-align: center;"> 96.7301 <br>
+</td><td style="text-align: center;"> 20110208 <br>
+</td><td style="text-align: center;"> 12.5 <br>
+</td><td style="text-align: center;"> 4.0 <br>
+</td><td style="text-align: center;"> C/2010 A4 (Siding Spring)</td></tr>
+</tbody>
+</table>
+
+
+  <p>
+
+<h3><A name="orbit">Orbit Element Input</A></h3>
+
+<p>The user can alternately input the standard six orbital elements
+for an object.  Best results will be obtained if these  are the
+osculating elements at the same epoch as the observations.  For  an
+asteroid these are
+        </p><ul>
+        <li>eccentricity, </li>
+        <li>semimajor axis, </li>
+        <li>mean anomaly, </li>
+        <li>inclination, </li>
+        <li>longitude of the ascending node, and </li>
+        <li>argument of perihelion. </li>
+        </ul>
+        <p></p>
+
+        <p> For comets, the elements are
+        </p><ul>
+        <li> eccentricity, </li>
+        <li> perihelion distance, </li>
+        <li> time of perihelion passage, </li>
+        <li> inclination, </li>
+        <li> longitude of the ascending node, and </li>
+        <li> argument of perihelion. </li>
+        </ul>
+        <p></p>
+
+<p>Notice that for comets, perihelion distance is used  instead of
+semimajor axis and time of perihelion passage  is used instead of mean
+anomaly. The reason for replacing  these two parameters is to allow
+for cases where long  period comets have a parabolic or hyperbolic
+orbit. </p>
+
+        <p> A good description of the orbital parameters is given 
+        in JPL's <a href="https://ssd.jpl.nasa.gov/?faq">Solar System Dynamics web site <img src="img/jumpout.jpg" height="10">.</a>
+        </p>
+
+
+
+<h3><A name="time">Observation Time</A></h3>
+
+<p> The user has the option to fill in specific observation  begin and
+end times in UT, or leave them blank. In the latter case, the whole
+observation range of the catalog is used. </p>
+
+<p align="left">The rest of the options are the same as a non-moving
+object search.</p>
+
+
+
+
+</BODY>
+</HTML>

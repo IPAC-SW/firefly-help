@@ -1,0 +1,364 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Catalog Search Tool : Plots" -->
+<HEAD>
+<TITLE>Catalog Search Tool: Plots
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Catalog Search Tool: Plots</h2>
+
+Plots can be made from <a href="tables.html">Tables</A>, and plots are
+made automatically in the Catalog Search Tool when catalogs are
+loaded. Plotting is covered in this section. The <a
+href="tables.html">Tables</A> section discusses tables more generally. The <a
+href="visualization.html">Visualization</A> section covers how a
+catalog is overlaid on images. <P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#default">Default Plot</A><br>
++<a href="#firstlook">Plot Format: A First Look</A><br>
++<a href="#linking">Plot Linking</A><br>
++<a href="#changing">Changing What is Plotted</A><br>
++<a href="#manipulating">Plotting Manipulated Columns</A><br>
++<a href="#restricting">Restricting What is Plotted</A><br>
++<a href="#saving">Saving Plots</A><br>
++<a href="#examples">Examples</A><br>
+<P>&nbsp;<P>
+
+
+
+<h3><a name="default">Default Plot</A></h3>
+
+By default, after a catalog has loaded, a plot appears in the upper
+right of your browser window.<P>
+
+To obtain a full-screen view of your plot, click on the expand icon in
+the upper right of the window pane when your mouse is in the window:
+<img src="img/expand-24x24.png">. To return to the prior view, click
+the "Close" arrow in the upper left.<P>
+
+The plotting tool, by default, starts with RA and Dec plotted if it
+can find RA and Dec in the catalog. Note that it does so following
+astronomical convention -- RA increases to the left. If the catalog does not have RA and Dec, it plots the first two numerical columns it finds. <P>
+
+<h3><a name="firstlook">Plot format: a first look</A></h3>
+
+If you have loaded a catalog with many (&gt; 15,000) points, you may
+have an RA/Dec plot that looks something like the one on the left
+here. If you have loded a catalog with few (&lt; 15,000) points, you
+will have an RA/Dec plot that looks more like the one on the right
+here.<br> <img src="img/defaultradecbinned.png" width="50%"><img
+src="img/defaultradecunbinned.png" width="50%"><P>
+
+The difference between them is that, for larger catalogs (left), the
+plot is binned -- more points are encompassed in a black tile and
+fewer points are encompassed in a white tile. In the context of this
+tool, this is called a <strong>heatmap</strong>. For smaller catalogs
+(right), each individual point is shown as a blue dot. In the context
+of this tool, this is called a <strong>scatter plot</strong>. <P>
+
+In either case, letting your mouse hover over a point tells you the
+values of the point under your cursor, and (if binned) how many points
+are represented:<br> <img src="img/morethanonepoint.png"> for binned
+plots, and <br> <img src="img/justonepoint.png"> for just one point.
+<br> <img src="img/morethanonepoint2.png"> Clicking (in an unbinned
+plot)  highlights that point, and it stays highlighted, though you
+must keep your mouse on the point in order to see the information
+about how many points it represents.<P>
+
+You can change the bin size and shading. If you have a binned plot,
+you have a "binning options" arrow near the bottom of the plot options
+pop-up. You can choose whether the binning is set automatically (leave
+boxes blank), or by you (populate the boxes). You can also choose if
+the grey shading is set linearly or logarithmically.  NOTE
+THAT you can't change the bin size in just one direction; if you enter
+a number for the "Number of x-bins" box, you must also enter a number
+for the "Number of y-bins" box.<P>
+
+The reason the tool makes a heatmap for large catalogs this is to more
+fairly represent the point density -- and to make the plotting faster.
+In these cases, though, it will not give you the option to overplot
+errors (see below). If you have a heatmap and want a scatter plot, you need to filter or otherwise restrict the catalog to have fewer points (see below).<P>
+
+
+<h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
+
+If you move your mouse over any of the points in the plot, you will
+get a pop-up telling you the values corresponding to the point under
+your cursor. For scatter plots, if you click on any of the points, the
+object(s) corresponding to that point will be highlighted in the
+overlays in the images shown, and highlighted in the catalog table. 
+This works the other way too - click on a row in the catalog, or an
+object in the images, and the object will be highlighted in the plot
+or the catalog or the image.<P>
+
+<h3><a name="changing">Changing what is plotted</A></h3>
+
+To change what is plotted, click on the gears icon in the upper right
+of the plot window pane: <img src="img/xyplotoptions.png"
+align="center">. Configuration options then appear; the options are a
+little different depending on whether the points are binned or
+not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%"> &nbsp; &nbsp;
+<img src="img/plotoptionspopup.png" width="30%"><br> The left has the
+options for binned plots, and the right has the options for plots that
+have individual points shown.<P>
+
+<DL><dt><strong>Both kinds of plots have the following
+options.</strong>
+<dd>
+In either case, you can specify what should be plotted on each
+axis. The magnifying glass is a link that brings up a table that lists
+all of the available columns in the catalog. Alternatively, you can
+just start typing, and viable options appear below the box. Whatever
+you put in the box must match the column name as shown in the catalog
+<em>exactly</em>. <P>
+
+Click on the triangle to open additional options for the layout. <P>
+
+In both of the examples above, RA is plotted on the x-axis. It has
+pulled the column name for the label; in this table, the column is
+"ra" rather than "RA". It has copied over the units ("deg") from the
+catalog. You can change what column is plotted, as well as what label
+and units are shown in the plot. <P>
+
+You can enter <strong>simple mathematical relations</strong> in these
+boxes too, such as "w1mpro-w4mpro" to put [W1]-[W4] on one axis.
+Supported operators:
+<UL>
+<LI>+,-,*,/
+<LI>abs(x), acos(x), asin(x), atan(x), atan2(x), ceil(x), cos(x),
+exp(x), floor(x), lg(x), ln(x), log10(x), log(x), power(x,y),
+round(x), sin(x), sqrt(x), tan(x)
+<LI>Non-alphanumeric column names (e.g., those with - or + or similar
+characters) should be quoted in expressions.
+</UL>
+<P>
+
+In both kinds of plots (scatter or heatmap [binned]), you can enter
+the label for the axes, and choose whether or not a grid is included
+on that axis, and whether or not the axis is reversed -- in this case,
+because it's plotting RA, the x-axis is reversed. <P>
+
+By default, the boundaries of the plot are set to encompass the full
+data range. Here you can change the boundaries to specific numbers.
+(This can also be set via filtering from the plot; see below.)<P>
+
+If you want a square or rectangular plot, you can change the x/y ratio
+as displayed.<P>
+
+Click "Apply" to apply, and "Close" to return to the plot without
+making changes.<P>
+
+<dt><strong>Options found only in binned plots</strong>
+<dd>(Plots are binned if there are &gt; 15,000 points in the catalog.)
+Frome the pop-up, you can control the color table that is used
+(greyscale is the default; there are many other choices in the
+pulldown menu), as well as the number of bins in the x and y
+directions.   If you change the number of bins but then want to go
+back to the original values, leave the "Number of bins" boxes
+blank.<P>
+
+
+<dt><strong>Options found only in plots showing individual points</strong>
+<dd>In these plots, at the top of the plot options pop-up,  you can
+control whether the points are shown as individual points, connected
+points, or just a line. <P>
+
+You can specify an error (either a column in the catalog, or
+calculated from a column in the catalog). Those errors can be
+symmetric or asymmetric (see pulldown menu). <P>
+
+You can also change either axis to be logarithmically scaled.
+<P>
+</dl>
+
+
+Example: Load a WISE catalog. Plot w1snr vs. w1mpro. Change the labels
+by clicking on the triangles below each entry box, and make the label
+"SNR in WISE-1" rather than the more cryptic column header "w1snr".
+Depending on your catalog, you may need to adjust the y axis range.
+Obtain this plot:<P>
+<img src="img/w1snrexample.png" width="70%"><img
+src="img/w1snrexampleconfig.png" width="30%"><p>
+
+
+<h3><a name="manipulating">Plotting Manipulated Columns</A></h3>
+
+You can choose a single column to plot against another column, as
+above. However, you can also do simple mathematical manipulations.<P>
+
+For example, if you have loaded a WISE catalog, you can plot [W1]-[W2]
+vs. [W3]-[W4]. In terms of the names of the columns in the database,
+this is w1mpro-w2mpro vs. w3mpro-w4mpro.  <br>
+
+<img src="img/wisecolorexample.png" width="70%"><img
+src="img/wisecolorexampleconfig.png" width="30%"><p>
+
+If you have few enough points that the plot is not binned, you can add
+errors, and you can also manipulate those:<br> <img
+src="img/plotoptionspopup2.png"><br>  In this case, the positions
+in this catalog are in degrees, but the errors are in arcseconds.
+This plot request converts the errors to degrees
+before plotting. <P>
+
+<h3><a name="restricting">Restricting What is Plotted</A></h3>
+
+You can also restrict what data are plotted in any of several
+different ways. <P>
+
+You can set axis limits on the plot itself from the plot options
+pop-up (discussed above).<P>
+
+However, and perhaps more powerfully, you can set limits from the plot
+itself using a rubber band zoom.  Click and drag in a sub-region of
+the plot. A new icon appears in the upper right of the plot: <img
+src="img/plotoptions.png">. This means "filter the catalog to leave
+only those objects encompassed by the selection in the plot." If you
+click on the zoom icon, then the plot axes change to encompass just
+the sources you have selected. If you click on the filter icon, then
+the catalog view is filtered down, restricted to just those sources
+you have selected, and the filter notes in the upper left of the plot
+window (and the upper right of the catalog window) change to remind
+you that you have a filter applied. Only those sources that pass the
+filter are shown overlaid on the image(s) or in the catalog. (This is
+the behavior of 'filter', as opposed to 'select'; the former restricts
+what is shown, the latter just highlights the objects.) For more on
+filters, see <a href="table.html#filters">the filter section</A>.<P>
+
+<!-- If you have a big catalog, zooming or filtering may reduce the number
+of plotted points to below 15,000, which means
+that then individual points can be shown, rather than binned
+points.<P> -->
+
+If you move your mouse over any of the points, you will get a pop-up
+telling you the values corresponding to the point under your cursor.
+If you click on any of the points, the object(s) corresponding to that
+point will be highlighted in the overlays in the images shown, and
+highlighted in the catalog table.  This works the other way too -
+click on a row in the catalog, or an object in the images, and the
+object will be highlighted in the plot or the catalog or the image.<P>
+
+You can also zoom with your mouse on the plot -- do whatever you would
+do with your mouse to scroll but with your mouse over the plot. You
+can also grab-and-drag the plot axes to change the plotting range.<P>
+
+<h3><a name="saving">Saving Plots</A> </h3>
+
+Click on the diskette icon (<img src="img/save.png">). Your plot will
+then be saved as a png file. 
+The saved PNG is the same size as it is on your screen. If you want a
+big version, make the desired plot big on your screen (expand the view
+to take up as much space as possible) before saving the PNG. <P>
+ <P>
+
+
+
+<h3><a name="examples">Examples of catalog plots</A></h3>
+
+<strong>Example: Plotting [W1] vs. [W1]-[W4] in a star-forming
+region</strong><P>
+
+In a star-forming region defined for this example, we are trying to
+find young stars. We will search in the WISE AllWISE catalog. Stars
+without circumstellar dust should be at a variety of W1 brightnesses,
+but all have [W1]-[W4]~0.  Background galaxies should be faint and
+red. Stars with circumstellar dust (e.g., young stars) should be
+bright and red. Here, we will make a plot, identify a bright and red
+object in the plot, and find where it is in the WISE images.
+
+<OL>
+<LI>Launch the Catalog Search Tool. Select WISE AllWISE.
+Enter target as IC1396.  Select a radius size of 0.5 degree.  Click
+'Run Query.'
+<LI>The catalog is plotted in the upper right, overplotted on the
+image in the upper left, and listed as a table at the bottom. Note
+that all ~17,500 sources are overplotted on the image  and in the
+plot, but only the first 100 are shown in the catalog (though all are
+loaded).  Note that selecting a source in the image makes its
+corresponding row in the catalog change color and point in the plot
+change color; this is all interchangable such that picking a source in
+one place highlights it in the other places. (In the image, your
+selected source has an x in the symbol. You may have to enlarge the
+image to see your selected source in the image.)
+<LI>The plot comes up with an RA/Dec plot by default. Because there
+are more than 15,000 points in this catalog, it is a binned (heatmap)
+plot; each point represents more than one row of the catalog. Mouse
+over a point to see how many rows are represented: <img
+src="img/morethanonepoint.png">
+<LI>Click on the expand (<img src="img/expand-24x24.png">) icon in the
+upper right of the plot window to make it big. 
+<LI>Click on the gear <img src="img/xyplotoptions.png"> icon in the
+upper left of the plot window to change what is plotted.
+<LI>Enter in the x box: w1mpro-w4mpro. This is WISE-1 profile-fitted
+measurement in magnitudes minus WISE-4 profile-fitted
+measurement in magnitudes,or [W1]-[W4]. 
+<LI>Enter in the y box: w1mpro. This is the [W1] mag.
+<LI>Click on the triangle next to "Layout options", and enter
+"[W1]-[W4] (mag)" for the x-label, and "[W1] (mag)" for the y-label.
+Click on "reverse" to make the brighter objects appear at the top of
+the plot. Check "grid" to make the grid appear for both axes.
+<LI>Click on the triangle next to "Y label/unit", and enter [W1] for
+the label. Enter "mag" for the unit.  Click the "grid" box.
+<LI>Click "Apply."
+<LI>Obtain this plot:<br>
+<img src="img/ex1-plot.png" width="75%"><br>
+<LI>Note that the points are shades of grey, denoting that
+at least one of the points in the plot is representative of more than
+one row in the catalog. The legend for how many points correspond to
+each shade of grey is given on the right.
+<LI>Click and drag from corner given approximately by (2,6) to (7,11). 
+<LI>The icons in the upper right change after you do this, and we want
+to filter on this region. Click on the filter icon. This filters the
+table as well as the plot. Close the plot ("Close" in the upper left)
+and go back to the table.
+<LI>After this filtering, you should have about 250 points left in the
+catalog. Since this is few enough points (&lt; 15,000), we now have
+just a scatter plot (as opposed to the heatmap with shades of grey).<br>
+<img src="img/ex1-plotp2.png"><br>
+The points are shown as blue circles. Where they overlap, the blue appears darker.  
+<LI>Find the brightest source near [W1]-[W4]~4.5. Click on that point. 
+<LI>The (astrophysically) bright and red object we selected in the
+plot is highlighted in the overlays on top of the image and in the
+catalog (though you may need to scroll in the catalog to find the
+green highlighted line). To find it even more easily, you can click
+and drag around this point in the plot. Click on the filter icon in
+the upper left. The plot at this point looks silly, but only that
+point is left in the overlay of sources on the image and in the
+catalog list. (If you have been following closely, it should be
+J213808.44+572647.6.)  
+</OL>
+
+
+<strong>Abbreviated Example: Plotting [W1] vs. time with errors</strong><P>
+
+From the Catalog Search Tool, select the "AllWISE Multiepoch
+Photometry Table."  Search on RR Lyr, and ask it for a radius of only
+3 arcsec. It comes back with 49 epochs. The default plot looks a
+little odd because all the individual epochs are at the same position
+(RA and Dec). <P>
+
+Click on the gears to change what is plotted. For the x-axis: Ask it
+to plot mjd. For the y-axis, ask it to plot w1mpro_ep, and use
+w1sigmpro_ep for
+the errors. Reverse the y-axis to get bright objects at the top. There
+are two epochs of data obtained for this source, one near MJD~55,300
+and one near 55,500. Click and drag in the plot to select one of the
+two epochs and filter via the icon at the top of the plot. 
+
+Obtain a plot something like this, which shows the error
+bars for each point.  <BR> <img src="img/ex2-imgcst.png" width="50%"><P>
+
+You can send the light curve so obtained to the Time Series Tool for further analysis.
+
+
+
+
+</BODY>
+</HTML>

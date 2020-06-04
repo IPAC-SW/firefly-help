@@ -1,0 +1,216 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: API: CatDD" -->
+<HEAD>
+<TITLE>Catalog Search Tool: API: CatDD
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>API: CatDD</h2>
+
+<p>
+A <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/dd_tbl.html"
+target="_blank">database data dictionary (DD) <img
+src="img/jumpout.jpg" height="10"></a> describes the attributes of the
+columns of tables that are ingested  into the IRSA archive from an
+IPAC ASCII table. It includes information  such as the column
+description, units, and formats and relationships  between columns. 
+</p>
+
+<p>
+
+    IRSA provides <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/" target="_blank">a tool <img src="img/jumpout.jpg" height="10"></a> to generate an ASCII data dictionary from an IPAC ASCII table. 
+
+
+</p><p><b><i>CatDD</i></b>  returns the data dictionary of 
+      a catalog hosted at IRSA, and output in 
+      XML, HTML, or ASCII format. 
+</p>
+
+<p> The general format of an HTTP GET query is: <br>
+    </p><dir><i> <font size="-1">
+    [URL of program]?[keyword<b>1</b>=value<b>1</b>]&amp;[keyword<b>2</b>=value<b>2</b>]&amp;...[keyword<b>n</b>=value<b>n</b>]
+    </font></i></dir>
+
+    The URL of the IRSA catalog data dictionary service, CatDD, is <br>
+    <dir><i><font size="-1">
+    https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd
+    </font></i></dir>
+<p></p>
+
+<p> The service accepts the following keywords: </p>
+
+<table cellpadding="50" border="1" align="center">
+  <tbody><tr align="left"><td>
+    <p><b> For Public Data Dictionaries</b></p>
+
+    <form method="get" action="/cgi-bin/Gator/nph-dd">
+    <input type="hidden" name="onlist" value="1">
+ 
+    <table cellpadding="2" border="0">
+    <tbody><tr>
+      <td colspan="3" nowrap="nowrap"> CGI parameters: </td>
+    </tr>
+
+    <tr>
+      <td valign="top"><font color="#000066"><i>mode</i></font></td>
+      <td valign="top"><i>optional </i> </td>
+      <td nowrap="nowrap">
+	html  ___ display Gator query page in HTML (default). <br>
+	xml   ___ output DD content in XML.
+	ascii ___ output DD content in IPAC ASCII.
+	</td>
+    </tr>
+    
+    <tr><td colspan="3">&nbsp;</td></tr>
+    
+    <tr>
+      <td valign="top"><font color="#000066"><i>catalog</i></font></td>
+      <td valign="top"><i>required </i></td>
+      <td>catalog name inside database. <br> 
+	 <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=xml" target="_blank"> Click here</a>
+	 to choose a catalog.
+    </td></tr>
+    
+    <tr><td colspan="3">&nbsp;</td></tr>
+
+    <tr>
+      <td valign="top"><font color="#000066"><i>short</i></font></td>
+      <td valign="top"><i>optional</i> </td>
+      <td nowrap="nowrap">
+	1___ display short DD with default selected columns. (default) <br>
+	0___ display long DD with all columns. <br>
+	Short DD means the default list of columns on the Gator query page; <br>
+	long DD means full list of columns on the Gator query page.
+      </td>
+    </tr>
+
+    <tr><td colspan="3">&nbsp;</td></tr>
+
+    <tr>
+      <td valign="top"><font color="#000066"><i>onlist</i></font></td>
+      <td valign="top"> <i>optional </i> </td>
+      <td nowrap="nowrap">
+	1___ catalog is visible through Gator web interface (default). <br>
+	0___ catalog has been ingested into IRSA but not yet visible through Gator web interface<br>
+        This parameter will generally only be set when users are supporting 
+	testing and <br> evaluation of new catalogs at IRSA's request.	
+      </td>
+    </tr>
+
+    <tr><td colspan="3">&nbsp;</td></tr>
+    
+    <tr>
+      <td nowrap="nowrap" align="left">
+        Form Examples:
+      </td>
+      <td colspan="2"> 
+        <input type="radio" name="short" value="1" checked="checked"> Short List 
+        <input type="radio" name="short" value="0"> Long List </td>
+    </tr>
+    
+    <tr>
+     <td>&nbsp; </td>
+      <td colspan="2">
+         &nbsp;Catalog &nbsp;<input type="text" name="catalog" value="fp_psc">
+         Looking for other catalogs? 
+	 <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=xml" target="_blank"> Click here.</a>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>&nbsp; </td>
+      <td colspan="2" nowrap="nowrap">
+        <input type="radio" name="mode" value="xml" checked="checked"> XML
+        <input type="radio" name="mode" value="html"> HTML 
+        <input type="radio" name="mode" value="ascii"> IPAC ASCII 
+      </td>
+    </tr>
+
+    <tr>
+      <td> &nbsp;</td>
+      <td colspan="2">
+        <input type="submit" value="Get IRSA Public Data Dictionary">
+	<br>
+	<b>Note:</b>
+	    <font size="-1"> <i>
+	    Your browser may
+	    not render XML structure correctly. 
+	    </i></font> <br>
+      </td>
+    </tr>
+    
+    <tr><td colspan="3">&nbsp;</td></tr>
+    
+    <tr>
+      <td valign="top" nowrap="nowrap" align="left"> URL Examples: </td>
+      <td colspan="2" nowrap="nowrap">
+          (1) Get the data dictionary of the <i> 2MASS All-sky Point Source Catalog </i> 
+              using default values of <br>
+              <i>short</i>, <i>onlist</i> and <i>mode</i>. 
+              Display contents of default columns (standard query form) in HTML format. <br>
+	      <font size="-1"><i>
+                  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?catalog=fp_psc.
+                  </i> &nbsp;
+                  <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?catalog=fp_psc" target="help">
+                      <br>View Result in HTML
+                  </a>
+              </font> 
+      </td>
+    </tr>
+
+    <tr><td colspan="3">&nbsp;</td></tr>
+    <tr>
+      <td> &nbsp; </td>
+      <td colspan="2" nowrap="nowrap">
+	  (2) Get the data dictionary of the <i> 2MASS All-sky Point Source Catalog </i> 
+              and display the result in XML.  <br>
+	      <font size="-1"><i>
+                  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?mode=xml&amp;catalog=fp_psc 
+	          </i>&nbsp; 
+                  <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?mode=xml&amp;catalog=fp_psc" target="help"><br>View Result in XML</a>
+              </font> 
+      </td>
+    </tr>
+    
+    <tr><td colspan="3">&nbsp;</td></tr>
+    <tr>
+      <td> &nbsp; </td>
+      <td colspan="2" nowrap="nowrap">
+	  (3) Get the data dictionary of the <i> 2MASS All-sky Point Source Catalog</i> . 
+              Display in HTML the results for the full list of columns on the Gator query page. <br>
+	      <font size="-1"><i>
+                  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?short=0&amp;catalog=fp_psc  
+	          </i>&nbsp;
+                  <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?short=0&amp;catalog=fp_psc" target="help"><br>View Result in HTML</a> 
+              </font> 
+      </td>
+    </tr>
+    
+    <tr><td colspan="3">&nbsp;</td></tr>
+    
+    <tr>
+      <td colspan="3">
+          <b> For Project Internal and External Data Dictionaries, 
+          <a href="https://irsa.ipac.caltech.edu/applications/Gator/GatorAid/irsa/dd_int.html">click here  <img src="img/jumpout.jpg" height="10">.</a></b>
+      </td>
+    </tr>
+
+    </tbody></table> 
+    </form>
+    </td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+</BODY>
+</HTML>

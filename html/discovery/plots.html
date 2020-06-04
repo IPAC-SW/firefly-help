@@ -1,0 +1,210 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Data Discovery Tool : Plots" -->
+<HEAD>
+<TITLE>Data Discovery Tool: Plots
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Data Discovery Tool: Plots</h2>
+
+Plots can be made from <a href="tables.html">Tables</A>, and plots are
+made automatically in the Data Discovery Tool. Plotting is covered in
+this section. The <a href="tables.html">Tables</A> section discusses
+tables more generally. The <a
+href="visualization.html">Visualization</A> section covers intearcting
+with images. <P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#default">Default Plot</A><br>
++<a href="#firstlook">Plot: A First Look</A><br>
++<a href="#linking">Plot Linking</A><br>
++<a href="#origin">What is it plotting?</A><br>
++<a href="#changing">Changing What is Plotted</A><br>
++<a href="#restricting">Restricting What is Plotted</A><br>
++<a href="#saving">Saving Plots</A><br>
+<P>&nbsp;<P>
+
+
+
+<h3><a name="default">Default Plot</A></h3>
+
+By default, after a catalog has loaded, a plot appears in the upper
+right of your browser window.<P>
+
+To obtain a full-screen view of your plot, click on the expand icon in
+the upper right of the window pane when your mouse is in the window:
+<img src="img/expand-24x24.png">. To return to the prior view, click
+the "Close" arrow in the upper left.<P>
+
+The plotting tool in the Data Discovery tool, by default, has the
+spectral energy distribution (SED) for your search target, pulled
+either from  <a href="http://ned.ipac.caltech.edu/"
+target="_blank">NED <img src="img/jumpout.jpg" height="10"></A> (works
+best for extragalactic objects) or   <a
+href="https://vizier.u-strasbg.fr/viz-bin/VizieR"
+target="_blank">VizieR <img src="img/jumpout.jpg" height="10"></A>. 
+<P>
+
+<h3><a name="firstlook">Plot format: a first look</A></h3>
+
+<img src="img/nedsed.png" width="500"><BR>
+This is the SED that the Data Discovery tool shows for Arp 220, with the data being retrieved from NED.<P>
+
+Letting your mouse hover over a point tells you the
+values of the point under your cursor:<img src="img/nedsedonepoint.png" width="200">. Clicking (in an unbinned
+plot)  highlights that point, and it stays highlighted, though you
+must keep your mouse on the point in order to see the information
+about how many points it represents.<P>
+
+<img src="img/viziersed.png" width="500"><BR>
+This is the SED that the Data Discovery tool shows for HD 878, with the data being retrieved from Vizier.<P>
+
+
+
+<h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
+
+If you move your mouse over any of the points in the plot, you will
+get a pop-up telling you the values corresponding to the point under
+your cursor. For scatter plots, if you click on any of the points, the
+object(s) corresponding to that point will be highlighted in the SED
+table -- you may need to click on the SED tab to bring it to the
+foreground.  This works the other way too - click on a row in the SED
+tab, and the object will be highlighted in the plot or the catalog or
+the image.<P>
+
+<h3><a name="orign">What is it Plotting?</A></h3>
+
+The tool is plotting its best guess as to what the SED is of the object. The y-axis is nuF_nu and the x-axis is wavelength in microns. <P>
+
+<strong>NED</strong> <P>
+
+If it uses NED to translate the name of the object to RA/Dec, then it will use NED data to get an SED. Very common names are resolved via NED but may not have an SED in NED. Try "M101" to get an SED; try "M16" to get the coordinates from NED but find no SED.<P>
+
+The units from the points are what are supplied by NED. No additional translation has been done here, aside from multiplying to get nuF_nu.<P>
+
+The points that NED reports can come in a variety of units, but the data are filtered down to only include those in units of Jy before multiplying and plotting.<P>
+ 
+<strong>VizieR</strong> <P>
+
+If it uses SIMBAD to translate the name of the object to RA/Dec, then it will use  VizieR to get an SED. Try the name of a star (like HD 878) to get an SED. <P>
+
+The VizieR photometry tool allows for easy visualization of photometry points extracted around a sky position from photometry-enabled catalogues in VizieR. Even when an object name is used as a target, what is returned is just a list of photometry point found within some search radius, and should not be mistaken for an actual SED for the target object: there is no guarantee that all photometry points correspond to the target, especially for extended sources or stars in a cluster in close (projected) proximity.<P>
+
+Note that, for VizieR searches, an additional circle appears on the image on the left; this is the search radius used to retrieve the points from VizieR that are shown here.<P>
+
+
+
+<h3><a name="changing">Changing what is plotted</A></h3>
+
+To change what is plotted, click on the gears icon in the upper right
+of the plot window pane: <img src="img/xyplotoptions.png"
+align="center">. Configuration options then appear; the options are a
+little different than other plots in tools like this:<br>  <img src="img/nedsedplotparameters.png" width="30%"> <br> <P>
+
+You can see that it is doing manipulations to plot what is shown. The
+magnifying glass is a link that brings up a table that lists all of
+the available columns in the corresponding SED tab. Alternatively, you
+can just start typing, and viable options appear below the box.
+Whatever you put in the box must match the column name as shown in the
+catalog <em>exactly</em>. <P>
+
+Click on the triangle to open additional options for the layout. <P>
+
+You can change the label and units as shown in the plot. <P>
+
+You can enter <strong>simple mathematical relations</strong> in these
+boxes.
+Supported operators:
+<UL>
+<LI>+,-,*,/
+<LI>abs(x), acos(x), asin(x), atan(x), atan2(x), ceil(x), cos(x),
+exp(x), floor(x), lg(x), ln(x), log10(x), log(x), power(x,y),
+round(x), sin(x), sqrt(x), tan(x)
+<LI>Non-alphanumeric column names (e.g., those with - or + or similar
+characters) should be quoted in expressions.
+</UL>
+<P>
+
+You can enter the label for the axes, and choose whether or not a grid
+is included on that axis, and whether or not the axis is reversed. <P>
+
+By default, the boundaries of the plot are set to encompass the full
+data range. Here you can change the boundaries to specific numbers.
+(This can also be set via filtering from the plot; see below.)<P>
+
+If you want a square or rectangular plot, you can change the x/y ratio
+as displayed.<P>
+
+Click "Apply" to apply, and "Close" to return to the plot without
+making changes.<P>
+
+In this plot, at the top of the plot options pop-up,  you can
+control whether the points are shown as individual points, connected
+points, or just a line. <P>
+
+You can specify an error (either a column in the catalog, or
+calculated from a column in the catalog). Those errors can be
+symmetric or asymmetric (see pulldown menu). <P>
+
+You can also change either axis to be linearly or logarithmically scaled.<P>
+
+
+
+<h3><a name="restricting">Restricting What is Plotted</A></h3>
+
+You can also restrict what data are plotted in any of several
+different ways. <P>
+
+You can set axis limits on the plot itself from the plot options
+pop-up (discussed above).<P>
+
+However, and perhaps more powerfully, you can set limits from the plot
+itself using a rubber band zoom.  Click and drag in a sub-region of
+the plot. A new icon appears in the upper right of the plot: <img
+src="img/plotoptions.png">. This means "filter the catalog to leave
+only those objects encompassed by the selection in the plot." If you
+click on the zoom icon, then the plot axes change to encompass just
+the sources you have selected. If you click on the filter icon, then
+the catalog view is filtered down, restricted to just those sources
+you have selected, and the filter notes in the upper left of the plot
+window (and the upper right of the catalog window) change to remind
+you that you have a filter applied. Only those sources that pass the
+filter are shown overlaid on the image(s) or in the catalog. (This is
+the behavior of 'filter', as opposed to 'select'; the former restricts
+what is shown, the latter just highlights the objects.) For more on
+filters, see <a href="tables.html#filters">the filter section</A>.<P>
+
+
+If you move your mouse over any of the points, you will get a pop-up
+telling you the values corresponding to the point under your cursor.
+If you click on any of the points, the object(s) corresponding to that
+point will be highlighted in SED table.  This works the other way too
+- click on a row in the SED table, and the object will be highlighted
+in the plot.<P>
+
+You can also zoom with your mouse on the plot -- do whatever you would
+do with your mouse to scroll but with your mouse over the plot. You
+can also grab-and-drag the plot axes to change the plotting range.<P>
+
+<h3><a name="saving">Saving Plots</A> </h3>
+
+Click on the diskette icon (<img src="img/save.png">). Your plot will
+then be saved as a png file. 
+The saved PNG is the same size as it is on your screen. If you want a
+big version, make the desired plot big on your screen (expand the view
+to take up as much space as possible) before saving the PNG. <P>
+ <P>
+
+
+
+
+
+</BODY>
+</HTML>

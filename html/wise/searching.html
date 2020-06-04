@@ -1,0 +1,396 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRSA/WISE Image Service: Searching" -->
+<HEAD>
+<TITLE>IRSA/WISE Image Service: Searching
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Searching the IRSA/WISE Image Service</h2>
+
+There are five main options for searching the IRSA/WISE Image
+Service. Searching by position is the most commonly-used
+option.  <P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#commonoptions">Options Common to Most Searches</A><br>
++<A href="#byPosition">Position Search</A><br>
++<A href="#byTable">Position Search by Table Upload</A><br>
++<A href="#bySSO">Solar System Object/Orbit Search</A><br>
++<A href="#byScanID">Scan/Frame/Coadd/Source ID Search</A><br>
+<P>&nbsp;<P>
+
+
+<A NAME="commonoptions"><H3>Options Common to Most Searches</H3></A>
+
+The individual search options are given below, in the same order in
+which they appear in the search pane.  Most of the search panes have
+the following additional options.<P>
+
+Each of the "Search" panes ask for the "Return Image size". Returned
+images can be up to 2 degrees (or the equivalent in arcsec and arcmin)
+on a side. <b>Hint:</b> choose your units first, then enter the
+number. If you enter a number and then change the units, then the
+computer converts the number you have entered into the new units.<P>
+
+Although all four WISE wavelength bands (3.4, 4.6, 12, 22 microns) are
+returned by default, if available, it is possible to select a subset
+of them using the check boxes.  <P>
+
+After you search the first time and are presented with the results
+page, simply click the blue "Searches" tab to subsequently modify and
+repeat your search. <P>
+
+The Preliminary All-Sky and Preliminary Post-Cryo Data Release
+Products are hidden by default because they have been superceded by
+more recent releases. However, these may be still accessed in lieu of
+the recommended product versions by selecting the <em>Obselete
+preliminary release data</em> triangle for additional options in the
+search pages. <p>
+
+
+<A NAME="byPosition"><H3>Position Search</H3></A>
+
+This search is the most common search performed on astronomical
+archives.  Enter your central position, and all observations meeting
+the rest of your entered criteria are returned.<P>
+
+You may enter a target name, and have either NED or Simbad resolve the
+target name into coordinates.  Alternatively, you may enter
+coordinates directly. These coordinates can be in decimal degrees,  in
+hh:mm:ss dd:mm:ss, or hh mm ss dd mm ss format. By default, it assumes
+you are working in J2000 coordinates; you can also specify galactic,
+ecliptic, or B1950 coordinates as follows:
+<UL>
+<LI>'46.53, -0.251 gal' means 46.53, -0.251 degrees in galactic coordinates
+<LI>'12.7, +4.3 ecl' means 12.7, +4.3 degrees in ecliptic coordinates
+<LI>'19h17m 11d58m b1950' means 19h17m 11d58m in B1950 coordinates 
+</UL>
+
+As you are completing a valid coordinate entry, it echoes back to
+you what it thinks you are entering. Look right below the box in which
+you are typing the coordinates to see it dynamically change.  <P><P>
+
+<A NAME="byTable"><b>Searching via "batch mode"</b></A><P>     The
+position search can also be executed in "batch mode" for a list of
+objects given in a file -- select the Multi-Object tab and use the
+"Browse" button to locate the file with the list on your disk.  The
+file must be in IPAC table format, which is basically ASCII text with
+headers explaining the type of data in  each column, separated by
+vertical bars.  
+
+A sample input file looks like this: <P>
+<pre>
+
+|              ra|              dec|
+|          double|           double|
+|             deg|              deg|
+ 266.461876096161 -28.9303475510113 
+ 317.385694084404 -41.1537816217576 
+ 267.210580557307 -27.7929408211594 
+ 229.172700517754   0.2598861324350
+ 299.510225672473 -38.7735055243326
+ 213.945501950887  13.3596597685085
+ 262.341432853080 -23.7518928284717
+ 271.202769466020 -21.7274227022229
+ 291.167629785682 -29.2569222675305
+ 272.336516119634 -20.2761650442889
+ 237.391628608612   2.5906013137112
+
+</pre><P>
+ 
+
+Please use the <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank"> IPAC table check tool</a> to check and reformat your
+input table before the table upload. If the table upload search still
+does not work properly, the most common errors are: 1. No hyphen
+allowed in column names. 2. Column names should be all in lower case.
+3. No characters in the file after the last pipe (|) in the column
+header lines. 4. No empty lines at the end of the input file. 5. If
+all else fails, change "RA" to "ra" and "Dec" to "dec" (or the
+reverse).<p>
+
+Note that there is a <strong>maximum number of 1000 objects</strong>
+allowed for a single batch search.<P>
+
+<h3>Search options after single/multi-object</h3>
+
+For both single- and multi-object searches, the next option is whether
+to return images that contain the target, image(s) that cover the
+entire search region, image(s) that are entirely enclosed by the
+search region, or image(s) that contain any pixel overlapping the
+search region.<P>
+
+For both single- and multi-object searches, you can set the size of
+the image returned. You may enter the radius in arcseconds,
+arcminutes, or degrees; just change the pulldown option accordingly.
+<strong>Caution:</strong> pick your units from the pulldown first, and
+then enter a number; if you enter a number and then select from the
+pulldown, it will convert your number from the old units to the new
+units. There are both upper and lower limits to your search radius; it
+will tell you if you request something too big or too small.<P>
+
+For both single- and multi-object searches, you also need to select
+the Image Set to search : AllWISE, All-Sky (4-band Cryo), 3-Band Cryo,
+Post-Cryo (2-band), or NEOWISE Reactivation (2-band) as well as the
+desired product level: coadded Atlas images, Single Exposure (Level
+1b) frames, or both. <P>
+
+
+Using the "Return only the most centered image containing the target"
+option, you can control how many image sets are returned. Individual
+exposure WISE images are co-added into Atlas tiles 1.564 degrees on a
+side. The WISE image server does not re-mosaic these tiles. The degree
+of overlap between tiles is a function of declination. You can obtain
+all Atlas tiles on which your object appears, or just the one most
+closely centered on your object. (NB: If you select all the image sets,
+and leave "most centered" set to 'yes', then you will only get the
+image set that is most centered, not the most centered <em>per
+set</em> which may not be what you want.)<P>
+
+This option also enables you to select individual, single exposures;
+again, you can select all of them or just the one most closely
+centered on your object. Keep in mind, again, that if you pick
+multiple releases or sets, if "most centered image" is set to yes, you
+really will only get the most centered image, not the most centered
+image <em>per release.</em> <P>
+
+Also note that Atlas tiles have point source profiles whose full width
+at half max (FWHM) is sqrt(2) times larger than the native
+(single-exposure) values. (See Explanatory Supplement for more
+details.)<P>
+
+<!-- Note that if you are interested in retrieving <strong>all</strong> the
+single exposure frames (or atlas tiles) that contain your target, as
+opposed to just the most centered ones, you will need to set "Return
+only the most centered image containing the target" to "no". <P> -->
+
+
+<A NAME="bySSO"><H3>Solar System Object/Orbit (all-sky)</H3></A>
+
+It is also possible to search for specific Solar System objects in the
+single-frame WISE images. The search can be performed for comets or
+asteroids using the object name or the six orbital parameters supplied
+by the user either individually or in the Minor Planet Center (MPC)
+one-line element format. <p>
+
+In all cases, what the system is doing is using IRSA's <a
+href="https://irsa.ipac.caltech.edu/applications/MOST/"
+target="_blank">Moving Object Search Tool (MOST)</A>, taking the
+orbital ephemeris (either searching for the ephemeris based on the
+name that you enter, or taking the orbital information you give it),
+calculating where the object was over the time range that you request
+(over the entire mission if date constraints are left blank),
+identifying the individual exposures in which it calculates that your
+object should be present, and returning to you all those exposures.<P>
+
+
+As a result, <strong>requests over long time baselines can take a long
+time.</strong> In fact, you can make a request that takes so much time
+that it times out, and you get no search results. In order to shorten
+search times, ask it to search over a smaller time baseline. The
+NEOWISE data volume grows ever bigger, so searching the entire archive
+takes longer and longer.<P>
+
+
+<p>Solar System Object/Orbit Search Types:<P>
+
+<dl>
+  
+  <dt><strong>Object Name</strong>: 
+  <dd>You can search by object names by entering the name in the
+"Object Name" field. It looks up the NAIF ID for you; select the NAIF
+ID corresponding to your object.  The accepted naming conventions are the ones
+that have been approved for use by the <a 
+href="http://www.ss.astro.umd.edu/IAU/csbn/" target="_blank">CSBN</a>
+and its predecessors. News reports occasionally use unofficial or
+unapproved names; you cannot use these names to access objects.  For
+asteroid names, one can enter either the ID number, name or
+designation, e.g. 2, 887, 1917, Pallas, Alinda, Cuyo, 1981 QB, 1996
+GQ, or 2010 CG18.  It can also handle names with apostrophes and
+dashes like O'Connell and Pic-du-Midi.  For comet names, one can enter
+either the whole name e.g. 10P/Tempel 2, 73P-B/Schwassmann-Wachmann 3,
+P/2009 WJ50, or P/2010 D1 or just the unique part of its name e.g.
+10P, 73P-B, 2009 WJ50, or 2010 D1. <P> 
+
+<dt><strong>MPC Input OR Manual Input</strong>: 
+<dd>The standard six orbital elements for asteroid are
+<em>eccentricity, semimajor axis, mean anomaly, inclination, longitude
+of the ascending node,</em> and <em>argument of perihelion</em>. For comets,
+the elements are <em>eccentricity, perihelion distance, time of
+perihelion passage, inclination, longitude of the ascending node,</em> and
+<em>argument of perihelion</em>. Notice that for comets, <em>perihelion
+distance</em> is used instead of <em>semimajor axis</em> and <em>time
+of perihelion passage</em> is used instead of <em>mean anomaly</em>.
+The reason for replacing these two parameters is to allow for cases
+where long period comets have a parabolic or hyperbolic orbit. 
+A good description of the orbital parameters is given in JPL's <a
+target="_blank" href="http://ssd.jpl.nasa.gov/?faq">Solar System
+Dynamics website</a>.<p>
+
+You can search for objects by either inputting the orbital parameters
+by hand or by using a properly-formatted Minor Planet Center input
+string.  This latter option allows the user to cut-and-paste a line
+directly from a table of orbital elements in <a
+href="http://www.minorplanetcenter.net/iau/Ephemerides/Soft00.html"
+target="_blank">MPC Format</a> into the search field. There are a
+number of orbital element tables available at the MPC website, for
+example, <a target="_blank"
+href="http://www.minorplanetcenter.net/iau/Ephemerides/Unusual/Soft00Unusual.txt">observable
+NEO</a> and <a
+href="http://www.minorplanetcenter.net/iau/Ephemerides/Comets/Soft00Cmt.txt"
+target="_blank">observable comets.</a> The complete list of minor
+planets can be found at the <a
+href="http://www.minorplanetcenter.net/iau/MPCORB.html"
+target="_blank">MPC Orbit (MPCORB) Database.</a> 
+
+ <p>Information on the format of the element tables is given by
+following sites: <a
+href="http://www.minorplanetcenter.net/iau/info/MPOrbitFormat.html"
+target="_blank">minor planet format</a> and <a target="_blank"
+href="http://www.minorplanetcenter.net/iau/info/CometOrbitFormat.html"
+target="_blank">comet format</a>.</p>
+
+<strong>MPC Element Input Examples</strong> (definitions:
+e=eccentricity, a=semimajor axis, M=mean anomaly, i=inclination,
+Node=longitude of the ascending node, w=argument of perihelion,
+q=perihelion distance, Tp=time of perihelion passage, n=mean motion,
+H=absolute magnitude, and G=slope parameter):<p>
+
+Asteroid: Icarus:<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody><tr><td style="text-align: center;">Designation </td><td
+style="text-align: center;">H </td><td style="text-align: center;">G
+</td><td style="text-align: center;">Epoch </td><td style="text-align:
+center;">M </td><td style="text-align: center;">w </td><td
+style="text-align: center;">Node </td><td style="text-align:
+center;">i </td><td style="text-align: center;">e </td><td
+style="text-align: center;">n </td><td style="text-align:
+center;">a</td></tr> <tr><td style="text-align: center;">01566
+</td><td style="text-align: center;">16.9 </td><td style="text-align:
+center;">0.15 </td><td style="text-align: center;">K1128 </td><td
+style="text-align: center;">78.13687 </td><td style="text-align:
+center;">31.35339 </td><td style="text-align: center;">88.02734
+</td><td style="text-align: center;">22.82772 </td><td
+style="text-align: center;">0.8268277 </td><td style="text-align:
+center;">0.88069351 </td><td style="text-align:
+center;">1.0779191</td></tr> </tbody> </table>
+
+<P>
+Comet: C/2010 A4 (Siding Spring):
+<p>
+
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody><tr><td style="text-align: center;">Name/Desig  </td><td
+style="text-align: center;">      Tp  </td><td style="text-align:
+center;">     q  </td><td style="text-align: center;">   e  </td><td
+style="text-align: center;">   w  </td><td style="text-align:
+center;"> Node  </td><td style="text-align: center;">    i  </td><td
+style="text-align: center;">   Epoch  </td><td style="text-align:
+center;">   H  </td><td style="text-align: center;">  G  </td><td
+style="text-align: center;">   Name</td></tr> <tr><td
+style="text-align: center;">CK10A040</td><td style="text-align:
+center;">  2010 10  8.7896 </td><td style="text-align: center;">
+2.738033  </td><td style="text-align: center;"> 0.990439  </td><td
+style="text-align: center;"> 271.6989  </td><td style="text-align:
+center;"> 346.6856  </td><td style="text-align: center;"> 96.7301 
+</td><td style="text-align: center;"> 20110208  </td><td
+style="text-align: center;"> 12.5  </td><td style="text-align:
+center;"> 4.0  </td><td style="text-align: center;"> C/2010 A4 (Siding
+Spring)</td></tr> </tbody> </table>
+<P>
+
+Asteroid, truly one line input that can be copied into the search form: 
+<pre>01915   18.97  0.10 K145N  81.26155  347.82179  162.96410   20.39795  0.5705064  0.24279518   2.5447356  1 MPO143010    34   6 1953-2004 1.04 M-v 3Eh MPC        0000           (1915)</pre>
+
+Comet, truly one line input that can be copied into the search form :
+<pre>CJ95O010  1997 03 29.3330  0.939095  0.994914  130.8792  282.4988   89.3793  20160524  -2.0  4.0  C/1995 O1 (Hale-Bopp)                                    MPC 75007</pre>
+
+
+</dl>
+
+
+<p>Additional constraints for Solar System objects:<p>
+
+<ul>
+
+<li><strong>Observation Begin/End (UT)</strong>:  Allows the search to
+  be constrained to a given time range. If left blank, it searches
+  over the whole mission. <strong>Caution:</strong> Searches over long
+  time baselines can take a long time.<p>
+
+<li><strong>Return Image Size</strong>: Specifies the size of the image
+  to be returned.  The pull-down menu is used to select the units in
+  which to express this size.  Leave the field blank to obtain 
+  the full WISE exposures (0.78x0.78 deg).<p>
+
+<li><strong>Overlay Catalog</strong> and <strong>Search
+radius</strong>: If this option is selected, in addition to returning
+the indivdual exposure images, the system will also search (and
+return) the catalogs derived from the individual exposures. The search
+radius defines the radius over which the system should search in each
+exposure's catalog. Note that, since not all objects are in all image
+sets (and corresponding catalogs), you may get catalog errors when
+using this feature.  <p>
+
+<li><strong>Image Set</strong>: There are 4 image sets of relevance to
+Solar System searches: All-Sky (4-band), 3-band Cryo, Post-Cryo
+(2-band), and NEOWISE-R. Each image set has a different set of
+accompanying catalogs. If you ask it to overlay catalogs (prior
+line), it will search the catalogs corresponding to each of the image
+sets you select here.<p>
+
+<li><strong>Return the following bands</strong>: You can restrict
+the output to any combination of the four WISE bands.<p>
+
+</ul>
+
+
+<A NAME="byScanID"><H3>ScanID/Frame, Coadd ID, Source ID (all-sky)</H3></A>
+
+Instead of searching by individual positions, you may also search the
+all-sky WISE archive for individual single-exposure framesets (Level
+1b),  coadded Atlas images (Level 3), or images containing a given
+WISE catalog source. Typically, these identifications are derived from
+the WISE source catalogs.  The Scan ID/Frame specifies an individual
+set of WISE frames, and Coadd ID identifies a set of coadded images
+constructed from combining a set of frames. The Source ID search
+allows the user to  search for either the specific image from which a
+WISE source was extracted or all images which contain a given WISE
+source.  <p>
+
+The names of WISE scan/frame images  (scan_id) are  constructed from
+the five digit (+ either a, b, c, d, or e) scan (observation)  code
+followed by the number of the frame in the sequence of images. For
+example, to search for "01432a010" which indicates image frame number
+"10" in the scan "01432a", enter "01432a" (note that the leading zero
+is required) in the text box for "Scan ID(s)" and "10" in the text box
+for "Frame Number(s)". <p>
+
+The CoAdd ID identifies the tile on the sky represented by the coadded
+image. It is formed from the RA * 10, the sign of the Dec, the
+declination * 10, and the string "aa11" for the Preliminary Release 
+and "ab41" or "ab42" for the All-Sky Release. The Source ID is a
+unique source name constructed from the CoAdd ID plus the number of
+the source within the coadd.  The CoAdd IDs and Source IDs are given
+by the <tt>coadd_id</tt> and <tt>source_id</tt>  columns in the Long
+Form version of the IRSA Gator Query interface  (under the Column
+Constraints/Output Column Selection area  at the bottom of the query
+page) need to be explicitly selected by you. For example, for the QSO
+3C 273, these values are <tt>coadd_id = 1875p014_ab41</tt> and
+<tt>source_id = 1875p014_ab41-033361</tt>. <p>
+
+When searching based on CoAdd ID or Source ID you no longer need to
+select the image sets, as those are now automatically selected from the
+Source ID. Note: queries using the preliminary data products will
+still need to supply the image sets.<P>
+
+</BODY>
+</HTML>

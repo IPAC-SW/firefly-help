@@ -1,0 +1,1282 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Atlas: API" -->
+<HEAD>
+<TITLE>Atlas: API
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Image and Spectrum Viewer (Atlas): API</h2>
+
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#introduction">Introduction</A> <br>
++<A href="#inputparams">Input Parameters</A>  <br>
++<A href="#examples">Examples</A>  <br>
++<A href="#xmloutput">XML Output</A>  <br>
++<A href="#xmltag">Description of XML Tags</A>  <br>
+<P>&nbsp;<P>
+
+
+<h3><A name="introduction">Introduction</A></h3>
+
+<p>
+Atlas is a search service for contributed datasets at IRSA.  A
+dataset can be searched interactively via a web page, or with a
+program line call, where the return is an XML file containing
+links to the results.  This document describes the input
+parameters and the structure of the returned XML for the program
+interface.  The call can also be turned into an input line to a
+browser to give the same web page result as interactive mode
+("HTML mode").
+</p>
+
+<p>
+The program interface is for one object at a time.  Table upload
+is not necessary since users can perform the looping themselves.
+</p>
+
+<p>
+Atlas serves a large number of datasets.  A basic call for a Spitzer
+GLIMPSE field giving XML output might be (if curl is not available on
+your system, use "wget -O out.xml ..." ):
+</p>
+
+curl -o out.xml 
+"https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=GLIMPSE&amp;locstr=m17&amp;regSize=0.1&amp;mode=PI"
+<p>
+   where the:
+   </p><ul>
+   <li><b>Base URL</b> for the service is: <tt>https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas</tt>
+   </li>
+
+   <li><p> <b> Input parameters</b> are specified by parameter/value
+    pairs, e.g. "<tt>locstr=m17</tt>" searches for data covering M17.
+   </p></li>
+
+   <li><b>Output </b> is an XML file containing URL links to metadata
+       tables,  download scripts to retrieve data, and the same  HTML
+       result page that is generated in interactive mode.
+   </li>
+   </ul>
+
+<p>
+
+
+<h3><A name="inputparams">Input Parameters</A></h3>
+
+The input parameters are entered as standard
+"<tt>parameter=value</tt>" pairs in HTTP syntax. No extra spaces
+are allowed (a space can be encoded as a "+" sign) and special
+characters need to be encoded as shown in any HTTP reference
+(<i>e.g.</i> <a href="http://www.w3schools.com/tags/ref_urlencode.asp" target="_blank"> here <img src="img/jumpout.jpg"
+height="10"></a>).
+  </p>
+
+  <font color="black"><b>
+  Search Parameters
+  </b></font>
+
+  <p>
+  </p><table border="1">
+    <tbody><tr>
+      <td class="tdhead">
+        <b>
+	  Parameter 
+        </b>
+      </td>
+      <td class="tdhead">
+        <b>
+         Values 
+        </b>
+      </td>
+      <td class="tdhead">
+        <b>
+         Default  
+        </b>
+      </td>
+      <td class="tdhead">
+        <b>
+         Description 
+        </b>
+      </td>
+    </tr>
+  
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  mission 
+        </b></font>
+      </td>
+      <td class="td2">
+        <b> (see examples below) 
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         NA  
+        </b>
+      </td>
+      <td class="td3">
+        The <b>mission</b> parameter is required.  It is an acronym or
+        short name for the dataset.  Here is a complete list of the 
+        <a href="https://irsa.ipac.caltech.edu/applications/Atlas/index.html" target="_blank">datasets</a>.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  locstr 
+        </b></font>
+      </td>
+      <td class="td2">
+        <b> (see examples below) 
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         NA  
+        </b>
+      </td>
+      <td class="td3">
+         This is the search location which is required.  
+         The input can be coordinates or an astronomical object name.  If it
+	 is an object name, it is resolved into coordinates using
+	 NED and, if that fails, SIMBAD.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  regSize
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+         (number)
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         NA
+        </b>
+      </td>
+      <td class="td3">
+         The box search size, in degrees, for the image spatial
+         search.  This parameter is required for image data.  In most
+         cases, the maximum allowed <b>regSize</b> value is 12.5
+         degrees, but it can be smaller.  Maximum values for each
+         dataset are given on the <a href="https://irsa.ipac.caltech.edu/applications/Atlas/instructions.html" target="_blank">Instructions page</a>.  </td> </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  covers 
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+          <br>
+	 on <br>
+	 none <br>
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         none  
+        </b>
+      </td>
+      <td class="td3">
+      The parameter corresponding to the "Images must cover coordinate" box on
+      the web page. It determines whether returned images must cover the
+      position ("<tt>on</tt>"), or not.</td> </tr>
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  radius
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+	(number)
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         NA  
+        </b>
+      </td>
+      <td class="td3">
+         The adjustable search radius for catalogs or spectra.  The
+         default is <b>regSize</b>/2 and the maximum typically 6.25
+         degrees, but it can be smaller.  The
+         <b>regSize</b> and <b>radius</b> parameters can be set
+         independently, allowing for flexibility in images vs
+         catalog/spectra searching.  
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  radunits
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+         deg <br>
+	 arcmin <br>
+	 arcsec <br>
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         deg  
+        </b>
+      </td>
+      <td class="td3">
+         The units of the <b>radius</b> spatial search; the default is "<tt>deg</tt>".
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  searchregion 
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+          <br>
+	 on <br>
+	 none <br>
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         none  
+        </b>
+      </td>
+      <td class="td3">
+	 The parameter corresponding to the "Search whole region" box
+	 for catalog sources and/or spectra on the web page.  When
+	 turned "<tt>on</tt>", the search for catalog sources and
+	 spectra is done using <b>regSize</b>/2 (and any search
+	 <b>radius</b> is <b>ignored</b>).  Otherwise it will use
+	 <b>radius</b> if present.
+      </td> 
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  mode
+        </b></font>
+      </td>
+      <td class="td2">
+        <b>
+	 PI 
+        </b>
+      </td>
+      <td class="td1">
+        <b>
+         NA  
+        </b>
+      </td>
+      <td class="td3">
+         The mode must be set to "PI" (for Program Interface) to
+         return results in XML.  If the mode is not set, the result
+         will be in HTML, not XML.  </td> </tr>
+
+  </tbody></table></table>
+
+<h3><A name="examples">Examples</A></h3>
+
+The following examples can
+  be run by clicking their links.  Both HTML and XML versions will return via
+  the browser -- for XML output in a file, see the example call at the top.
+  The examples do not cover all of the datasets available.
+
+  </p><ol type="1" start="1">
+
+  <li><a name="c2d"></a><font color="darkred">C2D (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=C2D&amp;locstr=RU+Lup&amp;regSize=0.1&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=C2D&amp;locstr=RU+Lup&amp;regSize=0.1&amp;searchregion=on
+    </b></font>
+    </a>
+    <br>
+     C2D [<b>mission</b>] data are searched at location of source name "RU Lup" [<b>locstr</b>]; 
+     size of image search is 0.1 [<b>regSize</b>] degree; with <b>searchregion</b> turned on, so <b>regSize</b>/2 is used for the spectrum search radius;
+     <b>mode</b> is not set (HTML output). <br><br>
+
+     <font color="darkgreen">C2D (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=C2D&amp;locstr=RU+Lup&amp;regSize=0.1&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=C2D&amp;locstr=RU+Lup&amp;regSize=0.1&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+ </li>
+
+  <li><a name="cosmos"></a><font color="darkred">COSMOS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=COSMOS&amp;locstr=150.425933+2.430235+eq&amp;regSize=0.1&amp;searchregion=on&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=COSMOS&amp;locstr=150.425933+2.430235+eq&amp;regSize=0.1&amp;searchregion=on&amp;covers=on
+    </b></font>
+    </a>
+     COSMOS [<b>mission</b>] data are searched at location "150.425933 2.430235 eq" [<b>locstr</b>]; 
+     size of search is 0.1 [<b>regSize</b>] degrees and images must cover position; with <b>searchregion</b> turned on,
+     <b>regSize</b>/2.0 is used for the source search region;
+     <b>mode</b> is not set (HTML output). <br><br>
+
+     <font color="darkgreen">COSMOS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=COSMOS&amp;locstr=150.425933+2.430235+eq&amp;regSize=0.1&amp;searchregion=on&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=COSMOS&amp;locstr=150.425933+2.430235+eq&amp;regSize=0.1&amp;searchregion=on&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="eiga"></a><font color="darkred">EIGA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=EIGA&amp;locstr=NGC+7822&amp;regSize=12.5&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=EIGA&amp;locstr=NGC+7822&amp;regSize=12.5&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">EIGA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=EIGA&amp;locstr=NGC+7822&amp;regSize=12.5&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=EIGA&amp;locstr=NGC+7822&amp;regSize=12.5&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="feps"></a><font color="darkred">FEPS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FEPS&amp;locstr=285.85705+30.87640+ga&amp;regSize=2.0&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FEPS&amp;locstr=285.85705+30.87640+ga&amp;regSize=2.0&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FEPS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FEPS&amp;locstr=285.85705+30.87640+ga&amp;regSize=2.0&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FEPS&amp;locstr=285.85705+30.87640+ga&amp;regSize=2.0&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="fidel"></a><font color="darkred">FIDEL (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FIDEL&amp;locstr=53.158591+-27.891113+eq&amp;regSize=0.1&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FIDEL&amp;locstr=53.158591+-27.891113+eq&amp;regSize=0.1&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FIDEL (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FIDEL&amp;locstr=53.158591+-27.891113+eq&amp;regSize=0.1&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FIDEL&amp;locstr=53.158591+-27.891113+eq&amp;regSize=0.1&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="fls_elaisn1_r"></a><font color="darkred">FLS_ELAISN1_R (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_ELAISN1_R&amp;locstr=ELAISR20+J161104%2B542834&amp;regSize=0.5" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_ELAISN1_R&amp;locstr=ELAISR20+J161104%2B542834&amp;regSize=0.5
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FLS_ELAISN1_R (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_ELAISN1_R&amp;locstr=ELAISR20+J161104%2B542834&amp;regSize=0.5&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_ELAISN1_R&amp;locstr=ELAISR20+J161104%2B542834&amp;regSize=0.5&amp;mode=PI
+    </b></font>
+    </a>
+  <br><br>
+  </li>
+
+  <li><a name="fls_hectospec"></a><font color="darkred">FLS_HECTOSPEC (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_HECTOSPEC&amp;locstr=17h18m57s+60d21m12s+Equ+J2000&amp;radius=0.1&amp;searchregion=none&amp;radunits=deg" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=FLS_HECTOSPEC&amp;locstr=17h18m57s+60d21m12s+Equ+J2000&amp;radius=0.1&amp;searchregion=none&amp;radunits=deg
+
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FLS_HECTOSPEC (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_HECTOSPEC&amp;locstr=17h18m57s+60d21m12s+Equ+J2000&amp;radius=0.1&amp;searchregion=none&amp;radunits=deg&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=FLS_HECTOSPEC&amp;locstr=17h18m57s+60d21m12s+Equ+J2000&amp;radius=0.1&amp;searchregion=none&amp;radunits=deg&amp;mode=PI
+
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="fls_main_r"></a><font color="darkred">FLS_MAIN_R (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_MAIN_R&amp;locstr=FLSVLA+J171940.2%2B592449&amp;regSize=0.5" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_MAIN_R&amp;locstr=FLSVLA+J171940.2%2B592449&amp;regSize=0.5
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FLS_MAIN_R (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_MAIN_R&amp;locstr=FLSVLA+J171940.2%2B592449&amp;regSize=0.5&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_MAIN_R&amp;locstr=FLSVLA+J171940.2%2B592449&amp;regSize=0.5&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="fls_vla"></a><font color="darkred">FLS_VLA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_VLA&amp;locstr=259.7373+60.3533+eq&amp;regSize=0.25&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_VLA&amp;locstr=259.7373+60.3533+eq&amp;regSize=0.25&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">FLS_VLA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=FLS_VLA&amp;locstr=259.7373+60.3533+eq&amp;regSize=0.25&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=FLS_VLA&amp;locstr=259.7373+60.3533+eq&amp;regSize=0.25&amp;covers=on&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="glimpse"></a><font color="darkred">GLIMPSE (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=GLIMPSE&amp;locstr=m17&amp;regSize=0.4&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=GLIMPSE&amp;locstr=m17&amp;regSize=0.4&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">GLIMPSE (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=GLIMPSE&amp;locstr=m17&amp;regSize=0.4&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=GLIMPSE&amp;locstr=m17&amp;regSize=0.4&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+  
+  <li><a name="goals"></a><font color="darkred">GOALS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=GOALS&amp;locstr=IC+4734&amp;regSize=2.0" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=GOALS&amp;locstr=IC+4734&amp;regSize=2.0
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">GOALS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=GOALS&amp;locstr=IC+4734&amp;regSize=2.0&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=GOALS&amp;locstr=IC+4734&amp;regSize=2.0&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="goods"></a><font color="darkred">GOODS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SGOODS&amp;locstr=03h32m38.06s+-27d53m28.0s+Equ+J2000&amp;regSize=0.1&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SGOODS&amp;locstr=03h32m38.06s+-27d53m28.0s+Equ+J2000&amp;regSize=0.1&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">GOODS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SGOODS&amp;locstr=03h32m38.06s+-27d53m28.0s+Equ+J2000&amp;regSize=0.1&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=SGOODS&amp;locstr=03h32m38.06s+-27d53m28.0s+Equ+J2000&amp;regSize=0.1&amp;covers=on&amp;searchregion=on&amp;mode=PI
+
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="iga"></a><font color="darkred">IGA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IGA&amp;locstr=M16&amp;regSize=12.5&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=IGA&amp;locstr=M16&amp;regSize=12.5&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">IGA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IGA&amp;locstr=M16&amp;regSize=12.5&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=IGA&amp;locstr=M16&amp;regSize=12.5&amp;covers=on&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br>
+    Note: the XML output results of this example are discussed in the
+     <a href="#result">XML Output</a> section below.<br><br>
+  </li>
+
+  <li><a name="iris"></a><font color="darkred">IRIS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IRIS&amp;locstr=M+31&amp;regSize=12.5&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=IRIS&amp;locstr=M+31&amp;regSize=12.5&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">IRIS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IRIS&amp;locstr=M+31&amp;regSize=12.5&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=IRIS&amp;locstr=M+31&amp;regSize=12.5&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="irts"></a><font color="darkred">IRTS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IRTS&amp;locstr=47.09669+-1.71325+ga&amp;regSize=12.5&amp;covers=on&amp;searchregion=none&amp;radius=2.0&amp;radunits=deg" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=IRTS&amp;locstr=47.09669+-1.71325+ga&amp;regSize=12.5&amp;covers=on&amp;searchregion=none&amp;radius=2.0&amp;radunits=deg
+
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">IRTS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=IRTS&amp;locstr=47.09669+-1.71325+ga&amp;regSize=12.5&amp;covers=on&amp;searchregion=none&amp;radius=2.0&amp;radunits=deg&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=IRTS&amp;locstr=47.09669+-1.71325+ga&amp;regSize=12.5&amp;covers=on&amp;searchregion=none&amp;radius=2.0&amp;radunits=deg&amp;mode=PI
+
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="issa"></a><font color="darkred">ISSA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=ISSA&amp;locstr=NGC+4800&amp;regSize=12.5" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=ISSA&amp;locstr=NGC+4800&amp;regSize=12.5
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">ISSA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=ISSA&amp;locstr=NGC+4800&amp;regSize=12.5&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=ISSA&amp;locstr=NGC+4800&amp;regSize=12.5&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="lga"></a><font color="darkred">LGA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=LGA&amp;locstr=M81&amp;regSize=6.0" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=LGA&amp;locstr=M81&amp;regSize=6.0
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">LGA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=LGA&amp;locstr=M81&amp;regSize=6.0&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=LGA&amp;locstr=M81&amp;regSize=6.0&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="lh"></a><font color="darkred">LH (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&amp;covers=on&amp;radius=0.1&amp;radunits=deg" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=159.738690+54.932062+eq+B1950&amp;covers=on&amp;radius=0.1&amp;radunits=deg
+
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">LH (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&amp;covers=on&amp;radius=0.1&amp;radunits=deg&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      
+nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&amp;covers=on&amp;radius=0.1&amp;radunits=deg&amp;mode=PI
+
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="miga"></a><font color="darkred">MIGA (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MIGA&amp;locstr=335.762875+59.146226&amp;regSize=12.5&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MIGA&amp;locstr=335.762875+59.146226&amp;regSize=12.5&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">MIGA (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MIGA&amp;locstr=335.762875+59.146226&amp;regSize=12.5&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MIGA&amp;locstr=335.762875+59.146226&amp;regSize=12.5&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="mipsgal"></a><font color="darkred">MIPSGAL (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MIPSGAL&amp;locstr=NGC+6631&amp;regSize=12.5&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MIPSGAL&amp;locstr=NGC+6631&amp;regSize=12.5&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">MIPSGAL (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MIPSGAL&amp;locstr=NGC+6631&amp;regSize=12.5&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MIPSGAL&amp;locstr=NGC+6631&amp;regSize=12.5&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="nexsci_pti_ki"></a><font color="darkred">NExScI_PTI_KI (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=NExScI_PTI_KI&amp;locstr=GLC388&amp;radius=6.25&amp;searchregion=none&amp;radunits=deg" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=NExScI_PTI_KI&amp;locstr=GLC388&amp;radius=6.25&amp;searchregion=none&amp;radunits=deg
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">NExScI_PTI_KI (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=NExScI_PTI_KI&amp;locstr=GLC388&amp;radius=6.25&amp;searchregion=none&amp;radunits=deg&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=NExScI_PTI_KI&amp;locstr=GLC388&amp;radius=6.25&amp;searchregion=none&amp;radunits=deg&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+   
+  <li><a name="msx"></a><font color="darkred">MSX (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MSX&amp;locstr=46.5377+-0.2518+ga&amp;regSize=12.5&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MSX&amp;locstr=46.5377+-0.2518+ga&amp;regSize=12.5&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">MSX (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=MSX&amp;locstr=46.5377+-0.2518+ga&amp;regSize=12.5&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=MSX&amp;locstr=46.5377+-0.2518+ga&amp;regSize=12.5&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="ned"></a><font color="darkred">NED (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=NED&amp;locstr=M52&amp;regSize=2.0&amp;covers=none" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=NED&amp;locstr=M52&amp;regSize=2.0&amp;covers=none
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">NED (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=NED&amp;locstr=M52&amp;regSize=2.0&amp;covers=none&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=NED&amp;locstr=M52&amp;regSize=2.0&amp;covers=none&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="sage"></a><font color="darkred">SAGE (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SAGE&amp;locstr=NGC+2070&amp;regSize=2.0&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SAGE&amp;locstr=NGC+2070&amp;regSize=2.0&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">SAGE (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SAGE&amp;locstr=NGC+2070&amp;regSize=2.0&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SAGE&amp;locstr=NGC+2070&amp;regSize=2.0&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="scrapbook"></a><font color="darkred">Scrapbook (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=Scrapbook&amp;locstr=M18&amp;regSize=5.0&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=Scrapbook&amp;locstr=M18&amp;regSize=5.0&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">Scrapbook (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=Scrapbook&amp;locstr=M18&amp;regSize=5.0&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=Scrapbook&amp;locstr=M18&amp;regSize=5.0&amp;covers=on&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="sings"></a><font color="darkred">SINGS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SINGS&amp;locstr=hoii&amp;regSize=3.0&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SINGS&amp;locstr=hoii&amp;regSize=3.0&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">SINGS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SINGS&amp;locstr=hoii&amp;regSize=3.0&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SINGS&amp;locstr=hoii&amp;regSize=3.0&amp;covers=on&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="swire"></a><font color="darkred">SWIRE (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SWIRE&amp;locstr=ELAISR20+J163640%2B413132&amp;regSize=1.0&amp;covers=on&amp;searchregion=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SWIRE&amp;locstr=ELAISR20+J163640%2B413132&amp;regSize=1.0&amp;covers=on&amp;searchregion=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">SWIRE (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SWIRE&amp;locstr=ELAISR20+J163640%2B413132&amp;regSize=1.0&amp;covers=on&amp;searchregion=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SWIRE&amp;locstr=ELAISR20+J163640%2B413132&amp;regSize=1.0&amp;covers=on&amp;searchregion=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="sws"></a><font color="darkred">SWS (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SWS&amp;locstr=290.971773+11.774474+EQ&amp;radius=5.0&amp;searchregion=none&amp;radunits=deg" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SWS&amp;locstr=290.971773+11.774474+EQ&amp;radius=5.0&amp;searchregion=none&amp;radunits=deg
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">SWS (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=SWS&amp;locstr=290.971773+11.774474+EQ&amp;radius=5.0&amp;searchregion=none&amp;radunits=deg&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=SWS&amp;locstr=290.971773+11.774474+EQ&amp;radius=5.0&amp;searchregion=none&amp;radunits=deg&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+
+  <li><a name="taurus"></a><font color="darkred">Taurus (HTML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=Taurus&amp;locstr=68.74+26.205+eq&amp;regSize=2.0&amp;covers=on" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=Taurus&amp;locstr=68.74+26.205+eq&amp;regSize=2.0&amp;covers=on
+    </b></font>
+    </a>
+    <br><br>
+
+     <font color="darkgreen">Taurus (XML results)</font><br>
+    <a href="https://irsa.ipac.caltech.edu/cgi-bin/Atlas/nph-atlas?mission=Taurus&amp;locstr=68.74+26.205+eq&amp;regSize=2.0&amp;covers=on&amp;mode=PI" target="search">
+    <font color="#114477"><b>
+      nph-atlas?mission=Taurus&amp;locstr=68.74+26.205+eq&amp;regSize=2.0&amp;covers=on&amp;mode=PI
+    </b></font>
+    </a>
+    <br><br>
+  </li>
+  </OL>
+  
+  
+<h3><A name="xmloutput">XML Output</A></h3>
+
+  <p>
+  XML output is used in program mode as it is easier to parse than HTML.
+  However the user must parse the XML file to extract the links to
+  retrieve data files (using curl or wget).
+  </p>
+
+  <p> Below is example XML output for three of the
+  use cases above.  The first is from <a href="#iga">Example 13</a>, a
+  normal return.  The second is an example error using an invalid
+  coordinate <b>locstr</b>.  The third is an example of a notification
+  that no sources were found for a valid position.
+  </p>
+
+  <p> At the bottom are descriptions of the XML data.
+  </p>
+
+  <p>
+    <font color="#8b0000"><b>
+    Note:
+    </b></font>
+  In the real XML files, all this is just text.  Here we have turned
+  some of this text into example links to show what to retrieve. 
+  </p>
+  
+  <p>
+  Dummy output from <a href="#iga">Example 13</a>:
+
+  </p><pre><font size="3"><b> 
+    &lt;?xml version="1.0"?&gt;
+    &lt;result status="ok"&gt;
+      &lt;description&gt; 
+        &lt;collection&gt;</b> IGA  <b>&lt;/collection&gt; 
+        &lt;ra&gt; </b>274.700730  <b>&lt;/ra&gt; 
+        &lt;dec&gt;</b> -13.807230  <b>&lt;/dec&gt; 
+        &lt;regSize&gt; </b>12.500000  <b>&lt;/regSize&gt;  
+        &lt;radius&gt; </b>6.250000  <b>&lt;/radius&gt; 
+        &lt;radunits&gt; </b>degrees  <b>&lt;/radunits&gt; 
+      &lt;/description&gt;
+      &lt;coverageMap&gt;
+        &lt;resultHtml&gt;</b>
+	  <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/index.html">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/index.html</a><b> 
+        &lt;/resultHtml&gt;
+        &lt;resultMap&gt;</b>
+          <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/region.gif">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/region.gif</a><b> 
+        &lt;/resultMap&gt;
+        &lt;resultFits&gt;</b>
+          <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/region.fits">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/region.fits</a><b> 
+        &lt;/resultFits&gt;
+      &lt;/coverageMap&gt;
+      &lt;summary&gt;
+        &lt;counts&gt;
+          &lt;imagesN&gt;</b> 4 <b> &lt;/imagesN&gt; 
+          &lt;sourcesN&gt; </b> 7342 <b> &lt;/sourcesN&gt;
+          &lt;spectraN&gt; </b> 0 <b> &lt;/spectraN&gt;
+        &lt;/counts&gt;
+        &lt;downloadScript&gt;</b>
+            <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/wget_data.bat">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/wget_data.bat</a> <b>
+        &lt;/downloadScript&gt;
+      &lt;/summary&gt;
+      &lt;images&gt;
+        &lt;counts&gt;</b> 4 <b> &lt;counts&gt; 
+        &lt;metadata&gt;</b>
+            <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/images.tbl">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/images.tbl</a> <b>
+        &lt;/metadata&gt;
+        &lt;metadataVOtable&gt;</b>
+            <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/images.xml">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/images.xml</a> <b>
+        &lt;/metadataVOtable&gt;
+      &lt;/images&gt;
+      &lt;sources&gt;
+        &lt;counts&gt; </b> 7342 <b> &lt;/counts&gt;
+        &lt;metadata&gt;</b>
+            <a href="https://irsa.ipac.caltech.edu/applications/Atlas/m16/IRAS_point_sources.tbl">https://irsa.ipac.caltech.edu/workspace/TMP_AAAylaqUG/Atlas/MESSIER_016.v0001/IRAS_point_sources.tbl</a> <b>
+        &lt;/metadata&gt;
+      &lt;/sources&gt;
+    &lt;/result&gt; </b></font>
+  </pre>
+  
+  <p>
+  Output with an error condition: 
+  </p><pre><font size="3"><b> 
+    &lt;?xml version="1.0"?&gt;
+    &lt;result status="error"&gt;
+      &lt;message&gt;</b>
+         Object lookup failed for source.<b>
+      &lt;/message&gt;
+    &lt;/result&gt;</b></font>
+  </pre>
+  <p>
+
+  </p><p>
+  Output with a warning that no sources were found for requested position: 
+  </p><pre><font size="3"><b> 
+    &lt;?xml version="1.0"?&gt;
+    &lt;result status="warning"&gt;
+      &lt;message&gt;</b>
+          No images or sources were found for location: 17h 45m 37.22s -28d 56m 10.2s Eq J2000.<b>
+      &lt;/message&gt;
+    &lt;/result&gt;</b></font>
+  </pre>
+  <p>
+	
+
+<h3><A name="xmltag">Description of XML Tags</A></h3>
+
+  <p>
+  </p><table border="1">
+    <tbody><tr>
+      <td class="tdhead">
+        <b>
+	  Tag name 
+        </b>
+      </td>
+      <td class="tdhead">
+        <b>
+         description 
+        </b>
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  result  
+        </b></font>
+      </td>
+      <td class="td3">
+         This is the top tag of the XML file, it contains a variable 
+	 "status" indicating whether the query is successful: "ok" for
+	 successul query, "error" indicating that something went wrong
+         during the query, or "warning" if the requested position had
+         no results.
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  message  
+        </b></font>
+      </td>
+      <td class="td3">
+         This tag contains the error message when the query status = "error" or "warning".
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  description 
+        </b></font>
+      </td>
+      <td class="td3">
+         This series of tags contain input parameter information regarding the data collection, location
+         of search and size of search.
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  collection
+        </b></font>
+      </td>
+      <td class="td3">
+         This tag contains the name of the dataset.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  ra
+        </b></font>
+      </td>
+      <td class="td3">
+         The Right Ascension of the requested search, in decimal degrees [J2000]
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  dec
+        </b></font>
+      </td>
+      <td class="td3">
+         The Declination of the requested search, in decimal degrees [J2000]
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  regSize
+        </b></font>
+      </td>
+      <td class="td3">
+         For images, the search box size (in degrees)
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  radius
+        </b></font>
+      </td>
+      <td class="td3">
+         For catalog &amp; spectra, the search radius size 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  radunits
+        </b></font>
+      </td>
+      <td class="td3">
+         For catalog &amp; spectra, the search radius units
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  coverageMap  
+        </b></font>
+      </td>
+      <td class="td3">
+         This section contains files that shows the overall search results and graphical 
+	 coverage map of the retrieved data: resultHtml, resultMap and resultFits.
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  resultHtml  
+        </b></font>
+      </td>
+      <td class="td3">
+         An HTML page that contains the entire set of search results, along
+         with the resultMap and resultFits image
+	 plus the captions which includes the search location, range, and
+	 the details descriptions of the graphical representations on
+	 the JPEG (or GIF) image.
+      </td>
+    </tr>
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  resultMap  
+        </b></font>
+      </td>
+      <td class="td3">
+         A JPEG (or GIF) image showing the footprints of the retrieved data.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  resultFits  
+        </b></font>
+      </td>
+      <td class="td3">
+         A FITS image without the footprints, which is used to make the sky resultsMap image.
+      </td>
+    </tr>
+
+    
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  summary  
+        </b></font>
+      </td>
+      <td class="td3">
+         Overall summary of all available data.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  counts  
+        </b></font>
+      </td>
+      <td class="td3">
+         The numbers of results found, for images, catalog sources and spectra.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  imagesN
+        </b></font>
+      </td>
+      <td class="td3">
+         Numbers of retrieved image (FITS) data files.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  sourcesN
+        </b></font>
+      </td>
+      <td class="td3">
+         Numbers of catalog sources found.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  spectraN
+        </b></font>
+      </td>
+      <td class="td3">
+         Numbers of spectra found.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  downloadScript  
+        </b></font>
+      </td>
+      <td class="td3">
+         A link to a script (file) which contains bulk download instructions using the
+         unix tool "wget" to download all the search results:  image FITS, source catalog(s) and spectra
+         metadata.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  images 
+        </b></font>
+      </td>
+      <td class="td3">
+         This section contains the information regarding the image results; metadata is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name), as well as in VO Table format (<b>metadataVOtable</b> tag name).   Note, these tags do not exist if no images were found.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  metadata  
+        </b></font>
+      </td>
+      <td class="td3">
+         An IPAC formatted ASCII table containing the parameters of the FITS
+	 image results set.
+      </td>
+    </tr>
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  metadataVOtable 
+        </b></font>
+      </td>
+      <td class="td3">
+         The VO Table version of the image metadata FITS image results set.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  sources 
+        </b></font>
+      </td>
+      <td class="td3">
+         This section contains the information regarding the catalog source results; each catalog is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name);  the number of sources in that catalog is indicated by the <b>counts</b> tag.  Note, these tags do not exist if no sources were found.  
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  counts
+        </b></font>
+      </td>
+      <td class="td3">
+         The number of sources matching the search criteria for one source list;  the source list results are in the next <b>metadata</b> tag.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  metadata  
+        </b></font>
+      </td>
+      <td class="td3">
+         An IPAC formatted ASCII table containing the catalog sources matching the search criteria.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  spectra
+        </b></font>
+      </td>
+      <td class="td3">
+         This section contains the information regarding the spectra 
+source results; each spectra metadata table is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name);  the number of spectra in that catalog is indicated by the <b>counts</b> tag.  Note, these tags do not exist if no spectra were found.  
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  counts
+        </b></font>
+      </td>
+      <td class="td3">
+         The number of spectra matching the search criteria for one list
+ of spectra;  the spectra metadata results are in the next <b>metadata</b> tag.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="td1">
+        <font color="#114477"><b>
+	  metadata  
+        </b></font>
+      </td>
+      <td class="td3">
+ An IPAC formatted ASCII table containing the spectra source metadata
+ matching the search criteria. This file can be used to get the
+ spectra files themselves (one in each row of the metadata table). The
+ user must decide which file(s) to download, as spectra generally come
+ in many different formats, which are indicated by different columns
+ in the metadata.
+      </td>
+    </tr>
+
+  </tbody></table>
+
+
+
+   
+</BODY>
+</HTML>

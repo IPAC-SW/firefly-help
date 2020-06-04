@@ -1,0 +1,588 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Finder Chart: API  and URL Construction" -->
+<HEAD>
+<TITLE>Finder Chart: API and URL Construction
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Finder Chart: API and URL Construction</h2>
+
+<em>Contents of page/chapter:</em><br>
++<a href="#intro">Introduction</A><BR>
++<a href="#introapi">API: Introduction</A><BR>
++<a href="#inputparameters">API Input Parameters</A><BR>
++<a href="#inputexamples">API Input Examples</A><BR>
++<a href="#outputparameters">API Output Parameters</A><BR>
++<a href="#outputexamples">API Output Examples</A><br>
++<a href="#urlconstruction">URL Construction</A><br>
+
+<P>&nbsp;<P>
+
+<h3><a name="intro">Introduction</A></h3>
+
+There are two ways to interact with Finder Chart in an automatic or
+semi-automatic fashion.
+<P>
+<DL>
+<DT><strong>Batch searching</strong>
+<DD>You can pass a list of up to 1000 sources to Finder Chart from the
+search screen, and then bundle up the results to download all at once
+in any of a variety of formats. More information on that is in the <a
+href="basics.html#byTable">Basics of Searching</A> section. This
+option is best if you don't want to write code to search and parse the
+results, and/or if you have at most a few thousand sources.<P>
+
+<DT><strong>API, or application programming interface</strong>
+<DD>An API, or application programming interface, enables programs to
+interact with the SHA, search for data, and download it. You can write
+a program that will construct a series of URLs and query our server,
+resulting in XML files. Then you will need to write code to parse
+those XML files to obtain the links that you need to download the the
+data files meeting your search criteria. Much of the rest of this
+section describes the input and output parameters (with examples) for
+this API interface. <strong>Please note</strong>
+that it is really easy to inadvertently launch a 'denial-of-service'
+attack on IRSA's servers if you are not careful. Use this option with
+caution. This option is best if you are pulling images for many
+thousands of sources automatically. Most of the rest of this chapter
+covers the API.<P>
+</dl>
+
+There used to be another way to interact with Finder Chart -- via URL
+construction. This old way no longer works. There is a new way to
+interact with the API to launch a FinderChart session; see later in
+this section.
+</dl>
+
+<h3><a name="introapi">API: Introduction</A></h3>
+
+The Finder Chart service can be accessed via an HTTP/GET program
+interface (basically a really long URL) where the request is a set of
+<i>parameter=value</i> pairs, separated by ampersands (&amp;). 
+What is returned is an XML file containing metadata and URL links to
+download products with the related ancillary files. Below, we
+describe these input parameters and the columns returned.<P>
+
+Many of the interactive features inherent in the web interface, e.g., the
+visualization tools, are not available via the API.<P>
+
+The <strong>base URL</strong> for this service is
+https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?parameter=value&amp;parameter=value...<P>
+
+The <strong>input parameters</strong> are specified by standard
+parameter/value pairs. For example, "locstr=m101" specifies the search center of
+the subset images. A URL that just specifies this location and
+nothing else looks like
+https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?locstring=m101
+This query does not specify either the sizes of the
+images or the survey names, so the default values of all the rest of
+the parameters are used. <P>
+
+One command to execute this basic query with those most simple input
+parameters is:
+<pre>
+wget --output-document=out.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?locstr=m101"
+</pre>
+Things to notice: It is https, not http. The URL is enclosed within
+quotes. The output is saved in out.xml, but if you have errors in your
+query, the file out.xml may not actually be xml but instead be html.
+It is the simplest query, only specifying a target, and the rest the
+parameters fall back to the defaults. You can use curl instead of
+wget; see below.
+<P>
+
+The <strong>output</strong> (saved in out.xml in the command above) is
+an XML document containing the URL of the corresponding interactive
+Finder Chart search results, and the URLs that point to the individual
+retrieved FITS images and the corresponding PNG images (both small and
+large). <P>
+
+Because the API queries result in XML tables, if you click
+on any of the example API links below, your browser may have
+trouble rendering it, or will render only bits and pieces of the
+embedded text.  You may need to save the contents of the link to a
+file in order to read what is returned. You may be able to use
+"View Source" to see the result in more legible format.<P>
+
+Note that when you parse the XML file, you will be looking for URLs.
+To retrieve a URL using wget or curl, you should enclose the URL in
+quotes. Here are some examples: 
+<pre>
+wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+wget --output-document=file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=2MASS,AKARI,WISE,SEIP&locstr=247.025+-24.541667"
+curl --output file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=DSS,SDSS,2MASS,AKARI,WISE,SEIP&locstr=247.025+-24.541667"
+</pre><P>
+
+<strong>Please note</strong> that it is really easy to inadvertently
+launch something that is functionally equivalent to a '<a
+href="http://en.wikipedia.org/wiki/Denial-of-service_attack"
+target="_blank">denial-of-service<img src="img/jumpout.jpg" height="10"> </A>' attack on IRSA's servers if you
+are not careful. Please be sure to test your code using only a subset
+of your desired requests, and add throttle control to your code, e.g.,
+add some 'wait' steps between successive requests. If we notice an
+undue load on our servers (a real life example is more than 70,000
+requests over 10 hours, or an average of 2 per second), we
+may block your IP address, so if your requests suddenly stop working,
+this may be why. Please contact the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg" height="10"></A> in this case. 
+
+
+<h3><a name="inputparameters">API Input Parameters</A></h3>
+
+The input parameters are entered as standard HTTP "parameter=value"
+pairs in HTTP/GET syntax. In this syntax, the parameter name is
+followed by an equals sign which is then followed by a value. These
+pairs are separated from each other by ampersand (&amp;) characters.
+No extra spaces are allowed, and if the value needs to contain any
+spaces or special characters that might cause ambiguities, these
+spaces have to be encoded as shown in any URL reference. In
+the rest of this section, we list the parameters. For examples, see
+later sections below. <P>
+
+Note that if you want to download PNG files via the API, there is
+currently no way to change the default stretch via the API.
+<!-- (There wasn't any way to do this in the old Finder Chart either.) If
+you need a different default stretch, instead of using the API, break
+up your targets into lists of 1000 or less, and <a
+href="basics.html#byTable">do a batch search</A>. When the search
+returns, customize the stretch for the first object in your list, and
+then ask it to <a href="downloads.html">prepare the download</A>,
+selecting PNGs as the download option, and the stretch (and other
+parameters) you have established for the first one in the list are
+propagated to all of the objects in the list. !--><P>
+
+The following table has the one required parameter (locstr) first, and
+then the rest of the parameters in alphabetical order.
+
+<table border="2">
+<tr><th>Parameter</th><th>Values</th><th>Default</th><th>Description</th></tr>
+
+<tr><td>locstr <br><strong>(REQUIRED)</strong></td><td> This input field must contain either a sky
+coordinate or an object name resolvable via NED or SIMBAD.
+If the input field contains a string which can be interpreted as a
+coordinate representation, it is used as such. Both decimal degree and
+sexagesimal notations are supported. 
+</td><td>no default</td><td>
+The "locstr" is the only required parameter; if it is an object
+name, it is resolved into coordinates using NED and, if that fails,
+SIMBAD. 
+The following are examples of acceptable name/coordinate formats:
+<UL>
+<LI>m83
+<LI>NGC+7479
+<LI>2MASXJ23045666%2B1219223
+<LI>23h04m56.63s%2B12d19m22.7s+Equ+J2000
+<LI>22h57m57.5s+%2B26d09m00.09s+Equatorial+B1950
+<LI>17h44m34s+-27d59m13s
+<LI>00h42m44.3s+%2B41d16m08s+b1950
+<LI>00:42:44.3+-41:16:08
+<LI>34.5565,54.2321 gal
+<LI>34.5565,54.2321+gal
+<LI>34.5565%2B54.2321+gal
+<LI>34.+54.+ecl
+<LI>34.+54.+ecl
+<LI>34.,+54. ecl
+<LI>34.%2B+54.%2Becl
+</UL>
+</td></tr>
+
+
+<tr><td>file_type <br><em>must be used in conjunction with "mode"</em></td><td>fits, pdf,
+png </td><td>fits</td><td>Specifies the desired output of a specific
+query. FITS, PDF, and PNG are the same options as when you select "Download" in the
+interactive GUI.  The PDF option results in the PDF downloading; the
+rest are zip files of a subdirectory with the contents being the
+selected option (the FITS files or the PNG files). Note that
+ this does not work for mode=getResult.</td></tr>
+
+<tr><td>grid</td><td>true or false</td><td>false</td><td>Specifies
+whether or not a grid should be added to the PNG
+images. Note that
+ this does not work for mode=getResult.</td></tr>
+
+<tr><td>marker</td><td>true or false</td><td>false</td><td>Specifies
+whether or not a location marker should be added to the PNG
+images. Note that
+ this does not work for mode=getResult.</td></tr>
+
+<tr><td>marker_color</td><td>Basic color names in lowercase or HEX value</td><td>red</td><td>
+Specifies the color of the marker.  'marker' option must be set to true.  Color name may be
+one of black, aqua, blue, cyan, fuchsia, gray, green, lime, magenta, maroon, navy, olive,
+ orange, pink, purple, red, silver, teal, white, or yellow. Note that
+ this does not work for mode=getResult.</td></tr>
+
+<tr><td>marker_size</td><td>integer</td><td>4</td><td>Specifies the
+size of the circle marker, in px. 'marker' option must be set to true.  Size
+must be greater than 0.  The overlay symbol is a circle whose diameter is 2 times the
+marker_size in px. Note that
+ this does not work for mode=getResult.
+</td></tr>
+
+<tr><td>mode</td><td>prog, getImage, getResult</td><td>prog</td><td>Specifies the format of
+the returned file; "prog" (default) yields the XML format, and "getImage"
+retrieves the file given by the "file_type" parameter. Another option,
+"getResult", can be used in the URL to spawn a Finder Chart session with the 
+results in the browser.  </td></tr>
+
+<!-- <tr><td>orientation</td><td>right or
+left</td><td>left</td><td>Specifies whether to point the East axis to
+the left as specified in the FITS image or to flip the image so that
+East points to right while generating PNG images. North is up in all
+cases.</td></tr> -->
+
+<!-- <tr><td>page_layout</td><td>OnePerTarget or OnePerSurvey</td><td>OnePerTarget</td>
+<td>OnePerTarget - lays out all of the images on one page.  OnePerSurvey
+splits the images into multiple pages by survey. This option only
+makes sense in the context of PDF output.</td></tr> -->
+
+<!-- <<tr><td>reproject</td><td>true or
+false</td><td>false</td><td>Specifies whether to reproject and
+resample the images from different bands of a dataset to a uniform
+resolution while generating the PNG images. When this is chosen,
+these resampled images can be used to make color images. However, this
+option takes longer to run (about 3 minutes per image). 
+</td></tr> -->
+
+<tr><td>subsetsize</td><td>a decimal
+number</td><td>5</td><td>Specifies the cutout size of the retrieved
+images in arcmin. It should be between 0.1 and 60.0 arcmin.  
+</td></tr>
+
+<tr><td>survey</td><td> DSS, SDSS, 2MASS, WISE, SEIP, AKARI, IRAS</td>
+<td>DSS, SDSS, 2MASS, WISE, IRAS</td><td> Specifies the survey dataset
+to be retrieved. ("IRIS" can be used instead of "IRAS" for the same
+image set.) It can be specified parameter pair "survey=value" (e.g.
+"survey=SDSS"). To specify multiple datasets, simply add more to the
+query (e.g., "survey=SDSS,DSS,SEIP"). When unspecified, it defaults to
+retrieving the original five datasets. 
+</td></tr>
+
+</table>
+
+
+
+
+<h3><a name="inputexamples">API Input Examples</A></h3>
+
+The following examples can be run by clicking their links; examples 1
+through 8 produce valid results while 9 and 10 are examples of the
+error conditions. Number 11 is the updated version of URL
+construction. All of them should have this prepended: 
+<pre>
+https://irsa.ipac.caltech.edu/applications/finderchart/applications/finderchart/servlet/
+</pre> 
+Note that several of these queries return XML files,
+which need to be parsed to find, e.g., the PDF or PNG files. Some
+files that are returned are zipfiles containing components. Some
+output examples are given below.
+
+  <ol start="1" type="1">
+   
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101" target="_blank"> 
+    <b>api?locstr=m101</b></a>
+   <br />
+     Retrieves xml file containing links to images for the area
+     centered on object "m101" (where the resolved coordinates come
+     from NED) with default image size of 5.0 arcmin.
+  <P></li>
+  
+<!--  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&survey=2mass&reproject=true" target="_blank"> 
+    <b>api?locstr=m101&amp;survey=2mass&amp;reproject=true</b></a>
+   <br />
+     Retrieves xml file containing links to 2MASS images for the area centered on object "m101" 
+     (where the resolved coordinates come from NED) with the default
+     image size of 5.0 arcmin and with the reproject option turned on
+     so the images will be reprojected.
+  <P></li> -->
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&survey=2mass&reproject=true" target="_blank"> 
+    <b>api?locstr=m101&amp;survey=2mass&amp;reproject=true</b></a>
+   <br />
+     Retrieves xml file containing links to 2MASS images for the area centered on object "m101" 
+     (where the resolved coordinates come from NED) with the default
+     image size of 5.0 arcmin.
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=210.77805++54.32714&subsetsize=4.0" target="_blank"> 
+    <b>api?locstr=210.77805++54.32714&amp;subsetsize=4.0</b></a>
+   <br />
+     Retrieves xml file containing links to images for the area centered on object at coordinates "210.77805 +54.32714" 
+     (14h03m06.73175s +54d19m37.7082s) and with image size of 4.0 arcmin. 
+  <P></li>
+  
+<!--  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=102.03730++59.79745+ga&subsetsize=4.0" target="_blank"> 
+    <b>api?locstr=102.03730++59.79745%2Bga&amp;subsetsize=4.0</b></a>
+   <br />
+     Retrieves xml file containing links to images for the area centered on the same position as the previous example, 
+     using Galactic coordinates "102.03730 +59.79745 ga" 
+     and with image size of 4.0 arcmin. 
+  <P></li> -->
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&survey=2mass,dss" target="_blank"> 
+    <b>api?locstr=m101&amp;survey=2mass,dss</b></a>
+   <br />
+     Retrieves xml file containing links to 2MASS and DSS images for the area centered on object 
+     "m101" with the default image size of 5.0 arcmin. 
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&survey=2mass&mode=getImage" target="_blank"> 
+    <b>api?locstr=m101&amp;survey=2mass&amp;mode=getImage</b></a>
+   <br />
+     Retrieves a zipfile of 2MASS images for the area centered on object "m101" and
+     with default image size of 5.0 arcmin. 
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&grid=true&marker=true&mode=getImage" target="_blank"> 
+    <b>api?locstr=m101&amp;survey=2mass&amp;grid=true&amp;marker=true&amp;mode=getImage</b></a>
+   <br />
+     Retrieves a zipfile of 2MASS images for the area centered on object "m101" with 
+     default image size of 5.0 arcmin and draws both grid and input location
+     marker on the PNG images.
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE,SEIP,AKARI&locstr=291.468658447%2B40.343852997" target="_blank"> 
+    <b>api?mode=getImage&amp;file_type=pdf&amp;subsetsize=5&amp;survey=DSS,SDSS,2MAS,IRIS,WISE,SEIP,AKARI&amp;locstr=291.468658447%2B40.343852997</b></a>
+   <br />
+     This requests the PDF file output for the given position, which
+     includes 5 arcminute images from all 7 surveys. 
+  <P></li>
+
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&marker_color=yellow&marker=true&marker_size=20&mode=getImage&file_type=pdf" target="_blank"> 
+   <b>api?locstr=m101&amp;marker_color=yellow&amp;marker=true&amp;marker_size=20&amp;mode=getImage&amp;file_type=pdf</b></a>
+   <br />
+     Retrieves PDF for the area centered on object "m101" with 
+     default image size of 5.0 arcmin, with a large yellow
+     marker overlaid.  
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=xxx" target="_blank"> 
+    <b>api?locstr=xxx</b></a>
+   <br />
+     The input location of this query is unresolvable, it produces 
+     the error condition: "Coordinate [xxx] lookup error: Invalid 
+     object name."
+  <P></li>
+  
+  <li>
+    <a href="/applications/finderchart/servlet/api?locstr=m101&subsetsize=62.0" target="_blank"> 
+    <b>api?locstr=m101&amp;subsetsize=62.0</b></a>
+   <br />
+     The input search radius of this query is larger than 60.0 arcmin,
+     it produces the error condition:  "ERROR: Subimage size: [62.0]
+     out of range."
+  <P></li>
+  
+   <li>
+    <a href="/applications/finderchart/servlet/api?mode=getResult&locstr=m101" target="_blank"> 
+    <b>api?mode=getResult&amp;locstr=m101</b></a>
+   <br />
+     Pasting this into a new browser window launches a Finder Chart session with images of M101 loaded
+  <P></li>
+ 
+ 
+ 
+  </ol>
+
+
+
+
+<h3><a name="outputparameters">API Output Parameters (in XML)</A></h3>
+
+When you run a web application interactively, often the return is HTML
+text which is rendered in a browser and contains links to download
+additional data files. However, HTML is notoriously difficult to
+parse. So, in program mode, we instead return by default a simple XML
+document. This document can be rendered in a browser, but the normal
+use pattern is as follows: have your program make an HTTP request
+using the above parameters; retrieve the XML result into a file (or
+memory); have your program parse it; extract links to the desired
+final data files; and use these links (again from your program, using,
+e.g., wget) to retrieve the data.<P>
+
+The interaction above can be done in a variety of ways, ranging from
+simple scripting (using programs like 'wget') to integrated URL-access
+and XML-parsing in JAVA, PERL, Python, etc. Our XML is simple enough
+that if you do not have XML-parsing tools, simple pattern checking
+(manually built code or tools like PERL) should suffice.<P>
+
+The returned XML "inventory" contains a results HTML page which
+includes the rotated and scaled PNG images from the retrieved images
+so they are all same size and orientation for being useful as a Finder
+Chart. In addition, it contains the URLs of the retrieved FITS images,
+the scaled PNG images used in the HTML page, and the PNG images in
+the original size. It also contains the 2MASS glint and persistent
+artifacts tables if the 2MASS survey is queried.<P>
+
+
+Here are all of the XML tag names that can occur. Examples of returned
+queries are below.<P>
+
+<table border="2">
+<tr><th>Tag name</th><th>Description</th></tr>
+
+<tr><td>finderchart</td><td>The top tag of the XML file which contains
+a variable "status" indicating whether the query is successful; "ok"
+for successul query and "error" otherwise.</td></tr>
+
+<tr><td>message</td><td>The error message when the query status is
+"error".</td></tr>
+
+<tr><td>input</td><td>A section tag which contains several input
+parameter sub-tags.</td></tr>
+
+<tr><td>locstr</td><td>Input objname or coordinate (examples
+above).</td></tr>
+
+<tr><td>surveys</td><td>Surveys included in the query.</td></tr>
+
+<tr><td>subsetsize</td><td>Image subset size in arcmin.</td></tr>
+
+<!-- <tr><td>orientation</td><td>The orientaion of the PNG images as
+either "left" or "right", as explained above.</td></tr> -->
+
+<!-- <tr><td>reproject</td><td>A "true" or "false" value.</td></tr> -->
+
+<tr><td>grid</td><td>A "true" or "false".</td></tr>
+
+<tr><td>marker</td><td>A "true" or "false". </td></tr>
+
+<tr><td>result</td><td>A section tag which contains sub-tags of all
+the results including the search coordinate (in equatorial, galactic,
+and ecliptic), the URL links to the retrieved FITS
+images, the PNG images, and the 2MASS glint and persistent artifact
+tables when the 2MASS survey is requested.</td></tr>
+
+<tr><td>datatag</td><td>The datatag contains the parameters of the
+query which allows the same query to be reproduced at a later time.
+Please consult the datatag instruction document on how to rerun the
+query.</td></tr>
+
+<tr><td>equCoord</td><td>The input location in the equatorial
+coordinate system and sexigesimal format.</td></tr>
+
+<tr><td>galCoord</td><td>The input location in the galactic coordinate
+system.</td></tr>
+
+<tr><td>eclCoord</td><td>The input location in the ecliptic coordinate
+system.</td></tr>
+
+<tr><td>totalimages</td><td>The total number of images retrieved.</td></tr>
+
+<tr><td>htmlfile</td><td>The URL of the HTML file that contains the
+finder chart results. </td></tr> 
+
+<tr><td>pdffile</td><td>The URL of the PDF file that contains the
+finder chart results. </td></tr>
+
+<tr><td>image</td><td>This is a sub-tag of the "result" tag, but it is
+a section tag that contains the sub-tags of an image's information and
+URLs. </td></tr>
+
+<tr><td>colorimage</td><td>This is a sub-tag of the "result"
+tag.</td></tr>
+
+<tr><td>surveyname</td><td>The survey name of the retrieved image:
+SDSS, DSS, 2MASS, WISE, SEIP, AKARI, or IRAS.  ("IRIS" can be used
+instead of "IRAS" for the same image set.)</td></tr>
+
+<tr><td>band</td><td>The band name of the retrieved image. By default,
+all bands are returned.</td></tr>
+
+<tr><td>obsdate</td><td>The observation date extracted from the
+retrieved FITS image.</td></tr>
+
+<tr><td>fitsurl</td><td>The URL of the retrieved FITS image.</td></tr>
+
+<tr><td>jpgurl</td><td>The URL of the PNG image which is the same
+resolution as the FITS image. (Note that the name of the tag incldues
+'jpg' but it returns PNGs.) </td></tr>
+
+<tr><td>shrunkjpgurl</td><td>The URL of the shrunken PNG image.  (Note
+that the name of the tag includes 'jpg' but it returns PNGs.) </td></tr>
+
+<tr><td>artifact</td><td>The sub-tag of the result, one for each
+survey.</td></tr>
+
+<tr><td>arturl</td><td>The URL to get the artifacts for the
+survey.</td></tr> 
+
+</table><P>
+
+Once you have parsed the URLs out of the XML, you can retrieve the
+results using wget or curl. In order to do this, you should enclose
+the URL in quotes, and tell it what to do with the output. Here are
+some explicit examples of using quotes around URLs for wget or curl: 
+<pre>
+wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+
+curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+</pre><P>
+
+
+<h3><a name="outputexamples">API Output Examples</A></h3>
+
+Any of the input example links above will yield output, and if you
+click on them right now, your browser will attempt to render the
+retrieved results. Output that is XML (examples 1-10 above) may throw
+your browser a curve ball. Choose "View Source" within your browser to
+see everything that is returned. Output that is a zip file or pdf file
+(example 11) should be easily handled by your browser; as noted above,
+when using wget or curl, you should specify how it should save the
+results. <P>
+
+The simplest returned XML is an error message. Here is a screen shot
+of the source XML returned from example 9 above: 
+<blockquote><table border="1"><tr><td><br><img
+src="img/xmlerror.png"><br><P></td></tr></table></blockquote>
+
+Example 6 is rendered in my browser (at least to start) as:
+<blockquote><table border="1"><tr><td><br><img src="img/example6output1.png" width="100%"><br></td></tr></table></blockquote>
+with additional image tags (not shown) for the other images
+returned.<P>
+
+As can be seen, the tags here reflect the tags listed in the Output
+Parameters above, and they change to reflect the query results
+accordingly.<P>
+
+
+
+
+
+<h3><a name="urlconstruction">URL Construction</A></h3>
+
+It used to be that you could construct a very long URL consisting largely of
+"parameter=value" pairs and launch an interactive browser Finder Chart
+session with images pre-loaded according to your parameters. <P>
+
+Now, you can use the API to generate a URL to start a session.  For
+example, clicking on this URL should launch a new browser window with
+images loaded that are centered on M101: <a
+href="https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getResult&amp;locstr=m101"
+target="_blank">https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getResult&amp;locstr=m101</A><P>
+
+Note that the syntax is different than it has been before. Future
+development of this capability will use the API (e.g., the
+"mode=getResult"), not just URL construction.<P>
+
+</body>
+</html>
+

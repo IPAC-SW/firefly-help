@@ -1,0 +1,470 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "NASA Planck Archive: Catalogs" -->
+<HEAD>
+<TITLE>NASA Planck Archive: Catalogs
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>NASA Planck Archive (NPA): Catalogs</h2>
+
+(Note that catalogs are available via a blue tab that appears at the
+top of the page only after you have performed at least one search --
+you need to have something on which to overlay the catalog before it
+will let you search.)<P> 
+
+You can choose from any of a wide variety of catalogs for
+overlaying on your <a href="visualization.html">visualized data</A>.
+<P>
+
+<em>Contents of page/chapter:</em><br>
++<a href="#overview">Overview</A><br>
++<A href="#irsacatalogs">Catalogs from IRSA</A> -- Overlaying catalogs
+from IRSA<br>
++<A href="#owncatalogs">Catalogs from disk</A> -- Overlaying your own
+catalogs<br>
++<A href="#vocatalogs">Catalogs from VO</A> -- Overlaying
+catalogs obtained via the VO<br>
++<a href="#filters">Columns and Filters</A> -- Interacting with catalogs<br>
++<a href="#xyplots">Plotting catalogs</A><br>
+
+<P>&nbsp;<P>
+
+<A NAME="overview"><H3>Catalogs -- Overview</H3></A>
+
+Once you have conducted a search and have some displayed images, you
+can perform a catalog search, which will (among other things) overplot
+those catalog sources on all the images shown.  Catalogs are available
+via a blue tab that appears at the top of the page only after you have
+performed at least one search -- in essence, you need to have
+something on which to overlay the catalog before it will let you
+search.<P> 
+
+Depending on how, exactly, you searched the NPA, you may already have
+catalogs returned by your search and overlaid on your images.<P>
+
+By default, it assumes you want to perform a catalog search that
+covers the same region as your currently selected target, and attempts
+to pre-fill the form with that region -- but you can choose to change
+those search criteria. You can choose from any of a number of
+catalogs, including but not limited to Planck catalogs. You can also
+upload your own catalogs. <P>
+
+The catalog will be overlaid on the images in the coverage pane as
+well as all of the channels shown in the image display pane. The
+highlighted source will change depending on which source is selected
+in the catalog tab in the results pane. When overlaying the sources
+from a catalog search, note that <em>all</em> the sources are shown.
+<P>
+
+
+
+<h3><a name="irsacatalogs">Catalogs from IRSA</A></h3>
+
+By clicking on the "Catalog" tab (which also looks like a button), a
+window appears with several options, as follows.<P>
+
+By default, the catalog search page appears with a cone search
+approximating your prior search.  You can customize the search for
+options beyond a polygon search (e.g., a cone search) by selecting
+from the "Search Method" pulldown. The entry box immediately to the
+right of that "Search Method" pulldown changes accordingly, and you
+can edit the parameters directly. If you choose a 'cone' search, you
+can also change the target by clicking on "Modify Target" next to the
+target center that appears. <strong>Caution</strong>: pick your units
+from the pulldown first, and then enter a number; if you enter a
+number and then select from the pulldown, it will convert your number
+from the old units to the new units. There are both upper and lower
+limits to your search radius; it will tell you if you request
+something too big or too small. Note that these limits are
+catalog-dependent.  <P>
+
+You then need to specify the catalog you want to search. In order to
+help it give you a specific list of choices, you need to first tell it
+the project and category. After you have selected these items, on the
+right, you can pick the specific catalog .  To change catalogs, first
+select the "project" under which they are housed at IRSA, such as
+2MASS, IRAS, WISE, MSX, etc.  The options under the "category" and the
+specific clickable catalog on the right change according to the
+project you have selected.  A short description is provided for each
+of the catalogs, with links for more information (including
+definitions of the sometimes cryptic column names); an example of this
+link for more information is here:<br> <img
+src="img/catalogcoldef.png"><P>
+
+
+You can also set restrictions on specific columns by clicking on  "Set
+Column Restrictions" on the left hand side, under the "category"
+selection pull-down menu. A new window will open up with the
+available column names in the corresponding catalog, and you can
+choose what to display, and filter what is returned (for example, only
+return objects with values in column y that are greater than x). If
+you add more than one restriction, they are combined logically using
+an "AND" operators; be careful, because you can thus restrict data
+such that none of the catalog meets your criteria.<P>
+
+<em>Power user tip:</em> By default, this interface may show you fewer
+columns than are available in the full catalog. By clicking on "Set
+Column Restrictions" and selecting "long form" from the pulldown at
+the top of the pop-up window ("Please select long or short form
+display"), you can access the full range of available columns. In some
+cases, there are literally hundreds of columns that you can access!<P>
+
+Click on "Search" to initiate the search. It will load the catalog
+into a tab of its own. The catalog objects will also be overlaid on
+the images you have loaded. You can obtain a full-screen view of your
+catalog -- click on the expand icon in the upper right of the window
+pane when your mouse is in the window: <img
+src="img/expand-24x24.png">.  You can also make an x-y plot from the
+catalog (for more on the x-y plots, see <a href="#xyplots">below</A>).
+The images and the catalog representations are interlinked -- clicking
+on a row in the table shows it on the images and vice versa.<P>
+
+To close the catalog search window without searching on a catalog,
+click on "Close" in the upper left.<P>
+
+
+<dl><dt><strong>On the speed of the catalog results...</strong><P>
+
+<dd>If the catalog search is successful quickly, it will promptly return
+the results in a tab of its own. <P> 
+
+<b>NOTE THAT</b> the search may take a long time to return, especially
+if you have asked for a large catalog, and you may think that nothing
+has happened, but be patient and eventually it will either spin off to
+the background monitor (from which you can load it into a tab), or
+return a tab directly.<P>
+
+Searches that take longer than a few seconds get spun off to the <a
+href="basics.html#download">background monitor</A>. If it does spin
+off to the background monitor, it will dynamically update to reflect
+its status, and will let you know when the catalog is ready to
+download or display. A popup appears asking if you want to load the
+catalog. Either click on the popup or explicitly open the background
+monitor and click on the catalog name to load it into a tab of its
+own.<P>
+
+Use large search radii with caution! Be sure you understand how many
+sources you are likely to retrieve. Searches that retrieve more rows
+will take longer. Searches that retrieve millions of rows will take
+quite a while. <P>
+
+</dl>
+
+Note that if you overlay a catalog consisting of tens of thousands of
+sources, to save bandwidth, what is overlaid on your image at some
+locations may be a larger symbol representative of several sources at
+that location; if you then <a
+href="visualization.html#fitsDownloadOptions">save a regions file from
+the catalog overlay</A>, then you will end up with fewer sources in
+the regions file than you have in the full catalog.<P>
+
+
+<h3><a name="owncatalogs">Loading your own catalogs</A></h3><P>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top left of the catalogs screen, "Load
+Catalog", to load your own catalog.<P>
+
+Your catalog needs to be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format</A>, which is a varietal of plain
+text. IRSA has a <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank">table reformatting and validation service</A> which
+may be helpful, or you can download just about any catalog you find
+through IRSA, and copy that format.<P>
+
+Your table file MUST have RA and Dec values, and unless it is
+specified, it assumes J2000. <P>
+
+You can add a "SYMBOL" parameter to change the shape
+(X, SQUARE, CROSS, EMP_CROSS, DIAMOND, DOT) of catalog marks, e.g.:
+<pre>
+\SYMBOL = X
+</pre>
+<P>
+
+You can add a "DEFAULT_COLOR" parameter to assign a CSS color name or
+a HEX value to catalog marks, e.g., either of these two:
+<pre>
+\DEFAULT_COLOR = lightcyan
+\DEFAULT_COLOR = #00FF00
+</pre>
+You can find the <a
+href="https://www.w3schools.com/cssref/css_colors.asp"
+target="_blank">CSS color code or the CSS color HEX values</A> online.<P> 
+
+Your catalog is then shown (and interacted with) in the same way as
+the other catalogs described here.<P>
+
+
+<h3><A name="vocatalogs">Catalogs from the VO</A> -- Overlaying
+catalogs obtained via the VO</h3>
+
+(VO= <A href="http://www.virtualobservatory.org/" target="_blank">Virtual
+Observatory</A>.)<P>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top left, "VO Catalog", to search for
+and load  catalogs from the VO.<P>
+
+<br><img src="img/vocatalogs.png" width="100%"><br>
+<P>
+
+As for the IRSA catalog search, the tool pre-fills the target position with
+the coordinates of the target with which you have been working. In
+this case, you are limited to a cone search, so the next option is the
+cone search radius. As usual, pick your units from the pulldown first,
+and then enter a number; if you enter a number and then select from
+the pulldown, it will convert your number from the old units to the
+new units. There are both upper and lower limits to your search
+radius; it will tell you if you request something too big or too
+small. <P>
+
+If you know your VO URL already, you can jump down to the Cone Search
+URL box and type or paste your URL into the box and hit search.<P>
+
+More commonly, however, users do not know <em>a priori</em> which URL
+to use. Type your desired keywords into the keywords box and click on
+"Search Registry". All of the URLs it finds for your keywords within
+the VO registry service are shown in the box. Locate the one you want
+to use, and click on "Use" on the far left of the corresponding row.
+The "Cone Search URL" is populated properly for that catalog. Click on
+"Search" to initiate the search. <P>
+
+The search results are then shown (and interacted with) in the same way as
+the other catalogs described here.<P>
+
+<strong>Example</strong><p>
+
+Load the tool. Search on IC1396. Go to the catalogs tab. Choose "VO
+Catalog." It wants the root URL for a cone search. I click on "Find
+Astronomical Data Resources", which takes me <a
+href="http://vao.stsci.edu/keyword-search/" target="_blank">here</A>.
+Search on IPHAS. Get <a
+href="http://vao.stsci.edu/keyword-search/?utf8=%E2%9C%93&search_field=all_fields&q=iphas"
+target="_blank">this page</A>. Look for the complete catalog release
+(not just one associated with one specific study). The name of the
+catalog goes <a
+href="http://vao.stsci.edu/directory/getRecord.aspx?id=ivo://CDS.VizieR/II/321"
+target="_blank">here</A>. Hit the [+] to expand it. There is one URL
+listed there, under "available endpoints for the standard interface."
+Copy that URL and paste it into the search form. The IRSA tool will
+append your coordinates and radius and return you a table.<P>
+
+<strong>Troubleshooting</strong><p>
+
+Note that searching the VO means that you are using resources not
+specifically housed at IRSA, so servers may be down, or timeouts set,
+or limits on numbers of returned sources, etc., that are beyond our
+control. In most cases the solution is to specify as precise a search as
+possible.  Here are the links to VO registries that we are using, just
+in case you want to do more flexible searches of the registry. The URL
+you enter into the box in FinderChart, though, must be a Cone Search
+base URL (not containing RA and Dec parameters, which are inserted
+into the URL by FinderChart in response to the search parameters you
+give it).<P>
+
+
+
+The master list of registries is <a href="http://rofr.ivoa.net/"
+target="_blank">here</A>. You can also search the registries directly
+via that link (as opposed to via the IRSA tools). <P>
+
+<!-- The registries we are searching are, in this order:
+<UL>
+<LI>Euro VO: <a href="http://registry.euro-vo.org/search.jsp"
+target="_blank">http://registry.euro-vo.org/search.jsp</A>
+
+<LI>NVO: <a href=" http://nvo.stsci.edu/vor10"
+target="_blank">http://nvo.stsci.edu/vor10</A>
+
+<LI>Astrogrid: <a href="http://registry.astrogrid.org"
+target="_blank">http://registry.astrogrid.org</A>
+</UL>
+
+Euro VO supports ADQL, which makes it possible to search just the
+title and identifier. Other registries provide only the keyword
+search, which is much less precise, since it looks for matches in all
+the fields, including the description.<P>  -->
+
+
+<a name="filter"><a name="filters"><A name="filtering"><h3>Columns and
+filters -- Interacting with catalogs</h3> </A></A></A>
+
+After you have loaded a catalog, it appears as an additional tab in
+the left-hand-side search results pane. Additional catalogs you load
+appear as additional tabs in this window pane. To see more of the
+columns, grab the divider between the two window panes and slide it
+right to widen the pane.<P>
+
+The table is shown exactly as it appears in the corresponding database
+(or as it appeared on your disk), with all columns as defined for that
+catalog. To understand what each column is, please see the
+documentation associated with that catalog. (For IRSA catalogs, this
+documentation is available via the catalog searching popup window, see
+figure below, or by navigating through the IRSA website.)<br> <img
+src="img/catalogcoldef.png"><P>
+
+The tab (and table) name itself is the name of the catalog file as
+stored on the system at IRSA; it is a little cryptic, but the first
+few words should make it clear whether it is WISE, 2MASS, etc. To
+remove the tab, click on the blue "X".<P>
+
+Immediately below the tab name, there are several icons, just like in
+in the main search results. See <a href="results.html#tablenav">table
+navigation</A> in the Results section for details on what these icons
+do.
+
+You can also interactively impose filters from <a
+href="#xyplots">plots you make</A> from the catalog - see the next
+section.<P>
+
+
+
+
+
+<h3><a name="xyplots">Plotting catalogs</A></h3>
+
+You can plot your catalog after it has loaded. The plots are another
+view of the catalog; by default, the catalog comes up in 'table' view,
+and you can swap back and forth between the 'table' and 'plot' view.
+After you have loaded a catalog, these icons appear in the upper
+right, just above the image results pane: <img
+src="img/viewoptions.png"> The first one is table view, and the second
+is plot view. The current view is boxed in green. Click on the icon to
+change views. If you do not see this icon, make sure that a catalog
+tab is in the foreground of the target list pane.  To see more of the
+catalog while still viewing images, click and drag the slider between
+the panes to enlarge the plot window pane. <P>
+
+To obtain a full-screen view of your plot, click on the expand icon in
+the upper right of the window pane when your mouse is in the window:
+<img src="img/expand-24x24.png">. To return to the prior view, click
+the "Close" arrow in the upper left.<P>
+
+The plotting tool, by default, starts with RA and Dec plotted. Note
+that it does so strictly mathematically correctly -- that is, RA
+increases to the right (the reverse of astronomical convention). To
+change what is plotted, click on the gears icon in the upper left of
+the plot window: <img src="img/xyplotoptions.png">. Configuration
+options then appear to the left of the plot. You can choose a single
+column to plot against another column -- if you have loaded a WISE
+catalog, you could plot w1snr vs. w1mpro. You can start typing a
+column name into the X and Y boxes, and it will help provide you
+viable options from the column headings. Alternatively, you can click
+on the "Cols" link to bring up a pop-up window with all the columns
+for that catalog listed. NOTE THAT you must type in the column name
+<em>exactly matching</em> the column headings as displayed.  By
+default, it echoes the x and y labels and units from the original
+table, but you can change this by clicking on the triangles below each
+entry box (e.g., make the label "SNR in WISE-1" rather than the more
+cryptic column header "w1snr"). <P>
+
+You can also do simple mathematical manipulations. For example, if you
+have loaded a WISE catalog, you can plot w1mpro vs. w1mpro-w4mpro.
+However, note that as of this version, the axes are from min to max in
+the strict mathematical definition of the term, so in this example,
+the fainter W1 objects are at the top of the plot. As a workaround for
+this, plot -w1mpro vs. w1mpro-w4mpro to get the axes aligned in the
+way you are expecting such that brighter objects are at the top of the
+plot. <br>
+
+<img src="img/plotscreenshot.png" width="100%"><P>
+
+Note that the plot symbols are shades of grey corresponding to how
+many points are represented at that location in the plot. The lightest
+shade of grey (and smallest points) represent one point in the plot
+at that location, and the darkest shades of grey (and the largest
+points) represent many more points in the plot at that location. Put
+your mouse over any of the points to find out more about what is
+represented at that location.<P>
+
+You can add or remove the gridlines via the "Grid" checkbox. If you
+have zoomed in enough such that there are just black boxes -- one
+object per point -- you can change the plot style such that the points
+are connected or unconnected. <P>
+
+You can also <strong>restrict what data are plotted</strong> in any of
+several different ways. You can set limits based on the "more options"
+(click on the triangle next to "more options") on the lower left of
+the plotting window pane, or you can use a rubber band zoom, as
+follows.  Click and drag in a sub-region of the plot. The icons in the
+upper right of the plot change corresponding to what you can do, in
+this case to these: <img src="img/plotoptions.png">. They are, from
+left to right: zoom in on the region you have selected, select the
+objects in the catalog, filter the catalog to leave only those
+objects, or expand the plot to take up the whole browser screen. If
+you click on the zoom icon, then the plot axes change to encompass
+just the sources you have selected. If you click on the select icon,
+then the plot symbols corresponding to your selection change shape and
+color, the corresponding objects overplotted on the image in the image
+window pane change color, and (if you change back to the table view of
+the catalog), the rows (corresponding to those sources) in the catalog
+are highlighted. If you click on the filter icon, then the catalog
+view is filtered down, restricted to just those sources you have
+selected, and the filter notes in the upper left of the plot window
+(and in the table view of the catalog) change to remind you that you
+have a filter applied. Only those sources that pass the filter are
+shown overlaid on the image(s). (This is the behavior of 'filter', as
+opposed to 'select'; the former restricts what is shown, the latter
+just highlights the objects.) For more on filters, see <a
+href="results.html#filters">the filter section</A>.<P>
+
+If you move your mouse over any of the points, you will get a pop-up
+telling you the values corresponding to the point under your cursor.
+If you click on any of the points, the object(s) corresponding to that
+point will be highlighted in the overlays in the images shown, and
+highlighted in the catalog table view of the catalog.  This works the
+other way too - click on a row in the catalog, or an object in the
+images, and the object will be highlighted in the plot or the catalog
+or the image.<P>
+
+<strong>If you have a very large catalog or many points in a
+particular location of the plot</strong>, the tool will rebin the
+points in the plot such that displaying the plot is faster. The plot
+symbols are shades of grey corresponding to how many points are
+represented at that location in the plot. Put your mouse over any of
+the points to find out more about what is represented at that
+location. It will tell you how many catalog rows correspond to that
+point, and clicking on it will highlight all of the corresponding rows
+in the table view and the image overlays. In order to have the tool
+plot one point per row, you need to zoom in or otherwise restrict the
+data such that there are 'few enough' points represented in the plot.
+If there is just one point in the plot that needs to be rebinned, all
+of the points will be a small point. <P>
+
+<strong>Want to save a plot to file?</strong> At this time, the best
+way to do that is a screen snapshot. On a Mac, this is accomplished
+via holding down command, then shift, then 4, then let go and your
+mouse cursor changes. Hit the space bar to select the window over
+which your mouse is hovering. Your mouse cursor changes again, and hit
+the mouse button. A snapshot is then saved to your Desktop, tagged
+with the date and time. <P>
+
+Once you have made an x-y plot, the plot is then effectively treated
+as another 'image' in the stack of images you have loaded into the
+tool. In the <a href="visualization.html#breakingout">Visualization
+section</A>, it describes various features, including blinking images,
+and removing images from the blink sequence. If, after you make a
+plot, you want to blink or tile some of the FITS images, you will need
+to remove the plot from the image sequence, as described in the <a
+href="visualization.html#breakingout">Visualization section</A>.
+
+
+<!-- <h3><a name="examples">Examples of catalog plots</A></h3> 
+NEED TO COME UP WITH A GOOD PLANCK-SPECIFIC EXAMPLE. but _later_.
+-->
+
+
+
+</BODY>
+</HTML>

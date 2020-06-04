@@ -1,0 +1,359 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: Additional Constraints" -->
+<HEAD>
+<TITLE>Catalog Search Tool: Additional Constraints
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Additional Constraints</h2>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#context">Context</a><br>
++<a href="#list">List of operators/keywords</a><br>
+<P>&nbsp;<P>
+
+<a name="context"><h3>Context</h3></a>
+
+<p>The Catalog Search Tool allows potentially complex constraints  to
+be specified in <a href="http://en.wikipedia.org/wiki/SQL"
+target="_blank">SQL <img src="img/jumpout.jpg" height="10"></a> format
+in the "Additional Constraints" section of the search interface. These
+include several classes of  constraints, both keywords and
+operators.</p>
+
+The examples given below show how queries can be built intuitively; these examples are given for each of the five types of search constraints that are supported.<P>
+
+<DL>
+<DT><strong>Comparisons</strong>
+<dd>Compares the values of one expression to another. The great majority of queries will be of this type, which use simple mathematical operators.
+<UL>
+<LI>declination > 40  selects rows with declinations above 40 degrees; user defined constraints then allow for broader constraints than can be entered through the spatial constraints form.
+<LI>j_m <= 11 and  declination > 40 selects all rows having J magnitudes fainter than 11 and declinations above 40 degrees. 
+</UL>
+
+<dt><strong>Ranges</strong>
+<dd>Tests whether an expression falls within a certain range.
+<UL>
+<LI>ra between 12 and 14 selects rows having Right Ascension values between 12 and 14 hours
+<LI>ra not between 12 and 14 selects rows not between 12 and 14 hours 
+</UL>
+
+<dt><strong>Set memberships</strong>
+<dd>Tests whether an expression matches any one of a set of values.
+<UL>
+<LI>Hubble_Type in ('Sa', 'Sb', 'Sc') selects rows where the Hubble Type has values of Sa, Sb or Sc. This is equivalent to Hubble_Type ='Sa' or Hubble_Type ='Sb' or Hubble_Type ='Sc' 
+</UL>
+<dt><strong>Pattern Matching</strong>
+<dd>Tests whether the value of a column containing string data matches a specified pattern.
+<UL>
+<LI>cc_flag ='000' selects rows where the quality flag has values of '000'
+
+<LI>id_opt like ' USNOA %' selects rows where the optical counterpart has a name beginning with USNOA. 
+</UL>
+
+<dt><strong>Null values</strong>
+<dd>Checks whether a column has a null value.
+<UL>
+<LI>Fnu(60) is not null returns only those entries whose 60 micron flux has a measured (non-null) value. 
+</UL>
+</dl>
+
+This query  on the 2MASS All Sky Point Source Catalog:
+<blockquote>
+"return all sources at galactic latitudes greater 30 degrees with K magnitudes between 14 and 17 and uncertainties of less than 0.05 mag, that are not flagged as contaminated by extended sources and have a blue-red optical color of less then 1.5"
+</blockquote>
+
+is built by the user-defined constraint:
+<blockquote>
+(glat > 30) and (k_m between 14 and 17) and (k_msigcom < 0.05) and (gaLcontam=0) and (b_m_opt - r_m_opt) <1.5)
+</blockquote>
+<P>
+
+For users conversant with SQL, the tool uses the user-defined constraints to set up a WHERE clause in the SQL statement submitted to the DBMS. <P>
+
+
+
+
+
+<a name="list"><h3>List of operators/keywords</h3></a>
+
+Any blank spaces around operators are ignored (for instance, "> =" is equivalent to ">="). In comparing character data, "<" means earlier and ">" means later in the alphabet. In comparing dates, "<" means earlier and ">" means later. Be sure to put single quotation marks (') around all text and date/time columns.  <P>
+
+The only WHERE conditions that you can use on character columns are "=" (equals), LIKE or NOT LIKE. There are numerous character columns in the astronomical catalogs maintained at IPAC. Use the "COLUMN CONSTRAINTS / OUTPUT COLUMN SELECTION" panel to view the data type for any column of interest.<P>
+
+<table border="1">
+
+<tbody><tr>
+<th><b>keyword/operator</b></th>
+<th><b>description</b></th>
+<th><b>syntax</b></th>
+<th><b>example using AllWISE Source Catalog 1000 arcsecond cone search centered on M81</b></th>
+</tr>
+
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:left">Compares two expressions.<br><br>The result is TRUE if both operands are equal.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression = expression</td>
+<td style="text-align:center">designation = 'J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">!=</td>
+<td style="text-align:left">Compares two expressions.<br><br>The result is TRUE if the left operand is not equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression != expression</td>
+<td style="text-align:center">designation != 'J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand has a lower value than the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is earlier in the alphabet than the right operand. <br><br>When comparing dates, the results is TRUE if the left operand is earlier than the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression &lt; expression</td>
+<td style="text-align:center">w1mpro &lt; 16<br><br>designation &lt; 'J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">&lt;=</td>
+<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is less than or equal to the right operand.<br><br>When
+ comparing character values, the results is TRUE if the left operand is 
+earlier in the alphabet or equal to the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is earlier or equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression &lt;= expression</td>
+<td style="text-align:center">w1mpro&lt;=16<br><br>designation&lt;='J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is greater than the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is later in the alphabet than the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is later than the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression &gt; expression</td>
+<td style="text-align:center">w1mpro&gt;16<br><br>designation&gt;'J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">&gt;=</td>
+<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is greater than or equal to the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is later in the alphabet or equal to the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is later than or equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:center">expression &gt;= expression</td>
+<td style="text-align:center">w1mpro&gt;=16<br><br>designation&gt;='J095824.30+685729.3'</td>
+</tr>
+
+<tr>
+<td style="text-align:center">NOT</td>
+<td style="text-align:left">Used to negate an operation.</td>
+<td style="text-align:center">NOT expression</td>
+<td style="text-align:center">
+w2sigmpro IS NOT NULL<br><br>
+dec NOT BETWEEN 69 AND 69.1<br>
+</td>
+</tr>
+
+<tr>
+<td style="text-align:center">BETWEEN</td>
+<td style="text-align:left">Specifies a range to test.<br><br>BETWEEN 
+returns TRUE if the value of test_expression is greater than or equal to
+ the value of begin_expression and less than or equal to the value of 
+end_expression.</td>
+<td style="text-align:center">test_expression [ NOT ] BETWEEN begin_expression AND end_expression</td>
+<td style="text-align:center">ra BETWEEN 148.6 AND 149.2<br><br>dec NOT BETWEEN 69 AND 69.1</td>
+</tr>
+
+<tr>
+<td style="text-align:center">IN</td>
+<td style="text-align:left">Determines if a given value matches any value in a subquery or a list.</td>
+<td style="text-align:center">test_expression [ NOT ] IN ('expression', 'expression', ... , 'expression')</td>
+<td style="text-align:center">ph_qual IN ('ABUU', 'BUUU', 'BCCU')</td>
+</tr><tr>
+
+</tr><tr>
+<td style="text-align:center">LIKE</td>
+<td style="text-align:left">Determines whether a character string 
+matches a specified pattern. A pattern can include regular characters 
+and wildcard characters. During pattern matching, regular characters 
+must exactly match the characters specified in the character string. 
+Wildcard characters, however, can be matched with arbitrary fragments of
+ the character string. IRSA's Catalog Search Service accepts two 
+wildcards:<br><br>% (percent; matches any string of &gt;0 characters)<br><br>_ (underscore; matches any single character)<br>
+If you would like to include percent or underscore in your pattern,
+but do not wish them to be interepreted as wildcards, then you may specify an
+escape character using "ESCAPE escape_parameter".</td>
+<td style="text-align:center">match_expression <br>[ NOT ] LIKE pattern </td>
+<td style="text-align:center">designation LIKE 'J0958%' - selects any designation that starts with 'J0958%'<br><br>designation LIKE '%0958%' - selects any designation with '0958' in it.<br><br>ph_qual LIKE 'AAA_' - selects any ph_qual with four letters, the first three of which are 'AAA'.</td>
+</tr>
+
+<tr>
+<td style="text-align:center">IS [NOT] NULL</td>
+<td style="text-align:left">An entry of NULL in a data table means that 
+there is no entry (e.g., missing data). NULL is not synonymous with 
+'zero' or 'blank'. 'NULL' and 'null' are equivalent.<br><br>If the value of expression is NULL, IS NULL returns TRUE; otherwise, it returns FALSE.<br><br>If the value of expression is NULL, IS NOT NULL returns FALSE; otherwise, it returns TRUE.</td>
+<td style="text-align:center">expression IS [ NOT ] NULL </td>
+<td style="text-align:center">w2sigmpro IS NOT NULL<br><br>
+w2sigmpro IS NULL</td>
+</tr>
+
+<tr>
+<td style="text-align:center">AND</td>
+<td style="text-align:left">Combines two expressions and returns TRUE 
+when both expressions are TRUE. When more than one logical operator is 
+used in a statement, AND operators are evaluated first. You can change 
+the order of evaluation by using parentheses.</td>
+<td style="text-align:center">expression AND expression</td>
+<td style="text-align:center">(w2sigmpro IS NOT NULL) AND (ra BETWEEN 148.6 AND 149.2)</td>
+</tr>
+
+<tr>
+<td style="text-align:center">OR</td>
+<td style="text-align:left">Combines two conditions. When more than one 
+logical operator is used in a statement, OR operators are evaluated 
+after AND operators. However, you can change the order of evaluation by 
+using parentheses.</td>
+<td style="text-align:center">expression OR expression</td>
+<td style="text-align:center">(ra BETWEEN 148.6 AND 149.2) OR
+(dec NOT BETWEEN 69 AND 69.1)</td>
+</tr>
+
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:left">plus</td>
+<td style="text-align:center">expression + expression</td>
+<td style="text-align:center"></td>
+</tr>
+
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:left">minus</td>
+<td style="text-align:center">expression - expression</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:left">divided by</td>
+<td style="text-align:center">expression / expression</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:left">multiply</td>
+<td style="text-align:center">expession * expression</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">%</td>
+<td style="text-align:left">modulo, the remainder left after division of two numbers.</td>
+<td style="text-align:center">expression % expression</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">ABS</td>
+<td style="text-align:left">Absolute Value</td>
+<td style="text-align:center">abs(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">ACOS</td>
+<td style="text-align:left">Arc Cosine</td>
+<td style="text-align:center">acos(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">ASIN</td>
+<td style="text-align:left">Arc Sine</td>
+<td style="text-align:center">asin(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">ATAN</td>
+<td style="text-align:left">Arc Tangent</td>
+<td style="text-align:center">atan(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">COS</td>
+<td style="text-align:left">Cosine</td>
+<td style="text-align:center">cos(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">EXP</td>
+<td style="text-align:left">Returns the exponential value in scientific notation of the argument</td>
+<td style="text-align:center">exp(expression)</td>
+<td style="text-align:center">EXP(198.1938327) = 1.18710159597953E+86</td>
+</tr>
+
+<tr>
+<td style="text-align:center">FLOOR</td>
+<td style="text-align:left">Returns the largest integer equal to or less than the specified argument.</td>
+<td style="text-align:center">floor(expression)</td>
+<td style="text-align:center">floor(15.7) = 15.</td>
+</tr>
+
+<tr>
+<td style="text-align:center">LOG</td>
+<td style="text-align:left">Logarithm (base 10)</td>
+<td style="text-align:center">log(10, expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">POWER</td>
+<td style="text-align:left">numeric_expr raised to the power of p</td>
+<td style="text-align:center">power(expression, p)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">RAND</td>
+<td style="text-align:left">Produce a random float number between 0 and 
+1. When invoked with the optional integer argument, that value will be 
+used to seed the random number generator. For a specified seed value, 
+the result returned is always the same.</td>
+<td style="text-align:center">rand([integer_expression])</td>
+<td style="text-align:center">rand()<br><br>rand(10)</td>
+</tr>
+
+<tr>
+<td style="text-align:center">ROUND</td>
+<td style="text-align:left">Returns the rounded value of the first expression, out to integer_expression digits</td>
+<td style="text-align:center">round(expression, integer_expression)</td>
+<td style="text-align:center">ROUND(123.9994, 3)=123.999<br><br>ROUND(123.9995, 3)=124.0000<br><br>ROUND(150.75, 0)=151.00</td>
+</tr>
+
+<tr>
+<td style="text-align:center">SIN</td>
+<td style="text-align:left">Returns the trigonometric sine of the specified angle, in radians.</td>
+<td style="text-align:center">sin(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">SQRT</td>
+<td style="text-align:left">Returns the square root of the specified float.</td>
+<td style="text-align:center">sqrt(expression)</td>
+<td></td>
+</tr>
+
+<tr>
+<td style="text-align:center">TAN</td>
+<td style="text-align:left">Returns the trigonometric tangent of the specified angle, in radians.</td>
+<td style="text-align:center">tan(expression)</td>
+<td></td>
+</tr>
+
+</tbody></table>
+
+
+
+</BODY>
+</HTML>

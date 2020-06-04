@@ -1,0 +1,811 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "SOFIA: Visualization" -->
+<HEAD>
+<TITLE>SOFIA: Visualization
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>SOFIA Science Data Archive: Visualization</h2>
+
+The images meeting your search criteria are shown in the instrument
+tabs that are the results of your search. Where possible, you are
+interacting with the FITS file. (GREAT may not have FITS files,
+depending on the data level.) The colored circle that may be overlaid
+by default is the search position you submitted. You can add and
+overlay catalogs and add other layers to your image. Click on the blue
+"Catalogs" tab near the top of the page to add more catalogs. See <a
+href="catalogs.html">the Catalogs section</A> for more on catalogs.
+<P>
+
+Here we describe the interactive image visualization tools, in roughly
+the order in which you might encounter them in the window.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#fitsViewer">The FITS/HiPS Viewer</a><br>
++<A href="#imageinfo">Image Information</a><br>
++<A href="#toolbar">Image Toolbar</a><br>
++<a href="#hipsViewer">Specific HiPS features</A><br>
++<a href="#footprints">Footprints</A> -- overlaying markers<br>
++<a href="#catalogsandlayers">Catalogs and Layers</A><br>
++<A href="#breakingout">Breaking out of the pane (and going back)</A><br>
++<a href="#coverage">Coverage Image</A><br>
++<a href="#autozoom">Automatic FITS-HiPS-Aitoff Transitions</A><br>
+<P>&nbsp;<P>
+
+
+
+
+<H3><A NAME="fitsViewer">The FITS/HiPS Viewer</A></H3>
+
+
+You can interactively explore the image with the mouse. Move your
+mouse over any image that is loaded into the viewer. Details about the
+image and, specifically, the pixel beneath your mouse cursor, appear
+along the top of the window with a variety of useful items. Some
+information is updated in real time (such as coordinates); some
+information (such as flux densities) is updated when you stop moving
+your mouse for a second or two.  The image can be interactively
+investigated in this fashion.  <br> <img src="img/readout.png"><br>
+You can make it 'stick' on a particular place on the image -- tick the
+"Lock by click" box and then click on the image at your desired
+location. <P>
+
+The orientation of the image is given with a compass rose on the
+right, next to a zoomed-in view of the image under your cursor. If you
+can't see all of these two displays, enlarge your browser window
+slightly.<P> 
+
+
+&nbsp;<P>
+
+<H3><A NAME="imageinfo">Image Information</A></H3>
+
+The upper left of the loaded image tells you basic things about the
+image you are viewing. The instrument is in black. The field of view
+is in green font; this corresponds to the (horizontal) width of the
+image window.<P>
+
+<img src="img/simplelabel.png"> Often, the label is simple, telling
+you the instrument and the field of view (FOV). <P>
+
+<img src="img/spectra.png"> Spectra won't have a
+field of view, but will tell you the instrument and the zoom
+factor.<P>
+
+<img src="img/multiplanes.png"> If it looks something like this,
+with the arrows present, the file you are viewing has multiple
+planes. The arrows allow you to click through the image planes in the
+order they are loaded. <P>
+
+
+<img src="img/multiplanes2.png"> Sometimes the planes have names, and
+if so, that is indicated. If there are many planes, you can type in a
+plane number to jump directly to that plane.<P>
+
+<img src="img/multiplanes3.png"> FIFI-LS data can have complicated,
+multiple planes.<P>
+
+<img src="img/coveragechoices1.png"> Coverage images can have many choices.
+See <a href="#changing">below</A> for much more information, but in
+summary:
+<UL>
+<LI>An Aitoff projection (selected in this example, indicated with the
+darker grey) is an all-sky projection (in this case, a DIRBE 60 micron
+image). This is showing the results of an all-sky search. 
+<LI> A search over a large region might result in a HiPS (hierarchical
+progressive survey) image, or you can force it to give you a HiPS
+image by clicking on "HiPS" in the upper left of the coverage image.
+<a
+href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
+target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A> images are created specifically to enable
+fast, dynamic resolution changes; zoom in and find smaller pixels than
+if you zoom out. Choices of what you can do and what you can
+manipulate with HiPS images can be different than your choices for
+FITS images, but are largely the same as discussed in the rest of this
+chapter.
+<LI> A search over a small area will result in a FITS image, or you
+can force it to give you a FITS image by clicking on "FITS" in the
+upper left of the coverage image. It will select a FITS image
+corresponding to your current target. All of the available options for
+FITS images are discussed in this chapter.
+</UL>
+<P>
+
+
+&nbsp;<P>
+
+<a name="imageoptions"> <!-- --> </A>
+<h3><a name="toolbar">Image Toolbar (FITS and HiPS)</A></h3>
+
+There is a toolbox along the top of the SOFIA window:<br> <img
+src="img/toolbox.png" width="100%"><br> from which you can select a
+variety of options, now described.  Letting your mouse hover over any
+of these icons will result in a "tool tip" that appears in order to
+remind you what the icon does. This information is also dynamically
+updated below the toolbox itself.  <strong>Most items apply equally to
+FITS and HiPS images, but some (e.g., the color table/stretch) only
+apply to FITS images.</strong><P>
+
+<DL>
+
+<A NAME="fitsDownloadOptions"><!-- --></A>
+<dt><img src="img/save.png"> <em>Saving the image.</em>
+<dd>The diskette icon will allow you to save the current image.  You
+can save files to your local disk or to the  <a
+href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>.  Note that
+<b>you</b> control where the file is saved on your disk through your
+browser; your browser may be configured to
+store all downloads in a particular location on your disk. <P>
+
+If the current image is a FITS file, you can save it as a FITS or PNG
+or regions file to your local disk. If it is a HiPS file, your only
+choices are PNG or regions file. Saved FITS images will not save the
+color stretches or overlays; it will just save the underlying FITS
+image.  Saved PNG files WILL include any overlays or annotations you
+have placed on the image, but will not include the underlying FITS
+image. Saved regions files will not save the underlying image, but
+will just save the overlays as a DS9 Regions file. See the <a
+href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
+website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of these DS9 region
+files. <P>
+
+Note that you can save the original or a cropped version of the FITS
+file; see the "select region" icon below to crop, and then be sure to 
+save the FITS image.   This is not available for HiPS images. <P>
+
+Note also that if you <a href="catalogs.html">overlay a catalog</A>
+consisting of tens of thousands of sources, only the first 500
+sources will be saved in the regions file, not the full catalog.<P>
+
+
+<dt><img src="img/zoominout.png"> <em>Zooming in or out.</em>  
+<dd>
+Clicking on these magnifying glass icons zooms in or out of the image.
+The readout of the net effect of your zooming on the displayed field
+of view (FOV) appears at the top left of the image, in green.  <P>
+
+If you click zoom in or out rapidly, a pop-up window appears to allow
+you to more rapidly select the zoom level (field of view) you want.
+Select the desired level, or click on the 'x' in the upper right to
+make the window go away. Here is an example: <br><img
+src="img/zoomlevel.png"><P>
+
+Note that there is a maximum (or minimum) allowed zoom level, and they
+are different for FITS and HiPS images. A notification will appear
+when you have reached the maximum (or minimum) allowed zoom level for
+a given image.  To enlarge coverage images more (or less) than that,
+please repeat your search to obtain new images with smaller (or
+larger) spatial extent. HiPS images are specifically designed for
+large areas, so if you need a big area, use HiPS. If you want to zoom
+in close enough to see individual original pixels, your best choice is
+FITS. To zoom in closer on FITS images from SOFIA instruments,
+download the images to your disk and use another viewer of your
+choice. <P>
+
+See also the section below on <a href="#changing">changing coverage
+images</A>, specifically that on automatic transitions while
+zooming</A>. <P>
+
+
+Note also that if spectra are displayed, sometimes the zoom level
+isn't particularly well behaved, because spectra are intrinsically
+different than images.<P>
+
+<dt><img src="img/zoomoriginalsize.png"> <em>Zooming to a 1-to-1 size.</em>  
+<dd> Clicking this icon will zoom the image such that one pixel in the
+image is one pixel on your screen. This option is only available with
+FITS images; HiPS images by their nature have pixels of varying sizes,
+so this button has no meaning in this case.  <P>
+
+<dt><img src="img/fitandfill.png"> <em>Fit image to screen or fill
+screen</em>  
+<dd>
+These two icons are designed to maximize the available space in your
+browser window. The first one automatically picks a zoom level such
+that the image entirely fits within the available space. The second
+one automatically picks a zoom level such that the image fills as much
+of the available space as possible (e.g., it is zoomed such that short
+axis of the window is filled with the image, whether that short axis
+is left-right or up-down). <P>
+
+<!--  By default, the images that are returned are frequently but not always
+centered on your search target. Clicking on these icons let you see
+the whole image that is returned, whether or not it is centered on
+your target.-->  <P>
+
+This is available for both FITS and HiPS images, though note that FITS
+images retrieved from IRSA using this tool are typically square, and
+HiPS images cover the sky, so fitting the image to the screen
+might not be what you want to do. <P>
+
+
+<dt><img src="img/colortable.png"> <em>Changing the color table.</em>
+<dd>This icon enables you to change the color table of the
+displayed image. (This option is only available for FITS, not HiPS,
+images.) When you click the button, a pull-down menu appears
+with a wide variety of color table choices. Select your new color
+table from the options shown:<br>
+<img src="img/colortableoptions.png"><P>
+
+<dt><img src="img/stretch.png"> <em>Changing the color stretch.</em> 
+<dd>This icon enables you to change the color table stretch of the
+displayed image. (This option is only available for FITS, not HiPS,
+images.) When you click the button, a pull-down menu appears
+with a variety of choices. You can choose from a set of pre-selected
+options:<br><img src="img/stretchoptions.png"><br> If you pick the
+first one, "color stretch", you can customize the stretch. A pop-up
+window appears with a histogram of the values in the image, and you
+can change the stretch type and range. <br><img
+src="img/customstretch.png"> <BR> If you pick a color stretch from the
+pre-defined options, the pop-up window reflects this change. (Example: pick
+'Linear stretch to 99%'. Go back to "color stretch". Note that it has
+filled out the stretch type and ranges to reflect the current choice.
+Then -- either with the pop-up window still up or not -- go back and
+pick a different pre-defined stretch from the standard options. Note
+that the values in the pop-up change to reflect this current choice.)
+<P>
+
+<A NAME="rotateImage"><!-- --></A>
+<dt><img src="img/rotate.png"> <em>Rotating the image to any
+angle </em> 
+<dd>This feature allows you to rotate the image about the displayed
+center of your image to any angle of your choice, in degrees. (This
+option is only available for FITS, not HiPS, images.) It will rotate
+the image counter-clockwise (to the left) East of North if the image
+has a WCS embedded in it. <br><img src="img/rotatepopup.png"><br> You
+can type a number in the "angle" box, or use the slider, to rotate the
+image. To bring it back to North-up, click on the "North up" icon in
+the pop-up or in the main image toolbar.  To exit the pop-up without
+making further changes, hit the 'x' in the upper right of the
+pop-up.<P>
+
+<dt><img src="img/northup.png"> <em>Rotating the image so that North is
+up</em>.  
+<dd>Images may already be oriented such that North is up, or close to
+it. However, when interactively investigating images, or in certain
+situations, you could find yourself in a situation where North is not
+necessarily up. Clicking this icon will orient the selected image so
+that North is up. (This option is only available for FITS, not HiPS,
+images.) <P>
+
+<dt><img src="img/flip.png"> <em>Flipping the image on the y-axis</em>.  
+<dd>Clicking on this icon flips the image on the y-axis. (This option
+is only available for FITS, not HiPS, images.)<P>
+
+<dt><img src="img/recenter.png"> <em>Re-center the image.
+</em>
+<dd> Clicking this icon produces a pull-down menu:<br>
+<img src="img/recenterpulldown.png"><br>
+By default, "Pan by table row" is turned on, but, depending on how you
+have loaded your images, it may not seem to do very much. If you have
+search results scattered over the sky, and you change your coverage
+view to FITS (instead of Aitoff or even HiPS), as you scroll through your list
+of search results, the FITS image underneath will reload as needed
+when you have selected an observation in a different part of the
+sky.<br>
+<strong>Example of "Pan by table row":</strong> Do an all-sky search,
+for all FORCAST results in any configuration. Click on the FORCAST tab
+in the left pane and the Coverage tab in the right pane. Click on
+"FITS" in the upper left of the coverage image, instead of Aitoff.
+Move your mouse over to the FORCAST tab and scroll through the table.
+The FITS image dynamically updates when it needs to show you a different 
+part of the sky.<P>
+
+Other choices are to center on the target of the observation, center
+the image in the window, or center on a target of your choice. For the
+last of those, you can simply center on that target, or center and
+leave a marker on the image at that location.<P>
+
+
+<dt><img src="img/selectregion.png"> <em>Selecting a region.</em>
+<dd>When you click this icon, you get a pulldown from which you can
+select an elliptical or rectangular selection. After you make your
+choice, at first, nothing seems to happen. However, you can now click
+and drag in the image, selecting a box or ellipse on the image.  This
+region can be resized by grabbing and dragging the corners of the box.
+You can make a new region right away by holding down the shift key and
+clicking and dragging to select a new region.  When you have selected
+a region of the image, additional icons appear above the image, and
+exactly which icons you see is a function of whether you are working
+on a FITS or HiPS image: <img
+src="img/selectoptions.png"> These icons will allow you to (from left
+to right):
+<UL>
+<LI>(FITS only) crop the image to the selected region (then you can save the
+cropped FITS image via the save icon described above);
+<LI>(FITS only) obtain statistics from the image on the region;
+<LI>select the catalog sources overlaid on the image within
+the region (highlights the sources in the list and plot, if there is a
+catalog overlaid);
+<LI>filter the overlaid catalog down to the sources within the enclosed
+area (if there is a catalog overlaid);
+<LI>zoom the image to fit the selected area;
+<LI>recenter the images on the selected area.
+</UL>
+You can save the cropped FITS image via the save icon (described
+above). The statistics option results in a pop-up that looks something
+like this:<br><img src="img/imagestatistics.png"> <br> If you put your
+mouse over the row of the table in the pop-up, that location appears
+as an 'x' on the image.  If you have a catalog overlaid, selecting
+sources with this tool highlights them in the catalog list. When you
+impose a filter, the filters icon changes above the catalog to
+indicate that there is a filter applied (in this case just one filter:
+<img src="img/filtersapplied.png">). To clear the filters, click on
+the cancel filters icon (which also appears after you impose filters):
+<img src="img/cancelfilters.png">.<P>
+
+<dt><img src="img/ruler.png"> <em>Measuring a distance.</em>
+<dd>When you click this icon, at first, nothing seems to happen. 
+However, you can now click and drag to draw a line on the image, and
+the length of the line is displayed (in the middle of the line).   The
+units for the measured distance (and the color of the overlay) can be
+changed from the "layers" icon (described below). You can
+calculate the difference in RA and Dec separately via the layers icon
+as well; find the layer associated with the distance measurement and
+tick the "offset calculation" box. When it displays the offset
+calculation, it will give you the angle in degrees in one corner, and
+the length of the line segment in the RA and Dec directions, in the
+units you have specified. Clicking on this icon a second time removes
+the distance tool. (You can also remove this layer via the layers
+icon.)<P>
+
+<dt><img src="img/marker.png"> <em>Put a marker on the image. </em>
+<dd> When you click this icon, a pull-down menu appears with several
+possible options:<br><img src="img/markeroptions.png"><br> The first
+overlay choice (simply called 'marker') is a red circle. Initially, it
+appears in the center of the images, and is meant to be moved to
+wherever you first click in the image. It looks like this: <img
+src="img/circlemarker.png">. The dash-dot line around it means that it
+is 'active', so you can move (click and drag the marker) or resize it
+(click and drag the dash-dot boundary).   You can change the color
+of the marker (and change the label) via the "layers" icon (described
+below). You can also remove this layer via the layers icon. There are
+several additional options in the pulldown, enough that they have
+their own <a href="#footprints">section below</A>.<P>
+
+Note that if you swap between HiPS and FITS and back again, it
+will include a region on the HiPS image that is the footprint of the
+FITS images you had just loaded. A label appears at the center of that
+footprint, which may be disconcerting if you are not zoomed out enough
+to see the region itself. Here is an example, zoomed out so it is
+clear what is going on; this marker is another layer in the image:<br>
+<img src="img/lingeringfootprint.png"> <P>
+
+
+<dt><img src="img/compass.png"> <em>Add a compass rose</em>
+<dd> When you click this icon, arrows appear on the image showing
+which direction is North and which is East. Clicking on this icon a
+second time removes the compass rose.  (You can also remove this layer
+via the layers icon, described below.) <P>
+
+<dt><img src="img/coordinates.png"> <em>Add a coordinate grid.</em>
+<dd>  Click on this icon to overlay a coordinate grid on the image.
+Click it again to remove it. Customize the units of the grid (to,
+e.g., Galactic coordinates) via the "layers" icon (described
+below).<P>
+
+<dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em>
+<dd> When you click this icon, you get a pop-up window from which you
+can read in a DS9 regions file from your local disk. See the <a
+href="http://ds9.si.edu/doc/ref/region.html"
+target="_blank">DS9 website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of
+these DS9 region files. The supported regions are text, circle, box,
+polygon, line, and annulus. To make this window go away without doing
+anything, click on the 'x' in the upper right of the pop-up. <P>
+
+<dt><img src="img/layers.png"> <em>Viewing/changing the layers on the
+image.</em>  <dd>If you've been following along by trying these
+various options, you now have an image with a lot of annotations on
+it. The number that appears in blue over the layers icon tells you at
+any given time how many layers you have on the currently selected
+image. If you click this layers icon, you will get a pop-up window
+with a list of all the layers you have on top of the selected image.
+From the pop-up, you can turn layers off and on, at minimum, but you
+can often also change exactly what is displayed and what
+colors/symbols get used for it. Here is an example of a well-populated
+layers pop-up. <br><img src="img/layerspopup.png"><br> To change
+colors of a layer, click on the 'colors' link to be taken to a new
+pop-up from which you can select a new color. Some layers allow you to
+set additional parameters from this layers pop-up, like the labels or
+rotation angle of a footprint. To delete a layer, click on 'delete'.
+Some layers appear that do not have that option; to remove that layer,
+click on the corresponding icon from which you added that layer.
+Alternatively, you can "show all" or "hide all" with the buttons on
+the lower left of the pop-up window. To make this pop-up window go
+away, click on the 'x' in the upper right of the pop-up. <P>
+
+Note that for the coverage of each instrument, there are additional
+options:<br>
+<img src="img/targetcoverage.png"><br>
+The tickboxes indicate "show this item". The "Search" row reminds you
+of the target on which you searched -- here, it was M42, where the
+coordinates were resolved by NED (as opposed to Simbad). The two icons
+next in that row indicate, respectively, "copy this location to the
+clipboard" and "center image on this position." The last row reminds
+you that you can click on items in the image and have the
+corresponding observation highlighted
+in the image and in the table.<P>
+
+
+<dt><img src="img/undoall.png"><em>Restoring everything to the
+defaults</em>
+<dd>If you've played around a lot with the image, you may want to undo
+everything you've done. Click this button to restore everything to
+their original default values. Some layers may persist; remove them
+via the layers icon described above. <P>
+
+<dt><img src="img/lockedimages.png"><em>Lock/unlock image color tables
+and overlays</em> 
+<dd>The SOFIA Science Data Archive has "lock image colors"
+turned on by default. In other words, all the images that you have
+loaded are linked together for color tables and overlays. You can click
+on this icon to turn off this linkage among the images, enabling you
+to change images on an individual basis. Click it again to
+re-enable it. <P>
+
+<dt><img src="img/fitsheader.png"> <em>Viewing the image header.</em>
+<dd>This icon displays a pop-up window with the FITS header of the
+background image (or information about the HiPS image).  If you click
+on the columns in the pop-up, it will sort the keywords alphabetically
+by that column. This is useful for finding individual keywords in
+particularly densely populated FITS headers. Click the header again to
+sort in reverse-alphabetical order, and a third time to return to the
+default order. Below are examples of the original and sorted FITS
+header.  This is an interactive table, so all the <a
+href="tables.html#filters">filtering tools</A> apply here too.   To
+make this window go away, click on the 'x' in the upper right of the
+pop-up, or click "close" on the bottom.<br><img
+src="img/unsortedfitsheader.png" width="50%"><img
+src="img/sortedfitsheader.png" width="50%"> <P> Further, you can click
+on the gears in the upper right of the window to bring up a dialog box
+via which you can filter down the header keywords (using the same
+syntax as the other <a href="tables.html#filters">filters</A>):<br>
+<img src="img/fitsheaderoptions.png"><P>
+
+
+<dt><img src="img/help.png"> <em>Getting help.</em>
+<dd>  Clicking on this icon takes you to this help page.<P>
+
+</dl>
+
+
+&nbsp;<P>
+
+
+<a name="hipsViewer"><h3>Specific HiPS Features</h3></A>
+
+<a
+href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
+target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A> (hierarchical progressive survey) images are
+different than FITS images, and as such, the choices of what you can
+do with the HiPS images are different than what you can do with the
+FITS images. Choices you can make for HiPS images are sometimes
+different than what you get for FITS images.<P>
+
+The whole point of HiPS images is to provide on-demand resolution
+changes. Zoom out, and it loads large pixels. Zoom in, and it loads
+smaller pixels.  HiPS images are designed to cover large areas of sky
+efficiently. If you need to visualize many degrees, this is the image
+type to use.<P>
+
+There are HiPS images from all over the world; the complete list of
+HiPS images available from the IRSA Viewer search page includes (once
+the "IRSA Featured" checkbox is unchecked) many HiPS images from <a
+href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS <img src="img/jumpout.jpg" height="10"></A>. <P>
+
+HiPS images have the color and stretch set by the person who
+originally made them. Thus, you cannot change the color/stretch of
+HiPS images from within IRSA Viewer. This is why there may be multiple
+versions of some data sets in the list of HiPS images.<P>
+
+You can't save HiPS images from within IRSA's tool. To download your
+own copy, you will have to track down the original source of the
+image.<P>
+
+Catalog searches (see <a href="catalogs.html">Catalogs section</A>) on
+top of HiPS images are limited to a maximum of 5 degrees. <P>
+
+
+
+
+
+
+&nbsp;<P>
+<a name="footprints"><h3>Footprints</h3></A>
+
+The marker icon (<img src="img/marker.png">) has a pull-down menu with
+several possible options:<br><img src="img/markeroptions.png"><br> 
+Each of these can expand to additional choices, for example, SOFIA
+expands as follows:<br>
+<img src="img/markersuboptions.png"><br>
+We now describe these various footprints here.<P>
+
+For each of these choices, the markers appear initially at the current
+target in the loaded image, which is often at or near the center of
+the loaded image. The first mouse click you make in any of the
+images will move the marker to that location.<P>
+
+Each of these marker choices, when overlaid and/or selected as
+'active', has a large circle surrounded by 4 small circles located at
+the edge of the large circle. These so-called "handles" allow you to
+resize and/or rotate the marker, depending on the nature of the
+marker. These handles only appear when the marker is selected as
+active, and they are in the same color as the marker itself.<P>
+
+<strong>Troubleshooting and Tips:</strong> 
+<UL>
+<LI>Some of these footprints are <em>large</em>. If you overlay, say,
+a WFIRST footprint on a FORCAST image, you may need to zoom out a
+considerable amount before you can see the WFIRST footprint. You will
+see the center indicator of the marker before you will see the WFIRST
+footprint itself. 
+<LI>You can add multiple copies of the same marker using the layers pop-up
+(described generally above). You can also add a label to the marker
+from the layers pop-up, or change its color.
+<LI> If you have many footprints on the same image, you may have
+trouble grabbing and moving footprints lower in the stack of layers on
+the image. For example, overlay footprint 1, then footprint 2, and you
+might have a hard time grabbing and rotating footprint 1 after
+footprint 2 has been added. The only workaround here is to use the
+layers pop-up (described generally above) to hide footprint 2, then
+move footprint 1, then restore footprint 2.
+</UL>
+
+
+<img src="img/circlemarker.png"> The first overlay choice (simply
+called 'marker') is a red circle.   <P>
+
+The remaining markers are all footprints from various telescopes:
+Spitzer, SOFIA, HST, JWST, and WFIRST. HST, JWST and WFIRST are
+derived from information provided via MAST (see <a
+href="http://gsss.stsci.edu/webservices/footprints/help.html">http://gsss.stsci.edu/webservices/footprints/help.html</A>.)
+For JWST and WFIRST in particular, they are pre-launch values.<P>
+
+
+<img src="img/iracfoot.png"> <strong>Spitzer/IRAC 3.6 and 4.5 micron
+footprints.</strong> These two footprints are placed separately
+from each other. The footprint can be moved or rotated. Click and drag
+the center of the footprint. A circle appears with four small circles
+("handles") around it. Grab and drag the small circles to rotate it,
+or drag the big circle to move it. Change the color, delete, or add
+more copies of the IRAC footprints from the layers pop-up:<br> <img
+src="img/irac-layers.png"><P> 
+
+<img src="img/sofiafoot.png"> <strong>SOFIA footprints.</strong>
+Several different SOFIA footprints are available; the graphic here
+shows a selection of them. The available footprints (all of which are
+placed separately) are:
+<UL>
+<LI>FLITECAM 
+<UL>
+<LI>Imaging
+<LI>Grism ABBA
+<LI>Grism AB
+</UL>
+<LI>FORCAST 
+<UL>
+<LI>Imaging
+<LI>Grism a
+<LI>Grism b
+</UL>
+<LI>FIFI-LS 
+<UL>
+<LI>Blue (50-120 microns)
+<LI>Red (110-200 microns)
+</UL>
+<LI>FPI+
+<LI>HAWC+ 
+<UL>
+<LI>53 microns (Band A), Total Intensity
+<LI>53 microns (Band A), Polarization
+<LI>89 microns (Band C), Total Intensity
+<LI>89 microns (Band C), Polarization
+<LI>154 microns (Band D), Total Intensity
+<LI>154 microns (Band D), Polarization
+<LI>214 microns (Band E), Total Intensity
+<LI>214 microns (Band E), Polarization
+</UL>
+</UL>
+Change the color, delete, or add
+more copies of the SOFIA footprints from the layers pop-up.<P>
+
+<img src="img/hst.png"> <strong>HST footprints.</strong>
+You can overlay the whole focal plane footprint, shown here, or
+individual instrument footprints (NICMOS, WFPC2, ACS/WFC, ACS/HRC,
+ACS/SBC, WFC3/UVIS, and WFC3/IR).  Consult the <a
+href="http://www.stsci.edu/hst/observatory/apertures">HST
+documentation</A> for specifics on which apertures are which. The
+footprint can be moved or rotated. Click and drag the center of the
+footprint. A circle appears with four small circles ("handles") around
+it. Grab and drag the small circles to rotate it, or drag the big
+circle to move it. <strong>Note that</strong> if you overlay the
+footprint on a very small image, nothing will appear to have happened.
+You need at least a 45 arcmin image to comfortably see the footprint.
+Change the color, delete, or add more copies of the HST footprints from
+the layers pop-up.<P>
+
+<img src="img/jwstall.png"> <strong>JWST footprints.</strong>
+You can overlay the whole focal plane footprint, shown here, or
+individual instrument footprints (FGS, MIRI, NIRCAM, NIS, and NIRSPEC).
+<P>
+<strong>Note that</strong> if you overlay the footprint on a very
+small image, nothing will appear to have happened. You need at least a
+30 arcmin image to comfortably see the entire JWST focal plane. Please consult the <a
+href="http://www.stsci.edu/jwst/">JWST documentation</A> for details
+about the footprints.  In all cases, if the footprint is 'active', a
+circle near the middle of the footprint will appear with four small
+circles ("handles") around it. Grab and drag the small circles to
+rotate it, or drag the big circle to move it. Change the color,
+delete, or add more copies of the footprints from the layers pop-up.<P>
+
+<img src="img/wfirst.png"> <strong>WFIRST focal plane
+footprint.</strong> As above, the footprint can be moved or rotated.
+Click and drag the boresight (the cross hairs), which appears by
+default to the upper right of the array of squares.  A circle appears,
+centered on the boresight, with four small circles ("handles") around
+it. Grab and drag the small circles to rotate it, or drag the big
+circle to move it. <strong>Note that</strong> if you
+overlay the footprint on a very small image, nothing will appear to
+have happened. You need at least a 60 arcmin image to comfortably see
+the footprint, and even then you will probably have to click and drag
+to see the entire footprint. Consult the <a
+href="https://wfirst.ipac.caltech.edu/">WFIRST documentation</A> for
+specifics on the apertures. Change the color, delete, or add more copies of the
+WFIRST footprint from the layers pop-up.<P> 
+
+
+
+
+
+&nbsp;<P>
+
+<A NAME="catalogsandlayers"><H3>Catalogs and Layers</H3></A>
+
+If you search on catalogs from the search results page, then the SOFIA
+Science Data Archive will overlay these catalogs on your images as
+additional layers. In order to see the layers on any given image, you
+need to click on the layers icon (<img src="img/layers.png">) in the
+image toolbox (described above). See <a href="catalogs.html">the
+Catalogs section</A> for much more information on catalogs in
+general.  <P>
+
+To remove a catalog entirely, click on the small 'x' in the upper
+right of the  catalog tab in the window pane view.<P>
+
+&nbsp;<P>
+
+
+
+
+<A NAME="breakingout"><H3>Breaking out of the pane (and going back)</H3></A>
+
+By default in the SOFIA Science Data Archive, the screen is broken up
+into 2 panes, the list of observations on the left and the details of
+the selected observation on the right. For
+some purposes, it is useful to view either of these panes as
+large as possible. On the upper right of any pane,  there is an expand
+icon <img src="img/expand-24x24.png">. Clicking on it will expand
+these tables into a larger window, taking up as much space in your
+browser window as possible.   <P>
+
+<img src="img/close.png"> The large "Close" arrow at the upper left is
+always available in the expanded views, and enables you to return back
+to the pane view.<P> 
+
+
+&nbsp;<P>
+
+<A NAME="coverage"><h3>Coverage Image</h3></A></A>
+
+The SOFIA Science Archive will pick an image on your behalf, called a
+coverage image, on which it places the footprints of the observations
+in your search results. <P>
+
+The next subsection covers more details about the coverage image.<P>
+
+
+
+&nbsp;<P>
+
+
+<A NAME="autozoom"><A NAME="changing"><h3>Automatic FITS-HiPS-Aitoff Transitions</h3></A></A>
+
+<img src="img/coveragechoices1.png"><img
+src="img/coveragechoices.png"> Coverage images can have many choices;
+it could look something like either of these screen shots. In this
+section, we cover these choices from left to right.<P>
+
+<strong>Type of image</strong><P>
+<UL>
+<LI>An Aitoff projection (selected in the first example, indicated with the
+darker grey) is an all-sky projection (in this case, a DIRBE 60 micron
+image). This is showing the results of an all-sky search; if you
+searched a smaller region, you may not have Aitoff as an option.
+<LI> A search over a large region might result in a HiPS image, or you
+can force it to give you a HiPS image by clicking on "HiPS" in the
+upper left of the coverage image. It will load a HiPS image
+corresponding to your current target. <a
+href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
+target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A> images are
+created specifically to enable fast, dynamic resolution changes; zoom
+in and find smaller pixels than if you zoom out.  HiPS images are
+designed to cover large areas of sky efficiently.  HiPS images are
+limited to the color and stretch set by the person who originally made
+them. Choices of what you can do and what you can manipulate with HiPS
+images can be different than your choices for FITS images.
+<LI> A search over a small area will result in a FITS image, or you
+can force it to give you a FITS image by clicking on "FITS" in the
+upper left of the coverage image. It will select a FITS image
+corresponding to your current target. 
+</UL>
+
+For any given search that is not an all-sky search, chances are
+excellent that you will end up with a HiPS image. <P>
+
+<strong>Automatic changes</strong><P>
+FITS images are best for small regions of the sky. HiPS images are
+best for large regions of sky. Aitoff projections are best for
+viewing the entire sky at once. If you tick the "Auto" box and then
+zoom in or out, the viewer will automatically toggle between image
+types as needed. Zoom in enough, and it will swap from HiPS to
+FITS. Zoom out again enough, and it will swap from FITS to HiPS.<P>
+
+Note that if you swap between HiPS and FITS and back again, it
+will include a region on the HiPS image that is the footprint of the
+FITS images you had just loaded. A label appears at the center of that
+footprint, which may be disconcerting if you are not zoomed out enough
+to see the region itself. Here is an example, zoomed out so it is
+clear what is going on:<br>
+<img src="img/lingeringfootprint.png"> <P>
+
+
+<strong>Coordinates</strong><P>
+
+The pulldown menu allows you to select between coordinate systems.
+Used in conjunction with the image readout and/or the coordinate
+layer button (both described above), you can change what coordinate
+system it uses.<P>
+
+<a name="changehips"><strong>Change HiPS</strong></A><P>
+
+As seen in that screen snapshot just above, the choices made by the
+creator of this HiPS image result in the brightest region of M42 (here
+indicated by the target marker) being saturated.  Color tables and
+stretches are set by the creator of the HiPS map and cannot be
+changed. If the HiPS map as shown does not suit your needs and you
+wish to change the HiPS image, click on the "Change HiPS" button, seen
+in the screen shot above. It brings up this pop-up:<br>
+<img src="img/changehips.png"> <p>
+Things to note:
+<UL>
+<LI>To select a new image, click on the row corresponding to the new
+HiPS image you want, and click "Search" on the bottom left. 
+<LI>To cancel without selecting a new image, click "Cancel."
+<LI>This is an interactive table, so all the <a
+href="tables.html#filters">filtering</A> and <a
+href="tables.html#columns">column manipulation</A> tools apply here
+too. You can filter down the columns to find the image you want to
+use.
+<LI>To learn more about each HiPS map, click on the i with the circle
+in the second column. It will spawn another window with standardized
+information about the HiPS map.
+<LI>By default, it shows HiPS maps corresponding to IRSA data
+collections. To see a more comprehensive list, unclick the box marked
+"IRSA Featured."
+</UL>
+
+<P>
+
+
+
+
+ 
+
+</BODY>
+</HTML>

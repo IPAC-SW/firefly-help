@@ -1,0 +1,135 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "SOFIA: Downloading Data" -->
+<HEAD>
+<TITLE>SOFIA: Downloading Data
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>SOFIA Science Data Archive: Downloading Data</h2>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A> <br>
++<A href="#downloadoptions">Download Options</A><br>
++<A href="#downloadScript">Download Script</A> <br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="overview">Overview</A></H3>
+
+On the search results page, click the checkboxes on the left of each
+row to select specific data files to download (click the checkbox at
+the top of the column of checkboxes to 'select all'), and then click
+"Prepare Download" (near the top left of the image results window
+pane, <img src="img/preparedownload.png">) to begin the  packaging and
+downloading process.  A pop-up window will appear.  <P>
+
+
+<img src="img/downloadoptions.png"><P>
+
+The first row is the name by which this packaging job will be known to
+the <a href="basics.html#background">background monitor</A> - change
+it to whatever you want (time or a description of your search is
+usually the most helpful).<P>
+
+The second row controls whether the observations are bundled one per
+subdirectory or are all in one directory. <P>
+
+The third row controls the filename for the packaged download file --
+by default it has a string constructed from a terse summary of the
+search.<P>
+
+The fourth row controls whether the file is saved to your local disk
+or the <a href="/docs/workspace/" target="_blank">IRSA
+Workspace <img src="img/jumpout.jpg" height="10"></A>.<P>
+
+The last row toggles whether or not the <a
+href="basics.html#background">background monitor</A> sends you email
+when it is done.<P>
+
+
+When you click "Prepare Download", then the packaging process spins
+off into the <a href="basics.html#background">background monitor</A>,
+which keeps track of its progress and notifies you in the browser when
+the downloads are complete. You can choose (even after you have sent
+the job) to have an email sent to you to let you know when things are
+ready.  <P> 
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. <P>
+
+
+<H3><A NAME="downloadoptions">Options for Downloading Data</A></H3>
+
+<dl>
+<dt><strong>Zip File Structure</strong>
+<dd> You may wish to have the data files organized for you into
+subdirectories, particularly if you are downloading a lot of different
+data sets. Here is an example of the same data downloaded using the
+flattened and the structured options.<br>
+<img src="img/filestructure.png"><P> 
+
+<dt><strong>Email</strong>
+<DD>You have an option to provide an email address to which it will
+send an email when the packaging is done. (Within the same SOFIA
+Science Data Archive session, it remembers what you have entered
+before, but when initiating a new session, you will have to re-enter
+this information.) This is useful if you are downloading lots of data,
+anything that takes longer than a few seconds to a few minutes. Note
+that you can also enter an email after it has started packaging.<P>
+</dl>
+
+
+
+
+<H3><A NAME="downloadScript">Downloading Script</A> </h3>
+
+The Download Retrieval Script dialog gives you some options regarding
+which script you want to use. Generally speaking, the wget script is
+best for Linux and Unix users. The curl script is best for Mac users,
+because curl is part of the standard OS distribution; Mac users can
+also go retrieve and install <a
+href="http://www.gnu.org/software/wget/" target="_blank">wget <img src="img/jumpout.jpg" height="10"></A> and then use the
+wget scripts. For any of the scripts, you can also choose to include
+an option that unzips the zip files automatically.  The files stay on
+disk here for at least 72 hours, so you have a window of time to
+download them.<P>
+
+Save the script to a plain text file, and invoke the script.  You can
+copy and paste the script lines individually into your terminal
+window, or by  typing "csh [yourtextfile]" at the prompt.  The files
+will be automatically and sequentially downloaded to your disk, and if
+you've selected that option, unzipped as well.  <P>
+
+For Windows users, download and save the text file of URLs . Then follow the
+following steps to install the wget script and then download your data:
+<ol>
+<li>Go to the <a href="http://gnuwin32.sourceforge.net/packages/wget.htm" target="_blank">Windows wget web page <img src="img/jumpout.jpg" height="10"></a>
+<li>Scroll to the Download section and retrieve the wget installation.
+<li>Install wget and add the binary to your path.
+<li>Download the text file of URLs 
+<li>At the command prompt: wget --content-disposition -i &lt;file_of_urls_downloaded.txt&gt;
+</ol><P>
+
+
+Depending on how, exactly, you unzip your files, your computer may put
+the contents of each zipfile into one directory, rather than, say, the
+contents of each observation into one directory (which was the
+original design, and the conceptually most straightforward). If you
+are using a GUI-based method (e.g., click to uncompress), there should
+be a preferences option to allow you to uncompress subsequent zipfiles
+into the same root directory.  If you use the download script above,
+the flags sent on the command line that unzip the files should put all
+files from the same observation in the same directory.<P>
+
+
+
+</BODY>
+</HTML>

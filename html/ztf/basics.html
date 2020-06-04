@@ -1,0 +1,377 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "ZTF Image Service: Basic Features and Functions" -->
+<HEAD>
+<TITLE>ZTF Image Service: Basic Features and Functions
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Basic Features and Functions in ZTF Image Service</h2>
+
+The contents of this file essentially follow the menu options (e.g.,
+basically the blue tabs across the top, under the IRSA menu).<br>
+<img src="img/bluetabs.png" width="100%"><P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#searching">Searching by Position</A> <br>
++<A href="#byTable">Searching by Position in Batch Mode</A> <br>
++<A href="#byZTFField">Searching by ZTF Field ID</A><br>
++<A href="#bySSO">Searching by Solar System Object/Orbit</A><br>
++<A href="#searchHistory">History</A> -- Your search history <br>
++<A href="#help">Help</A> -- Getting more help<br>
++<A href="#catalogs">Catalogs</A> -- Retrieving and using catalogs<br>
++<A href="#downloads">Downloads</A> -- Downloading data<br>
++<A href="#background">Background Monitor</A> -- The Background
+Monitor<br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="searching">Searching by Position</A></H3>
+
+Searching the archive is straightforward -- the most common search is
+a search by position for a cone search.     You may enter a target
+name, and have NED or Simbad or the ZTF
+name resolver resolve the target name into coordinates. 
+Alternatively, you may enter coordinates directly. These coordinates
+can be in decimal degrees or in hh:mm:ss dd:mm:ss format. By default,
+it assumes you are working in J2000 coordinates; you can also specify
+galactic, ecliptic, or B1950 coordinates as follows:
+<UL>
+<LI>'358.3 25.6' means 358.3, 25.6 d degrees in J2000 coordinates
+<LI>'46.53 -0.251 gal' means 46.53, -0.251 degrees in galactic coordinates
+<LI>'12.7, +4.3 ecl' means 12.7, +4.3 degrees in ecliptic coordinates
+<LI>'19h17m 11d58m b1950' means 19h17m 11d58m in B1950 coordinates 
+</UL>
+
+As you are completing a valid coordinate entry, it echoes back to
+you what it thinks you are entering. Look right below the box in which
+you are typing the coordinates to see it dynamically change.  <P>
+
+You can specify exactly which kind of search type (region
+intersection) you would like, and the subsequent options change
+accordingly, e.g., :
+<UL>
+<LI><em>Images contains target</em> (default) 
+<UL>
+<LI> The next option becomes "Return Image Size (leave blank for full
+images)" which is 500 arcsec by default.
+</UL>
+<LI><em>Image covers entire search region</em> 
+<UL>
+<LI> The next options become  "Search Region (Square) Size", and
+"Return Image Size (leave blank for full images)." Because you are
+requesting that the images meeting your search criteria cover the
+entire region you are requesting, if you make the search region large
+and your image size small, it's likely that you will be left with no
+images matching your criteria.
+</UL>
+<LI><em>Image is entirely enclosed by the search region</em>
+<UL>
+<LI> The next option becomes "Search Region (Square) Size." Because
+you are requesting that the images meeting your search criteria are
+entirely encompassed by your search region, it is very easy to have a
+search region too small and thus have no results matching your
+criteria.
+</UL>
+<LI><em>Any pixel in the image overlaps the search region requested</em> 
+<UL>
+<LI> The next option becomes "Search Region (Square) Size." It will
+give you all images that overlap your search region at all.
+</UL>
+</UL>
+
+For some of these options, you can specify the image size you want to
+retrieve; you can leave it  blank to return the full images. You may
+enter the image size in arcseconds, arcminutes, or degrees; just
+change the pulldown option accordingly. <strong>Caution:</strong> pick
+your units from the pulldown first, and then enter a number; if you
+enter a number and then select from the pulldown, it will convert your
+number from the old units to the new units. There are both upper and
+lower limits to your search radius; it will tell you if you request
+something too big or too small. <P>
+
+You can choose to retrieve only the most centered image containing
+your target, or any image containing your target.<P>
+
+You can choose to have any combination of science exposures, reference (coadd)
+images, and/or difference images returned.<P>
+
+You can specify additional optional constraints.  Click on the grey
+triangle or grey bar to reveal these options. You can specify the ZTF
+Field ID(s) or the CCD ID(s) you want. To search for more than one at
+a time, enter a list separated by semicolons (;).<P>
+
+The search window can be retrieved after a search by clicking on the
+blue "Searches" tab near the top left.<P>
+
+<h3><A NAME="byTable">Searching by Position in Batch Mode</A></h3>
+    
+The position search can also be executed in "batch mode" for a list of
+objects given in a file - select the Multi-Object tab from the search
+page.  The file must be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file</A> format, which is ASCII
+text with headers explaining the type of data in  each column,
+separated by vertical bars.  
+
+A sample input file looks like this: <P>
+<pre>
+
+|              ra|              dec|
+|          double|           double|
+|             deg|              deg|
+ 266.461876096161 -28.9303475510113 
+ 317.385694084404 -41.1537816217576 
+ 267.210580557307 -27.7929408211594 
+ 229.172700517754   0.2598861324350
+ 299.510225672473 -38.7735055243326
+ 213.945501950887  13.3596597685085
+ 262.341432853080 -23.7518928284717
+ 271.202769466020 -21.7274227022229
+ 291.167629785682 -29.2569222675305
+ 272.336516119634 -20.2761650442889
+ 237.391628608612   2.5906013137112
+</pre><P>
+
+
+Please use the <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank"> IPAC table check tool</a> to check and reformat your
+input table before the table upload. If the table upload search still
+does not work properly, try the following :<p> 
+<UL> 
+<LI> No hyphens allowed in column names, or filename! 
+<LI> Column names should be all in lower case
+<LI> No empty lines at the end of the input file. 
+</UL>
+<p>
+
+Please note that the maximum number of targets that can be requested
+in a batch search is 1000.<P>
+
+
+<h3><A NAME="byZTFField">Searching by ZTF Field ID</A></h3>
+
+
+In the search pane, from the options on the left, you can also search
+by ZTF Field ID.   If you know your ZTF field ID, you can search on
+one or more than one via the first option on this search page. A list
+of them should be separated by semi-colons (;). <P>
+
+In the second box, you can (optionally) specify an additional
+constraint of the CCD ID for your search. The CCDs are numbered
+between 0 and 11. You can specify more than one; just separate them in
+the list with semi-colons (;). <P>
+
+
+<h3><A NAME="bySSO">Searching by Solar System Object/Orbit</A></H3>
+
+In the search pane, from the options on the left, you can also search
+by Solar System Object/Orbit. <P>
+
+By selecting this option, the first tab you see (the default tab) is
+to search by "Object Name". You can first select, under "Object Type"
+whether your object is an astroid or comet, then enter the Object
+Name. You can specify how finely or coarsely the ephemeris is
+calculated in time steps (in units of days), and the search region
+over which the search should be conducted.<P>
+
+The next search tab option is "MPC Input". MPC is Minor Planet Center,
+and you can enter the MPC 1-line input in the blank provided. Here,
+too, you need to specify if your object is an asteroid or comet.<P>
+
+The last search tab option is "Manual Input". From this screen, you
+specify if your object is an asteroid or comet, and enter all the
+relevant ephemeris parameters. <P>
+
+For all three of these options, you also can specify the date range to
+search, and the returned image size.
+<strong>Caution:</strong> Longer time baselines take longer to
+complete.<P>
+
+
+
+
+
+<H3><A NAME="searchHistory">Your Search History</A></H3>
+
+The History menu option (blue tab at the top of the window, next to 
+"Searches") gives you access to your own search history. <P>
+
+All of the single-position searches that you do for a given session
+with the ZTF Image Service are remembered in the search history panel. A
+high-level summary of the search is also listed -- what kind of search
+it was, what parameters you used, etc.<P>
+
+You can resubmit the search (see buttons at top left of the search
+history tab), remove the search from your history, or mark the
+search as a favorite search to which you can return at a later
+time/date. However, in order to return to it during a different
+ZTF Image Service session, you do need to be logged in when you save the
+search -- see the <a href="user.html">user registration
+section</A>.)   <P>
+
+Note that batch searches are not retained.<P>
+
+<P>
+
+
+
+
+<H3><A NAME="help">Getting Help</A></H3>
+
+The "Help" blue tab leads you into this online help, as does
+"ZTF Help" from under the "Help" in the IRSA menu on the
+top of the ZTF Image Service page. You can also download a PDF version of
+this manual; look at the top of the help window.<P>
+
+
+You can submit questions to the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk</A>.<P>
+
+A set of frequently asked questions (FAQs) is <a
+href="faq.html">here</A>. <p>
+
+<a name="bugs"></A><strong>Found a bug?</strong> The known bugs and
+issues in this version of the ZTF Image Service are listed <a
+href="https://irsa.ipac.caltech.edu/docs/known_issues/ztfbugslist.html"
+target="_blank">here</A>.  If you think you have found a bug, before
+reporting it, please check this list, and read this online ZTF Image
+Service help. It may be a "feature" we already know about.  If you
+have found a new, real bug then please do contact us via the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk</A>. Please include your operating
+system version and your browser software and version.  If you can,
+please also include any specific error message you may have gotten.
+(NB: In our testing, copying shortcuts worked on Windows and Linux;
+the command-C did not work on Macs, but selecting and clicking the
+right mouse button did.)<P>
+
+
+
+<H3><A NAME="catalogs">Catalogs -- Retrieving and using catalogs</A></H3>
+
+(Note that catalogs are available via a blue tab that appears at the
+top of the page only after you have performed at least one search --
+in essence, you need to have something on which to overlay the catalog
+before it will let you search.)<P> 
+
+You can choose from any of a wide variety of <a
+href="catalogs.html">catalogs</A> (from IRSA or your own disk) to load
+in preparation for overlaying on your <a
+href="visualization.html">visualized data</A>. You can also make <a
+href="catalogs.html#xyplots">plots from the catalogs</A>.<P>
+
+By default, it remembers the most recent search you did and constructs
+a query that will cover the same area. You may change the search
+criteria and select catalogs based first on the "project" under which
+they are housed at IRSA, such as 2MASS, IRAS, WISE, MSX, etc.  The
+options under the "category" and the specific clickable catalog on the
+right change according to the project you have selected.  A short
+description is provided for each of the catalogs, with links for more
+information.; an example is here:<br>
+<img src="img/catalogcoldef.png"><P><P>
+
+Click on "Search" to initiate the search. 
+<b>NOTE THAT</b> the search may take a long time to return, especially
+if you have asked for a large catalog, and you may think that nothing
+has happened, but be patient and eventually it will either spin off to
+the background monitor, or return a tab directly.<P>
+
+Use large search radii with caution! Be sure you understand how many
+sources you are likely to retrieve. Searches that retrieve more rows
+will take a long time.<P>
+
+Once you have a catalog loaded, there is a tab containing the catalog
+that is added to the window pane on the left that contains the list of
+targets on which you searched. There are icons in the upper right of
+the browser window that denote "table view" (the default) or "plot
+view", which is a plot made from the catalog. You can change what is
+plotted; see the <a href="catalogs.html#xyplots">Catalogs
+section</A>.<P>
+
+Once you have a catalog loaded, to return to the view where the image
+takes up as much of the screen as possible, let your mouse hover over
+the image and then click on this 'expand' icon in the upper right of
+the image: <img src="img/expand-24x24.png">  A similar expand icon can
+be found in the catalog window pane, or the catalog plotting pane, so
+that you can view those panes as large as possible. <P>
+
+For more information, please see the <a href="catalogs.html">Catalogs
+section</A>.<P>
+
+
+
+
+<A NAME="downloads"><H3>Downloads - Downloading data</H3></A>
+
+After deciding which data to download, click the checkboxes to
+select specific data files to download (click the checkbox at the top of
+the column of checkboxes to 'select all'), and then click "Prepare
+Download" to begin the  packaging and downloading process.  A pop-up
+window will appear in order to define exactly what kinds of data you
+would like to have packaged up. Clicking "Prepare Download" in the
+pop-up initializes this packaging process.  <P>
+
+The packaging process spins off into the <a
+href="#background">background monitor</A>, which keeps track of its
+progress and notifies you when the downloads are complete. You can
+monitor its progress by clicking on the background monitor link. You
+can choose to have an email sent to you to let you know when things
+are ready, even after the packaging process has started. If you have
+just a few zip files, you can click to download them, but especially
+if you have many files, you may want to have the ZTF Image Service
+generate a <a href="downloads.html#downloadScript">downloading
+script</A> for you to download them all automatically. <P>
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. <P>
+
+For more information, please see the <a
+href="downloads.html">Downloads section</A>.<P>
+
+
+
+<a NAME="background"><h3>The Background Monitor</h3></A>
+
+The Background Monitor appears as a blue tab (or button) in the upper
+right of your window to keep track of the data downloads you have
+requested.  It actively changes to reflect what it is doing
+("Preparing", etc., e.g.,: <img src="img/preparing.png">) Data
+packaging all goes to the Background Monitor; larger catalog requests
+are also sent to the Background Monitor.  It
+also provides a <a href="downloads.html#downloadScript">download
+script</A> (optional) if you have more than one package to download.<P>
+
+A pop-up window can be called up at any time by clicking the
+"Background Monitor" tab.  You can watch your catalog being retrieved.
+It will update that window when the data are available for download
+and overlay on your image, providing a link for obtaining the data. It
+also keeps track of the downloads you have requested during the same
+session, and indicates with a checkmark those that you have already
+loaded. Remove them from the list by clicking on the blue 'x'.
+<br>
+<img src="img/backgroundpopup.png"><P>
+
+To stop any query mid-way through, click on the little red octagon
+("stop sign") that appears next to the query in the Background Monitor
+pop-up.<P>
+
+
+If you forgot to put in your email at the beginning, or if the
+packaging is taking longer than you expected, you can click on "Add
+email" from the lower right of the Background Monitor popup and add
+your email during the packaging process. <P>
+
+
+
+
+</BODY>
+</HTML>

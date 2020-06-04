@@ -1,0 +1,157 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "PTF Image Service: Downloading Data" -->
+<HEAD>
+<TITLE>PTF Image Service: Downloading Data
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Downloading Data in PTF Image Service</h2>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A> <br>
++<A href="#downloadoptions">Options for Downloading Data</A> <br>
++<A href="#downloadScript">Downloading Script</A> <br>
++<a href="#contents">Contents of your download - Quick Start</A><Br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="overview">Overview</A></H3>
+
+In the simplest case, on the search results page, just click the
+checkboxes on the far left of each row to pick specific data files to
+download, and then click "Prepare Download" to begin the packaging
+(and downloading) process.  A pop-up window will appear in order to
+define exactly what kinds of data you would like to have packaged up.
+Clicking "prepare download" in the pop-up initializes this process.<P>
+
+To select <em>all</em> of the data you have displayed, click on the
+checkbox at the top of the column of checkboxes, and all of the rows
+are automatically clicked (even those on subsequent pages if you have
+more than one page).  Then click "Prepare Download" to initiate the
+packaging process.<P>
+
+The packaging process spins off into the <a
+href="basics.html#background">background monitor</A>, which keeps
+track of its progress and notifies you when the downloads are
+complete. You can choose to have an email sent to you to let you know
+when things are ready, even after the packaging process has started. 
+<P> 
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. <P>
+
+
+<H3><A NAME="downloadoptions">Options for Downloading Data</A></H3>
+
+From the pop-up, you can choose whether or not to download the Level-1
+Single Exposure processed images, or the Level-2 Coadded images. <P>
+
+The second option in the pop-up is "Download Ancillary Files."  From
+here, you can select whether you would also like the mask files, the
+raw (Level 0) images, and/or the SExtractor or PSF catalogs that go
+with your selected data.  The options that appear depend on whether
+you selected "prepare download" from the Level 1 or Level 2 tab. Some
+options may only work if you have <a href="user.html">proprietary
+access</A>. Any error messages will be packaged with the downloaded data.<P>
+
+The next option asks if you would like to download full images or just
+cutouts.<P>
+
+Next, the choices here refer to how it packages up the data for you
+within a zip file. Your choices are to have it delivered in a
+"flattened" disk structure (without sub-folders), or "structured"
+(with sub-folders.<P>
+
+The last section of the pop-up gives you an option to provide an email
+address to which it will send an email when the packaging is done.
+(Within the same session, or if you are logged in, it remembers what
+you have entered before, but when initiating a new session, you will
+have to re-enter this information.)<P>
+
+Click "Prepare Download" in the pop-up window, and it will go do
+it!<P>
+
+When it packages up the data, it will spin off to the <a
+href="basics.html#background">background monitor</A> and create zip
+files. This process could be virtually instantaneous, or take some
+time. You can watch it in the background monitor. If your packaging is
+taking longer than expected, you can add an email address mid-stream,
+and it will email you when it is done.<P>
+
+
+
+<H3><A NAME="downloadScript">Downloading Script</A> </h3>
+
+The Download Retrieval Script dialog gives you some options regarding
+which script you want to use. Generally speaking, the wget script is
+best for Linux and Unix users. The curl script is best for Mac users,
+because curl is part of the standard OS distribution; Mac users can
+also go retrieve and install <a
+href="http://www.gnu.org/software/wget/" target="_blank">wget</A> and then use the
+wget scripts. For any of the scripts, you can also choose to include
+an option that unzips the zip files automatically.  The files stay on
+disk here for at least 72 hours, so you have a window of time to
+download them.<P>
+
+Save the script to a plain text file, and invoke the script.  You can
+copy and paste the script lines individually into your terminal
+window, or by  typing "csh [yourtextfile]" at the prompt.  The files
+will be automatically and sequentially downloaded to your disk, and if
+you've selected that option, unzipped as well.  <P>
+
+For Windows users, download and save the text file of URLs . Then follow the
+following steps to install the wget script and then download your data:
+<ol>
+<li>Go to the <a href="http://gnuwin32.sourceforge.net/packages/wget.htm" target="_blank">Windows wget web page</a>
+<li>Scroll to the Download section and retrieve the wget installation.
+<li>Install wget and add the binary to your path.
+<li>Download the text file of URLs 
+<li>At the command prompt: wget --content-disposition -i &lt;file_of_urls_downloaded.txt&gt;
+</ol><P>
+
+
+Depending on how, exactly, you unzip your files, your computer may put
+the contents of each <em>zipfile</em> into one directory, rather than,
+say, the contents of each <em>observation</em> into one directory. If
+you are using a GUI-based method (e.g., click to uncompress), there
+should be a preferences option to allow you to uncompress subsequent
+zipfiles into the same root directory.  If you use the download script
+above, the flags sent on the command line that unzip the files should
+put all files from the same observation in the same directory.<P>
+
+<H3><A NAME="contents">Contents of your download - Quick Start</A> </h3>
+
+The <a href="http://www.ptf.caltech.edu/page/file_naming" target="_blank">PTF page on
+file naming conventions</A> breaks down the filename structure for
+Level 1 (individual frames) and Level 2 (combined frames) data. We
+strongly recommend reading the documentation at the PTF site to
+understand the contents of your download. However, very briefly, 
+depending on what level you are downloading, and what files you select
+for packaging when you download your data, you can get:
+<UL>
+<LI> *.fits = fits files. Alphanumeric strings define such things as
+the time, filter, and pipeline version. (See <a
+href="http://www.ptf.caltech.edu/page/file_naming" target="_blank">PTF page</A>)</LI>
+<LI>*daopsf.rpsf = PSF</LI>
+<LI>*depcov.fits = depth of coverage image, in units of input images</LI>
+<LI>*psfcat.ctlg = Binary fits table with DAOPhot-based PSF photometry
+catalog</LI>
+<LI>*psfgrd.fits = Image of coarse grid of PSFs showing variation across the image</LI>
+<LI>*refimg*.fits = reference image (Level 2 summed image). Note that
+the characters at the end of the filename (which may be all your
+computer shows you by default) may be different (e.g., "asec500")</LI>
+<LI>*sexcat.ctlg = Binary fits table with Sextractor-based aperature
+extraction photometry catalog</LI>
+<LI>*srcds9.regn = region file for extracted sources</LI>
+<LI>*uncert.fits = uncertainty image</LI>
+</UL>
+
+</BODY>
+</HTML>

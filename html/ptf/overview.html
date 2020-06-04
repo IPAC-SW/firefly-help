@@ -1,0 +1,428 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "PTF Image Service: Overview" -->
+<HEAD>
+<TITLE>Palomar Transient Factory (PTF) Image Service: Overview
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Palomar Transient Factory (PTF) Image Service: Overview</h2>
+
+The Palomar Transient Factory Image Service is the repository for all
+image data collected by PTF and processed by IPAC.  
+<P>
+
+<!-- Please see the (TBD) PTF Data Explanatory Supplement.<P> -->
+
+<em>Contents of page/chapter:</em><br>
++<A href="#history">History and Background</A> -- A little more about
+the PTF telescope, camera, and survey<br>
++<A href="#terminology">Terminology</A><br>
++<A href="#searching">Searching</A><br>
++<A href="#results">Results</A>  <br>
++<A href="#visualization">Visualizations</A> -- Image viewing tools <br>
++<A href="#download">Downloading Data</A> -- Downloading data in the background<br>
++<A href="#help">Help</A> -- How to get more help<br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="history">History and Background</A></H3>
+
+<h4>The PTF Telescope and Camera</h4>
+
+The <a href="http://ptf.caltech.edu/" target="_blank">Palomar Transient Factory
+(PTF)</A> was a synoptic sky survey that was carried out on the <A
+HREF="http://www.astro.caltech.edu/palomar/sot.html"
+target="_blank">48-inch Oschin Schmidt Telescope</A> at Palomar
+Observatory, which is the same telescope as used for the well-known <A
+HREF="http://en.wikipedia.org/wiki/POSS" target="_blank">POSS</A>
+survey in the 1950s. <P>
+
+The PTF camera was formerly the CFHT-12k camera and has been
+substantially modified for its new mission, most notably through the
+use of a mechanical cryo-cooler instead of liquid nitrogen, a new
+image flattener, and electronics modifications. The camera has 11
+functional 2048x4096 CCDs, with a roughly 1 arcsecond per pixel plate
+scale, yielding a total area per exposure of just over 7 square
+degrees. A shutter provides accurate exposure timing. A filter
+exchanger mechanism allows up to two filters to be used. Typically,
+these are R and g-band; an additional set of H-alpha filters are also
+in use.<P>
+
+The camera saw first light at Palomar on December 13, 2008 and was in
+routine operations from mid-2009 to 2017. Since 2017, the survey has been
+operating as <a href="https://www.ptf.caltech.edu/ztf"
+target="_blank">ZTF</A>.<P>
+
+<h4>PTF Survey Design, Achieved Performance, and Processing</h4>
+
+<p> Unlike many previous sky surveys, PTF did not use a raster scan
+of the sky. A typical night consists of several complex interlocking
+programs, with different cadences. The most typical is the 5-day
+cadence: two exposures are taken roughly one hour apart, and then
+repeated again five days later. This program was primarily aimed at
+transient science such as SNe. Other cadences were much higher with
+daily repeats, and target nearby galaxies. Such programs are also
+aimed at stellar science. Finally, certain regions of the sky (such as
+Orion) are subject to extremely high cadence observations and are
+observed essentially continuously. 
+
+<p> Under ideal conditions, the spatial resolution was roughly 2
+arcseconds; under typical site conditions, this varied from 2 to 3
+arcseconds. Exposure times for regular survey data were 1 minute. Under
+dark conditions, this produced a typical limiting g-band magnitude of
+21.5 (AB) and R-band of 20.6 (AB).
+
+<p> Data flow immediately to LBL and IPAC through the San Diego
+Super-Computing Center. LBL provided real-time image subtraction and
+detection, and was the discovery engine for transients in the data.
+IPAC performed high-fidelity reduction and calibration of the data, and
+maintains a repository for all image data as well as 
+catalog access. <!-- Typical turnaround times for IPAC processing are of
+order 2-3 days before they appear in this archive.-->
+
+
+<h4>For More Information</h4>
+
+<p>
+More information on the PTF survey can be found at <A
+HREF="http://ptf.caltech.edu" target="_blank">the project home
+page</A>. In particular, please see 
+<A
+HREF="http://www.ptf.caltech.edu/page/DR3" target="_blank">the page on
+Data Release 3</A>,
+<A
+HREF="http://www.ptf.caltech.edu/page/DR2" target="_blank">the page on
+Data Release 2</A>, and <A
+HREF="http://www.ptf.caltech.edu/page/documentation"
+target="_blank">the documentation page</A>.<P>
+
+Also see <A
+HREF="http://adsabs.harvard.edu/abs/2009PASP..121.1395L" target="_blank">The Palomar Transient Factory:
+System Overview, Performance and First Results, Law et al., 2009,
+PASP, 121, 1395</A>.
+
+
+
+
+
+<H3><A NAME="terminology">Terminology</A></H3>
+
+The PTF Image Service contains all image data available from PTF,
+subject to the requirement that it has been actually both processed
+and deposited in the archive (these are separate operations). Image
+data products are separated into three basic types:
+
+<dL>
+<DT>Level 0</DT>
+    <DD> Raw data. This is received from the observatory as a
+multi-extension FITS file containing all 12 CCDs. At this time, no
+Level 0 data are publicly available; all Level 0 data are proprietary.
+If you have proprietary access to these data, you <a
+href="user.html">must log in</A> to be able to download these data. </DD>
+<DT>Level 1</DT>
+    <DD> Processed data corresponding to the original single CCD
+exposures. These individual image files are sometimes simply referred
+to as "single exposure", "processed images", or even sometimes
+"frameproc." Level-1 data can consist of calibrated FITS images, mask
+images, and calibrated photometric catalogs in binary FITS table
+format.  </DD>
+<DT>Level 2</DT>
+    <DD> Products derived from combining the Level 1 data, such as
+deep sky coadded data and the catalogs derived from such data. The
+coadded mosaic is sometimes referred to as the "Level-2 Coadd", or
+"coadded image", or even "reference image". Level-1 data can consist of 
+calibrated FITS images and calibrated photometric catalogs in binary FITS table
+format.</DD>
+</dL>
+
+<P> If you have proprietary access to any particular data you know are
+there, you <a href="user.html">must log in</A> to be able to download
+these data.<P>
+
+Catalog data products currently can be downloaded with the images, not
+separately from within this interface. If you want to overlay the
+catalog on the images and interact with it using the tools found here,
+download the data (including the catalog), convert the catalog to IPAC
+table format, go to the catalogs tab, and upload the catalog from your
+own disk.
+
+
+<H3><A NAME="searching">Searching</A></H3>
+
+Several search options are provided, which are documented in more
+detail <a href="basics.html#searching">here</A>.  <P>
+
+Searching <a href="basics.html#searching">by position</A> is the most
+popular search, and you can also <a href="basics.html#byTable">search
+in "batch mode"</A> by uploading a table.    <P>
+
+In the search pane, from the options on the left, you can also search
+by <a href="basics.html#byPTFField">PTF Field ID</A>, or <a
+href="basics.html#bySSO">Solar System Object/Orbit</A>.<P>
+
+
+
+<H3><A NAME="results">Results</A></H3>
+
+The search results appear in two "panes" (like "window panes"). You
+can grab and drag the division between the two panes to change their
+relative sizes. <P>
+
+The left pane of the search results contains a table that includes one
+line per observation. Each line includes basic information about all
+the PTF images which fulfill your initial search critera. The listed
+FITS images can be downloaded by checking the box at the beginning of
+each row (or the box at the top of the column of boxes to select all)
+and clicking "Prepare download".  (See the section on <a
+href="downloads.html">downloads</A> for more information.)<P>
+
+The right pane of the search results contains three tabs that enable
+exploration of the data returned by your search. Click on a row in the
+left pane and the contents of the right pane change.  The "Image
+Preview" enables an interaction with the real FITS Image corresponding
+to that green row. See <a href="visualization.html">the section on
+visualization</A> for more information.  The 'Coverage' tab shows the
+current image in context with the other images returned by your
+search, overlaid on an IRAS image as a background image. You can also
+manipulate that image; see <a href="visualization.html">the section on
+visualization</A> for more information. The 'Details' tab shows the
+details of the selected image. <P>
+
+Above the right pane, there are icons that look like this: <img
+src="img/tablegridview.png">  You can choose to view your results in
+either "Table View" or "Grid View". "Table View" lists the available
+observations in table format in the results  pane and only  displays
+the images associated with the currently selected image set
+(highlighted in green in the results pane  table). Alternatively,
+"Grid View" simply displays all of the images of the search results.
+Note also that, in the "grid view", the "select all" checkbox appears
+not on the top of a column, but in the upper right, under the expand
+icon: <img src="img/selallgrid.png" align="top"> <P>
+
+When in 'grid view', it may be helpful to change the right hand panel
+to have the 'Details' (rather than the 'Image Preview') tab in the
+foreground to allow you to quickly assess the properties of the
+selected image.<P>
+
+
+<strong>NOTE THAT the Level 2 Coadded (reference) images are oriented
+North-up, and the Level 1 images (individual exposures) are
+North-down.</strong> <P>
+
+
+<h4>Results: Columns</h4>
+
+When you do a search for images, a table is returned with information
+about the images (image metadata) meeting your search criteria that
+allows you to decide which images you want to download.<P>
+
+Columns that are returned for a Level 1 image search include the following:
+<table border="2"> <tr> <td> expid </td> <td> Exposure database ID </td> </tr>
+<tr> <td> obsdate </td> <td> Observation UT date/time YYYY-MM-DD
+HH:MM:SS.SSS </td> </tr> <tr> <td> crval1 </td> <td> Reference
+position RA (FK5 J2000) at crpix1,crpix2 </td> </tr> <tr> <td> crval2
+</td> <td> Reference position Dec (FK5 J2000) at crpix1,crpix2 </td>
+</tr> <tr> <td> filter </td> <td> Filter name </td> </tr> <tr> <td>
+ccdid </td> <td> CCD number (0...11) </td> </tr> <tr> <td> ptffield
+</td> <td> PTF field number </td> </tr> <tr> <td> seeing </td> <td>
+Seeing FWHM </td> </tr> <tr> <td> airmass </td> <td> Telescope airmass
+</td> </tr> <tr> <td> moonillf </td> <td> Moon illuminated fraction
+</td> </tr> <tr> <td> moonesb </td> <td> Moon excess in sky brightness
+in V-band </td> </tr> <tr> <td> photcalflag </td> <td> Flag for
+whether image has been photometrically calibrated (0=NO, 1=YES) </td>
+</tr> <tr> <td> infobits </td> <td> Info bit flags </td> </tr> <tr>
+<td> nid </td> <td> Night database ID </td> </tr> <tr> <td> fieldid
+</td> <td> Field database ID </td> </tr> <tr> <td> ptfpid </td> <td>
+Project name </td> </tr> <tr> <td> pfilename </td> <td>
+Processed-image filename </td> </tr> <tr> <td> afilename1 </td> <td>
+Ancillary filename </td> </tr> <tr> <td> afilename2 </td> <td>
+Ancillary filename </td> </tr> <tr> <td> afilename3 </td> <td>
+Ancillary filename </td> </tr> <tr> <td> afilename4 </td> <td>
+PSF-fitting catalog </td> </tr> <tr> <td> rfilename </td> <td>
+Raw-image filename </td> </tr> <tr> <td> obsmjd </td> <td> Observation
+UT modified Julian date (obsdate) </td> </tr> <tr> <td> ptfprpi </td>
+<td> Principal investigator </td> </tr> <tr> <td> filtersl </td> <td>
+Filter changer slot number </td> </tr> <tr> <td> moonra </td> <td>
+Moon J2000.0 R.A. </td> </tr> <tr> <td> moondec </td> <td> Moon
+J2000.0 Dec. </td> </tr> <tr> <td> moonphas </td> <td> Moon phase
+angle </td> </tr> <tr> <td> moonalt </td> <td> Moon altitude </td>
+</tr> <tr> <td> ra1 </td> <td> R.A. of image corner #1 </td> </tr>
+<tr> <td> dec1 </td> <td> Dec. of image corner #1 </td> </tr> <tr>
+<td> ra2 </td> <td> R.A. of image corner #2 </td> </tr> <tr> <td> dec2
+</td> <td> Dec. of image corner #2 </td> </tr> <tr> <td> ra3 </td>
+<td> R.A. of image corner #3 </td> </tr> <tr> <td> dec3 </td> <td>
+Dec. of image corner #3 </td> </tr> <tr> <td> ra4 </td> <td> R.A. of
+image corner #4 </td> </tr> <tr> <td> dec4 </td> <td> Dec. of image
+corner #4 </td> </tr> <tr> <td> gain </td> <td> Gain of detector </td>
+</tr> <tr> <td> readnoi </td> <td> Read noise of detector </td> </tr>
+<tr> <td> darkcur </td> <td> Dark current of detector at 150K </td>
+</tr> <tr> <td> ipac_gid </td> <td> IPAC Group ID </td> </tr> <tr>
+<td> ipac_pub_date </td> <td> UTC date exposure becomes public </td>
+</tr> </table>
+<P>
+
+Columns that are returned for a Level 2 image search include the following:
+
+<table border="2"> <tr> <td> rfid </td> <td> Reference-image database ID </td>
+</tr> <tr> <td> ra </td> <td> ICRS right ascension at image center
+</td> </tr> <tr> <td> dec </td> <td> ICRS declination at image center
+</td> </tr> <tr> <td> fid </td> <td> Filter database ID </td> </tr>
+<tr> <td> ppid </td> <td> Reference-image-pipeline database ID </td>
+</tr> <tr> <td> ccdid </td> <td> CCD number (0..11) </td> </tr> <tr>
+<td> ptffield </td> <td> PTF field number </td> </tr> <tr> <td>
+filename </td> <td> Reference-image filename </td> </tr> <tr> <td>
+version </td> <td> Reference-image database version </td> </tr> <tr>
+<td> ra1 </td> <td> R.A. of image corner #1 </td> </tr> <tr> <td> dec1
+</td> <td> Dec. of image corner #1 </td> </tr> <tr> <td> ra2 </td>
+<td> R.A. of image corner #2 </td> </tr> <tr> <td> dec2 </td> <td>
+Dec. of image corner #2 </td> </tr> <tr> <td> ra3 </td> <td> R.A. of
+image corner #3 </td> </tr> <tr> <td> dec3 </td> <td> Dec. of image
+corner #3 </td> </tr> <tr> <td> ra4 </td> <td> R.A. of image corner #4
+</td> </tr> <tr> <td> dec4 </td> <td> Dec. of image corner #4 </td>
+</tr> <tr> <td> datara1 </td> <td> R.A. of non-blank image corner #1
+</td> </tr> <tr> <td> datadec1 </td> <td> Dec. of non-blank image
+corner #1 </td> </tr> <tr> <td> datara2 </td> <td> R.A. of non-blank
+image corner #2 </td> </tr> <tr> <td> datadec2 </td> <td> Dec. of
+non-blank image corner #2 </td> </tr> <tr> <td> datara3 </td> <td>
+R.A. of non-blank image corner #3 </td> </tr> <tr> <td> datadec3 </td>
+<td> Dec. of non-blank image corner #3 </td> </tr> <tr> <td> datara4
+</td> <td> R.A. of non-blank image corner #4 </td> </tr> <tr> <td>
+datadec4 </td> <td> Dec. of non-blank image corner #4 </td> </tr> <tr>
+<td> rawpsffilename </td> <td> Reference-image raw-PSF-file filename
+</td> </tr> <tr> <td> psfgridfilename </td> <td> Reference-image
+PSF-grid-file filename </td> </tr> <tr> <td> psfds9regfilename </td>
+<td> Reference-image PSF-fit-catalog-DS9-region-file filename </td>
+</tr> <tr> <td> depthfilename </td> <td> Reference-image
+depth-of-coverage image filename </td> </tr> <tr> <td> uncfilename
+</td> <td> Reference-image uncertainty-image filename </td> </tr> <tr>
+<td> sexrfcatfilename </td> <td> Reference-image SExtractor catalog
+filename </td> </tr> <tr> <td> psfrfcatfilename </td> <td>
+Reference-image PSF-fit catalog filename </td> </tr> <tr> <td>
+ipac_gid </td> <td> IPAC Group ID </td> </tr> <tr> <td> ipac_pub_date
+</td> <td> UTC date exposure becomes public </td> </tr> </table>
+
+
+
+<P>
+
+<h4>Results: Filtering</h4>
+
+Filters can provide a powerful tool for weeding down search results to
+the observations you want. Near the top of the search results window,
+there is this icon: <img src="img/filter.png"> Click on this icon in
+order to start the process of adding filters. A text entry box appears
+above each of the current catalog columns, with a small version of the
+filter icon corresponding to that row on the far left. You can type
+operators and values in these boxes -- hit return after typing or
+click in another box to implement the filter. For fields with a
+limited set of choices, instead of a text entry box, a filter icon
+will appear; click on it to select from the available choices.  For
+example, in the Level 1 data, the column "filter" corresponds to the
+filter that was used. To limit your search results to just the one
+filter, and find the "fid" column. Above that column, there is a
+funnel icon. Click on that, and it will give you a choice of limiting
+your results to one of the values that appear in your results. You can
+select 1 or more than 1; the options change to reflect the actual data
+you have listed. (If your search results contain only R band filters,
+then you won't have an option to select g band filters.) Similer
+filtering capability exists for any column in the results. <P>
+
+Filters can be used in combination - on the Level 1 results, for
+example, you could also add "seeing &lt; 2.0" to further restrict
+results to only the best data.  Note that the filters are logically
+"AND"ed together -- that is, if you impose logically inconsistent
+restrictions such as "seeing &gt; 2.5" and "seeing &lt 1", no data
+will result, because no data are (can be) both less than 1 and greater
+than 2.5 at the same time.  <P>
+
+The available logical operators are :
+<UL>
+<LI> =  which means 'equal to' (exactly!), e.g., the parameter on
+which you are querying (the column headers as shown) is exactly equal to
+this value you are specifying.
+<LI> &gt; which means 'greater than'
+<LI> &lt; which mean 'less than'
+<LI> != which means 'not equal to' (exactly!)
+<LI> &gt;= which means 'greater than or equal to'
+<LI> &lt;= which means 'less than or equal to'
+<LI> IN which means 'included within this list', e.g., the parameter
+on which you are querying is included within the list you are
+specifying (if the column filter is free-form text, type
+"value1,value2" and it will give you rows that have value1 or value2).
+<LI> LIKE which means 'resembles the text that is entered', e.g., the text
+resembles the text that you type in the box.
+</UL>
+
+After you impose a filter, then the "filters" icon on the top right of
+the catalog pane has changed to remind you that there has been a
+filter applied, in this case just one filter: <img
+src="img/filtersapplied.png">. To clear the filters, click on the
+cancel filters icon (which also appears after you impose filters):
+<img src="img/cancelfilters.png">.<P>
+
+
+<h3><A NAME="visualization">Visualization</A></h3>
+
+PTF images  found by the search are displayed to the right of the
+search result table.  If a single position search was used, this
+position will be highlighted in a blue circle in the images shown
+under "Image Preview" or "Coverage". There is an image toolbar, with
+zoom and stretch features, among others, that appears near the top of
+the browser window. <P>
+
+The "Image Preview" tab shows the FITS image corresponding to the
+selected row in the left pane; the "Coverage" tab shows the location
+of each of the images which fulfill the search as an overlay on an
+IRAS 100 micron image. Note that only the images shown on the current
+search page are shown; the coverage corresponding to the currently
+selected (highlighted) row is also highlighted in the coverage
+visualization. If several images were taken at exactly the same
+location, there may appear to be only one polygon shown on the image;
+click on different rows on the left to highlight the polygon in the
+image on the right corresponding to that image.<P>
+
+See <a href="visualization.html">the visualization section</A> for more
+on visualization.<P>
+
+You can also interact with a variety of catalogs through this
+interface. See <a href="catalogs.html">the catalogs section</A> for
+more information on interacting with catalogs and images.<P>
+
+
+
+<h3><A NAME="download">Downloading Data</A></h3>
+
+After deciding what data to download, click on the corresponding
+checkbox(es) on the left side, and click "Prepare Download" to begin
+the packaging and data download process. (To 'select all', click on
+the checkbox on the top of the column of checkboxes.) The download
+then gets passed to a background job for packaging.  See <a
+href="downloads.html">the section on downloads</A> for more
+information.<P>
+
+<h3><A NAME="preferences">User login</A></h3>
+
+The PTF Image Service can remember you when you return.  See the <a
+href="user.html">user registration section</A> for more information. 
+<P>
+
+
+<h3><A NAME="help">Getting more help</A></h3>
+The "Help" blue tab leads you into this online help, as does "PTF
+Help" from under the "Help" in the IRSA menu on the top of the
+PTF page. You can also download a PDF version of this manual; look at
+the top of the help window.
+
+You can submit questions to the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk/"
+target="_blank">IRSA Help Desk</A>.
+
+</BODY>
+</HTML>

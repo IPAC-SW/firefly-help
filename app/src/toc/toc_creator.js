@@ -61,6 +61,18 @@
 
 
 import {fireflyToc} from './firefly_toc';
+import atlasToc from './atlas_toc';
+import catalogsToc from './catalogs_toc';
+import discoveryToc from './discovery_toc';
+import finderchartToc from './finderchart_toc';
+import heritageToc from './heritage_toc';
+import irsaviewerToc from './irsaviewer_toc';
+import irtfToc from './irtf_toc';
+import planckToc from './planck_toc';
+import ptfToc from './ptf_toc';
+import sofiaToc from './sofia_toc';
+import wiseToc from './wise_toc';
+import ztfToc from './ztf_toc';
 
 
 
@@ -72,8 +84,18 @@ import {fireflyToc} from './firefly_toc';
  */
 export function create(appName) {
     switch (appName) {
-        case 'entry1':
-        case 'entry2':
+        case 'atlas': 		return {toc:atlasToc};
+        case 'catalogs': 	return {toc:catalogsToc};
+        case 'discovery': 	return {toc:discoveryToc};
+        case 'finderchart': return {toc:finderchartToc};
+        case 'heritage': 	return {toc:heritageToc};
+        case 'irsaviewer': 	return {toc:irsaviewerToc};
+        case 'irtf': 	    return {toc:irtfToc};
+        case 'planck': 	    return {toc:planckToc};
+        case 'ptf': 	    return {toc:ptfToc};
+        case 'sofia': 	    return {toc:sofiaToc};
+        case 'wise': 	    return {toc:wiseToc};
+        case 'ztf': 	    return {toc:ztfToc};
         default:
             return {showHidden: false, toc: fireflyToc}
     }

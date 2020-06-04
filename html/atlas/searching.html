@@ -1,0 +1,209 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Atlas: Searching" -->
+<HEAD>
+<TITLE>Atlas: Searching
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Image and Spectrum Viewer (Atlas): Searching</h2>
+
+The Image and Spectrum Viewer (Atlas) allows users to survey IRSA's
+holdings within a given project (or delivery) to see what data
+(images, catalogs, spectra) overlap a position on the sky.<P>
+
+<p>Each dataset has a homepage with a short description. Generally an
+all-sky image (or a smaller region) is presented at the top of the
+homepage in black and white. Often this image is made from 12 micron
+IRAS Sky Survey Atlas (ISSA) "plates", with a resolution of 0.5
+degrees.  The color overlays on this image are the footprints of the
+areas covered by that dataset.  <i>Image</i> data are usually
+displayed as <i>red rectangles</i> overlaid on the sky, <i>yellow
+dots</i> indicate <i>source lists</i>, and <i>red (or cyan) dots</i>
+represent <i>spectra</i>. The <i>coordinate system</i>, if displayed,
+is usually depicted in <i>blue</i>.</p>
+
+Below the image, you can find the search form itself.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#targetselection">Target Selection</a><br>
++<a href="#MapClick">Map Click</a><br>
++<a href="#SingleObject">Single Object</a><br>
++<a href="#MultiObject">Multi-Object</a><br>
++<a href="#searchsize">Search Size</a><br>
++<a href="#results">References</a><br>
+<P>&nbsp;<P>
+
+
+<h3><a name="targetselection">Target Selection</a></h3>
+
+
+<p>There are three methods for retrieving data through Atlas. You may
+either click on the image (all-) sky map within an area shown to
+contain data, or enter a single coordinate (or astronomical object
+name) in the "<b>Single Object</b>" field, or enter a file name with a
+table of coordinates (or astronomical object names) in the "<b>Table
+Upload</b>" field.<P>
+
+<h3><a name="MapClick">Map Click</a></h3>
+
+Click in the image to search around the region under your mouse cursor.<P>
+
+If using the image map for searching, keep in mind that the pixel
+resolution of an all-sky image is often 0.5 degrees; if you require a
+higher degree of precision you should use the coordinate search
+method.  
+
+<h3><a name="SingleObject">Single Object: Coordinate or Object Name</a></h3>
+  
+If entering a position, the location information can take the form of
+coordinates in a variety of formats (see the examples at the bottom of
+main panel), or can be an object name. If it is the latter, first <a
+href="http://ned.ipac.caltech.edu/">NED <img src="img/jumpout.jpg"
+height="10"></a> and then <a href="http://simbad.u-strasbg.fr/">SIMBAD
+<img src="img/jumpout.jpg" height="10"></a> are checked to attempt
+name resolution; once the name is resolved, the celestial coordinates
+of that object are used for the search query.</p>
+
+<p><b>Examples of valid input coordinates</b> are provided for each of
+the Atlas data services, in a variety of coordinate systems. Each
+example coordinate is separated by a "|" character. Only one is
+necessary as input in the "Single Object" field (or in the
+multi-object table listing using "Table Upload"), without the "|"
+character. The default coordinate system is (RA DEC) Equatorial J2000,
+in decimal degrees (1st example below).</p>
+
+  <p><a name="examples" id="examples"></a></p>
+
+  <center>
+    <table width="520">
+      <tbody><tr align="left">
+        <td>
+          <p><font size="-1"><b>EXAMPLES OF INPUT
+          COORDINATES:</b><br>
+          Equatorial J2000 (eq): "290.971773 11.774474
+          eq"&nbsp;&nbsp;&nbsp;&nbsp;<br>
+          Local Equatorial J2000 (Equ): "19h23m53.23s +11d46m28.1s
+          Equ J2000"&nbsp;&nbsp;&nbsp;&nbsp;<br>
+          Galactic (ga): "47.09669 -1.71325
+          ga"&nbsp;&nbsp;&nbsp;&nbsp;<br>
+          Object Name: "M 16"</font></p>
+        </td>
+      </tr>
+    </tbody></table>
+  </center>
+
+<p>In the 2nd example above, "Local Equatorial J2000 (Equ)" is
+also known as "sexigesimal" (hours, minutes, seconds; degrees,
+minutes, seconds). The abbreviation "eq" and "Equ" stands for
+equinox of the coordinate system; typically equinox is "J2000"
+(which is the default when the user does not enter the equinox)
+and of course could also be "B1950", <i>etc</i>.</p>
+
+
+<h3><a name="MultiObject">Multi-Object</a></h3>
+
+  <p>
+  <b>Multi-Object</b> searching can be performed by selecting the
+  "<b>Table Upload</b>" button and then entering the name of a table 
+  on your local file system which contains a list of coordinates or 
+  astronomical object names.
+
+</p><p>IRSA accepts four ASCII table formats for table upload:</p>
+<ul>
+  <li>IPAC ASCII Column-Aligned  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/IPAC_ASCII_one_header.tbl">Download template  <img src="img/jumpout.jpg"
+height="10"></a>)</li>
+  <li>Comma-Separated Values (CSV) or Comma-Delimited  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/csv_table_example.tbl">Download template  <img src="img/jumpout.jpg"
+height="10"></a>)</li>
+  <li>Tab-Delimited (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/tab_delimited_table_example.tbl">Download template  <img src="img/jumpout.jpg"
+height="10"></a>)</li>
+  <li>A Simple List of Objects (such as astronomical source names)  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/list_of_obj_names.tbl">Download template <img src="img/jumpout.jpg"
+height="10"></a>)</li>
+</ul>
+
+<p>There are two ways to ensure your tables will work with IRSA's services:</p>
+<ol>
+  <li>Run your tables through IRSA's <a href="https://irsa.ipac.caltech.edu/applications/TblValidator/">Table Reformat and Validation <img src="img/jumpout.jpg"
+height="10"></a> tool to identify possible errors.</li>
+  <li>Read and follow the <a href="https://irsa.ipac.caltech.edu/docs/table_upload_help.html">Using Tables With IRSA Services  <img src="img/jumpout.jpg"
+height="10"></a> help document to learn and troubleshoot table formats, including:
+  <ul>
+    <li>Detailed descriptions of the four acceptable table formats</li>
+    <li>A description of how sexagesimal and Galactic coordinates are handled by IRSA services</li>
+    <li>Best practices for creating tables</li>
+    <li>Troubleshooting solutions for common error messages  </li>
+  </ul>
+  </li>
+</ol>
+
+
+  You can click on the "Browse" button to help you select your table
+  of sources from your file system. Here are some examples of the same
+  10 sources in various formats:
+  <ul>
+  <li><a href="ascii_names.txt">ASCII file</a> with simple name listing  </li>
+  <li><a href="ipac_names.tbl">IPAC table format using object names</a></li>
+  <li><a href="ipac_coords.tbl">IPAC table format with ra dec</a> positions as well as source names </li>
+  <li><a href="ipac_mixcoords.tbl">IPAC table format with mixture of coord types</a> </li>
+  <li><a href="tab_coords.tbl">tab-delimited table of positions</a> as well as source names</li>
+  <li><a href="comma_coords.tbl">comma-delimited table of positions</a> as well as source names</li> 
+  </ul>
+
+  Please note,
+ <b>space-delimited</b> files are only valid if using IPAC table format.
+ <p></p>
+
+
+
+
+<h3><a name="searchsize">Search Size Constraints</a></h3>
+
+
+<p>For Atlas datasets which include images, the "<b>Size</b>" search
+field (in degrees) is adjustable.  The maximum search size is
+listed, and the hard limit is 12.5 degrees. <a href="#table1">Table
+1</a> below lists all the maximum search sizes for all Atlas
+collections, in the third column. [The hard limit is due to the
+fact that the results are displayed as overlays on&nbsp;background
+'sky' images.  A value of 12.5 degrees is a reasonable limit for the
+ISSA "plates", the largest background images.]</p>
+
+<p><a name="covers" id="covers"></a> The checkbox "<b>Images must
+cover coordinate</b>" allows the user to choose to search for only
+those images whose footprint on the sky covers the exact input
+coordinate. If unchecked, all images which overlap the given search
+area, as determined by location and box size, will be returned.</p>
+
+<p>For Atlas datasets which have catalog or spectral information, the
+"<b>Source Search Radius</b>" field is provided and can be adjusted
+for searching. This is a cone search, using a <b>radius</b> where the
+units can be adjusted using a drop-down menu. The default is half the
+<b>Size</b> and the maximum is 6.25 degrees.</p>
+
+<p><a name="region" id="region"></a> Next to the "Source Seach Radius"
+field is the checkbox "<b>Match with image search size</b>". When
+checked, the search for catalog and spectral information is done using
+half the value of the "Size" box search (or 6.25 degrees when "Size"
+is not set); note that the "Source Search Radius" value is overridden
+in this case.</p>
+
+<p>If searching by location rather than clicking on the sky map,
+hitting the "<b>Submit</b>" button starts the search.</p>
+
+<h3><a name="references">References</a></h3>
+
+Every project should have some sort of documentation that arrived with the data. Usually they have published papers as well. References to those papers can be found at the bottom of the search page.<P> 
+
+
+
+
+
+
+</BODY>
+</HTML>

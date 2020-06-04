@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!doctype html>
+
+<html>
+
+<!-- FOOTER LEFT "Spitzer Heritage Archive: Application Program Interface" -->
+<head>
+    <title>Spitzer Heritage Archive: Application Program Interface
+    (API)</title>
+</head>
+
+<body bgcolor="white">
+
+<em>Contents of page/chapter:</em><br>
++<a href="#intro">Overall Introduction</A><BR>
++<a href="#apiintro">API Introduction</A><br>
++<a href="#siap">SHA VO Support: SIAP</A><br>
+
++<a href="#ourapi">SHA-specific API: Introduction</A><br>
++<a href="#examples">SHA-specific API Examples</A><br>
++<a href="#input">SHA-specific API Input Parameters</A><br>
++<a href="#output">SHA-specific API Output Columns</A><br>
++<a href="#error">SHA-specific API Response on error</A><br>
+
+<P>&nbsp;<P>
+
+
+
+<h3><a name="intro">Overall Introduction</A></h3>
+
+There are fundamentally two ways to interact with the SHA in an
+automatic or semi-automatic fashion. <P>
+
+The semi-automatic way is to pass a list of sources to the SHA web
+interface. You can pass a list of up to 1000 sources to the SHA from
+the search screen. More information on that is in the <a
+href="searching.html#byBatch">Searching</A> section.  For this, you
+still need to examine the output of this by hand, but at least you do
+not have to send targets individually to the server. <P>
+
+The more fully automatic way requires you to write some code that
+conducts a search query and then parses the results to obtain URLs,
+from which you can download the data. The rest of this section talks
+about this API, or application programming interface. There are two
+different ways to query the database.<P>
+
+<h3><a name="apiintro">API Introduction</A></h3>
+
+An API, or application programming interface, can also be known as a
+"command-line" interface. It enables programs to
+interact with the SHA, search for data, and download it. You can write
+a program that will construct a series of URLs and query our server,
+resulting in XML files. Then you will need to write code to parse
+those XML files to obtain the links that you need to download the the
+data files meeting your search criteria. <strong>Please note</strong>
+that it is really easy to inadvertently launch a 'denial-of-service'
+attack on IRSA's servers if you are not careful. Use this option with
+caution.<P>
+
+Because the API queries result in XML tables, if you click
+on any of the links below (in this section), your browser may have
+trouble rendering it, or will render only bits and pieces of the
+embedded text.  You may need to save the contents of the link to a
+file in order to read what is returned. You may be able to use
+"View Source" to see the result in more legible format.<P>
+
+Note that when you parse the XML file, you will be looking for URLs.
+To retrieve a URL using wget or curl, you should enclose the URL in
+quotes. Here are some examples of downloading specific files from the
+SHA: 
+<UL>
+<LI>wget --output-document=postbcd-11400366.zip "https://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level2&amp;ID=11400366&amp;OPTIONS=anc1"
+
+<LI>curl --output postbcd-11400366.zip "https://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level2&amp;ID=11400366&amp;OPTIONS=anc1"
+</UL><P>
+
+There are two different APIs for the SHA. One is complex and powerful,
+the other is simple, follows a protocol, and is limited.  The Virtual
+Observatory (VO) is a set of data services that all follow a set of
+standard API rules agreed upon by the <a href="http://www.ivoa.net/"
+target="_blank">International Virtual Observatory Alliance (IVOA)</A>.
+The simpler API follows these rules.<P>
+
+IRSA also has a <a href="https://irsa.ipac.caltech.edu/voapi.html"
+target="_blank">page about all the program interfaces at IRSA</A>.<P>
+
+
+
+<h3><a name="siap">SHA VO Support: SIAP</A></h3>
+
+Currently, the SHA supports Simple Image Access Protocol (SIAP) for
+Level 1 (BCD) and Level 2 (PBCD) data access. The services support all
+required parameters listed in the SIAP specification (POS, SIZE, FORMAT)
+and VERB parameter with two verbosity levels: 1 and 3. With verbosity
+level 1, only the required and recommended fields are added to the
+output table. With verbosity level 3, extra fields might be present. 
+They output all the required and some recommended fields. <p>
+
+The base URL for these queries is
+https://sha.ipac.caltech.edu/applications/Spitzer/VO/VOServices.
+
+Here are 2 example URLs. These URLs return XML tables that are lists
+of the metadata that are a part of the VO search. From the
+descriptions in the XML metadata table, you can figure out what values
+you need to change in order to do the search you want to do. 
+<UL> 
+<LI><a href=https://sha.ipac.caltech.edu/applications/Spitzer/VO/VOServices?SERVICE=SIAP&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level1&FORMAT=METADATA>
+ Simple Image Access for level 1 (BCD) images (DATASET=ivo://irsa.ipac/spitzer.level1) </a> <br>
+
+<LI><a href=https://sha.ipac.caltech.edu/applications/Spitzer/VO/VOServices?SERVICE=SIAP&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2&FORMAT=METADATA>
+Simple Image Access for level 2 (PBCD) images (DATASET=ivo://irsa.ipac/spitzer.level2) </a> <br>
+</UL>
+
+Spectral data are available via this Simple <em>Image</em> Access
+Protocol rather than the Simple <em>Spectrum</em> Access Protocol.
+This API will return <b>all</b> the BCD or PBCD data that the Spitzer
+Science Center produced. They may be images or spectral data. <P>
+
+
+<h3><a name="ourapi">SHA-specific API: Introduction</A></h3>
+
+The SHA data can be accessed via an HTTP GET program interface
+(basically a really long URL)  where the request is a set of
+<i>parameter=value</i> pairs, and what is returned is an IPAC Table
+containing metadata and URL links to download products with the
+related ancillary files. This section describes these input parameters
+and the columns returned.<P>
+
+Please note that it is really easy to inadvertently launch
+something that is functionally equivalent to a 'denial-of-service'
+attack on IRSA's servers if you are not careful. Please be sure to
+test your code using only a subset of your desired requests, and add
+throttle control to your code, e.g., add some 'wait' steps between
+successive requests. If we notice an undue load on our servers (a real
+life example is more than 70,000 requests in less than 10 hours), we
+will block your IP address, so if your requests suddenly stop working,
+this may be why. Please contact the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk</A> if this happens. 
+
+<h3><a name="examples">SHA-specific API Examples</A></h3>
+
+<b>Search by fixed position</b><br>
+<a href="/applications/Spitzer/SHA/servlet/DataService?RA=163.6136&DEC=-11.784&SIZE=0.5&VERB=3&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2" target="_blank">applications/Spitzer/SHA/servlet/DataService?<b>RA=163.6136&amp;DEC=-11.784&amp;SIZE=0.5</b>&amp;VERB=3&amp;DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2</a>
+<br><br>
+<b>Search by moving target NAIF ID</b><br>
+<a href="/applications/Spitzer/SHA/servlet/DataService?NAIFID=2003226&VERB=3&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2"  target="_blank">applications/Spitzer/SHA/servlet/DataService?<b>NAIFID=2003226</b>&amp;VERB=3&amp;DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2</a>
+<br><br>
+<b>Search by program ID</b><br>
+<a href="/applications/Spitzer/SHA/servlet/DataService?PID=30080&VERB=3&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2"  target="_blank">applications/Spitzer/SHA/servlet/DataService?<b>PID=30080</b>&amp;VERB=3&amp;DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2</a>
+<br><br>
+<b>Search by Astronomical Observation Request ID</b><br>
+<a href="/applications/Spitzer/SHA/servlet/DataService?REQKEY=21641216&VERB=3&DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2"  target="_blank">applications/Spitzer/SHA/servlet/DataService?<b>REQKEY=21641216</b>&amp;VERB=3&amp;DATASET=ivo%3A%2F%2Firsa.ipac%2Fspitzer.level2</a>
+<br><br>
+
+<h3><a name="input">SHA-specific API Input Parameters</A></h3>
+
+The input parameters are entered as standard HTTP
+<i>parameter=value</i> pairs in HTTP/GET syntax. In this syntax, the
+parameter name is followed by an equals sign (=) which is then
+followed by a value. No extra spaces are allowed, and if the value
+contains any spaces or special characters that might be ambiguous,
+they have to be encoded formally as in any HTTP or URL reference (more
+discussion here: <a
+href="http://www.w3schools.com/html/html_entities.asp"
+target="blank">http://www.w3schools.com/html/html_entities.asp</A>). As
+shown above, these pairs are separated from each other by ampersand
+(&amp;) characters. <br><br> <table border="1" width="50%"> <tr><td
+width="30%"><b>DATASET</b></td><td>Data set. Two sets are supported:
+<br>ivo://irsa.ipac.spitzer.level1 (BCD
+data)<br>ivo://irsa.ipac.spitzer.level2 (PBCD data)<br></td></tr>
+<tr><td width="30%"><b>VERB</b></td><td>Verbosity level, controls the
+number of columns in the output.<br>1 - selected columns, 3 - all
+available</td></tr> <tr><td width="30%"><b>RA</b></td><td>Search by
+position: right ascension in degrees</td></tr> <tr><td
+width="30%"><b>DEC</b></td><td>Search by position: declination in
+degrees</td></tr> <tr><td width="30%"><b>SIZE</b></td><td>Search by
+position: region size in degrees</td></tr> <tr><td
+width="30%"><b>NAIFID</b></td><td>Search by moving target: NAIF ID,
+which is a unique number allocated to solar system objects (e.g.
+planets, asteroids, comets, spacecraft) by the <a
+href="http://naif.jpl.nasa.gov/naif/tutorials.html"
+target="blank">NAIF</a> at JPL.</td></tr> <tr><td
+width="30%"><b>PID</b></td><td>Search by program: program ID</td></tr>
+<tr><td width="30%"><b>REQKEY</b></td><td>Search by AOR ID:
+Astronomical Observation Request ID</td></tr> </table> <br>
+
+<h3><a name="output">SHA-specific API Output Columns</A></h3>
+
+The output columns  in the resultant table describe metadata and
+include a link to download the requested data product and the
+important ancillary products related to it. <b>Please note that all
+output columns are available only when verbosity level is set to
+3.</b> Fields returned for verbosity is set to 1 are indicated below.
+<br>
+<br>
+<table border="1" width="100%">
+<tr><td>field</td><td>short description</td><td>long
+description</td><td>returned for VERB=1</td></tr>
+<tr><td ><b>reqkey</b></td><td>AORKEY</td><td>Spitzer Astronomical Observation Request Number (key)</td><td>no</td></tr>
+<tr><td ><b>pbcdid</b></td><td>PBCD ID</td><td>Post Basic Calibrated Data ID (Level 2 product search)</td><td>no</td></tr>
+<tr><td ><b>bcdid</b></td><td>BCD ID</td><td>Basic Calibrated Data ID (Level 1 product search)</td><td>no</td></tr>
+<tr><td ><b>hasAccess</b></td><td>Public access </td><td>"true" if the data is public accessible, "false" if it is  proprietary data.  </td><td>no</td></tr>
+<tr><td ><b>accessUrl</b></td><td>Product access reference URL</td><td>The URL to be used to retrieve image or table, "NONE" if product does not have public access</td><td><b>yes</b></td></tr>
+<tr><td ><b>accessWithAnc1Url</b></td><td>Zip access reference URL</td><td>The URL to be used to retrieve the image or spectra with important ancillary products (mask, uncertainty, etc.) as a zip archive, "NONE" if product does not have public access</td><td>no</td></tr>
+<tr><td ><b>modedisplayname</b></td><td>Instrument/Mode</td><td>Instrument/Mode</td><td>no</td></tr>
+<tr><td ><b>wavelength</b></td><td>Bandpass</td><td>Bandpass ID</td><td><b>yes</b></td></tr>
+<tr><td ><b>cra</b></td><td>RA (J2000)</td><td>Right Ascension in sexigesimal format HHMMSS J2000, of the FITS image. Example: "2h23m14.3s"</td><td>no</td></tr>
+<tr><td ><b>cdec</b></td><td>Dec (J2000)</td><td>Declination in sexagesimal format DDMMSS J2000, of the FITS image. Example: "-12d43m11s"</td><td>no</td></tr>
+<tr><td ><b>exposuretime</b></td><td>Exposure time in seconds</td><td>Exposure time (Level 1 products only)</td><td>no</td></tr>
+<tr><td ><b>primary</b></td><td>Primary field</td><td>If this value is equal to 1, the observation was designed to include the originally specified target. If it is set to 0, the observation was obtained serendipitously of an offset field, and may or may not contain the originally specified target (most often, it does not)</td><td>no</td></tr>
+<tr><td ><b>filetype</b></td><td>Table or Image</td><td>Table or Image</td><td>no</td></tr>
+<tr><td ><b>externalname</b></td><td>File name</td><td>File name</td><td><b>yes</b></td></tr>
+<tr><td ><b>ptcomment</b></td><td>Product description</td><td>Product description</td><td>no</td></tr>
+<tr><td ><b>ra</b></td><td>crval1 in FITS file</td><td>Right Ascension in Equatorial J2000 for the center of the FITS image</td><td><b>yes</b></td></tr>
+<tr><td ><b>dec</b></td><td>crval2 in FITS file</td><td>Declination in Equatorial J2000 for the center of the FITS image</td><td><b>yes</b></td></tr>
+<tr><td ><b>epoch</b></td><td>Epoch</td><td>Epoch year</td><td>no</td></tr>
+<tr><td ><b>equinox</b></td><td>Equinox</td><td>Precessional year associated with the coordinate system</td><td>no</td></tr>
+<tr><td ><b>begintime</b></td><td>Observation start</td><td>Observation start (Level 2 products only)</td><td>no</td></tr>
+<tr><td ><b>endtime</b></td><td>Observation end</td><td>Observation end (Level 2 products only)</td><td>no</td></tr>
+<tr><td ><b>scet</b></td><td>Spacecraft event time: the coordinated universal time on board the spacecraft</td><td>Date and time of data collection event (Level 1 products only)</td><td>no</td></tr>
+<tr><td ><b>minwavelength</b></td><td>Min wavelength (microns)</td><td>Min wavelength (microns)</td><td>no</td></tr>
+<tr><td ><b>maxwavelength</b></td><td>Max wavelength (microns)</td><td>Max wavelength (microns)</td><td>no</td></tr>
+<tr><td ><b>filesize</b></td><td>File size in bytes</td><td>File size in bytes</td><td><b>yes</b></td></tr>
+<tr><td ><b>campid</b></td><td>Campaign ID</td><td>Instrument campaign ID</td><td>no</td></tr>
+<tr><td ><b>ra1</b></td><td>RA of corner 1</td><td>RA position of the lower left image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra1, dec1) = (0.5, 0.5)]</td><td>no</td></tr>
+<tr><td ><b>dec1</b></td><td>Dec of corner 1</td><td>DEC position of the lower left image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra1, dec1) = (0.5, 0.5)]</td><td>no</td></tr>
+<tr><td ><b>ra2</b></td><td>RA of corner 2</td><td>RA position of the lower right image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra2, dec2) = (NAXIS1 + 0.5, 0.5)]</td><td>no</td></tr>
+<tr><td ><b>dec2</b></td><td>Dec of corner 2</td><td>Dec position of the lower right image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra2, dec2) = (NAXIS1 + 0.5, 0.5)]</td><td>no</td></tr>
+<tr><td ><b>ra3</b></td><td>RA of corner 3</td><td>RA position of the upper right image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra3, dec3) = (NAXIS1 + 0.5, NAXIS2 + 0.5)]</td><td>no</td></tr>
+<tr><td ><b>dec3</b></td><td>Dec of corner 3</td><td>Dec position of the upper right image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra3, dec3) = (NAXIS1 + 0.5, NAXIS2 + 0.5)]</td><td>no</td></tr>
+<tr><td ><b>ra4</b></td><td>RA of corner 4</td><td>RA position of the upper left image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra4, dec4) = (0.5, NAXIS2 + 0.5)]</td><td>no</td></tr>
+<tr><td ><b>dec4</b></td><td>Dec of corner 4</td><td>Dec position of the upper left image corner [pixel space, where first pixel is located at (0.5, 0.5), position (ra4, dec4) = (0.5, NAXIS2 + 0.5)]</td><td>no</td></tr>
+<tr><td ><b>naxis1</b></td><td>naxis1</td><td>The size of the image in pixels for dimension 1</td><td><b>yes</b></td></tr>
+<tr><td ><b>naxis2</b></td><td>naxis2</td><td>The size of the image in pixels for dimension 2</td><td><b>yes</b></td></tr>
+<tr><td ><b>cdelt1</b></td><td>cdelt1</td><td>The pixel scale (in degrees on the sky per pixel) at the reference location for dimension 1</td><td><b>yes</b></td></tr>
+<tr><td ><b>cdelt2</b></td><td>cdelt2</td><td>The pixel scale (in degrees on the sky per pixel) at the reference location for dimension 2</td><td><b>yes</b></td></tr>
+<tr><td ><b>crota2</b></td><td>crota2</td><td>The rotation angle from the "up" direction to the celestial pole</td><td><b>yes</b></td></tr>
+<tr><td ><b>crpix1</b></td><td>crpix1</td><td>The pixel coordinate of the reference location (can be fractional, in the image center or off the image) for dimension 1</td><td><b>yes</b></td></tr>
+<tr><td ><b>crpix2</b></td><td>crpix2</td><td>The pixel coordinate of the reference location (can be fractional, in the image center or off the image) for dimension 2</td><td><b>yes</b></td></tr>
+<tr><td ><b>crval1</b></td><td>crval1</td><td>[deg] RA at CRPIX1, CRPIX2</td><td><b>yes</b></td></tr>
+<tr><td ><b>crval2</b></td><td>crval2</td><td>[deg] DEC at CRPIX1, CRPIX2</td><td><b>yes</b></td></tr>
+<tr><td ><b>ctype1</b></td><td>ctype1</td><td>The coordinate system (first four characters) and WCS map projection (last three characters) for dimension 1</td><td>no</td></tr>
+<tr><td ><b>ctype2</b></td><td>ctype2</td><td>The coordinate system (first four characters) and WCS map projection (last three characters) for dimension 2</td><td>no</td></tr>
+</table>
+<br>
+
+Note that to retrieve a URL using wget or curl, you should enclose the
+URL in quotes. Here are some examples of downloading specific files
+from the SHA.
+<UL>
+<LI>
+wget --output-document=postbcd-11400366.zip "https://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level2&amp;ID=11400366&amp;OPTIONS=anc1"
+
+<LI>curl --output postbcd-11400366.zip "https://sha.ipac.caltech.edu/applications/Spitzer/SHA/servlet/ProductDownload?DATASET=level2&amp;ID=11400366&amp;OPTIONS=anc1"
+</UL><P>
+
+<h3><a name="error">SHA-specific API Response on error</A></h3>
+
+If an error occurs when an HTTP request is being processed, an empty
+IPAC table with a single attribute, named <em>ERROR</em>, will be
+returned. The error message is a value of this attribute. 
+<br>
+
+</body>
+</html>

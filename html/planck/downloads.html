@@ -1,0 +1,271 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "NASA Planck Archive: Downloading Data" -->
+<HEAD>
+<TITLE>NASA Planck Archive: Downloading Data
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Downloading Data from the NASA Planck Archive (NPA)</h2>
+
+This page is an overview of how to download data from the the NASA
+Planck Archive (NPA). There are basically three kinds of searches in
+the NPA. (1) TOI (Time Ordered Information); (2) Browse catalogs
+(single wavelength, all positions); (3) cutout visualization (single
+position, all wavelengths).  (See the section on <a
+href="searching.html">searching</A> for more information on
+searching.) This page covers downloading data from those three kinds
+of searches.  <P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A><br>
++<A href="#toi">Downloading TOIs</A> -- Including Minimap<br>
++<A href="#browsecatalog">Browse Catalogs</A><br>
++<A href="#cutoutvisualization">Cutout Visualizations</A><br>
++<A href="#additionalcatalogs">Additional Catalogs</A><br>
++<a href="#backgroundmonitor">Background Monitor</A><br>
++<a href="#script">Using the Download Scripts</A><br>
+<P>&nbsp;<P>
+
+
+<A NAME="overview"><H3>Overview</H3></A>
+
+There are diskette icons (<img src="img/save.png">) in various places
+around the NPA. From the <a href="visualization.html#toolbox">image
+toolbox</A>, clicking on this saves the current image (as FITS, png
+with overlays, or just the overlays as a ds9 regions file).  From a <a
+href="results.html#tablenav">table</A>, it saves the current table as
+an <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file</A>, which is basically ASCII.<P>
+
+If there are checkboxes and a "Prepare Download" button available, you
+can select multiple images or catalog rows using the checkboxes, and
+then click "Prepare Download" to initiate a download of the selected
+data plus related files. This packaging process is managed by the <a
+href="basics.html#Backgroundmonitor">Background Monitor</A>.<P>
+
+There are basically three kinds of searches in the NPA. (1) TOI (Time
+Ordered Information); (2) Browse catalogs (single wavelength, all
+positions); (3) cutout visualization (single position, all
+wavelengths).  Downloading data is similar but not necessarily exactly
+the same in all the results, so we describe each separate (with screen
+snapshots) next.<P>
+
+Note that
+<b>you</b> control where the data are saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk.<P>
+
+<A NAME="toi"><H3>TOIs</H3></A>
+
+After a TOI search, you have <a href="results.html#toi">the
+results</A>, which is a list of the MJDs (modified Julian Dates)
+during which your source was observed by Planck, along with the number
+of TOI samples obtained on each day. <P>
+
+Each MJD's data can be individually selected for download or map
+generation by clicking on the box to the left of each entry. You can
+also select all available data by clicking in the box that appears on
+the column header (above all the checkboxes).<P>
+
+From this point, you can click on "Prepare Download", which brings up
+the "download options" box, as shown:
+<br> <img src="img/toi_download.png"><br>
+Within this, you can specify whether or not you
+want to download the search results in FITS binary table format and if
+you wish the associated Minimap image to be generated and included in
+the download. The TOIs and images you have requested are accessed and
+managed by the standard  <a href="basics.html#download">Background
+Monitor</a>. <P>
+
+If you generate a Minimap interactively, click on the diskette icon
+(<img src="img/save.png">) in the image toolbox to save the image as
+FITS or PNG.<P>
+
+If you generate the Minimap separately, AND select Minimap in the
+download dialog box with a different selection of dates,  then this
+new map is the one that you will download, i.e., <strong>not</strong>
+the version displayed in the tab. <p> <br> <img
+src="img/toi_map.png"><br> 
+
+
+Notes:
+<UL>
+<LI>The combination of choosing 'No' for <b>Download TOI Data</b> and not
+selecting <b>Download TOI Minimap</b> results in a "No data available
+for download' Information pop-up window being displayed when you click
+on <b>Prepare Download</b>. 
+<LI>The download is packaged as a zip file and you can select whether
+the <b>Zip File Structure</b> is 'Flattened (no folders)' or 
+'Structured (with folders)'. 
+<LI>You can choose to be notified of the requested data  being
+available via e-mail, which will inform you that when your packaging
+request has completed, and will include the URL for immediate
+download.
+</UL>
+
+The FITS file returned from your search and download contains nine
+columns of data with one row per time-stamped observation. Here are
+the names and descriptions of each column.
+<ul>
+<li>RA, DEC, GLON, GLAT: detector point direction given in degrees
+for both Equatorial (J2000) and Galactic coordinates.
+<li>MJD: Planck on-board time (OBT) expressed as modified Julian date.
+<li>SIGNAL: calibrated detector reading in K_CMB (for LFI bands) after
+removal of offsets.
+<li>SSO: Solar system flag - set to 1 if a bright planet is in the beam.
+<li>PSI: Roll angle in degrees.
+<li>DETECTOR:  The name of the detector from which the TOI sample was
+taken. See the Planck documentaiton for more details.
+</ul>
+
+Note that
+<b>you</b> control where the data are saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk.<P>
+
+
+<A NAME="browsecatalog"><H3>Browse Catalogs</H3></A>
+
+After a "Browse Catalogs" search (search all positions, by
+wavelength), you have a catalog loaded that has checkboxes on the far
+left hand side. <P>
+
+<b>To just save the catalog itself,</b> click on the diskette icon
+(<img src="img/save.png">) in the upper right of the table to save the
+table as an <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file</A>, which is basically ASCII.<P>
+
+<b>To download additional data for each source</b>, click the
+checkboxes on the far left side of each row to select individual
+sources, or click the box at the top of the column to download
+everything. Then click "Prepare Download." You obtain this dialog box:
+<br><img src="img/downloadoptions-bywavelength.png"><br> from which
+you can select Planck, WMAP, and/or IRAS cutouts to download. (These are
+the cutouts shown at the bottom of the <a
+href="results.html#images">search results</A>.) You can choose to be
+notified of the requested data being available via e-mail, which will
+inform you that when your packaging request has completed, and will
+include the URL for immediate download.<P>
+
+Note that
+<b>you</b> control where the data are saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk.<P>
+
+
+<A NAME="cutoutvisualization"><H3>Cutout Visualizations</H3></A>
+
+After a "Cutout Visualizations" search (search all wavelengths, by
+position), you can have many tabs loaded, one per selected catalog,
+with cutouts at the bottom of the <a href="results.html#images">search
+results</A>. <P>
+
+Each of those cutouts has a checkbox in the upper left of the cutout
+window. Select via those checkboxes which cutouts you wish to
+download, then click "Prepare Download." You obtain this dialog box:
+<br><img src="img/downloadoptions-bysource.png"><p>
+You can choose to be
+notified of the requested data being available via e-mail, which will
+inform you that when your packaging request has completed, and will
+include the URL for immediate download.<P>
+
+The download will contain the FITS files corresponding to your
+selected images. If only one is selected, the FITS file is downloaded
+directly; otherwise, the FITS files are combined into a zip file.
+
+Note that
+<b>you</b> control where the data are saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk.<P>
+
+To save just the catalog itself returned by the search, click on the
+diskette icon (<img src="img/save.png">) in the upper right of the
+table to save the table as an <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file</A>, which is basically ASCII. Note
+that you need to click on the diskette catalog in each tab
+separately.<P>
+
+
+
+<A NAME="additionalcatalogs"><H3>Additional Catalogs</H3></A>
+
+If you selected additional <a href="catalogs.html">catalogs to
+overlay</A>, each catalog will appear in its own tab. To save these
+catalogs, click on the diskette icon (<img src="img/save.png">) in the
+upper right of the table to save the table as an <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file</A>, which is basically ASCII.  <P>
+
+Note that you need to click on the diskette catalog in each tab
+separately.<P>
+
+Note also that
+<b>you</b> control where the data are saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk.<P>
+
+
+
+<a name="backgroundmonitor"><H3>Background Monitor</H3></A>
+
+The Background Monitor appears as a blue tab (or button) in the upper
+right of your window to keep track of the data downloads you have
+requested.  Because it appears in the row of blue tabs at the top,
+more information about how the Background Monitor works is in the <a
+href="basics.html#Backgroundmonitor">Basics section</A>.<P>
+
+
+
+<a name="script"><h3>Using the Download Scripts</h3></A>
+
+If you download a large amount of data, it may create more than one
+zip file for you. If it takes longer than a few minutes to package
+your data, ask the Background Monitor to email you when it completes
+packaging. Then the NPA will generate a script for
+you so you can download all of the zip files with a single click.<P>
+
+
+Links to several versions of the script are included in the
+notification email. You can choose from wget and curl, and you can
+choose to have it unzip the zip files at the same time as it
+downloads. <P> 
+
+Generally speaking, the wget script is best for Linux and Unix users.
+The curl script is best for Mac users, because curl is part of the
+standard OS distribution; Mac users can also go retrieve and install
+<a href="http://www.gnu.org/software/wget/" target="_blank">wget</A>
+and then use the wget scripts. For any of the scripts, you can also
+choose to include an option that unzips the zip files automatically. 
+The files stay on disk here for at least 72 hours, so you have a
+window of time to download them.<P>
+
+Save the script to a plain text file, and invoke the script.  You can
+copy and paste the script lines individually into your terminal
+window, or by  typing "csh [yourtextfile]" at the prompt.  The files
+will be automatically and sequentially downloaded to your disk, and if
+you've selected that option, unzipped as well.  <P>
+
+For Windows users, download and save the text file of URLs . Then follow the
+following steps to install the wget script and then download your data:
+<ol>
+<li>Go to the <a href="http://gnuwin32.sourceforge.net/packages/wget.htm" target="_blank">Windows wget web page</a>
+<li>Scroll to the Download section and retrieve the wget installation.
+<li>Install wget and add the binary to your path.
+<li>Download the text file of URLs 
+<li>At the command prompt: wget --content-disposition -i &lt;file_of_urls_downloaded.txt&gt;
+</ol><P>
+
+
+
+
+</BODY>
+</HTML>

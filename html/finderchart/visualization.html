@@ -1,0 +1,914 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Finder Chart: Visualization" -->
+<HEAD>
+<TITLE>Finder Chart: Visualization
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Finder Chart: Visualization</h2>
+
+The images meeting your search criteria are shown as the primary
+results of the search, sorted by survey. The circle-with-crosshairs
+overlaid by default is the search position you submitted. If you
+searched on catalogs from the main front search page, then those
+catalogs are also overlaid on your images. You can add and overlay
+additional catalogs and add other layers to your image. Click on the
+blue "Catalogs" tab near the top of the page to add more catalogs. See
+the <a href="tables.html">Tables section</A> for more on table
+manipulation, and see the <a href="catalogs.html">Catalogs section</A>
+for more on catalogs. <P>
+
+Critical to many of the functions described in this visualization
+section is the concept of the "selected image."  Finder Chart can
+return up to 34 images of the same patch of sky. Look at the array of
+images returned by a search. One (you may have to look for it) is
+"selected" -- it is outlined in orange. Click on a different image,
+and that image becomes outlined in orange as the selected image. By
+default, the Finder Chart images are locked together, so quite often
+what you do to one image is done to all the images. But certain other
+behaviors described here are still customized to each individual
+image. <strong>In order to affect a given image, you must select
+it.</strong> <P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#fitsViewer">FITS Viewer</a><br>
++<A href="#imageinfo">Image Information</a><br>
++<A href="#toolbar">Image Toolbar</a><br>
++<a href="#stretches">Specific information on Color Stretches</A><br>
++<a href="#footprints">Footprints</A> -- overlaying markers<br>
++<a href="#3color">3-color images</A><br>
++<a href="#catalogsandlayers">Catalogs and Layers</A><br>
++<A href="#breakingout">Breaking out of the pane (and going back)</A><br>
++<a href="#wcs">World Coordinate System (WCS) Alignment</A><br>
+<P>&nbsp;<P>
+
+
+
+
+<H3><A NAME="fitsViewer">FITS Viewer</A></H3>
+
+You can interactively explore the image with the mouse. Move your
+mouse over any image that is loaded into the viewer. Details about the
+image and, specifically, the pixel beneath your mouse cursor, appear
+along the top of the window with a variety of useful items. Some
+information is updated in real time (such as coordinates); some
+information (such as flux densities) is updated when you stop moving
+your mouse for a second or two.  The image can be interactively
+investigated in this fashion.  <br> <img src="img/readout.png"><br>
+You can make it 'stick' on a particular place on the image -- tick the
+"Lock by click" box and then click on the image at your desired
+location. <P>
+
+The orientation of the image is given with a compass rose on the
+right, next to a zoomed-in view of the image under your cursor. If you
+can't see all of these two displays, enlarge your browser window
+slightly.<P> 
+
+
+&nbsp;<P>
+
+<H3><A NAME="imageinfo">Image Information</A></H3>
+
+
+The results are grouped by survey. The upper left of the loaded image
+tells you basic things about the image you are viewing. The <a
+href="overview.html#surveys">survey origin</A> (instrument, channel)
+and, where possible, the date of observation is given in the upper
+left of each image. (Some images are coadds from individual frames
+taken at different times, up to months or even years, so a single date
+may be misleading. Investigate the FITS header of the image using one
+of the other buttons below to obtain the average date suggested by the
+producer of the FITS files.)<P>
+
+<img src="img/2masslabel.png"> Example of image label.<P>
+
+
+The target on which you searched is overlaid on the main image with a
+cross-hair marker:<img src="img/target.png"> You can remove this (or
+change its color) from the layers pop-up, described below.<P>
+
+Some information (like the title of the image) is also given
+in the interactive exploration region described immediately above.
+This region also includes additional information about the image (such
+as the pixel scale and orientation).<P>
+
+
+<a name="imageoptions"> <!-- --> </A>
+<h3><a name="toolbar">Image Toolbar (FITS and HiPS)</A></h3>
+
+There is a toolbox along the top of the IRSA Viewer window:<br> <img
+src="img/toolbox.png" width="100%"><br> from which you can select a
+variety of options, now described.  Letting your mouse hover over any of
+these icons will result in a "tool tip" that appears in order to
+remind you what the icon does. This information is also dynamically
+updated just to the right of the toolbox itself.<P>
+
+<DL>
+
+<A NAME="fitsDownloadOptions"><!-- --></A>
+<dt><img src="img/save.png"> <em>Saving the image.</em>
+<dd>The diskette icon will allow you to save the current image.  You
+can save files to your local disk or to the  <a
+href="/docs/workspace/" target="_blank">IRSA Workspace 
+<img src="img/jumpout.jpg" height="10"></A>.  Note that
+<b>you</b> control where the file is saved on your disk through your
+browser; your browser may be configured to
+store all downloads in a particular location on your disk.<P>
+
+You can save images as FITS, PNG, or regions files to your local disk.
+Saved FITS images will not save the color stretches or overlays; it
+will just save the underlying FITS image.  Saved PNG files WILL
+include any overlays or annotations you have placed on the image, but
+will not include the underlying FITS image. Saved regions files will
+not save the underlying image, but will just save the overlays as a
+DS9 Regions file. See the <a
+href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
+website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of these DS9 region
+files. <P>
+
+Note that you can save the original or a cropped version of the
+FITS file; see the select region icon below to crop, and then save the
+FITS image. Be sure to save the cropped FITS image (see annotated
+figure). <br>
+<img src="img/savecropped.png"> <P>  <P>
+
+Note that if you <a href="catalogs.html">overlay a catalog</A>
+consisting of tens of thousands of sources, then turn around and save
+a regions file from the catalog overlay, then you will have fewer
+sources in the regions file than you have in the full catalog. This is
+a known issue.<P>
+
+The saved PNG is the same size as it is on your screen. If you want a
+big version, make the desired image big on your screen (view
+one-at-a-time) before saving the PNG. <P>
+
+<!-- <dt><img src="img/new3colorimg.png"> <em>New 3-color image.</em>  
+<dd>Depending on what you have been doing in your session to this
+point, you may have this icon immediately to the right of the 'save
+image' icon. This icon allows you to change what color planes are used
+for a given 3-color image. More about 3-color images can be found
+<a href="#3color">in the 3-color section below</A>.<P> -->
+
+<dt><img src="img/zoominout.png"> <em>Zooming in or out.</em>  
+<dd>
+Clicking on these magnifying glass icons zooms in or out of the image.
+The readout of how many times you are zoomed appears at the top of the
+visualization window.  <P>
+
+If you click zoom in or out rapidly, a pop-up window appears to allow
+you to more rapidly select the zoom level you want. Select the desired
+level, or click on the 'x' in the upper right to make the window
+go away. Here is an example: <br><img src="img/zoomlevel.png"><P>
+
+Note that there is a maximum (or minimum) allowed zoom level. A
+notification will appear when you have reached the maximum (or
+minimum) allowed zoom level for a given image.  To enlarge things more
+than that, please repeat your search to obtain new images with smaller
+(or larger) spatial extent. <P>
+
+<dt><img src="img/zoomoriginalsize.png"> <em>Zooming to a 1-to-1 size.</em>  
+<dd> Clicking this icon will zoom the image such that one pixel in the
+image is one pixel on your screen.  <P>
+
+<dt><img src="img/fitandfill.png"> <em>Fit image to screen or fill
+screen</em>  
+<dd>
+These two icons are designed to maximize the available space in your
+browser window. The first one automatically picks a zoom level such
+that the image entirely fits within the available space. The second
+one automatically picks a zoom level such that the image fills as much
+of the available space as possible (e.g., it is zoomed such that short
+axis of the window is filled with the image, whether that short axis
+is left-right or up-down). <P>
+
+By default, the images that are returned are frequently but not always
+centered on your search target. Clicking on these icons let you see
+the whole image that is returned, whether or not it is centered on
+your target. <P>
+
+<dt><img src="img/colortable.png"> <em>Changing the color table.</em>
+<dd>This icon enables you to change the color table of the
+displayed image. When you click the button, a pull-down menu appears
+with a wide variety of color table choices. Select your new color
+table from the options shown:<br>
+<img src="img/colortableoptions.png"><P>
+
+<dt><img src="img/stretch.png"> <em>Changing the color table
+stretch.</em> 
+<dd>This icon enables you to change the color stretch of the displayed
+image. For much more information, please <a href="#stretches">see
+below</A>.<P>
+
+<A NAME="rotateImage"><!-- --></A>
+<dt><img src="img/rotate.png"> <em>Rotating the image to any
+angle </em> 
+<dd>This feature allows you to rotate the image about the displayed
+center of your image to any angle of your choice, in degrees.  It will
+rotate the image counter-clockwise (to the left) East of North if the
+image has a WCS embedded in it. <br><img
+src="img/rotatepopup.png"><br> You can type a number in the "angle"
+box, or use the slider, to rotate the image. To bring it back to
+North-up, click on the "North up" icon in the pop-up or in the main
+image toolbar.  To exit the pop-up without making further changes, hit
+the 'x' in the upper right of the pop-up.<P>
+
+<dt><img src="img/northup.png"> <em>Rotating the image so that North is
+up</em>.  
+<dd>Images retrieved from Finder Chart are commonly already oriented
+such that North is up, or close to it. However, when interactively
+investigating images, or in certain situations, you could find
+yourself in a situation where North is not necessarily up. Clicking
+this icon will orient the selected image so that North is up.  <P>
+
+<dt><img src="img/flip.png"> <em>Flipping the image on the y-axis</em>.  
+<dd>Clicking on this icon flips the image on the y-axis.<P>
+
+<dt><img src="img/recenter.png"> <em>Re-center the image.
+</em>
+<dd> Clicking this icon produces a pull-down menu:<br>
+<img src="img/recenterpulldown.png"><br>
+By default, the images are aligned with your target in the center.
+Other choices are to center the image in the window, or center on a
+position of your choice. For the last of those, you can simply center
+on that target, or center and leave a marker on the image at that
+location.<P>
+
+
+
+<dt><img src="img/selectregion.png"> <em>Selecting a region.</em>
+<dd>When you click this icon, you are right away given a choice of a
+rectangular selection or an elliptical selection. After you make that
+choice, at first, nothing seems to happen. But, now you can click and
+drag in the image, selecting a box or an ellipse on the image.  This
+region can be resized by grabbing and dragging the corners of the box
+or the pixels delineating the corners of a box around your ellipse.
+You can make a new box right away by holding down the shift key and
+clicking and dragging to select a new box.  When you have selected a
+region of the image, additional icons appear above the image: <img
+src="img/selectoptions.png"> These icons will allow you to (from left
+to right):
+<UL>
+<LI>crop the image to the selected region (then you can save the
+cropped image via the save icon described above);
+<LI>obtain statistics from the image on the region;
+<LI>select the catalog sources overlaid on the image within
+the region (highlights the sources in the list and plot, if there is a
+catalog overlaid);
+<LI>filter the overlaid catalog down to the sources within the enclosed
+area (if there is a catalog overlaid);
+<LI>zoom the image to fit the selected area;
+<LI>recenter the images on the selected area.
+</UL>
+You can save the cropped image via the save icon (described
+above).  The statistics option results in a pop-up that
+looks something like this:<br><img src="img/imagestatistics.png"> <br>
+Note that it calculates the location of the minimum and maximum
+fluxes, and the aperture and flux-weighted centroids. If you put your
+mouse over the row of the table in the pop-up, that location appears
+as an 'x' on the image.  If you have a catalog overlaid, selecting
+sources with this tool highlights them in the catalog list. You can
+choose to impose a filter via this selection mechanism; the filters
+icon changes above the catalog to indicate that there is a filter
+applied (<img src="img/filtersapplied.png">). To clear the filters,
+click on the cancel filters icon (which also appears after you impose
+filters): <img src="img/cancelfilters.png">. There is much more on <a
+href="catalogs.html#filters">filters</A> in the catalogs
+section.<P>
+
+<strong>Note that</strong>, if you have a rotated image such that
+a crop would have to bisect pixels, it will show you the region that
+encompasses your selection. If you crop at that point, then, it will
+crop in image space (such that pixels are not bisected). See the
+figure below -- in the original image, north is up. This has been
+rotated 45 degrees. The selected region is in white. The yellow
+dash-dot line is the crop in pixel space that encompasses the selected
+region. <br> <img src="img/cropregion.png"><p>
+
+
+<dt><img src="img/ruler.png"> <em>Measuring a distance.</em>
+<dd>When you click this icon, at first, nothing seems to happen. 
+However, you can now click and drag to draw a line on the image, and
+the length of the line is displayed (in the middle of the line).   The
+units for the measured distance (and the color of the overlay) can be
+changed from the "layers" icon (described below). You can
+calculate the difference in RA and Dec separately via the layers icon
+as well; find the layer associated with the distance measurement and
+tick the "offset calculation" box. When it displays the offset
+calculation, it will give you the angle in degrees in one corner, and
+the length of the line segment in the RA and Dec directions, in the
+units you have specified. Clicking on this icon a second time removes
+the distance tool. (You can also remove this layer via the layers
+icon.)<P>
+
+<dt><img src="img/marker.png"> <em>Put a marker on the image. </em>
+<dd> When you click this icon, a pull-down menu appears with several
+possible options:<br><img src="img/markeroptions.png"><br> The first
+overlay choice (simply called 'marker') is a red circle. Initially, it
+appears in the center of the images, and is meant to be moved to
+wherever you first click in the image. It looks like this: <img
+src="img/circlemarker.png">. The dash-dot line around it means that it
+is 'active', so you can move (click and drag the marker) or resize it
+(click and drag the dash-dot boundary).   You can change the color of
+the marker (and change the label) via the "layers" icon (described
+below). You can also remove this layer via the layers icon. There are
+several additional options in the pulldown, enough that they have
+their own <a href="#footprints">section below</A>.<P>
+
+<dt><img src="img/compass.png"> <em>Show the directions of North and East
+</em>
+<dd> When you click this icon, arrows appear on the image showing
+which direction is North and which is East. Clicking on this icon a
+second time removes the compass rose.  (You can also remove this layer
+via the layers icon, described below.) <P>
+
+<dt><img src="img/coordinates.png"> <em>Add a coordinate grid.</em>
+<dd>  Click on this icon to overlay a coordinate grid on the image.
+Click it again to remove it. Customize the units of the grid (to,
+e.g., Galactic coordinates) via the "layers" icon (described
+below).<P>
+
+<dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em>
+<dd> When you click this icon, you get a pop-up window from which you
+can read in a DS9 regions file from your local disk. See the <a
+href="http://ds9.si.edu/doc/ref/region.html"
+target="_blank">DS9 website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of
+these DS9 region files. The supported regions are text, circle, box,
+polygon, line, and annulus. To make this window go away without doing
+anything, click on the 'x' in the upper right of the pop-up. <P>
+
+<dt><img src="img/layers.png"> <em>Viewing/changing the layers on the
+image.</em> 
+<dd>If you've been following along by trying these various options,
+you now have an image with a lot of annotations on it. The number that
+appears in blue over the layers icon tells you at any given time how
+many layers you have on the currently selected image (the image
+outlined in orange). If you click this layers icon, you will get a
+pop-up window with a list of all the layers you have on top of the
+selected image. From the pop-up, you can turn layers off and on, at
+minimum, but you can often also change exactly what is displayed and
+what colors/symbols get used for it. Note that when you load 2MASS
+images, image artifacts ar automatically loaded but not displayed;
+they  can be overlaid the the layers pop-up as well.. To add new
+things, though, you need to go to other options within the toolbar.
+Here is an example of a well-populated layers pop-up. <br><img
+src="img/layerspopup.png"><br>
+Note the target description:<img src="img/targetrowofpopup.png">
+This reminds you
+of the target on which you searched and what image you are working
+with (here, WISE-4). The two icons
+next in that row indicate, respectively, "copy this location to the
+clipboard" and "center image on this position."<P>
+
+Where it's possible to change colors of a layer, click on
+the 'colors' link to be taken to a new pop-up from which you can
+select a new color. For catalogs or the search target, you can also
+select the symbol shape and size:<br>
+<img src="img/symbolpicker.png"><br> To adjust the size, type in the symbol
+size in pixels or use the up/down arrow keys to change the size by one
+pixel at a time. Click OK to implement your choices. 
+To delete a layer, click on "delete." Some layers do not have that
+option; to remove that layer, click on the corresponding icon from
+which you added that feature. Alternatively, you can "show all" or
+"hide all" with the buttons on the lower left of the pop-up window. 
+To make this pop-up window go away, click on the 'x' in the upper
+right of the pop-up. <P>
+
+If you searched on catalogs from the front page, you may have an
+intimidating number of layers right away. The interaction of the
+selected image, the layers themselves, and the layers pop-up can be
+very powerful but also very intimidating. This is discussed more
+<a href="#catalogsandlayers">in the catalogs and layers section
+below<A>.<P>
+
+<dt><img src="img/undoall.png"><em>Restoring everything to the
+defaults</em>
+<dd>If you've played around a lot with the image, you may want to undo
+everything you've done. Click this button to restore everything to
+their original default values. Some layers may persist; remove them
+via the layers icon described above. <P>
+
+
+<dt><img src="img/lockedimages.png"><em>Lock/unlock image color tables
+and overlays</em> 
+<dd>When this is set to "lock", all the images that you have loaded
+are linked together for color tables and overlays. This image lock is
+turned on by default.  You can click on this icon to turn off this
+linkage among the images, enabling you to change images on an
+individual basis. Click it again to re-enable it. <P>
+
+<dt><img src="img/lockimages.png"><em>Lock/unlock images</em>
+<dd>When this is set to "lock", all the images that you have loaded
+are linked together for zooming, scrolling, etc. This image lock is
+turned on by default.  You can click on this icon to unlock it or
+change how it is locked.  Clicking it produces this
+pull-down menu:<br>
+<img src="img/lockimagespulldown.png"><br>
+The first set of options aligns the images only once; the second set
+of options makes the alignment persist ("lock") when you move the
+images. You can align by the images' WCS (e.g., RA and Dec), by the
+target, by the pixels according to the origin of the coordinate system
+in the image header, or by the pixel at the image center. The most
+common choice is likely the WCS align and lock. This is discussed in
+more detail in the <a href="#wcs">WCS section</A> below.
+<P>
+
+
+
+<dt><img src="img/fitsheader.png"> <em>Viewing the FITS header.</em>
+<dd>This icon will display a pop-up window with the FITS header of the
+background image.  If you click on the columns of the FITS header in
+the pop-up, it will sort the keywords alphabetically by that column.
+This is useful for finding individual keywords in particularly densely
+populated FITS headers. Click the header again to sort in
+reverse-alphabetical order, and a third time to return to the default
+order. Below are examples of the original and sorted FITS header.  
+To make this window go away,
+click on the 'x' in the upper right of the pop-up, or click
+"close" on the bottom.<br><img
+src="img/unsortedfitsheader.png" width="50%"><img
+src="img/sortedfitsheader.png" width="50%"> <P>
+Further, you can click on the gears in the upper right of the window
+to bring up a dialog box via which you can filter down the header
+keywords (using the same syntax as the other <a
+href="catalogs.html#filters">filters</A>):<br>
+<img src="img/fitsheaderoptions.png"><P>
+
+
+<dt><img src="img/help.png"> <em>Getting help.</em>
+<dd>  Clicking on this icon takes you to this help page.<P>
+
+</dl>
+
+<a name="stretches"><h3>Specific information on Color Stretches</h3></A>
+
+
+<img src="img/stretch.png"> This icon enables you to change the color
+stretch of the displayed image. (This option is only available for
+FITS, not HiPS, images.) When you click the button, a pull-down menu
+appears with a variety of choices. You can choose from a set of
+pre-selected options:<br><img src="img/stretchoptions.png"><br> If you
+pick the first one, "color stretch", you can customize the stretch. A
+pop-up window appears with a histogram of the values in the image, and
+you can change the stretch type and range. <br><img
+src="img/customstretch.png"> <BR> If you pick a color stretch from the
+pre-defined options, the pop-up window reflects this change. 
+
+Example: pick 'Linear stretch to 99%'. Go back to "color stretch".
+Note that it has filled out the stretch type and ranges to reflect the
+current choice. Then -- either with the pop-up window still up or not
+-- go back and pick a different pre-defined stretch from the standard
+options. Note that the values in the pop-up change to reflect this
+current choice.<P>
+
+
+If you have a 3-color image, you can change the stretch in each color
+plane separately; select the tab at the top accordingly for red,
+green, or blue.  By default, it stretches each band independently, and
+you can set the parameters in the stretch pop-up accordingly.<P>
+<img src="img/3colorstretch.png"><P>
+
+As described in <a
+href="https://ui.adsabs.harvard.edu/#abs/2004PASP..116..133L" 
+target="_blank">Lupton et al. (2004) <img src="img/jumpout.jpg" height="10"></A>, a different algorithm may be
+useful for creating 3-band color images. Select "Hue preserving
+stretch" to invoke this option. This stretch should be a
+brightness-independent color-preserving asinh stretch, though in
+practical terms, it seems to work best for optical images. <P>
+
+<img src="img/luptonstretch.png"><P>
+
+It may be useful to scale individual channels; sliders allow you to do
+so. The Q parameter has another slider. For a linear stretch, Q=0;
+increase Q to change what features are emphasized. Pedestal values can
+also be set to allow the level assigned to "black" to change.<P> 
+
+<!-- The original ticket is https://jira.lsstcorp.org/browse/DM-14799
+Paper: https://arxiv.org/pdf/astro-ph/0312483.pdf
+Astropy implementation (not sure it is helpful):
+https://github.com/astropy/astropy/blob/master/astropy/visualization/lupton_rgb.py
+Follow-up ticket for scaling coefficients and help is https://jira.lsstcorp.org/browse/DM-15725
+-->
+
+
+<a name="footprints"><h3>Footprints</h3></A>
+
+The marker icon (<img src="img/marker.png">) has a pull-down menu with
+several possible options:<br><img src="img/markeroptions.png"><br> Any
+of the options with an arrow on the right can expand to additional
+subsidiary choices, e.g.,:<br> <img src="img/markeroptionsp1.png"><br>
+We now describe these various footprints here.<P>
+
+
+For each of these choices, the markers appear initially in the center
+of the loaded images. The first mouse click you make in any of the
+images will move the marker to that location.<P>
+
+Each of these marker choices, when overlaid and/or selected as
+'active', has a dot-dash square around it. If it is asymmetrical (most
+of them are), it has an additional "appendage" and a red plus at the
+center of the footprint:<br> <img src="img/activeregion.png"><br>
+These so-called "handles" allow you to resize and/or rotate the
+marker, depending on the nature of the marker. These handles only
+appear when the marker is selected as active; if you wait a few
+seconds, they vanish.<P>
+
+<strong>Troubleshooting and Tips:</strong> 
+<UL>
+<LI>Some of these footprints are <em>large</em>. If you have a small
+image, some of these footprints will be larger than your image. Zoom
+out to see it, or find a larger image to use. If you overlay, say, a
+WFIRST footprint on a 2MASS image, you may need to zoom out a
+considerable amount before you can see the WFIRST footprint. You will
+see the center indicator of the marker before you will see the WFIRST
+footprint itself. 
+<LI>You can add multiple copies of the same marker using the layers
+pop-up (described generally above).  From the layers pop-up, there is
+a link right under the 'angle' option that says "Add [marker type]" --
+click on that to get an additional marker of the same type. You can
+also add a label to the marker from the layers pop-up, or change its
+color.
+<LI>If you have many footprints on the same image, you may have
+trouble grabbing and moving footprints lower in the stack of layers on
+the image. For example, overlay footprint 1, then footprint 2, and you
+might have a hard time grabbing and rotating footprint 1 after
+footprint 2 has been added. The only workaround here is to use the
+layers pop-up (described generally above) to hide footprint 2, then
+move footprint 1, then restore footprint 2.
+<LI>If you have images of very different resolutions loaded
+(e.g., IRAS and really anything else), sometimes it struggles to
+render the marker on each image. You may need to place markers on one
+image at a time. (Unclick the "lock overlays" button to place markers
+one image at a time.)
+</UL>
+
+
+
+<img src="img/circlemarker.png"> The first overlay choice (simply
+called 'marker') is a red circle.   <P>
+
+The remaining markers are all footprints from various telescopes:
+Spitzer, SOFIA, HST, JWST, and WFIRST. HST, JWST and WFIRST are
+derived from information provided via MAST (see <a
+href="http://gsss.stsci.edu/webservices/footprints/help.html">http://gsss.stsci.edu/webservices/footprints/help.html</A>.)
+For JWST and WFIRST in particular, they are pre-launch values.<P>
+
+<img src="img/iracfoot.png"> <strong>Spitzer/IRAC 3.6 and 4.5 micron
+footprints.</strong> These two footprints are placed separately
+from each other. The footprint can be moved or rotated. Click and drag
+the center of the footprint. A circle appears with four small circles
+("handles") around it. Grab and drag the small circles to rotate it,
+or drag the big circle to move it. Change the color, delete, or add
+more copies of the IRAC footprints from the layers pop-up.<P> 
+
+<img src="img/sofiafoot.png"> <strong>SOFIA footprints.</strong>
+Several different SOFIA footprints are available; the graphic here
+shows a selection of them. The available footprints (all of which are
+placed separately) are:
+<UL>
+<LI>FIFI-LS 
+<UL>
+<LI>Blue (50-120 microns)
+<LI>Red (110-200 microns)
+</UL>
+<LI>FLITECAM 
+<UL>
+<LI>Imaging
+<LI>Grism ABBA
+<LI>Grism AB
+</UL>
+<LI>FORCAST 
+<UL>
+<LI>Imaging
+<LI>Grism a
+<LI>Grism b
+</UL>
+<LI>FPI+
+<LI>HAWC+ 
+<UL>
+<LI>53 microns (Band A), Total Intensity
+<LI>53 microns (Band A), Polarization
+<LI>89 microns (Band C), Total Intensity
+<LI>89 microns (Band C), Polarization
+<LI>154 microns (Band D), Total Intensity
+<LI>154 microns (Band D), Polarization
+<LI>214 microns (Band E), Total Intensity
+<LI>214 microns (Band E), Polarization
+</UL>
+</UL>
+Change the color, delete, or add
+more copies of the SOFIA footprints from the layers pop-up.<P>
+
+
+
+<img src="img/hst.png"> <strong>HST footprints.</strong>
+You can overlay the whole focal plane footprint, shown here, or
+individual instrument footprints (NICMOS, WFPC2, ACS/WFC, ACS/HRC,
+ACS/SBC, WFC3/UVIS, and WFC3/IR).  Consult the <a
+href="http://www.stsci.edu/hst/observatory/apertures">HST
+documentation</A> for specifics on which apertures are which. The
+footprint can be moved or rotated. Click and drag the center of the
+footprint. A circle appears with four small circles ("handles") around
+it. Grab and drag the small circles to rotate it, or drag the big
+circle to move it. <strong>Note that</strong> if you overlay the
+footprint on a very small image, nothing will appear to have happened.
+You need at least a 45 arcmin image to comfortably see the footprint.
+Change the color, delete, or add more copies of the HST footprints from
+the layers pop-up.<P>
+
+<img src="img/jwstall.png"> <strong>JWST footprints.</strong>
+You can overlay the whole focal plane footprint, shown here, or
+individual instrument footprints (FGS, MIRI, NIRCAM, NIS, and NIRSPEC).
+<P>
+<strong>Note that</strong> if you overlay the footprint on a very
+small image, nothing will appear to have happened. You need at least a
+30 arcmin image to comfortably see the entire JWST focal plane. Please consult the <a
+href="http://www.stsci.edu/jwst/">JWST documentation</A> for details
+about the footprints.  In all cases, if the footprint is 'active', a
+circle near the middle of the footprint will appear with four small
+circles ("handles") around it. Grab and drag the small circles to
+rotate it, or drag the big circle to move it. Change the color,
+delete, or add more copies of the footprints from the layers pop-up.<P>
+
+<img src="img/wfirst.png"> <strong>WFIRST focal plane
+footprint.</strong> As above, the footprint can be moved or rotated.
+Click and drag the boresight (the cross hairs), which appears by
+default to the upper right of the array of squares.  A circle appears,
+centered on the boresight, with four small circles ("handles") around
+it. Grab and drag the small circles to rotate it, or drag the big
+circle to move it. <strong>Note that</strong> if you overlay the
+footprint on a very small image, nothing will appear to have happened.
+You need at least a 60 arcmin image to comfortably see the footprint,
+and even then you will probably have to click and drag to see the
+entire footprint. Consult the <a
+href="https://wfirst.ipac.caltech.edu/">WFIRST documentation</A> for
+specifics on the apertures. Change the color, delete, or add more
+copies of the WFIRST footprint from the layers pop-up.<P> 
+
+
+
+
+<a name="3color"><h3>3-color images</h3></A>
+
+In Finder Chart, a default search results in images in many bands of
+the same region of the sky. It can be useful to create 3-color images
+from these multi-color bands.<P>
+
+The images window pane consists of rows of images grouped by survey. 
+Near the top left of the images window pane, you can find this icon:
+<img src="img/3colorimg.png">. If you click on this icon, at the end
+of each row, a 3-color image appears that has been created out of the
+bands going into that survey. Here is an example for HL Tau:
+<br><img src="img/hltau.png" width="100%"><br>
+At the end of each set of survey images is a new, 3-color image. This
+image has been automatically generated with pre-selected bands as the
+color planes: 
+<table border="2">
+<tr><th>survey</th><th>red</th><th>green</th><th>blue</th></tr>
+<tr><td>DSS</td><td>DSS 2 IR</td><td>DSS 2 red</td><td>DSS 2 Blue</td></tr>
+<tr><td>SDSS</td><td>z</td><td>r</td><td>u</td></tr>
+<tr><td>2MASS</td><td>K</td><td>H</td><td>J</td></tr>
+<tr><td>WISE</td><td>W3</td><td>W2</td><td>W1</td></tr>
+<tr><td>Spitzer/SEIP</td><td>I3</td><td>I2</td><td>I1</td></tr>
+<tr><td>AKARI</td><td>WideL (140 um)</td><td>WideS (90 um)</td><td>n60 (65 um)</td></tr>
+<tr><td>IRAS</td><td>IRAS-60</td><td>IRAS-25</td><td>IRAS-12</td></tr>
+</table>
+<P>&nbsp;<P>
+The "3-color" button is "sticky" in that if you turn it on, and then
+do another search, the new search will automatically make 3-color
+images.<P>
+
+
+<!-- Once you have turned on these 3-color images, select one of these
+3-color images by clicking on it. Then, a new icon appears on the left
+of the image toolbox: <img src="img/new3colorimg.png">. If you click
+on this icon, this window appears: <p><img
+src="img/changecolorplanes.png" width="100%"><p> From this window, you can change
+which color planes are used in this 3-color image. You can select one
+of the images that has already been loaded, or you can change one of
+the color planes to be a new image from another survey that you may or
+may not have already loaded (it pre-fills the target to match your
+current target) or from your disk. Click 'Load' in the lower right to
+actually implement your changes. Click 'Close' in the upper left to
+return to your prior view without making any changes. <P> -->
+
+To save the color PNGs, you can do either of the following:
+(1) Click on the image to select it (make it outlined in orange).
+Click on the diskette icon in the far left of the image toolbar.
+Select "png" for the file type to save, and click 'download.' 
+(2) Click on the "download" button in the far upper left of the images
+window pane. Click on "include color images" in the download options
+pop-up and save as PNGs. <P>
+
+
+<A NAME="catalogsandlayers"><H3>Catalogs and Layers</H3></A>
+
+If you search on catalogs from the search results page, then Finder
+Chart will overlay these catalogs on your images as additional layers.
+In order to see the layers on any given image, you need to click on
+the layers icon (<img src="img/layers.png">) in the image toolbox
+(described above). See both the <a href="tables.html">Tables
+section</A> and <a href="catalogs.html">the Catalogs section</A> for
+much more information on tables and catalogs in general.  <P>
+
+However, if you search on catalogs from the main search page,
+Finder Chart overlays the catalogs on your images right away, and it
+does so in a way that is quite powerful, but may be initially
+confusing. Critical to understanding what it is doing (and how you can
+change it) is the concept of the "selected image."  Out of the
+potentially large number of images you have loaded, one is "selected"
+-- it is outlined in orange. Click on a different image, and that
+image becomes outlined in orange as the selected image. Different
+things are overlaid on different images (or image sets), so it is
+important to realize which image you have selected. <P>
+
+In order to explain what it is doing, let's look at a real example. 
+Search on "HL Tau" and ask it to retrieve catalogs within the image
+boundary: <br><img src="img/hltausearch.png" width="100%"><p> 
+
+Here are the results obtained after a few seconds: <br><img
+src="img/hltauresults.png" width="100%"><br>  <P>
+
+This is a single target search, so three panes are returned; one has
+the images (top), and the bottom has two panes, one with the catalogs
+and the other with the plots from the catalogs. The images have
+catalogs overlaid -- the DSS doesn't have a corresponding survey, so
+it has no catalog, but the SDSS images have the SDSS catalog overlaid,
+the 2MASS images have the 2MASS catalog overlaid, etc. for all the
+other surveys with catalogs. By selecting the SDSS catalog tab on the
+bottom, and then selecting a row in the SDSS catalog, that object is
+highlighted in the SDSS image and the SDSS catalog plot. It works the
+other way as well - select an object in the SDSS image or plot , and
+the object is highlighted in the SDSS catalog. This behavior is
+identical to that for <a href="catalogs.html">catalogs in
+general</A>.<P>
+
+What is potentially confusing here is that the catalogs arrive with
+the search results and are already read in. From the main search page,
+you could conceivably stumble into having (1) nothing overlaid; (2)
+only the central source overlaid, so it looks like nothing is
+overlaid; (3) so many sources overlaid that you can't see the image. 
+From the layers pop-up, you can control which of these loaded catalogs
+are shown on the selected image (and in which colors, and what symbol
+shape).  But what is shown on what image is a strong function of which
+image you have selected.<P> 
+
+Perhaps you are interested in whether the WISE catalog has
+counterparts to an object seen in the 2MASS images. Here is how you
+add the WISE catalog to the 2MASS images.
+<OL>
+<LI>Select one of the 2MASS images by clicking on it -- it should be
+outlined in orange. For this example, click on the J band image.
+<LI>Select the 'layers' icon from the image toolbox:
+<br><img
+src="img/hltaulayers.png" width="100%"><br> 
+<LI>The layers pop-up shows all of the potential layers you can add to this
+particular image from things already read in. You can also add those
+layers to <strong>the entire row</strong> of 2MASS images. Right now,
+in the screen shot above, the 2MASS image has the query object shown,
+and the 2MASS catalog shown on the entire row of 2MASS images. 
+<LI>To add the WISE catalog to just the J band image (selected in the
+screen shot above), locate the WISE catalog row in the layers pop-up,
+and select the radio button for "Overlay: image". Then click on the
+checkbox for "Show: WISE".
+<LI>The WISE catalog appears on just the J band image, in the color
+and with the symbol shape as indicated in the layers pop-up.
+</OL>
+
+Using a similar approach, you can add the 2MASS catalog to all images,
+or just the IRAS catalog to just the WISE-4 image, or just the row of
+WISE images, etc. <P>
+
+From the main search page, you can choose to search the catalogs just
+over a small radius, and/or further constrain it to just find the
+closest source (one-to-one match) to your target. If you do this, the
+overlays of the catalogs will (most likely) all be right on top of the
+same, single source, and it will be much less clear that the catalogs
+are overlaid at all, much less that the catalogs are different on each
+set of images. But, it is behaving in the same way as what is
+described here!<P>
+
+<strong>Helpful tip:</strong> If you leave the layers pop-up window
+open while you click on different images to select them, you can see the
+contents of the pop-up layers window change to reflect the layers (and
+options) present in that selected image. <P>
+
+
+<A NAME="breakingout"><H3>Breaking out of the pane (and going back)</H3></A>
+
+By default in Finder Chart, the screen is broken up into 1-4 panes.
+The set of images corresponding to the target could be your only pane.
+If you searched on a list of targets, the list is on the left. If you
+searched on catalogs, the catalogs and plots are on the bottom.  For
+some purposes, it is useful to view the images (or the tables) as
+large as possible. On the upper right of any pane,  there is an expand
+icon <img src="img/expand-24x24.png">. Clicking on it will expand
+these tables into a larger window, taking up as much space in your
+browser window as possible. On the upper right of the image pane,
+there is this icon: <img src="img/expandimagetiles.png">, which
+expands the window pane into a larger window, taking up as much space
+in your browser window as possible, but still leaving the images in
+tiled view.  <P>
+
+There are a set of options just above the images, even when the images
+pane is smaller (and the catalogs/plots/other targets are visible):<br>
+<img src="img/expview.png"><br>
+The large "Close" arrow at the upper left is always available in the
+expanded views, and enables you to return back
+to the pane view.<P> 
+
+Next, there is a cluster of icons <img src="img/imagetiles.png"> that
+portray (in icon form) the different views you can have of the images
+you have loaded. The first icon (the big square) denotes "show one
+image at a time." The second icon (the cluster of four squares)
+denotes "show smaller images of all the images I have loaded, but
+still take up the whole browser window with the set" (as opposed to
+going back to the window panes).  <P>
+
+<img src="img/expview2.png"><br>
+If you are viewing one image at a time,  the arrows allow you to
+click through  your set of images in the order they are loaded. <P>
+
+<img src="img/expview3.png"><br>
+These next two icons will generate a PDF and turn on the <a
+href="#3color">3-color
+images</A>, respectively.<P>
+
+The next portion of the window has some WCS (world coordinate
+system)-related options that will be discussed <a
+href="#wcs">below</A>.<P>
+
+
+
+<A NAME="wcs"><h3>World Coordinate System (WCS) Alignment and Related
+Features</h3></A>
+
+As described above, there are two different lock buttons on the image
+toolbar, one (<img src="img/lockedimages.png">) for the color
+table/stretch/overlays, and another, different one (<img
+src="img/lockimages.png">) for WCS matching. This section describes
+the image locking in more detail.<P>
+
+The main purpose of having lock buttons at all is to make it easier to
+change color tables for everything at once, or to zoom/scroll all the
+images at once. <P>
+
+To use either of the locking buttons: Select an image by clicking on
+it; note that your selected image is outlined in orange. Lock by color
+and then change the color table in that selected image; all the images
+change color tables. Lock by position and all the images align
+to the same scale as your selected image.<P>
+
+Aligning images by position on the sky is likely to be the most common
+use of locking.  You can align FITS and HiPS images to each other.
+When you have locked the images, if you zoom, click-and-drag, etc.,
+then all the images move together. This option only makes sense if all
+of your loaded images are of the same region of sky, which they are
+when using Finder Chart. (In other IRSA tools, it's quite possible to
+have images loaded from many different targets.) There may be
+situations where you likely you don't want all of the displayed bands
+to change together, which is why locking by position of any sort is an
+option distinct from locking color tables.<P>
+
+When aligning images, you can specify how the images align and for
+how long. Clicking the lock images icon produces this pull-down
+menu:<br> <img src="img/lockimagespulldown.png"><P>
+
+The first set of options aligns the images only once; the second set
+of options makes the alignment persist ("lock") when you move the
+images. <P>
+
+You can align by the images' WCS (world coordinate system,
+e.g., RA and Dec), by the target (align by target on the screen,
+regargless of position in the sky), by the pixels according to the
+origin of the coordinate system in the image header, or by the pixel
+at the image center. The most common choice is likely the WCS align
+and lock.<P>
+
+Here are examples of different alignments, left to right: align by
+WCS, by pixel origin, and by pixel at image centers.<br>
+<img src="img/alignbywcs.png" width="30%">
+<img src="img/alignbypxorigin.png" width="30%">
+<img src="img/alignbyimgcenter.png" width="30%">
+<P>
+Note that aligning by WCS puts North up, and aligned so that each
+image has the same angular scale. <P>
+In contrast, here is an align by target - several different spiral
+galaxies, but the target used for each image is in the center of each
+image tile.<br>
+<img src="img/alignbytarget.png" width="30%"><P>
+
+To remove an image (or catalog) entirely, click on the small 'x'
+in the upper right of the image in the tiled view, or on the small
+'x' in the corner of the image (or catalog) tab in the window
+pane view.<P>
+
+
+ 
+
+</BODY>
+</HTML>

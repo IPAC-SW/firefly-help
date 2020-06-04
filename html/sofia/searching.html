@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "SOFIA Data Archive: Searching" -->
+<HEAD>
+<TITLE>SOFIA Data Archive: Searching
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>SOFIA Science Data Archive: Searching</h2>
+
+There are many different options for searching the the SOFIA Science
+Data Archive. Searching by position is the most commonly used option. 
+<P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#byPosition">Spatial Constraints Search</A><br>
++<A href="#byTable">Searching by Position in Batch Mode</A> <br>
++<A href="#allsky">Searching the Whole Sky</A><br>
++<A href="#bySSO">Searching by NAIF ID (Solar System Object)</A><br>
++<A href="#byProposal">Proposal Constraints Search</A><br>
++<A href="#byObservation">Observation Constraints Search</A><br>
++<A href="#byInstrument">Instrument Constraints Search</A><br>
++<A href="#byData">Data Product Constraints Search</A><br>
+
+<P>&nbsp;<P>
+
+
+<A NAME="byPosition"><!-- --></A><H3>Spatial Constraints Search</H3>
+
+This search is the most common search performed on astronomical
+archives.  Enter your central position and cone (circle) radius, then
+all observations (those meeting all the rest of your entered criteria)
+intersecting that cone are returned.<P>
+
+<img src="img/byposition.png"><P>
+
+You may enter a target name, and have either NED-then-Simbad or
+Simbad-then-NED resolve the target name into coordinates (such as M17
+or NGC6946).
+Alternatively, you may enter coordinates directly. These coordinates
+can be in decimal degrees or in hh:mm:ss dd:mm:ss format.  By default,
+it assumes you are working in J2000 coordinates; you can also specify
+galactic, ecliptic, or B1950 coordinates as follows:
+<UL>
+<LI>'141.607 -47.347 gal' means 141.607, -47.347 degrees in galactic coordinates
+<LI>'42.76037 3.17750 ecl' means 42.76037, +3.17750 degrees in ecliptic coordinates
+<LI>'12h34m27.0504s + 2d11m17.304s Equ J2000" specifies the RA and Dec
+in J2000 coordinates
+<LI>'20h27m36.3467s +40d01m21.649s Equ B1950' specifies the RA and Dec
+in B1950 coordinates
+</UL>
+As you are completing a valid coordinate entry, it echoes back to
+you what it thinks you are entering. Look right below the box in which
+you are typing the coordinates to see it dynamically change.
+<P>
+
+
+You specify the radius over which you want to search. You may enter
+this radius in arcseconds, arcminutes, or degrees; just change the
+pulldown option accordingly. <strong>Caution:</strong> pick your units
+from the pulldown first, and then enter a number; if you enter a
+number and then select from the pulldown, it will convert your number
+from the old units to the new units. There are both upper and lower
+limits to your search radius; it will tell you if you request
+something too big or too small. <P>
+
+
+<h3><A NAME="byTable">Searching by Position in Batch Mode</A></h3>
+
+The position search can also be done for multiple positions in "batch
+mode" from a list of objects given in a file. Select "Multiple
+positions" from the left. You can load a file from your local disk or
+the <a href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>,
+which is a bit of disk space for you at IRSA.<P>
+
+<img src="img/bypositionbatch.png"><P>
+
+
+The file must be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file <img src="img/jumpout.jpg" height="10"></A> format, which is ASCII text with
+headers explaining the type of data in  each column, separated by
+vertical bars.   <P>
+
+A sample input file looks like this: <P>
+<pre>
+
+|              ra|              dec|
+|          double|           double|
+|             deg|              deg|
+ 266.461876096161 -28.9303475510113 
+ 317.385694084404 -41.1537816217576 
+ 267.210580557307 -27.7929408211594 
+ 229.172700517754   0.2598861324350
+ 299.510225672473 -38.7735055243326
+ 213.945501950887  13.3596597685085
+ 262.341432853080 -23.7518928284717
+ 271.202769466020 -21.7274227022229
+ 291.167629785682 -29.2569222675305
+ 272.336516119634 -20.2761650442889
+ 237.391628608612   2.5906013137112
+</pre><P>
+
+As for searching on targets one at a time, from the front screen, you
+specify the radius over which you want to search. You may enter this
+radius in arcseconds, arcminutes, or degrees; just change the pulldown
+option accordingly. <strong>Caution:</strong> pick your units from the
+pulldown first, and then enter a number; if you enter a number and
+then select from the pulldown, it will convert your number from the
+old units to the new units. There are both upper and lower limits to
+your search radius; it will tell you if you request something too big
+or too small. <P>
+
+For batch searches, if you want to use a different search radius for
+each target, add a column to the input table. If the table uploaded
+has a 'radius' column, the API will overwrite the single radius search
+and take the one specified in each row in the table. <P>
+
+
+So that you can more easily tie results to input, when you get results
+back from a batch search, the input RA and Dec are columns appended to
+the end of your results tables.<P>
+
+
+<em>Troubleshooting your target list: Having problems making a valid
+IPAC table?</em> We
+recommend assembling something close to the correct IPAC table file
+format, then passing it through the <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank">the IPAC table file verification service <img src="img/jumpout.jpg" height="10"></A>.
+The most common errors include the following :<p> 
+<UL> 
+<LI> No hyphens allowed in column names, or filename! 
+<LI> Column names should be all in lower case
+<LI> No empty lines at the end of the input file.
+<LI>IPAC table files should end in ".tbl". 
+<LI>Make sure there are not lots of extra whitespace (spaces, tabs,
+etc.) at the ends of lines, particularly the header lines. 
+<LI>Check for and remove odd non-standard characters like curly quotes or
+Greek letters, and other non-printing special characters (like
+tabs).  
+<LI>If using the table verification service, name resolution may fail
+for some targets with Greek letters or other unusual characters --
+provide coordinates for the troublesome names, or remove them. 
+</UL>
+<p>
+
+
+
+Please note that the maximum number of targets that can be requested
+in a batch search is 1000.<P>
+
+
+<h3><A NAME="bySSO">Searching for Solar System Objects (SSOs)</A></h3>
+
+You can search on the name of a moving target (Solar System Object,
+SSO), or the NAIF ID. The accepted naming conventions are the
+ones that have been approved for use by the <a 
+href="http://www.ss.astro.umd.edu/IAU/csbn/" target="_blank">CSBN <img src="img/jumpout.jpg" height="10"></a>
+and its predecessors. SSOs are assigned NAIF IDs, which are
+a unique integer identifier for known Solar System bodies. (See <a
+href="https://naif.jpl.nasa.gov/naif/index.html"
+target="_blank">here<img src="img/jumpout.jpg" height="10"> </A> or  <a
+href="https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/FORTRAN/req/naif_ids.html"
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A> for more about NAIF and NAIF IDs; in brief,
+every body in the Solar System has a number.)  <P> 
+
+<img src="img/bynaif.png"><P>
+
+If you know the NAIF ID, just type that in; if you know only the name,
+it will attempt to resolve the name for you into a NAIF ID. You may
+need to carefully read what it is suggesting to make sure you have
+selected the NAIF ID you really want. For example, Neptune's NAIF ID
+is different than that for the Neptunian system's barycenter:<Br> 
+<img src="img/neptune.png"><P>
+
+Even if only one suggestion is given, you need to explicitly select
+that suggestion in order to implement the search.<P>
+
+This search will retrieve data explicitly declared to be observations
+of these moving targets in the Spitzer database.  This means, for
+example, that observations of a moving target performed as a
+fixed-target observation of an RA/Dec will not appear, nor will
+serendipitous observations of a moving target that happens to appear
+in a fixed-target observation. Note also that if incorrect target
+information was entered at the telescope, observations may not be
+retrieved.<P> 
+
+A precovery search for SSOs is coming soon.<P>
+
+
+<h3><A NAME="allsky">Searching the Whole Sky (All-Sky Search)</A></h3>
+
+
+In the search pane, you can also search the entire archive, the whole
+sky. If you do not impose additional constraints,
+then you will return all of the data in the archive. <P>
+
+The reason you might want this "all sky" option is because you can,
+e.g., retrieve all of the observations associated with a program that
+has observations all over the sky, or return all of the observations
+associated with a mission (flight), or all of the FORCAST
+observations. In order to use sensibly the "all sky" option in this
+fashion, though, you should impose additional constraints (see below).
+Click on the arrows to expand any of those searches in the search
+window.<P>
+
+All options do <strong>not</strong> have to be populated to do a search.<P>
+
+Options here can be combined with additional constraints under any
+other category.<P>
+
+
+
+<A NAME="byProposal"><!-- --></A><H3>Proposal Constraints Search</H3>
+
+Using proposal constraints, you can obtain all of
+the data associated with a particular observing program or primary
+investigator. The primary users of this search are likely to be
+observers retrieving data from their own program(s).<P>
+
+<img src="img/propconstraints.png"><P>
+
+Click on the arrow to expand the options for this search. You can
+constrain this search using the Primary Investigator or Plan ID.<P>
+
+Both options do not have to be populated to do a search. <P>
+
+<strong>Note</strong>: The PI search is somewhat flexible. If
+Jane Q. Astronomer submitted a proposal where she entered her name as
+"Jane Q. Astronomer," then you can find her program by searching on
+"Jane" or or "Jan" or "Astronomer" or "Astron." (Note that you do not need a
+wildcard ["*"] character to search on partial strings.) <P> 
+
+
+<A NAME="byObservation"><!-- --></A><H3>Observation Constraints Search</H3>
+
+Using observation constraints, you can obtain all of
+the data associated with a particular mission (flight), AOR, or date
+range. The primary users of this search are likely to be
+observers retrieving data from a flight where their observations were
+included.<P>
+
+<img src="img/obsconstraints.png"><P>
+
+Click on the arrow to expand the options for this search. You can
+limit the search to be all the data associated with a Mission ID, AOR
+ID, Plan ID, or observation date range. (For a list of dates
+corresponding to SOFIA Observing Cycles, see <a
+href="overview.html">the Overview section</A>.)  <P>
+
+Searches over large date ranges will take more time. <P>
+
+All options do not have to be populated to do a search.<P>
+
+
+<A NAME="byInstrument"><!-- --></A><H3>Instrument Constraints Search</H3>
+
+Using instrument constraints, you can obtain all of the data
+associated with a particular instrument and/or configuration. Users of
+this option might be trying to find other observations similar to
+theirs taken on the same mission (flight).<P>
+
+Instrument constraints dynamically change in response to the value
+chose in the pull-down in this section of the search screen. By
+choosing a different pulldown, your available choices change to
+reflect the possible values in instrument constraints for that
+instrument. <P>
+
+Depending on the instrument, you can ask for any
+configuration, or different spectral elements, wavelength ranges, etc.<P>
+
+<img src="img/instconstraints-any.png"><P>
+<img src="img/instconstraints-exes.png"><P>
+<img src="img/instconstraints-fifi-ls.png"><P>
+<img src="img/instconstraints-flitecam.png"><P>
+<img src="img/instconstraints-forcast.png"><P>
+<img src="img/instconstraints-fpi.png"><P>
+<img src="img/instconstraints-great.png"><P>
+<img src="img/instconstraints-hawc.png"><P>
+
+
+
+
+<A NAME="byData"><!-- --></A><H3>Data Product Constraints Search</H3>
+
+Using data product constraints, you can obtain all of the data
+corresponding to a specific processing level.   You might use this,
+combined with other constraints, to find highly processed data
+products (level 4) taken of a particular region. (See <a
+href="overview.html">the overview chapter</A>, specifically <a
+href="overview.html#datalevels">the part on data levels</A>, for more
+information on what data levels mean.)
+</A><P>
+
+<img src="img/dataconstraints.png"><P>
+
+You can specify whether you want observations of a particular object
+("object" pulldown option), as opposed to calibration data, or just
+retrieve all data.<P>
+
+Observation type can be :
+<UL>
+<LI>Any
+<LI>Object
+<LI>Standard_Flux 
+<LI>Standard_Telluric
+<LI>Flat 
+<LI>Dark
+<LI>Focus loop
+<LI>Sky
+</UL>
+
+
+ 

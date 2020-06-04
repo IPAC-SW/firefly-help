@@ -1,0 +1,914 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Atlas: Results" -->
+<HEAD>
+<TITLE>Atlas: Results
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Image and Spectrum Viewer (Atlas): Results</h2>
+
+The Image and Spectrum Viewer (Atlas) returns results in an
+interactive image (top) and table (bottom). The interactive table features are described generally in <a href="tables.html">Tables section</A>.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#MapClick">Map Click</a><br>
++<a href="#SingleObject">Single Object</a><br>
++<a href="#MultiObject">Multi-Object</a><br>
++<a href="#noresults">No Results</a><br>
++<a href="#bgdata">Background Data Sets</a><br>
++<a href="#bulk">Bulk Download</a><br>
+<P>&nbsp;<P>
+
+
+
+<h3><a name="MapClick">Map Click</a></h3>
+
+The results from a click on the map are the same as the results for a single object (see next subsection).<P>
+
+<h3><a name="SingleObject">Single Object</a></h3>
+
+<p>On the <b>results page</b>, data which matched the search criteria
+will be listed in tabular form as well as being rendered on a
+background image.  (Note that multiple overlays for the exact same
+position may look like one overlay.)  Any source/spectral tables found
+are listed first, followed by images.  You can download or display any
+of the images listed, download or display the background image,
+retrieve spectra when they are available, or display source
+tables.</p>
+
+<p>The results page also contains another search form, which can be
+used to fine-tune the original search or start a completely new
+search. <b>Zoom</b> in and out by specifying a smaller or larger
+search "Size"/"Radius", and then re-submitting the request.</p>
+
+<p>For most of the Atlas data collections the results are displayed on
+a background which is the same size as the requested search size. This
+allows the user to view the entire requested search area, with the
+data results overlayed. However, for some Atlas collections
+visualization of the search results is made clearer by having a larger
+background size compared to the requested search size. For these data
+collections, Atlas has a set "<b>background scaling factor</b>" to
+display the results; the background size is equal to the search size
+times the background factor. The scaling factors for all collections
+are also listed Table 1. The Atlas search results page lists the
+background factor in the lower right of the overlay image, near the
+'Background Image' download option.</p>
+
+<p>Table 1 lists all the Atlas datasets, and the name of the dataset
+used for the background, the maximum allowed search/background size
+and the background scaling factor. <a name="table1"
+id="table1"></a></p>
+
+
+
+<h3><a name="MultiObject">Multi-Object</a></h3>
+
+After a Multi-Object search, using Table Upload, the search results
+are returned in a summary table, collecting the results of each single
+object search.  The table shows the positions of each requested source
+(<b>ra</b> and <b>dec</b> in decimal degrees); the number of images
+(<b>N_images</b>), catalog sources (<b>N_srcs</b>) and spectra
+(<b>N_spectra</b>); a link to the HTML search results page
+(<b>Result_Link</b>) for each source; and links to data download
+scripts (<b>Download_Script</b>) for each results set (includes
+images, catalogs, spectra).  The <b>Status</b> column will indicate
+"ERROR" if a problem was found while searching for data for that
+source, else "OK" is returned.  Note, an empty set of results (no
+images, catalogs, or spectra found) is a valid result, and therefore
+"OK" is returned when the search did not find an error. </p>
+
+<p>
+A <b>Download script</b> with <b>ALL the results</b> for all sources
+is also available; this is a concatenation of the download scripts per
+source, as one master script. Download scripts use the Unix GNU tool
+'wget' for bulk downloads.  [<a
+href="https://irsa.ipac.caltech.edu/docs/batch_download_help.html"
+target="help">WGET Help <img src="img/jumpout.jpg"
+height="10"></a>]  </p>
+<p>
+Clicking a <b>Result_Link</b> brings up a single object search results
+page;  this page is identical to the result if a "Single Object" was
+used in the search form for that same position.
+</p>
+
+<p>
+For reference, the user's table is available.  Note, IRSA adds
+<b>ra</b> and <b>dec</b> coordinates for each  source in decimal
+degrees, if these columns are not provided.  The table is also 
+reformatted to <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="help"><i>IPAC Table Format <img src="img/jumpout.jpg"
+height="10"></i></a>,  if it is not already uploaded as such.  The
+order of the user table sources and the results table summary are the
+same;  the "<b>cnt</b>" (counter) column is the row number of the
+input user table.
+
+  </p>
+
+<h3><a name="noresults">No Results</a></h3>
+
+<p> If no data are found for the selected area, a
+"<b>NOTIFICATION</b>" page is returned stating that the collection
+does not have data within the input search parameters. If you think
+there should be data, hit the 'Back' button on your browser to return
+to the search page and try again with different search criteria, e.g.
+broaden the search by increasing the Size of the search box and/or
+radius, or by de-selecting the "Images must cover coordinate"
+checkbox. </p>
+
+
+<h3><a name="background" id="background"></a><a name="bgdata"><a name="table1">Background Data Sets</a></a></h3>
+
+Table 1 below lists the source of the background images and their
+characteristics. Most of the background data come from either the IRSA
+<a href="https://irsa.ipac.caltech.edu/data/ISSA/">ISSA <img
+src="img/jumpout.jpg" height="10"></a> or <a
+href="https://irsa.ipac.caltech.edu/applications/2MASS/QL/">2MASS <img
+src="img/jumpout.jpg" height="10"></a> image collections. ISSA is IRAS
+data.  The images here are at 12 micron.  2MASS images have been made
+with the <a href="http://montage.ipac.caltech.edu/index.html">Montage
+<img src="img/jumpout.jpg" height="10"></a> mosaic engine, and should
+be used for visualization only.</p>
+
+
+
+  <center>
+    <h3>Table 1</h3>
+  </center>
+
+  <center>
+    <table border="1">
+      <tbody><tr bgcolor="#C0C0C0" align="center">
+        <td><b>Atlas Collection Name</b></td>
+
+        <td><b>Background Dataset Name</b></td>
+
+        <td><b>Maximum Allowed Search-Size/Background-Size
+        (deg)</b></td>
+
+        <td><b>Background Scaling Factor</b></td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>COSMOS</td>
+        <td>COSMOS Subaru mosaics (B=blue, V=green, i=red); COSMOS
+        front page is SDSS 'i' band</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>AKARI</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>BLAST</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>BOLOCAM_GPS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>BRAVA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>DSS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.2</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>IRTS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MUSYC</td>
+        <td>I band</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MSX</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>NED</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>NExScI_PTI_KI</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SWS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>Scrapbook</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+
+        <td colspan="4"><b>Spitzer</b></td>
+
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SEIP</td>
+        <td>ISSA</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>5MUSES</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>Abell1763</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>C2D</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>CLASH</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>Cygnus-X</td>
+        <td>Spitzer IRAC1 (3.6um)</td>
+        <td>7.0</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>Disks_SH_spectra</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>DUSTiNGS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>ELFLock</td>
+        <td>ISSA</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FEPS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FIDEL</td>
+        <td>FIDEL front page and search results page use the FIDEL MIPS data as backdrops:
+         24um MIPS images for EGS and ECDFS fields, and 70um MIPS image for the GOODS-N field. </td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FLS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+<!--
+      <tr bgcolor="#FFFFFF">
+        <td>FLS_VLA</td>
+        <td>FLS_VLA</td>
+        <td>1.0</td>
+        <td>4.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FLS_MAIN_R</td>
+        <td>2MASS J (1.25um)</td>
+        <td>4.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FLS_ELAISN1_R</td>
+        <td>2MASS J (1.25um)</td>
+        <td>4.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>FLS_HECTOSPEC</td>
+        <td>R band</td>
+        <td>4.0</td>
+        <td>2.0</td>
+      </tr>
+
+-->
+
+      <tr bgcolor="#FFFFFF">
+        <td>Frontier</td>
+        <td>ISSA</td>
+        <td>7.1</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>GLIMPSE</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>3.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>GOALS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>GOODS</td>
+        <td>2MASS J (1.25 um)</td>
+        <td>0.6</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>IRS_Std</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>IUDF</td>
+        <td>2MASS J (1.25 um)</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>LVL</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>M31IRAC</td>
+        <td>ISSA</td>
+        <td>6.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MIPSGAL</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MIPS_LG</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>S4G</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>S5</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SAFIRES</td>
+        <td>ISSA</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SAGE</td>
+        <td>SAGE front page uses the MIPS 70um SAGE full mosaic;  
+            search results are 3-color SAGE MIPS mosaics (24um=blue, 70um=green, 160um=red) </td>
+        <td>7.0</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SAGE-SMC</td>
+        <td>SAGE-SMC front page uses 3-color Spitzer mosaics (3.6um=blue, 8um=green, 24um=red); search results use Spitzer I1 (3.6um).</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SASS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>S-CANDELS</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SDWFS</td>
+        <td>Spitzer IRAC2 (4.5um)</td>
+        <td>8.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SEP</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SERVS</td>
+        <td>2MASS J (1.25um)</td>
+        <td>7.1</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SHELA</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SIMPLE</td>
+        <td>Spitzer IRAC1 (3.6um)</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SINGS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SMUVS</td>
+        <td>COSMOS</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SpIES</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SpUDS</td>
+        <td>Spitzer IRAC1 (3.6um)</td>
+        <td>1.0</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SRELICS</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SSDF</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>3.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SSGSS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.2</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SWIRE</td>
+        <td>2MASS J (1.25um)</td>
+        <td>7.1</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>Taurus</td>
+        <td>ISSA</td>
+        <td>9.0</td>
+        <td>1.5</td>
+      </tr>
+
+
+      <tr bgcolor="#FFFFFF">
+
+        <td colspan="4"><b>Herschel</b></td>
+
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>ACMC</td>
+        <td>ISSA</td>
+        <td>1.0</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>ColdCores</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>DIGIT</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>DUNES</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>GOODS</td>
+
+        <td>2MASS J (1.25um)</td>
+
+        <td>12.5</td>
+
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>GOT_Cplus</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>H-ATLAS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HELGA</td>
+        <td>ISSA</td>
+        <td>6.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HERITAGE</td>
+        <td>ISSA</td>
+        <td>10.0</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HerM33es</td>
+        <td>ISSA</td>
+        <td>6.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HerMES</td>
+        <td>ISSA</td>
+        <td>0.6</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HeVICS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HEXOS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HGBS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HHLI</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HIFISTARS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HOP</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HOPS</td>
+        <td>2MASS Ks</td>
+        <td>0.3</td>
+        <td>1.5</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>HPDP</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MAGCLOUDSCPLUS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MESS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>KINGFISH</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>PHPDP</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>PPDISKS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>PRISMAS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>PEP</td>
+        <td>ISSA</td>
+        <td>2.0</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SAG-4</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>SHPDP</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>V838MON</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>VNGS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+
+        <td colspan="4"><b>2MASS</b></td>
+
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>LGA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>2.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>LH</td>
+        <td>2MASS J (1.25um)</td>
+        <td>7.0</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+
+        <td colspan="4"><b>IRAS</b></td>
+
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>IGA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>EIGA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>MIGA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>IRIS</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF">
+        <td>ISSA</td>
+        <td>ISSA</td>
+        <td>12.5</td>
+        <td>1.0</td>
+      </tr>
+
+    </tbody></table>
+  </center>
+
+  <p>ISSA backgrounds have a minimum size of 0.25 degrees.</p>
+
+<h3><a name="results">Result Categories</a></h3>
+
+  <p><b>Small Catalog and/or Spectra results</b> are listed first in
+  the "Table of Sources", if present.  If the total is under 6000, the
+  source positions are marked on the background image. There are links
+  to spectra files in the individual tables.</p>
+
+  <p><b>Image results</b> are overlayed on the background sky image
+  and are also individually presented in up to three tables: a master
+  "Image Header Table" below the background image, a "Group" table
+  with keys to the color overlays when images are grouped into
+  separate categories, and a new feature: an interactive, sortable
+  table of "All Images".  It is from this last table that you can
+  download and/or display the images.  "Cutouts" of the original image
+  are sometimes available, when the original images may be too
+  large.  If the "Entire Image" is too large to display, you will
+  see an error message.  In this case, display the "Cutout" instead.</p>
+
+  <p>The "All Images" table contains the distance of the image center
+  from the requested position.  By default, the rows are sorted by
+  distance <i>within each instrument group</i>.  You can change the
+  default sorting and select/sort the rows you want by <a href="tables.html#filters">filtering</A>.</p>
+
+
+<h3><a name="bulk">Bulk Download</a></h3>
+
+  <p>
+  <b>Bulk Download</b> of data is also available from the results
+  pages, using a wget script.  For more information on wget, click <a href="https://irsa.ipac.caltech.edu/docs/batch_download_help.html">here <img src="img/jumpout.jpg"
+height="10"></a></a>.  The script contains
+  a list of all the images, catalogs, and/or spectra returned in the
+  search results.
+  </p>
+
+
+
+</BODY>
+</HTML>

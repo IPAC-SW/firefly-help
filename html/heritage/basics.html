@@ -1,0 +1,323 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Spitzer Heritage Archive: Basic Features and Functions" -->
+<HEAD>
+<TITLE>Spitzer Heritage Archive: Basic Features and Functions
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Basic Features and Functions in the Spitzer Heritage Archive</h2>
+
+This section is an overview of the basic features and functions of the
+Spitzer Heritage Archive (SHA); for an even faster overview, see the
+<a href="quickguide.html">Quick-Start Guide</A>.  For more detailed
+information on any of these topics, see the more detailed online help
+on the left.  Note that there are also SHA video tutorials, including
+a quick start and a longer AAS-demo-style overview, available at the
+<a href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel</A>. Look for the playlist that
+combines all the SHA videos together. <P>
+
+The contents of this file follow the menu options (e.g., basically the
+blue tabs across the top, under the IRSA menu) and major features of
+the tool in the order in which you might encounter them.<br> <img
+src="img/bluetabs.png"><P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#searching">Spitzer Searches</A> -- The basics of searching<br>
++<A href="#searchHistory">History/Tags</A> -- Your search history and tag history<br>
++<A href="#readfitsfile">Read FITS file</A> -- Reading in FITS files<br>
++<A href="#preferences">Preferences</A> -- Setting and using your preferences<br>
++<A href="#help">Help</A> -- Getting more help<br>
++<A href="#catalogs">Catalogs</A> -- Retrieving and using catalogs<br>
++<A href="#downloads">Downloads</A> -- Downloading data and the Background
+Monitor<br>
+<P>&nbsp;<P>
+
+<em>For an introduction to terminology, please see <a
+href="overview.html#terminology">this summary in the overview
+section</A>.</em><P>
+
+<P>&nbsp;<P>
+
+
+
+<A NAME="searching"><H3>Spitzer Searches -- The basics of searching</H3></A>
+
+Searching the archive is straightforward, and a wide variety of
+options are available on the left hand side of the search window. The
+search window can be retrieved after a search by clicking on the blue
+"Spitzer Searches" tab near the top.  The position search is the most
+commonly used search, and appears by default.  Target names can be
+automatically resolved into coordinates using NED or Simbad, or you
+can specify coordinates, and you specify the search radius.  There are
+many more search options, described in detail <a
+href="searching.html">on the section on searching</A>.<P>
+
+Spitzer observations can cover large areas or, by design, multiple
+targets. If you are interested in just portions of the larger
+observation, you can choose to have just individual data products
+returned -- e.g., just the observations that went into the portion of
+the sky for which you searched -- or you can return the products for
+the whole AOR.<P>
+
+You can refine your search for observations by instrument or by
+wavelength.<P>
+
+The search results appear in up to seven tabs: AORs, Level 1 (BCD),
+Level 2 (PBCD), IRS Enhanced Products, Super Mosaics, Source Lists and
+Contributed Enhanced Products.  Each tab provides a different look at
+the data retrieved by your search. (See the section on <a
+href="results.html">understanding your search results</A> for more
+information.)<P>
+
+You may wish to impose additional filters on your search results; see
+<a href="results.html#filter">the section on filtering</A> for more
+information on filtering.<P>
+
+The tabs on the far right of the SHA results page aid in visualizing
+exactly what data have been retrieved. You can examine individual data
+frames, or see what parts of the sky are covered by the retrieved
+AORs.  See the section on <a href="details.html">the Details pane</A>
+for more information on what is in each tab, and the section on  <a
+href="visualization.html">visualization</A> for more information on
+the options within the visualization tabs.<P> 
+
+You can also search all of the SSC-developed Enhanced Products or the 
+Contributed Enhanced Products returned to the SSC and IRSA (largely
+contributed by the Legacy teams).  Each team delivered different
+products, ranging from images, catalogs, and spectra to images beyond
+the Spitzer bands.  See <a href="searching.html#enhanced">the enhanced
+products</A> discussion in the searching section for more
+information.<P>
+
+After deciding what data to download, click the checkboxes on the far
+left of each row to pick specific data files to download, and then
+click "Prepare Download" to begin the  packaging and downloading
+process.  A pop-up window will appear in order to define exactly what
+kinds of data you would like to have packaged up. Clicking OK
+initializes this process.<P>
+
+The Background Monitor appears as a link in the upper right of your
+window to keep track of the data download.  A pop-up window can be
+called up by clicking the "Background Monitor" link.  You can watch
+your data being packaged, and when the data are available for
+download, it will update that window, providing a link (or more than
+one link) for downloading the packaged data. (<a
+href="downloads.html">More on data downloads</A>.)<P>
+
+<strong>Important note</strong>: don't log in while it is preparing a
+download! If you log in during a download, as far as the system is
+concerned, you have changed identities (from 'anonymous' to 'jones',
+say), and as a result it does not complete preparing the download.<P>
+
+
+
+<A NAME="searchHistory"><!-- --></A><H3>History/Tags -- Your search history and tag history</H3>
+
+The History/Tags menu option gives you access to your own search
+history and tag history.  By default, it comes up with the Search
+History tab in the foreground; to access the Tag History, just
+click on the "Tags" tab.<P>
+
+<DL>
+<DT><em>Your Search History</em><P>
+
+<DD>All of the searches that you do for a given session with the archive
+are remembered in the search history panel. A high-level summary of
+the search is also listed -- what kind of search it was, what
+parameters you used, and the number of AORs or IERs that it
+returned.<P>
+
+You can resubmit the search (see buttons at top left of the search
+history tab), remove the search from your history, or save the search
+as a favorite search to which you can return at a later time/date.
+(However, you do need to be logged in when you save the search -- <a
+href="user.html">more on user registration</A>.) <P>
+
+<DT><em>Tags and Your Tagging History</em><P>
+
+<DD>Many of the papers published on Spitzer data include a
+list of all the individual AORKEYs (the integer number corresponding
+uniquely to each AOR) used for data discussed in that paper.  This
+provides an easy way for readers to retrieve the data from the Spitzer
+archive, and links can be made from ADS directly back to the SHA.<P>
+
+However, many papers use many AORs.  Data tagging allows you to
+customize the data set you use so that the link back from ADS (or
+embedded in your paper itself) refers to a single unique identifier
+that corresponds to all your data. (That is, a single identifier, as
+opposed to a potentially long list of AORKEYs.)<P>
+
+Once you have established a search that you like, you can click on the
+"Tag It" icon in the top right of the search results tabs. It will then ask
+for a nickname, and then return the tag name for insertion into your
+paper as well as a direct URL you can distribute. <P>
+
+Once you have tagged a search, it appears in the "Tags" tab.<P>
+
+</DL>
+
+<a NAME="readfitsfile"><H3>Read FITS file -- Reading in
+FITS files</h3></A>
+
+Powerful visualization tools were important to the original Spitzer
+observation planning and archive tools (Spot and Leopard), and the
+descendents of these tools are included in the SHA.  These tools can
+be used to investigate images of any sort, from your disk or from a
+variety of online resources, at IRSA or another website.<P>
+
+Selecting the "Read FITS File" option from the blue tabs on top of the
+SHA window results in a large visualization window, into which you can
+load images from a variety of sources. A pop-up window appears with
+the available image options. Please see the <a
+href="visualization.html">Visualization section</A> for much more
+information about the visualization environment, specifically what the
+icons mean.  (Hovering with your mouse over an icon will also reveal a
+"tool tip" to help figure out what each icon does.) <P>
+
+
+
+<A NAME="preferences"><H3>Preferences -- Setting and using your preferences</H3></A>
+
+The preferences tab provides a few ways to customize your 
+experience.  The window that appears when you click that option
+gives you by default a choice of the number of entries that appear in
+the table by default, allows you to enter your email for an email
+notification when data are packaged, and allows you to select the
+default for distance measurements.<P>
+
+<a href="user.html">Log in</A> before setting these preferences, and
+they will be preserved for you the next time you log in.<P>
+
+<A NAME="help"><H3>Getting Help</H3></A>
+
+The "SHA Help" blue tab leads you into this online help, as does
+"Spitzer Help" from under the "Help" in the IRSA menu on the top
+of the SHA page. You can also download a PDF version of this manual;
+look at the top of the help window for the "View PDF" link.<P>
+
+For an even faster overview, see the <a
+href="quickguide.html">Quick-Start Guide</A>.  For more detailed
+information on any of these topics, see the rest of the more detailed
+online help.<P>
+
+Please see <a href="more.html">the section on more help</A> for more
+information on getting more help, or contacting us.<P>
+
+<A NAME="catalogs"><H3>Catalogs -- Retrieving and using catalogs</H3></A>
+
+(Note that this blue tab is only available after you have performed at
+least one search, e.g., you have something on which to overlay the
+catalog.)<P> 
+
+You can choose from any of a wide variety of catalogs to load in
+preparation for overlaying on your <a
+href="visualization.html">visualized data</A>. First we cover catalogs
+you can download from IRSA, then we cover <a href="#owncatalogs">using
+your own catalogs</A>. There is much more information in <a
+href="catalogs.html">the catalogs section</A> as well. <P>
+
+By clicking on the "Catalog" menu option, a window appears with
+several options, as follows.<P>
+
+The target name is by default the one for the current search/AOR with
+which you are working. If you would like to change the center of the
+search for purposes of the catalog search, click on "modify target"
+and enter the new information.  All of the same basic parameters as for a
+position search of the SHA appear.<P>
+
+You can then choose catalogs based first on the "project" under which
+they are housed at IRSA, such as 2MASS, IRAS, Spitzer (includes
+delivered enhanced product catalogs), MSX, etc.  The options under the
+"category" and the specific clickable catalog on the right change
+according to the project you have selected.  A short description is
+provided for each of the catalogs, with links for more information.<P>
+
+<A NAME="catColumn"> You can also set restrictions on specific columns
+by clicking on  "Set Column Restrictions".</A> A new window will open
+up with the available  column names in the catalog, and you can filter
+what is returned, with the same basic approach as in <a
+href="results.html#filter">filtering your search results</A> in the
+rest of the SHA. All the restrictions are  AND operators.<P>
+
+
+Click on "Search" to initiate the search. <b>NOTE THAT</b> the search
+may take a long time to return, especially if you have asked for a
+large catalog, and you may think that nothing has happened, but be
+patient and eventually it will either spin off to the background
+monitor, or return a tab.<P>
+
+If the catalog search is successful, it will return the results in a
+tab of its own, in an interface similar to the other data tabs. You
+can save the catalog to your local disk for future use. <P> 
+
+If it does spin off to the <a
+href="downloads.html#background">background monitor</A>, the monitor will
+dynamically update to reflect its status, and will let you know when
+the catalog is ready to download or display. Open the background
+monitor and click on the catalog name to load it into a tab in the
+SHA. <P>
+
+Use large search radii with caution! Be sure you understand how many
+sources you are likely to retrieve. Searches that retrieve more rows
+will take longer.<P>
+
+
+<a name="owncatalogs"><b>Loading your own catalogs</b><P></A>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for new catalogs. However, you can
+pick another tab from the top left, "Load Catalog", to load your own
+catalog.<P>
+
+Your catalog needs to be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format</A>.<P>
+
+There is more information in <a href="catalogs.html">the catalogs
+section</A>.<P> 
+
+
+
+<A NAME="downloads"><H3>Downloads - Downloading data and the Background
+Monitor</H3></A>
+
+On any search results page, you can click the checkboxes on the far
+left of each row to pick specific data files to download, and then
+click "Prepare Download" (near the top of the column of checkboxes) to
+begin the packaging (and downloading) process.  A pop-up window will
+appear in order to define exactly what kinds of data you would like to
+have packaged up. Clicking OK initializes this process.  <P>
+
+To select <em>all</em> of the data you have displayed, click on the
+checkbox at the top of the column of checkboxes, and all of the rows
+are automatically clicked (even those on subsequent pages).  Then
+click "Prepare Download" to initiate the packaging process.<P>
+
+The packaging process spins off into the <a
+href="downloads.html#background">background monitor</A>, which keeps
+track of its progress and notifys you when the downloads are
+complete. You can choose to have an email sent to you to let you know
+when things are ready. If you have just a few zip files, you can click
+to download them, but especially if you have many files, you may want
+to have the SHA generate a <a
+href="downloads.html#downloadScript">downloading script</A> for you to
+download them all automatically. <P>
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. <P>
+
+For more information, see <a href="downloads.html">the section on
+downloads</A>.<P>
+
+
+</BODY>
+</HTML>

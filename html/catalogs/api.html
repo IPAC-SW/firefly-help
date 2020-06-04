@@ -1,0 +1,675 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: API" -->
+<HEAD>
+<TITLE>Catalog Search Tool: API
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>API</h2>
+
+You can write programs to interact with the Catalog Search Tool via an
+API, an application program interface. This page describes
+APIs.<P>
+
+<em>Contents of page/chapter:</em><br>
++<a href="#overview">Overview</a><br>
++<a href="#quick">Quick Start</a><br>
++<a href="#construct">Constructing a Catalog Search Query</a><br>
++<a href="#objstr">Objstr Keyword</a><br>
++<a href="#examples">Query URL Examples</a><br>
++<a href="#moving">Moving Objects</a><br>
+<P>&nbsp;<P>
+
+
+<a name="overview"><h3>Overview</h3></a>
+
+<p>IRSA offers program-friendly interfaces to all of its
+catalogs. Through an application program interface (API), users can
+access IRSA catalogs directly (within a script or on the command line)
+without the need to go through interactive web pages.</p>
+
+<p>IRSA offers three APIs for searching catalogs. <P>
+
+<strong><a href="https://irsa.ipac.caltech.edu/docs/vo_scs.html">Simple Cone Search (SCS) <img
+src="img/jumpout.jpg" height="10"></a></strong><P>
+
+SCS is a VO-compliant method of searching catalogs for sources that
+lie within a specified radius of any position on the sky. The output
+can be <a href="http://www.ivoa.net/documents/VOTable/">VO Table <img
+src="img/jumpout.jpg" height="10"></a>, <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC
+Table <img src="img/jumpout.jpg" height="10"></a>, comma-separated
+values (CSV) table, tab-separated values table, or FITS table. The
+ability to upload a list of sources positions is not supported. Users
+interested in table upload functionality should use the TAP protocol
+(below).<P>
+
+<strong><a href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">Table Access Protocol (TAP) <img
+src="img/jumpout.jpg" height="10"></a></strong><P>
+
+TAP is a VO-compliant method of searching catalogs. TAP allows cone,
+box, polygon, and multi-position searches with optional SQL
+constraints, a variety of output formats, and the option of selecting
+output columns.<p>
+
+<strong>IRSA Catalog Search API</strong><P>
+
+This is an older API that does not conform to VO standards and is
+maintained for historical reasons. New users should choose from
+either of the two protocols above.<P>
+
+The rest of this page describes this API.<P>
+
+
+The output can be HTML, <A
+href="http://www.ivoa.net/documents/VOTable/">VO table <img
+src="img/jumpout.jpg" height="10"></A>, <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table file <img src="img/jumpout.jpg"
+height="10"></A> (ASCII text with a certain format), Extensible Markup
+Language (XML), or a simple SVC (software handshaking structure)
+message. It also provides the option of selecting output columns. 
+Some catalogs are equipped with a moving object search capability; see
+<a href="#moving">Moving Objects</a> below.</p>
+
+In the context of just the Catalog Search Tool, in some cases,
+information on specific catalogs and their attributes is needed to
+construct the interface. This information is returned by two other
+servers: <a href="catlist.html">CatList</A> returns the list of
+catalogs archived at IRSA. <a href="catdd.html">CatDD</A> generates
+and displays a database data dictionary for a specific catalog; and
+data dictionary specifies the attributes of the columns in a catalog.<P>
+
+
+<a name="quick"><h3>Quick Start Example</h3></a>
+
+IRSA's Catalog Search Tool API consists of three services.
+
+<ul>
+<li>Catalog Search Service - This service returns the rows from a
+given catalog that meet spatial or other constraints set by the user.
+The bulk of this page describes this service.</li>
+<li><a href="catlist.html">Catalog List Service</a> - This service
+returns a list of catalogs held at IRSA in either XML or HTML
+format.</li>
+<li><a href="dd.html">Catalog Data Dictionary Form Service</a> - This
+service returns information about the columns in a given catalog.</li>
+</ul>
+
+The following example uses each of these three services: Search the
+AllWISE Source Catalog for all objects within  300 arcsec of the position
+ra = 00h 42m 44.32s, dec = 41d 16m 08.5s.  Return only a subset of the
+photometric measurements in an ASCII table. <p>
+
+<DL>
+<DT> 1. Get a list of all public catalogs in IPAC Table format.
+<dd><pre>curl -o irsa_catalogs.tbl "https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=ascii"</pre>
+Examining the 'description' and 'catname' columns of this  file, we
+find that the AllWISE Source Catalog has a cat name of 
+"allwise_p3as_psd".<p>
+
+<DT> 2. Get a list of the available columns in the AllWISE Source
+Catalog.
+<DD>The following URL can be typed right into a browser 
+window, and will result in a nicely formatted table containing the 
+columns and their descriptions. Alternatively, this URL could be 
+embedded in a wget or curl command to download an XML version.<br>
+<a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?mode=html&amp;catalog=allwise_p3as_psd">https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-dd?mode=html&amp;catalog=allwise_p3as_psd</a>
+<P>
+Examining the output, the basic photometry is in the columns w1mpro, w2mpro, w3mpro, and w4mpro.
+<P>
+
+<DT> 3. Execute the search.
+<DD> (this should all be on one line, but it is broken across multiple lines here for formatting convenience.) <br>
+curl -o search_results.tbl "https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?catalog=allwise_p3as_psd&amp;spatial=cone&amp;radius=300&amp;radunits=arcsec&amp;objstr=00h+42m+44.32s+41d+16m+08.5s&amp;size=300&amp;outfmt=1&amp;selcols=ra,dec,w1mpro,w2mpro,w3mpro,w4mpro"
+
+</DL>
+
+
+<a name="construct"><h3>Constructing a Catalog Search Service Query URL</h3></a>
+
+<p>The general format for the Catalog Search Service query URL is:<br>
+https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?[keyword1=value1]&amp;[keyword2=value2]&amp;...[keywordn=valuen]<P>
+
+Note especially that setting the 'spatial' field to "No Spatial Constraints" will search the entire catalog, and additional constraints should be placed on the query. Users are cautioned to use this feature wisely as very large result tables are possible.<P>
+
+
+<p><b>Input keywords:</b></p>
+
+    <table border="1">
+
+      <tbody><tr>
+        <td><b>Keyword</b></td>
+        <td><b>Required?</b></td>
+        <td><b>Description</b></td>
+        <td><b>Values</b></td>
+      </tr>
+      <tr>
+        <td>catalog</td>
+        <td>required</td>
+        <td>Catalog name in IRSA's database</td>
+        <td><a href="catlist.html">Query for catalog names</a></td>
+      </tr>
+      <tr>
+        <td>spatial</td>
+        <td>required</td>
+        <td>Type of query</td>
+        <td>
+          <a href="searching.html#searchmethodscone">cone</a><br>
+          <a href="searching.html#searchmethodsbox">box</a><br>
+          <a href="searching.html#searchmethodspolygon">polygon</a><br>
+          <a href="searching.html#MultiObject">Upload</a> (see example below)<br>
+          None (= All-sky search)</a><br>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="https://irsa.ipac.caltech.edu/docs/program_interface/objstr.html">objstr</a></td>
+        <td>required when <br>spatial=cone or box</td>
+        <td>Target name or coordinates of spatial search center</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>radius</td>
+        <td>optional if spatial=cone, <br>otherwise ignored</td>
+        <td>Cone search radius in units of radunits</td>
+        <td>Limit varies; default=10 arcsec</td>
+      </tr>
+      <tr>
+        <td>radunits</td>
+        <td>optional if spatial=Cone, <br>otherwise ignored</td>
+        <td>Units of Cone search radius</td>
+        <td>arcsec, arcmin, deg; default = arcsec</td>
+      </tr>
+      <tr>
+        <td>posang</td>
+        <td>optional</td>
+        <td>Position angle (E of N) in deg of semi-major access of elliptical cone</td>
+        <td>0-180 deg; default=0</td>
+      </tr>
+      <tr>
+        <td>ratio</td>
+        <td>optional</td>
+        <td>Semi-minor/semi-major axis ratio of elliptical cone</td>
+        <td>&lt;=1.0; default=1.0</td>
+      </tr>
+      <tr>
+        <td>uradius<br>uradunits<br>
+	    uposang<br>uration<br></td>
+        <td>optional</td>
+        <td>As above for table upload.</td>
+        <td>NOTE: Absence of a value for uradius will lead it to use values of radius ("major") from table.</td>
+      </tr>
+      <tr>
+        <td>size</td>
+        <td>required when spatial=box</td>
+        <td>Width of box in arcsec</td>
+        <td>Limit varies</td>
+      </tr>
+      <tr>
+        <td>polygon</td>
+        <td>required if spatial=polygon</td>
+        <td>Vertices of an irregular, convex (interior
+          angles &lt; 180 degrees) polygon within which to search.
+	  <br><br>
+          Up to 15 vertices may be specified.<br>
+          Each vertex is given as a space-separated RA Dec pair.<br>
+          For the program interface, the space must be URL encoded as "+" (plus sign).<br>
+          The coordinates must be in decimal degrees, J2000.<br>
+          Each vertex must be separated by a comma.<br>
+          You do not need to repeat the first vertex.</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>outfmt</td>
+        <td>optional</td>
+        <td>Output format</td>
+        <td>
+          0: HTML (default)<br>
+          1: ASCII table<br>
+          2: SVC (software handshaking <br>
+          structure) message<br>
+          3: VO Table<br>
+          6: XML</td>
+      </tr>
+      <tr>
+        <td>constraints</td>
+        <td>optional</td>
+        <td><a href="additionalconstraints.html">SQL query constraints</a></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>selcols</td>
+        <td>optional</td>
+        <td>Comma-separated list of output columns desired</td>
+        <td><a href="dd.html">Query for available columns</a></td>
+      </tr>
+
+      <tr>
+        <td>one_to_one</td>
+        <td>optional</td>
+        <td>If nonzero, then a <a href="searching.html#OnetoOne">one-to-one match</a> will be performed</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>order</td>
+        <td>optional</td>
+        <td>Column by which to order results</td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>outrows</td>
+        <td>optional</td>
+        <td>Maximum number of rows to return</td>
+        <td></td>
+      </tr>
+
+    </tbody></table>
+
+<a name="objstr"><h3>Objstr Keyword</h3></a>
+
+<p>An optional keyword is objstr, which specifies the search center
+for a cone or box spatial search. The keyword objstr is a string that
+specifies either the target name (as resolved by SIMBAD or NED) or the
+coordinates of the spatial search center.</p>
+
+<p>This string must be URL encoded. URL encoding replaces
+unsafe ASCII characters with a percent sign ("%") followed by two
+hexadecimal digits. See the table below for a list of commonly used
+values that need to be URL encoded.</p>
+ 
+<b>URL Encoding for Commonly Used Characters</b>
+<table border="1">
+<tbody><tr>
+<td><b>Character</b></td>
+<td><b>URL encoding</b></td>
+</tr>
+
+<tr>
+<td>Plus ("+")</td>
+<td>%2B</td>
+</tr>
+
+<tr>
+<td>Comma (",")</td>
+<td> %2C</td>
+</tr>
+
+<tr>
+<td>Forward slash ("/")</td>
+<td> %2F</td>
+</tr>
+
+<tr>
+<td>Colon (":")</td>
+<td> %3A</td>
+</tr>
+
+<tr>
+<td>Semi-colon (";")</td>
+<td> %3B </td>
+</tr>
+
+<tr>
+<td>Equals ("=")</td>
+<td> %3D </td>
+</tr>
+
+<tr>
+<td>Question mark ("?")</td>
+<td> %3F</td>
+
+</tr>
+
+<tr>
+<td>Space (" ")</td>
+<td> %20 or + </td>
+</tr>
+
+<tr>
+<td>Quotation marks (")</td>
+<td> %22</td>
+</tr>
+
+<tr>
+<td>Less than ("&lt;")</td> 
+<td>%3C</td>
+</tr>
+
+<tr>
+<td>Greater than ("&gt;")</td>
+<td> %3E</td>
+</tr>
+
+<tr>
+<td>Percent ("%")</td>
+<td> %25</td> 
+</tr>
+
+</tbody></table>
+
+<P><b>Examples</b>
+<ol>
+
+<li>What is the objstr corresponding to M31?<br></li>
+objstr=M31
+
+<br><br>
+
+<li>What is the objstr correspond to the ra dec coordinates: 00 42 44.3, -41 16 08?</li>
+objstr=00+42+44.3+-41+16+08
+
+</ol>
+
+
+
+<a name="examples"><h3>Query URL Examples</h3></a>
+
+<dl>
+
+<dt>Search the 2MASS Point Source Catalog for all objects within 300 arcsec of M31. Return the result in HTML format.
+<dd>
+https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?spatial=cone&amp;catalog=fp_psc&amp;objstr=M31&amp;radius=300&amp;radunits=arcsec&amp;outfmt=0
+<P>
+
+
+<dt>Search the AllWISE Source Catalog for all objects 
+within a 300 arcsec wide box centered on the position ra = 00h 42m 
+44.32s, dec = 41d 16m 08.5s. Return the results as an ASCII table.
+<DD>
+https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?spatial=box&amp;catalog=allwise_p3as_psd&amp;objstr=00h+42m+44.32s+41d+16m+08.5s&amp;size=300&amp;outfmt=1<P>
+
+<dt>Search the Spitzer Enhanced Imaging Products Source
+List for all objects within the polygon with corners described by the 
+following coordinates. Return the results as a program interface xML, 
+and only return the MIPS 24 micron PSF fit flux density and error.
+<dd>
+      (ra1 dec1) = (148.87 69.8)<br>
+      (ra2 dec2) = (148.87 69.9)<br>
+      (ra3 dec3) = (148.90 69.9)<br>
+<P>
+https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?catalog=slphotdr4&amp;spatial=polygon&amp;polygon=148.87+69.8,148.87+69.9,148.90+69.9&amp;outfmt=6&amp;selcols=ra,dec,M1_F_PSF,M1_dF_PSF
+
+      <p>
+
+<dt>Search the COSMOS Cassata Morphology Catalog v1.1 
+for the nearest match within 2 arcsec for each object listed in the IPAC
+Table cosmos_example.tbl. Return the otuput as an IPAC Table.
+<dd>
+            curl -F filename=@cosmos_example.tbl \ <br>
+            -F catalog=cosmos_morph_cassata_1_1 \ <br>
+            -F spatial=Upload \ <br>
+            -F uradius=2 \ <br>
+            -F outfmt=1 \ <br>
+            "https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query" \ <br>
+            -o cosmos_output.tbl
+<P>
+
+<dt>Search the entire HERITAGE LMC PACS 100 micron  Catalog all-sky
+search for objects with flux &gt; 0. Order the output by flux, and
+only return the first 7 rows as an ASCII table.
+      <dd>https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?catalog=heritagel100&amp;spatial=None&amp;outfmt=1&amp;order=flux&amp;outrows=7&amp;constraints=flux%3E0<P>
+      
+      
+</dL>
+
+
+
+
+<a name="moving"><h3>Moving Objects</h3></a>
+
+<p>Some IRSA catalogs allow queries on moving objects. The query
+calculates the object's ephemeris to determine positions (and times)
+within the data, and does a cone search around those positions.  Below
+is an example: a search by object name (324 Bamberga) over the entire
+time range of the WISE All-Sky Single Exposure (L1b) Source Table with
+output in an IPAC ASCII table.  (For the larger merged NEOWISE
+catalogs, it is best to restrict the time range.):</p>
+
+    <blockquote>
+          curl -o out.tbl  
+"https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?outfmt=1&amp;searchForm=MO&amp;spatial=cone&amp;catalog=allsky_4band_p1bs_psd&amp;moradius=5&amp;mobj=smo&amp;mobjstr=324"
+
+    </blockquote>
+
+<p>Note that "mobjstr" is the asteroid number in this case; the name
+Bamberga would also work.  It can also search for a comet using its
+numeric designation.  For example, periodic comet P/29
+Schwassmann-Wachmann 1 can be called 29P or P/29 (but not P29).  For
+non-periodic comets, use for example C/2010+N1, where the "+"
+is shorthand for a space for URL encoding. Planetary satellites (or
+planets, where available in the dataset) are searchable by name,
+e.g. Titan.</p>
+
+<p>There can be name ambiguities.  For example, entering "WISE" is a
+problem as there were many asteroids and comets discovered by
+the WISE mission.  Entering "Neptune" is unclear as there are
+ephemeris files for both Neptune and the Neptune system
+barycenter.  Gator will deliver a messsage if there is an
+ambiguity.  This will be via a link to a log file.  The
+message will contain suggested <a href="https://naif.jpl.nasa.gov/pub/naif/toolkit_docs/C/req/naif_ids.html" target="_blank">NAIF <img src="img/jumpout.jpg" height="10"></a>
+ID's, and you can use them as follows, e.g. "1003094:NID" for
+comet 317P/WISE or "899:NID" for Neptune. In a few cases,
+there are satellites and asteroids with the same name, and you
+may distinguish them by, e.g. "Europa:SAT" and
+"Europa:AST".</p>
+
+<p> It is also possible to input objects in Minor Planet Circular
+(MPC) format, or by orbital elements, see
+the <a href="sso.html">Solar System Object page</a> and the examples
+below.  But <b>object name/number input is best</b>, as it will query
+JPL Horizons to get the osculating orbital elements closest in time to
+the observations.</p>
+
+<p>The general format for the Moving Object query URL is:</p>
+
+    <blockquote>
+https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=cone&amp;[keyword1=value1]&amp;[keyword2=value2]&amp;...[keywordn=valuen]
+    </blockquote>
+      
+      
+<p><b>Adjustable keywords:</b></p>
+
+            <table border="1">
+
+              <tbody><tr>
+                <td><b>Keyword</b></td>
+                <td><b>Required?</b></td>
+                <td><b>Description</b></td>
+                <td><b>Values</b></td>
+              </tr>
+              <tr>
+                <td>catalog</td>
+                <td>required</td>
+                <td>Catalog name. NOTE: Catalog needs
+                  to be moving-object search enabled.</td>
+                <td>
+                  Current moving-object enabled catalogs:<br>
+                  All-Sky: allsky_4band_p1bs_psd <br>
+                  WISE 3band: allsky_3band_p1bs_psd <br>
+                  WISE 2band: allsky_2band_p1bs_psd <br>
+                  NEOWISE-R: neowiser_p1bs_psd
+                </td>
+              </tr>
+              <tr>
+                <td>moradius</td>
+                <td>optional</td>
+                <td>Cone search radius (arcsec)</td>
+                <td>default=10 arcsec</td>
+              </tr>
+              <tr>
+                <td>mobj</td>
+                <td>required</td>
+                <td>Type of input</td>
+                <td> smo = by name or number <br>
+                  mpc = MPC format<br>
+                  obt = orbital elements
+                </td>
+              </tr>
+              <tr>
+                <td>mobjstr</td>
+                <td>required for object input</td>
+                <td>Name or numeric designation <br>of object (see above)</td>
+                <td> e.g. "324" or "Bamberga" (asteroid)<br>
+                  or "29P" (comet)
+                </td>
+              </tr>
+              <tr>
+                <td>mobjtype</td>
+                <td>required for MPC or <br>
+                  orbital elements input</td>
+                <td>Solar-system object type</td>
+                <td>Asteroid or Comet</td>
+              </tr>
+
+              <tr>
+                <td>mpc</td>
+                <td>required for MPC input</td>
+                <td>MPC string</td>
+                <td>See <a href="sso.html#mpc">Moving Object page</a> <br> or examples below.</td>
+              </tr>
+
+              <tr>
+                <td>mobjmaj/perih_dist</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Semi-major axis (asteroid) or <br>perihelion distance (comet) in AU</td>
+                <td>&gt;0</td>
+              </tr>
+
+              <tr>
+                <td>mobjecc</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Eccentricity of orbit</td>
+                <td>0.0-1.0</td>
+              </tr>
+
+              <tr>
+                <td>mobjinc</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Inclination of orbit (deg)</td>
+                <td>0.0-180.0</td>
+              </tr>
+
+              <tr>
+                <td>mobjper</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Argument of perihelion (deg)</td>
+                <td>0.0-360.0</td>
+              </tr>
+
+              <tr>
+                <td>mobjasc</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Longitude of ascending node (deg)</td>
+                <td>0.0-360.0</td>
+              </tr>
+
+              <tr>
+                <td>mobjanom/perih_time</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Mean anomaly (asteroid) in deg, or <br> perihelion time (comet) in <br>yyyy+mm+dd+hh:mm:ss</td>
+                <td>0.0-360.0 for mean anomaly</td>
+              </tr>
+
+              <tr>
+                <td>mobjdsg</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Designation for returned ephemeris</td>
+                <td>e.g. Bamberga</td>
+              </tr>
+
+              <tr>
+                <td>mobjepo</td>
+                <td>required for orbital <br>elements input</td>
+                <td>Epoch of coordinates in MJD <br>(Modified Julian Date)</td>
+                <td>e.g. 55203.0 for start of WISE mission</td>
+              </tr>
+
+              <tr>
+                <td>btime</td>
+                <td>optional</td>
+                <td>Earliest observation date (UT) to include</td>
+                <td>yyyy+mm+dd+hh:mm:ss</td>
+              </tr>
+
+              <tr>
+                <td>etime</td>
+                <td>optional</td>
+                <td>Latest observation date (UT) to include</td>
+                <td>yyyy+mm+dd+hh:mm:ss</td>
+              </tr>
+
+              <tr>
+                <td>outfmt</td>
+                <td>optional</td>
+                <td>Output format</td>
+                <td>
+                  0: HTML (default)<br>
+                  1: ASCII table<br>
+                  2: SVC (software handshaking <br>structure) message<br>
+                  3: VO Table<br>
+                  6: XML output</td>
+              </tr>
+
+              <tr>
+                <td>selcols</td>
+                <td>optional</td>
+                <td>Comma-separated list of output <br>columns desired</td>
+                <td><a href="dd.html">Query for available columns</a></td>
+              </tr>
+
+              <tr>
+                <td>outrows</td>
+                <td>optional</td>
+                <td>Maximum number of rows to return</td>
+                <td></td>
+              </tr>
+
+            </tbody></table>
+
+            <p><b>Asteroid:</b></p>
+
+            <p> Example with MPC input at time of WISE 4-band observation of Bamberga:</p>
+
+<blockquote>
+                  curl -o out.tbl 
+"https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=cone&amp;catalog=allsky_4band_p1bs_psd&amp;moradius=5&amp;mobj=mpc&amp;mobjtype=Asteroid&amp;outfmt=1&amp;mpc=00324+6.82+0.09+K103I+64.7389713+43.9047086+<br>327.9898280+11.1080776+0.33709263+0.2240550+2.684723515+0+MPO344295+2289+63+<br>1892-2015+0.50+M-v+38h+MPCLINUX+0000+(324)+Bamberga+20150614"
+</blockquote>
+
+            <p> Example with orbital elements at time of WISE 4-band observation of Bamberga:</p>
+<blockquote>
+                  curl -o out.tbl 
+"https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=cone&amp;catalog=allsky_4band_p1bs_psd&amp;moradius=5&amp;mobj=obt&amp;outfmt=1&amp;mobjtype=Asteroid&amp;mobjanom=64.7389713&amp;mobjper=43.9047086&amp;mobjasc=327.9898280&amp;mobjinc=11.1080776&amp;mobjecc=0.33709263&amp;mobjmaj=2.684723515&amp;mobjepo=55273.0&amp;mobjdsg=Bamberga"
+</blockquote>
+
+<p><b>Comet</b>:</p>
+
+            <p> Example with MPC input at time of WISE 4-band observation for comet P/2010 N1 (WISE):</p>
+
+<blockquote>
+                  curl -o out.tbl 
+"https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=cone&amp;catalog=allsky_4band_p1bs_psd&amp;moradius=5&amp;mobj=mpc&amp;mobjtype=Comet&amp;outfmt=1&amp;mpc=PK10N010+2010+08+16.1477+1.494525+0.533798+<br>153.4910+113.2118+12.8762+20100621+17.0+4.0+<br>P/2010+N1+(WISE)+MPC+75712"
+</blockquote>
+
+        <p> Example with orbital elements at time of WISE 4-band observation for comet P/2010 N1 (WISE) :</p>
+
+<blockquote>
+              curl -o out.tbl 
+"https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=cone&amp;catalog=allsky_4band_p1bs_psd&amp;moradius=5&amp;mobj=obt&amp;outfmt=1&amp;mobjtype=Comet&amp;perih_time=2455424.64772&amp;mobjper=153.49099443&amp;mobjasc=113.21175889&amp;mobjinc=12.87619139&amp;mobjecc=0.53379824&amp;perih_dist=1.49452503&amp;mobjepo=55368.0&amp;mobjdsg=P/2010+N1+(WISE)"
+</blockquote>
+
+
+
+
+
+</BODY>
+</HTML>

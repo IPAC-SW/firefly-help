@@ -1,0 +1,108 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRTF: Results" -->
+<HEAD>
+<TITLE>IRTF: Results
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>IRTF Archive: Results</h2>
+
+
+
+A NASA IRTF Archive search results page has three main sections:
+<dl>
+<dt><strong>Query criteria.</strong>
+</dt><dd> Summary of the requested search.<p>
+
+</p></dd><dt><strong>Matching observations.</strong> 
+</dt><dd> This data table is searchable and filterable. <a
+href="tables.html">See the page on table interactions</a> for general
+table help; see below for column definitions.<p>
+
+</p></dd><dt><strong>Download Selected Observations.</strong>
+</dt><dd> Specify what data to package and download with your data;
+see the <a href="downloads.html">Downloads section</a>. Caution:
+packaged data can be very large files, and may take a long time to
+package and download.<p>
+
+</p></dd></dl>
+
+To select observations, click on the checkbox to the left of the rows
+you wish to download; click on the checkbox at the top of the column
+of checkboxes to select all observations.<p>
+
+
+The results table columns are shown in table 1.</p><p>
+
+<strong>Table 1: Results table columns</strong>
+</p><table border="2">
+<tbody><tr><th>Column name</th><th>Description</th><th>Units</th></tr>
+<tr><td>group_id</td><td>observing group identification code</td><td></td></tr>
+<tr><td>previews</td><td>links to previews (see below)</td><td></td></tr>
+<tr><td>name</td><td>name of target or "calibration"</td><td></td></tr>
+<tr><td>ra</td><td>right ascension of target </td><td>degrees</td></tr>
+<tr><td>dec</td><td>declination of target </td><td>degrees</td></tr>
+<tr><td>date_time_of_obs</td><td>date and time of observation</td><td>JD</td></tr>
+<tr><td>program_id</td><td>program ID</td><td></td></tr>
+<tr><td>proposal_pi</td><td>program principal investigator (PI)</td><td></td></tr>
+<tr><td>proposal_title</td><td>program title (not shown by default)</td><td></td></tr>
+<tr><td>datatype</td><td>data type in one-letter string:
+T=target, S=standard, C=calibration</td><td></td></tr>
+<tr><td>instrument_name</td><td>name of instrument</td><td></td></tr>
+<tr><td>order_sorting_filter</td><td>string describing order sorting filter</td><td></td></tr>
+<tr><td>guider_filter</td><td>string describing guider filter</td><td></td></tr>
+<tr><td>grating</td><td>string describing grating</td><td></td></tr>
+<tr><td>slit</td><td>string describing slit</td><td></td></tr>
+<tr><td>cross_disperser_tilt</td><td>cross_disperser_tilt</td><td></td></tr>
+<tr><td>slit_length</td><td>slit length</td><td>arcseconds</td></tr>
+<tr><td>exposure_time</td><td>exposure time</td><td>seconds</td></tr>
+<tr><td>wavelength_lower</td><td>lower wavelength bound</td><td>microns</td></tr>
+<tr><td>wavelength_upper</td><td>upper wavelength bound</td><td>microns</td></tr>
+<tr><td>lunar_azimuth</td><td>lunar azimuth</td><td>degrees</td></tr>
+<tr><td>lunar_elevation</td><td>lunar elevation</td><td>degrees</td></tr>
+<tr><td>airmass</td><td>airmass</td><td></td></tr>
+<tr><td>seeing</td><td>seeing</td><td>arcsec</td></tr>
+<tr><td>lunar_illumination</td><td>lunar fractional light illumination</td><td>percent</td></tr>
+<tr><td>lunar_light</td><td>string describing lunar light level</td><td></td></tr>
+<tr><td>sky_transparency</td><td>string describing sky transparency</td><td></td></tr>
+</tbody></table>
+
+Click on the gears in the upper right of the table to change which columns are shown.<p>
+
+<strong>Previews:</strong> In the previews column, there is a link to
+an HTML page ("summary") which consolidates information to help you evaluate
+whether you want to download the data. The included information is:
+
+</p><ul>
+<li>program information 
+</li><li>target information 
+</li><li>data quality assessment information, if available
+</li><li>weather information (png)
+</li></ul>
+
+<a name="inst_obs"></a> <strong>Observing conditions</strong> appear
+in the results and include airmass, seeing,  lunar light level (dark,
+grey, bright), and the sky transparency (photometric, cirrus, cloudy).
+These values may be incompletely or incorrectly populated in the
+database. If in doubt, downloading the data is recommended. <a href="tables.html">See the page
+on table interactions</a> for general table help, including
+information on how to filter your results. In brief, click on the
+"funnel" to enable boxes at the top of each column if they are not
+already there. To, e.g., filter to only show observations where the
+lunar light string is "bright", type "bright" in the box at the top of
+the "lunar_light" column. To only select where the lunar fractional
+light illumination is less than 0.8, type  "&lt; 8" in the box at the
+top of the lunar_illumination column. <p>
+
+
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,519 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Finder Chart : Plots" -->
+<HEAD>
+<TITLE>Finder Chart: Plots
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Finder Chart: Plots</h2>
+
+Plots can be made from <a href="tables.html">Tables</A>, and plots are
+made automatically in Finder Chart when catalogs are loaded. Plotting
+is covered in this section. The <a href="tables.html">Tables</A>
+section discusses tables more generally, and the specific case of
+loading <a href="catalogs.html">catalogs</A> is in another section.
+The <a href="visualization.html">Visualization</A> section covers how
+a catalog can be overlaid on images. <P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#default">Default Plot</A><br>
++<a href="#firstlook">Plot Format: A First Look</A><br>
++<a href="#linking">Plot Linking</A><br>
++<a href="#changing">Changing What is Plotted</A><br>
++<a href="#manipulating">Plotting Manipulated Columns</A><br>
++<a href="#restricting">Restricting What is Plotted</A><br>
++<a href="#saving">Saving Plots</A><br>
++<a href="#example1">Example #1: Catalog pulled after
+searching</A><br>
++<a href="#example2">Example #2: Catalogs pulled during initial
+search</A><br>
+<P>&nbsp;<P>
+
+
+
+<h3><a name="default">Default Plot</A></h3>
+
+By default, after a catalog has loaded, a plot appears in the browser
+window.<P>
+
+To obtain a full-screen view of your plot, click on the expand icon in
+the upper right of the window pane when your mouse is in the window:
+<img src="img/expand-24x24.png">. To return to the prior view, click
+the "Close" arrow in the upper left.<P>
+
+The plotting tool, by default, starts with RA and Dec plotted if it
+can find RA and Dec in the catalog. Note that it does so following
+astronomical convention -- RA increases to the left. If the catalog does not have RA and Dec, it plots the first two numerical columns it finds. <P>
+
+<h3><a name="firstlook">Plot format: a first look</A></h3>
+
+If you have loaded a catalog with many (&gt; 15,000) points, you may
+have an RA/Dec plot that looks something like the one on the left
+here. If you have loded a catalog with few (&lt; 15,000) points, you
+will have an RA/Dec plot that looks more like the one on the right
+here.<br> <img src="img/defaultradecbinned.png" width="50%"><img
+src="img/defaultradecunbinned.png" width="50%"><P>
+
+The difference between them is that, for larger catalogs (left), the
+plot is binned -- more points are encompassed in a black tile and
+fewer points are encompassed in a white tile. In the context of this
+tool, this is called a <strong>heatmap</strong>. For smaller catalogs
+(right), each individual point is shown as a blue dot. In the context
+of this tool, this is called a <strong>scatter plot</strong>. <P>
+
+In either case, letting your mouse hover over a point tells you the
+values of the point under your cursor, and (if binned) how many points
+are represented:<br> <img src="img/morethanonepoint.png"> for binned
+plots, and <br> <img src="img/justonepoint.png"> for just one point.
+<br> <img src="img/morethanonepoint2.png"> Clicking (in an unbinned
+plot)  highlights that point, and it stays highlighted, though you
+must keep your mouse on the point in order to see the information
+about how many points it represents.<P>
+
+You can change the bin size and shading. If you have a binned plot,
+you have a "binning options" arrow near the bottom of the plot options
+pop-up. You can choose whether the binning is set automatically (leave
+boxes blank), or by you (populate the boxes). You can also choose if
+the grey shading is set linearly or logarithmically.  NOTE
+THAT you can't change the bin size in just one direction; if you enter
+a number for the "Number of x-bins" box, you must also enter a number
+for the "Number of y-bins" box.<P>
+
+The reason the tool makes a heatmap for large catalogs this is to more
+fairly represent the point density -- and to make the plotting faster.
+In these cases, though, it will not give you the option to overplot
+errors (see below). If you have a heatmap and want a scatter plot, you need to filter or otherwise restrict the catalog to have fewer points (see below).<P>
+
+
+<h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
+
+If you move your mouse over any of the points in the plot, you will
+get a pop-up telling you the values corresponding to the point under
+your cursor. For scatter plots, if you click on any of the points, the
+object(s) corresponding to that point will be highlighted in the
+overlays in the images shown, and highlighted in the catalog table. 
+This works the other way too - click on a row in the catalog, or an
+object in the images, and the object will be highlighted in the plot
+or the catalog or the image.<P>
+
+<h3><a name="changing">Changing what is plotted</A></h3>
+
+To change what is plotted, click on the gears icon in the upper right
+of the plot window pane: <img src="img/xyplotoptions.png"
+align="center">. Configuration options then appear; the options are a
+little different depending on whether the points are binned or
+not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%"> &nbsp; &nbsp;
+<img src="img/plotoptionspopup.png" width="30%"><br> The left has the
+options for binned plots, and the right has the options for plots that
+have individual points shown.<P>
+
+<DL><dt><strong>Both kinds of plots have the following
+options.</strong>
+<dd>
+In either case, you can specify what should be plotted on each
+axis. The magnifying glass is a link that brings up a table that lists
+all of the available columns in the catalog. Alternatively, you can
+just start typing, and viable options appear below the box. Whatever
+you put in the box must match the column name as shown in the catalog
+<em>exactly</em>. <P>
+
+Click on the triangle to open additional options for the layout. <P>
+
+In both of the examples above, RA is plotted on the x-axis. It has
+pulled the column name for the label; in this table, the column is
+"ra" rather than "RA". It has copied over the units ("deg") from the
+catalog. You can change what column is plotted, as well as what label
+and units are shown in the plot. <P>
+
+You can enter <strong>simple mathematical relations</strong> in these
+boxes too, such as "w1mpro-w4mpro" to put [W1]-[W4] on one axis.
+Supported operators:
+<UL>
+<LI>+,-,*,/
+<LI>abs(x), acos(x), asin(x), atan(x), atan2(x), ceil(x), cos(x),
+exp(x), floor(x), lg(x), ln(x), log10(x), log(x), power(x,y),
+round(x), sin(x), sqrt(x), tan(x)
+<LI>Non-alphanumeric column names (e.g., those with - or + or similar
+characters) should be quoted in expressions.
+</UL>
+<P>
+
+In both kinds of plots (scatter or heatmap [binned]), you can enter
+the label for the axes, and choose whether or not a grid is included
+on that axis, and whether or not the axis is reversed -- in this case,
+because it's plotting RA, the x-axis is reversed. <P>
+
+By default, the boundaries of the plot are set to encompass the full
+data range. Here you can change the boundaries to specific numbers.
+(This can also be set via filtering from the plot; see below.)<P>
+
+If you want a square or rectangular plot, you can change the x/y ratio
+as displayed.<P>
+
+Click "Apply" to apply, and "Close" to return to the plot without
+making changes.<P>
+
+<dt><strong>Options found only in binned plots</strong>
+<dd>(Plots are binned if there are &gt; 15,000 points in the catalog.)
+Frome the pop-up, you can control the color table that is used
+(greyscale is the default; there are many other choices in the
+pulldown menu), as well as the number of bins in the x and y
+directions.   If you change the number of bins but then want to go
+back to the original values, leave the "Number of bins" boxes
+blank.<P>
+
+
+<dt><strong>Options found only in plots showing individual points</strong>
+<dd>In these plots, at the top of the plot options pop-up,  you can
+control whether the points are shown as individual points, connected
+points, or just a line. <P>
+
+You can specify an error (either a column in the catalog, or
+calculated from a column in the catalog). Those errors can be
+symmetric or asymmetric (see pulldown menu). <P>
+
+You can also change either axis to be logarithmically scaled.
+<P>
+</dl>
+
+
+Example: Load a WISE catalog. Plot w1snr vs. w1mpro. Change the labels
+by clicking on the triangles below each entry box, and make the label
+"SNR in WISE-1" rather than the more cryptic column header "w1snr".
+Depending on your catalog, you may need to adjust the y axis range.
+Obtain this plot:<P>
+<img src="img/w1snrexample.png" width="70%"><img
+src="img/w1snrexampleconfig.png" width="30%"><p>
+
+
+<h3><a name="manipulating">Plotting Manipulated Columns</A></h3>
+
+You can choose a single column to plot against another column, as
+above. However, you can also do simple mathematical manipulations.<P>
+
+For example, if you have loaded a WISE catalog, you can plot [W1]-[W2]
+vs. [W3]-[W4]. In terms of the names of the columns in the database,
+this is w1mpro-w2mpro vs. w3mpro-w4mpro.  <br>
+
+<img src="img/wisecolorexample.png" width="70%"><img
+src="img/wisecolorexampleconfig.png" width="30%"><p>
+
+If you have few enough points that the plot is not binned, you can add
+errors, and you can also manipulate those:<br> <img
+src="img/plotoptionspopup2.png"><br>  In this case, the positions
+in this catalog are in degrees, but the errors are in arcseconds.
+This plot request converts the errors to degrees
+before plotting. <P>
+
+<h3><a name="restricting">Restricting What is Plotted</A></h3>
+
+You can also restrict what data are plotted in any of several
+different ways. <P>
+
+You can set axis limits on the plot itself from the plot options
+pop-up (discussed above).<P>
+
+However, and perhaps more powerfully, you can set limits from the plot
+itself using a rubber band zoom.  Click and drag in a sub-region of
+the plot. A new icon appears in the upper right of the plot: <img
+src="img/plotoptions.png">. This means "filter the catalog to leave
+only those objects encompassed by the selection in the plot." If you
+click on the zoom icon, then the plot axes change to encompass just
+the sources you have selected. If you click on the filter icon, then
+the catalog view is filtered down, restricted to just those sources
+you have selected, and the filter notes in the upper left of the plot
+window (and the upper right of the catalog window) change to remind
+you that you have a filter applied. Only those sources that pass the
+filter are shown overlaid on the image(s) or in the catalog. (This is
+the behavior of 'filter', as opposed to 'select'; the former restricts
+what is shown, the latter just highlights the objects.) For more on
+filters, see <a href="table.html#filters">the filter section</A>.<P>
+
+<!-- If you have a big catalog, zooming or filtering may reduce the number
+of plotted points to below 15,000, which means
+that then individual points can be shown, rather than binned
+points.<P> -->
+
+If you move your mouse over any of the points, you will get a pop-up
+telling you the values corresponding to the point under your cursor.
+If you click on any of the points, the object(s) corresponding to that
+point will be highlighted in the overlays in the images shown, and
+highlighted in the catalog table.  This works the other way too -
+click on a row in the catalog, or an object in the images, and the
+object will be highlighted in the plot or the catalog or the image.<P>
+
+You can also zoom with your mouse on the plot -- do whatever you would
+do with your mouse to scroll but with your mouse over the plot. You
+can also grab-and-drag the plot axes to change the plotting range.<P>
+
+<h3><a name="saving">Saving Plots</A> </h3>
+
+Click on the diskette icon (<img src="img/save.png">). Your plot will
+then be saved as a png file. 
+The saved PNG is the same size as it is on your screen. If you want a
+big version, make the desired plot big on your screen (expand the view
+to take up as much space as possible) before saving the PNG. <P>
+ <P>
+
+
+
+
+
+
+<h3><a name="example1">Example of catalog plots #1: Catalog pulled
+after initial search</A></h3>
+
+<strong>Example: Plotting [W1] vs. [W1]-[W4] in a star-forming
+region</strong> <P>
+
+For this example, we are trying to find young stars in a star-forming
+region. We will search in the WISE AllWISE catalog. Stars without
+circumstellar dust should be at a variety of W1 brightnesses, but all
+have [W1]-[W4]~0.  Background galaxies should be faint and red. Stars
+with circumstellar dust (e.g., young stars) should be bright and red.
+Here, we will make a plot, identify a bright and red object in the
+plot, and find where it is in the WISE images. <P>
+
+<OL>
+<LI>Launch the Finder Chart tool. Search on IC1396. Simbad's
+interpretation of the coordinates are fine. Change the default image
+size to be 1/2 degree (pick the units first, then enter the number)
+and display size (Medium) are fine. Select DSS, 2MASS, and WISE. Now,
+at this point, we could click on "Yes" for "Search Corresponding
+Catalog(s)", then tell it to "search within the image boundary." But
+we want to be mindful of the numbers of sources it is likely to find
+over half a degree in all of these catalogs (hint: a LOT). At this
+point, we are only interested in the WISE catalog. So, let's leave
+"Search Corresponding Catalog(s)" set to "No." Click "Search." Wait
+for it to come back with the results.  
+<LI>Now, let's search just for the WISE catalog in this region.  Click
+on the blue "catalogs" tab.  Select Project=WISE. Select the AllWISE
+Database, and the AllWISE Source Catalog.  By default, it is set for
+the same target but not the same  region as our original search, so we
+want to change that. Leave the target coordinates as they appear.
+Change the search method to "cone."  Change the units of the radius
+pulldown to "deg" and enter 0.25 degree in the cone radius.  Click
+"Search."
+<LI>You may have to wait a bit for the catalog to be returned. If it
+puts the catalog search in the background, load it when it is ready.
+<LI>It may take a few more seconds to load and display the catalog,
+because the catalog is ~4,000 sources.  Note that all ~4,000 sources
+are overplotted on the images. If you left catalog searching turned on
+in the intial search screen, the catalog may not be overlaid on the
+images.   To get them overplotted, select an image, click on the
+layers icon in the image toolbox, and turn the corresponding catalog
+layer on over all the images. 
+<LI>Grab the slider between the window panes and drag it up to see
+more of the catalog (and less of the images). Note that selecting a
+source in the image makes its corresponding row in the catalog turn
+green; this works the other way too in that clicking on a catalog row
+highlights the source in the image. Note that for this example, we
+have loaded a catalog that is slightly larger in some dimensions  than
+the image covers, so if you pick a source at random from the catalog,
+it might not be in the images. (In the image, your search target is a
+magenta circle; the selected source in the image is a square with an x
+in it.) 
+<LI>The plot on the lower right comes up with an RA/Dec plot by
+default. Two things to note: (1) RA is increasing to the left, as per
+astronomical convention. (2) If you have less than 5000 points, each
+point represents one line in the catalog. If you searched on a larger
+area such that you have more than 5000 points, the points are binned
+up such that each point represents more than one row of the catalog.
+Mouse over or click on a point to see how many rows are represented:
+<img src="img/morethanonepoint.png">
+<LI>Click on the expand <img src="img/expand-24x24.png"> icon in the
+upper right of the plot window. 
+<LI>Click on the gear <img src="img/xyplotoptions.png"> icon in the
+upper right of the plot window.
+<LI>Enter in the x box: w1mpro-w4mpro. This is WISE-1 profile-fitted
+measurement in magnitudes minus WISE-4 profile-fitted
+measurement in magnitudes, or [W1]-[W4].
+<LI>Click on the triangle next to "Layout Options", and enter
+"[W1]-[W4] (mag)" for the x label. 
+<LI>Enter in the y box: w1mpro.
+<LI>Under "Layout Options", enter "[W1] (mag)" for
+the y label. Tick the box next to "reverse" so
+that brighter objects (smaller numbers) are at the top of the plot.
+<LI>Click "Apply." Click on the gears to make the plot configuration
+pop-up go away.
+<LI>Obtain this plot: <br>
+<img src="img/ex1-plot.png" width="100%"><br>
+<LI>Note that each one of these points corresponds to an individual
+row in the catalog. In your version of this plot, click on the source 
+that is highlighted in the screen shot above. Collapse the plot (click
+on 'close' in the upper left) so that you can see the images and the
+catalogs again. This source is highlighted in the images and in the
+catalog.
+<LI>Click and drag from corner given approximately by (2,5) to (6,9). 
+<LI>The icons in the upper right of the plot change after you do this,
+and we want to select all of the bright, red sources. Click on the
+check mark on the upper left.
+<LI>These bright, red objects we selected in the plot are highlighted
+in the overlays on top of the images and selected (check mark on far
+left) in the catalog table. 
+</OL>
+
+
+<h3><a name="example2">Example of catalog plots #2: Catalogs pulled
+during initial search (using one-to-one matching)</A></h3>
+
+<strong>Example: Searching all over the sky for objects with SDSS,
+2MASS, and WISE data, and plotting [W1] vs. [W1]-[W4]</strong><P>
+
+This example provides an opportunity to explore images and catalogs
+(including 1-to-1 matching, which can be powerful but may be
+confusing). This example does not walk through every source in detail,
+but sources can be found in this list where proper motions are high
+(such that 1-to-1 matching doesn't work well), and/or coordinates are
+bad, and/or the sources are not point sources, and where the WISE
+measurements have to be pulled out of the reject catalog. <P>
+
+<OL>
+<LI>I have a <a href="example2input.tbl" target="_blank">target
+list <img src="img/jumpout.jpg" height="10"></A> containing 316 targets, which I have prepared in IPAC table
+format, of some objects claimed to be rapidly rotating K giants. They
+are all over the sky. Some are claimed to have IR excesses, and I want
+to see if they have WISE excesses, as well as look at the WISE images
+for them, just as <a
+href="http://nitarp.ipac.caltech.edu/team/60-HG-WELS-Rebull"
+target="_blank">these fine folks did <img src="img/jumpout.jpg" height="10"></A>. Some of the coordinates are
+good to within an arcsecond, and some are very poor coordinates. Many
+of the sources are very bright (some saturated). Download that IPAC
+table file to your disk.
+<LI>Launch the Finder Chart tool. Select "multiple positions". Click on
+"choose file" and locate the IPAC table file with the targets that you
+just downloaded.
+The default image size, and display size are fine. We are interested
+in these targets in all possible images here, including IRAS. Select
+all the surveys. Set "Search Corresponding Catalog(s)" to yes. "Search
+radius" is the only catalog option now,
+because we are using multIple targets.  Leave the default search radii
+for each catalog.  Click on the box for "One to one Match". This will
+make one line in each output catalog for each line in the input
+catalog, and it will take the source in each catalog closest to the
+input position within the search radius tolerance. Click "Search."
+<LI>It takes a bit to load in all the images and catalogs. When it
+loads, it looks like this:
+<br><img src="img/ex2-searchresults.png" width="100%"><br>
+Things to note: The left upper pane has the list of targets, the right
+upper pane has the images, the bottom left pane has the returned
+catalogs, and the bottom right pane has plots of the catalogs. The
+orange row in the list of targets is the target whose images are shown
+on the right. No data were found for SDSS or SEIP for this target, but
+at least it doesn't take up any screen area. (There are other targets
+in the list for which there are SDSS and/or SEIP data.) There are 6
+catalogs loaded in the bottom window pane. The catalog that is on top
+in the screen shot above is that from IRAS. We asked it for one-to-one
+matching within 90 arcseconds for IRAS. Out of the targets shown, it
+found a match for target 1 ("cntr_01" column),and it is within 3.5
+arcseconds ("dist_x" column). The catalogs are overlaid in a
+survey-by-survey fashion -- the 2MASS catalog is overlaid on the 2MASS
+images, and the WISE catalog is overlaid on the WISE images, but
+because we asked for just one source per catalog, and because they are
+nicely coincident with the target position, it does not LOOK like the
+catalogs are overlaid... but they are! 
+<LI>These targets are ones for which we would like to know if there
+are any IR excesses.  Click on the WISE catalog tab in the catalog
+window pane. If the plot is too small to read, either grab and drag
+the boundary between panes, or click on the plot's expand arrows (<img
+src="img/expand-24x24.png">). 
+<LI>Now we have a full-screen view of the plot, but it's just a plot
+of RA and Dec. 
+Click on the gear <img src="img/xyplotoptions.png"> icon in the
+upper right of the plot window.
+<LI>Enter in the x box: w1mpro-w4mpro. This is WISE-1 profile-fitted
+measurement in magnitudes minus WISE-4 profile-fitted
+measurement in magnitudes, or [W1]-[W4].
+<LI>Click on the triangle next to "X label/unit", and enter
+"[W1]-[W4]" for the label. Enter "mag" for the unit.
+<LI>Enter in the y box: w1mpro  
+<LI>Click on the triangle next to "Y label/unit", and enter [W1] for
+the label. Enter "mag" for the unit. Click on 'reverse' to make the
+brighter objects at the top.
+<LI>If you want, check the "grid" box for both axes.
+<LI>Click "Apply." Click on the gears to make the plot options go
+away.
+<LI>Obtain this plot:<br>
+<img src="img/ex2-plot.png" width="100%"><br>
+Note that each one of the points as shown is a small blue dot, so each
+point represents one line in the catalog (the data are not binned).
+The things brighter than [W1]~3 are likely saturated, given the
+structure seen in this plot. There are some bright red things, and
+some faint red things. 
+<LI>Locate the bright red thing near [W1]-[W4]~3, [W1]~2. Click on it.
+Close the expanded plot view if you're in that view. Find the
+highlighted object in the list, which corresponds to this bright red
+object. It is number 241.
+<LI>Go up to the target list on the left. Click on the filter icon to
+reveal the filter boxes. Locate the "in_row_id" column. Type in the
+filter box "=241" and hit return. 
+<LI>The target list is now filtered down to just be target #241, and
+the images change accordingly. Go and inspect the images in all bands.
+This sure looks like a point source!
+<LI>Go back to the WISE plot. Click on the
+expand arrows if you need to. Locate the reddest source there. Click on it. 
+Close the expanded plot view if you need to.  This red object is object 269
+in the list. 
+<LI>Go up to the target list on the left. Locate the "in_row_id"
+column and change the filter box to be "=269" and hit return. Look at
+the images. There does not seem to be a point source there at POSS or
+2MASS bands, but there is a source with a very steeply rising SED
+through the WISE bands; it looks like it might even be there in IRAS.
+We conclude that this is probably not a K giant. 
+<LI>It is useful in general to look at each set of images in concert
+with the catalogs. In the interest of space, we do not work through
+each of these ~300 sources, but this target list provides a great
+example of some of the things to look for. In this list of targets, at
+least one source has substantial proper motion, such that the
+automatic catalog 1-to-1 matching is not going to work well enough to
+find the true match across catalogs, and you have to do a separate
+search via the catalogs tab to find its true measurement at the other
+bands. Three sources have WISE measurements that do not appear in the
+AllWISE catalog, but erroneously instead in the catalog of WISE
+rejects -- that, too, you can search via the 'catalogs' tab. Many of
+these sources appear in other catalogs housed at IRSA, such as the
+AKARI IRC catalog (the AKARI FIS catalog is what is returned
+automatically).  Many of these sources really are saturated (as you
+can see in the plot above), and checking the images helps assess the
+degree of saturation. Several of the sources were point sources for
+IRAS but not for WISE. Several of the IRAS point source positions are
+likely physically associated with but not well-matched to the
+positions of the brightest source seen in the WISE images, meaning
+that 1-to-1 matching fails because human judgement is required to make
+the match. There are other irregularities as well. We encourage you to
+explore. (The <a
+href="http://adsabs.harvard.edu/abs/2015AJ....150..123R"
+target="_blank">journal article <img src="img/jumpout.jpg" height="10"></A> that came out of this work has
+long discussions of individual targets if you want to learn more about
+them.)
+<LI>Saving the catalogs: For each of the catalogs, click on the
+diskette icon and save it to disk. Because each catalog has 316 data rows
+exactly, merging these lists together is straightforward. (Note that
+the catalogs might have different lengths of header information,
+however!)
+<LI>Saving the images: To save the FITS images to disk, click on
+"Download" in the upper left of the image window pane. From the
+pop-up, select "all targets", FITS, "separate by object". Click
+"prepare download" and wait until it is done to download it. Unzip it,
+and you have the images sorted by target name to browse offline. You
+can also save png images or PDF files (both of which include stretches
+and overlays as you customize interactively).
+</OL>
+
+<strong>Still More Plots</strong><P>
+
+Here are a few more examples of plots made with IRSA tools.<P>
+
+<img src="img/ex2-imgcst.png" width="25%"><P>
+
+<img src="img/scatterwitherr.png" width="25%"><P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,190 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRSA/WISE Image Service: FAQ" -->
+<HEAD>
+<TITLE>IRSA/WISE Image Service: FAQ
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Frequently Asked Questions (FAQs) about the IRSA/WISE Image
+Service </h3>
+
+<h3>Interface questions</h2>
+
+<dl>
+<dt><i>What does WISE Level 3 and Level 1b refer to?</i>
+<dd> 
+WISE is the Wide-field Infrared Survey Explorer. WISE mapped the sky
+at four bands, 3.4, 4.6, 12, and 22 microns. This web application
+accesses the IRSA/WISE Image Service, the repository of image data
+from the WISE mission. Individual exposure (Level 1b) WISE images are
+assembled into Atlas (Level 3) tiles 1.564 degrees on a side. The WISE
+image server does not re-mosaic these tiles. The degree of overlap
+between tiles is a function of declination. You can obtain all Atlas
+tiles on which your object appears, or individual exposures. Atlas
+tiles have point source profiles whose full width at half max (FWHM)
+is sqrt(2) times larger than the native (single-exposure) values. (See
+Explanatory Supplement for more details.)  The vast majority of the
+sky will have coadded atlas images assembled from eight or more Level
+1b frames.  Also note that WISE images are in DN, not in absolute flux
+units.<P> <P> 
+
+<dt><i>What is the difference between the different WISE Data Releases?</i>
+<dd>
+Please consult the extensive corresponding Explanatory Supplement for
+the data set you choose to use. A grid with a brief description of the
+data releases and links to the Explanatory Supplements is available at
+the beginning of the <a href="overview.html">Overview chapter</A>.
+<P>
+
+<dt><i>I notice you are continuing to release new W1 and W2 data. Will
+there be more W3 and W4 data?</i>
+<dd>
+No, sorry, not until there is a new spacecraft. WISE could only
+observe at W3 and W4 when there was cryogen on board. When the cryogen
+ran out, passive cooling allows us to continue observations at W1 and
+W2.
+<P>
+
+<dt><i>I study inertial (not moving) targets. I notice that the newest
+release of new W1 and W2 data only has photometry done on the
+individual exposures. Will you be releasing a new version of the
+AllWISE data, which summed up all the available data?</i>
+<dd>
+Funding does not permit summing up the images at this time. The
+purpose of the NEOWISE and NEOWISE Reactivation missions is to look
+for moving objects, which in fact require that the images NOT be
+summed up. Until funding can be found to rerun the entire pipeline
+that creates Atlas images and corresponding photometry, such a
+resource is not available. There are tools to allow you
+to sum up the images yourself, however. See the <a
+href="https://irsa.ipac.caltech.edu/Missions/wise.html">WISE Mission
+Page</A> for the WISE Co-Adder.
+<P>
+
+
+
+<dt><em>In my search, I've selected AllWISE (multi-band), All-Sky (4
+band), 3-Band Cryo, and Post-Cryo (2 band) images, but I am only
+getting one set of 3 images (not even all four WISE bands). Why?</em>
+<dd>Do you have "Return only the most centered image containing the
+target" set to "yes"? If that is the case, you really will only get
+the most centered image out of all of the image sets returned, not the
+most centered image <em>per release</em>. Set that to "no" and redo
+your search -- you should then find many more image sets.<P>
+
+<dt><em>How can I tell which image set is which?</em>
+<dd> If you selected multiple image sets and set "Return only the most
+centered image containing the target" to no in your initial search,
+you will most likely get multiple results from multiple releases.
+There are two ways to distinguish them quickly.  The "image_set"
+column (all the way on the right) is 2 for 2-band, 3 for 3-band, 4 for
+4-band (cryo), 5 for AllWISE, and 6 for NEOWISE Reactivation (2-band).
+The coadd_id also has this information - the first 8 characters is the
+tile position, and the 4 characters after the underscore refers to the
+processing iteration. *_ab31 is 3-channel, *_ab41 is 4-channel, *_ac51
+is AllWISE. You can also look at the FITS header in one of the images
+using the <a href="visualization.html">Visualization tools</A> -
+nearly all the data were taken in 2010 but AllWISE was processed in
+2013, so the file creation date should be in 2013 for AllWISE.<P>
+
+<dt><em>But, wait, I selected multiple image sets but not all of them
+have atlas tiles or single exposures..?</em>
+<dd> Yes, the AllWISE image set contains only Atlas tiles, not
+indvidual exposures. Similarly, the 2-band post-cryo image set
+contains only individual exposures, no Atlas tiles.<P>
+
+<dt><i>What's the file format that I need to use for the Multi-Objects search?</i>
+<dd>Your multi-object search table must be in IPAC table format.
+Examples and more details are provided <a
+href="searching.html#byPosition">here</A>.<P>
+
+<dt><i>How come the columns are different when I access the catalogs via
+the IRSA <a href="https://irsa.ipac.caltech.edu/applications/Gator/"
+target="_blank">catalog search</A> and the catalogs tab here in the image service?</i>
+<dd>While the image service is talking to the catalog search "under
+the hood", yes, different columns are shown. There are a very large
+number of columns available in the catalog search, and it can quickly
+become overwhelming for new users to have all of those columns
+available in the GUI interface. (Ex: for AllWISE, there are 334
+columns in the main source catalog!) To get access to those additional
+columns in the GUI interface, after you click on the catalogs tab, 
+click on "Set Column Restrictions" on the left hand side, under the
+"category" selection pull-down menu. A new window will open up with
+the "short form" column names displayed by default. Change that to the
+"long form" column names, and you will see <em>all</em> the available 
+column names in the corresponding catalog. Click on the check box to
+select what to display. You can also filter what is returned (for
+example, only return objects with values in column y that are greater
+than x). If you add more than one restriction, they are combined
+logically using an "AND" operators; be careful, because you can thus
+restrict data such that none of the catalog meets your criteria.  <P>
+
+
+<dt><i>Do you have any tutorial videos?</i>
+<dd>Yes. The <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w" target="_blank">IRSA
+YouTube channel</A> has several tutorials that are relevant to WISE
+-- see the WISE playlist as well as the set of "micro-tutorials"
+relevant for more than one archive. <P>
+
+</DL>
+
+
+
+<h3>File questions</h3>
+
+<dl>
+<dt><i>What do I do with the zip files I get when I download data?</i>
+<dd>To uncompress the files you have downloaded, you should just be
+able to doubleclick on it, and your computer should know what to do.
+Or, from the command line, you can type "unzip foo.zip". To uncompress
+multiple files at once, type "unzip '*.zip'" (the single quotes are
+important), or "unzip \*.zip" -- you just have to escape out the
+wildcard.<P>
+
+</DL>
+
+
+<h3>Getting more help</h3>
+
+More information on WISE can be found at
+<a href="https://irsa.ipac.caltech.edu/Missions/wise.html"
+target="_blank">https://irsa.ipac.caltech.edu/Missions/wise.html</A>.<P>
+
+Please consult the extensive corresponding Explanatory Supplement for
+the data set you choose to use. There is a table at the top of the <a
+href="overview.html">Overview chapter</A> with links to all the
+Supplements.
+
+
+<strong>Have a question? </strong>Please read the <a
+href="faq.html">frequently asked questions (FAQs)</a> first. <p>
+
+The <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w" target="_blank">IRSA
+YouTube channel</A> has several tutorials that are relevant to WISE --
+see the WISE playlist as well as the set of "micro-tutorials" relevant
+for more than one archive. <P>
+
+<strong>Found a bug? </strong> 
+If you think you have found a bug, before reporting it, please check
+<a
+href="https://irsa.ipac.caltech.edu/docs/known_issues/nwabugslist.html"
+target="_blank">the list of known bugs and issues</A> and read the
+online help. It may be a "feature" we already know about.  If you have
+found a new, real bug then please do let us know by contacting the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk/" target="_blank">
+IRSA Help Desk</a>.  Please include your operating system version and
+your browser software and version.
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,103 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRTF: Downloads" -->
+<HEAD>
+<TITLE>IRTF: Downloads
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>IRTF Archive: Downloads</h2>
+
+
+To select data for download, click on the checkbox on the far left of
+the data table, or click on the box at the top of that column to
+select every row. <p>
+
+By default, related data are automatically packaged together with data
+downloads from the NASA IRTF archive. <em>Caution:</em> packaged data can
+be very large files, and may take a long time to package and
+download. You can choose what to include:
+</p><dl>
+<dt><strong>Selected Data</strong>
+</dt><dd> The data you have selected is, of course, included. 
+To select observations, click on the checkbox to the left of the rows
+you wish to download; click on the checkbox at the top of the column
+of checkboxes to select all observations.<p>
+
+</p></dd><dt><strong>Related Standard Groups</strong> 
+</dt><dd> Include standards obtained near the observation of interest and related to it.<p>
+
+</p></dd><dt><strong>Related Calibration Groups</strong> 
+</dt><dd> Include calibration frames related to the observation of interest.<p>
+
+</p></dd><dt><strong>IE Logs</strong> 
+</dt><dd> Include instrumenation logs. This file includes key events logged
+by the TCS and instruments to document sequences of events during
+observing to help understand the archived data.  <p>
+
+</p></dd><dt><strong>Weather data</strong> 
+</dt><dd> Include weather data.<p>
+
+</p></dd><dt><strong>Program information</strong> 
+</dt><dd> Include information about the program that obtained the observation of interest.<p>
+
+</p></dd></dl>
+
+You can also choose to have the observations sorted into directories.
+(See the "Organize downloads into directories" checkbox.) If this box
+is not checked, the data will unzip into a flight directory structure
+(e.g., no subdirectories). If this box is checked, the data will unzip
+into a multiply-nested set of subdirectories, e.g.,
+2016B/20160803/data/2016B048/sbd_20160803_151141.  If you download
+only one or two observations, this structure may seem funny; it makes
+more sense if you are downloading many observations. In any case, you
+can rearrange the data organization once you download the data. <p>
+
+Click on the 'download' button to download your data. </p><p>
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. </p><p>
+
+</p><dl>
+<dt><strong>UnzipTroubleshooting</strong>  
+</dt><dd>If you have an old computer and/or
+an old OS, and if you download more than one observation at a time,
+then you may very well get a zip file you cannot unpack. It complains
+that it is corrupted :
+<pre>warning [IRTF.zip]: 4098391235 extra bytes at beginning or within zipfile
+(attempting to process anyway)
+error [IRTF.zip]: start of central directory not found;
+zipfile corrupt.
+(please check that you have transferred or created the zipfile in the
+appropriate BINARY mode and that you have compiled UnZip properly)</pre> 
+This is because the zip files are bigger than a threshold (likely 4 GB
+for your machine). If you have a recent version of the unzip software,
+it should just work and you will never notice. If you have an only
+sort of old version, you can try to "repair" the file (use "zip -F
+IRTF.zip --out IRTF2.zip" and then "unzip IRTF2.zip"). If that still
+doesn't work for you, you can update the unzip software. On a Mac, if
+you use Homebrew, type "brew install unzip". Homebrew will get the
+software but then express reluctance to install it for you, making it
+seem like you are doing something terribly risky in updating the
+software. So, you should invoke it using the full path
+/usr/local/opt/unzip/bin/unzip rather than via an unqualified unzip.
+If you are not comfortable doing that, the workaround is to download
+one observation at a time (one row from the GUI), and unzip them from
+the command line (as opposed to double-clicking on the zip file) --
+then it will nest all of the files properly, as if you had downloaded
+just one big zip file. <p>
+
+</p></dd></dl>
+
+
+
+
+</BODY>
+</HTML>

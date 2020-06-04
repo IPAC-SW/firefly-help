@@ -1,4 +1,5 @@
 rootProject.name = 'root'
 
-include 'firefly'
+include 'atlas', 'catalogs', 'discovery', 'finderchart', 'heritage',
+        'irsaviewer', 'irtf', 'planck', 'ptf', 'sofia', 'wise', 'ztf'
 

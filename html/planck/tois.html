@@ -1,0 +1,248 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "NASA Planck Archive: TOIs" -->
+<HEAD>
+<TITLE>NASA Planck Archive: Time Ordered Information 
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Searching and Visualization of Time Ordered Information in the NASA Planck Archive (NPA)</h2>
+
+Access to Time Ordered Information data sets is available
+commencing with the February 2015 Planck Public Data Release 2 (PR2).
+<p>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A> -- What are TOIs<br>
++<A href="#searching">Searching</A> -- The basics of searching<br>
++<A href="#results">Results</A> -- Downloading and display of results<br>
+<p>
+
+
+
+<A NAME="overview"><H3>
+Overview of Planck Time Ordered Information</H3></A>
+
+Time Ordered Information <b>[TOI]</b> consists of the
+measurements of the sky intensity obtained by the Planck
+spacecraft as it spun at 1 revolution per minute. Each measurement
+is tagged by the location on the sky that was pointed to, the
+time of the observation, and whether or not a solar system object
+was within the beam.
+
+<A NAME="searching"><H3>
+Searching Planck Time Ordered Information</H3></A>
+
+Planck TOIs can be selected for download as FITS binary tables and
+for display. The <b>TOI Search</b> page allows you to chose the
+TOIs you want by location, frequency, specific detectors, and (optionally)
+by a range of dates. In the February 2015 Public Data Release 2 the complete set of TOIs
+are available for all three of the LFI bands 
+(30, 44, and 70 GHz).
+HFI TOIs will be made available though this search tool in a subsequent release.
+<p>
+These TOI have been pre-extracted from the entire-mission 
+<a href="/data/Planck/release_2/toi/">PLA files</a>. For ease of use the data have already had offsets and per-detector monopoles applied, and all flagged data removed (except SSO if selected). Weights, calculated from the RIMO, are supplied in the header for correct combination of multiple detectors.
+<p>
+
+
+
+
+
+
+Here we will walk you through an example TOI search including the downloading
+of the FITS binary table versions and the generation of an image using the
+Minimap tool. Minimap creates a 2D projection of the full map at the
+specified location, for more details please see <a href="#results">below</a>.
+For illustration we select a 2 degree square field centered on the Galactic Center which
+is bright and exhibits some structure at these frequencies.
+Clicking on the <b>TOI Search</b> option brings up a query form for a Single Object 
+in which we can enter the position or as an object name to be resolved via NED or Simbad.
+We enter the name of "sgra*" which is resolved by NED and note that the
+desired 2 degree square field is the default option. 
+<p>
+The <b>SSO Flag</b> selection has two choices: 'F', which means we do not want
+TOI samples  
+in which a bright Solar System object (the planets Mars, Jupiter, Saturn, Uranus, Neptune) 
+was within the detector beam, and 'All', in
+which we do allow these. 
+The Planck band is specified via the <b>Select Frequency</b>. The band selection then
+populates the list of available detectors at that frequency. We choose '70 GHz' and the
+18M and 19S detectors for this example.  
+<p>
+In the <b>Optional Search Constraints</b> we set the start and end dates to '2010-01-1' and
+'2010-12-31', thus choosing only observations in calendar year 2010.
+<p>
+
+<br> <img src="img/toi_search.png"><br> 
+<p>
+
+<A NAME="results"><H3>
+Accessing your search results</H3></A>
+
+Your TOI search returns a list of the MJDs (modified Julian Dates)
+during which your source was observed by Planck
+along with the number of TOI samples obtained on each day. 
+The text following <b>TOI Search</b>, e.g. "Target=sgra*;..",
+lists all of the criteria that you chose for your search.
+<p>
+Each MJD's data can be individually selected
+for download or map generation by clicking on the box to the left
+of each entry. You can also select all available data by choosing the
+box that appears on the column header row.
+In the example below, we've selected the first four continguous MJDs
+which are from the same pass. The remaining three dates are 
+from the subsequent pass roughly six months later.
+<p>
+ 
+<br> <img src="img/toi_results.png"><br> 
+<p>
+
+Clicking on the <b>Prepare Download</b> tab brings up the </b>Download Options</b>
+dialog box. Within this you can specify whether or not you want to download the search
+results in FITS binary table format and if you wish the associated Minimap image
+to be generated and included in the download. 
+The TOIs and images you have requested are
+accessed and managed by the standard 
+<a href="basics.html#download">Background Monitor</a>.
+<p>
+The combination of choosing 'No' for <b>Download TOI Data</b> and not selecting <b>Download TOI Minimap</b>
+results in a "No data available for download' Information pop-up window being displayed when
+you click on <b>Prepare Download</b>.
+The download is packaged as a zip file and
+you can select whether the <b>Zip File Structure</b> is 'Flattened (no folders)' or 
+'Structured (with folders)'. You can also choose to be notified of the requested data 
+being available via e-mail, which will inform you that <tt>Your packaging request has completed. 
+Zip files are available to download for 72 hours.</tt> and will include the URL for immediate download.
+
+<p>
+<br> <img src="img/toi_download.png"><br>
+<p>
+
+The FITS file returned from your search and download contains nine columns
+of data with one row per time-stamped observation.
+Here are the names and descriptions of each column.
+<ul>
+<li>RA, DEC, GLON, GLAT: detector point direction given in degrees
+for both Equatorial (J2000) and Galactic coordinates.
+<li>MJD: Planck on-board time (OBT) expressed as modified Julian date.
+<li>SIGNAL: calibrated detector reading in K_CMB (for LFI bands) after
+removal of offsets.
+<li>SSO: Solar system flag - set to 1 if a bright planet is in the beam.
+<li>PSI: Roll angle in degrees.
+<li>DETECTOR:  The name of the detector from which the TOI sample was taken.
+The names of the 030 GHz detectors are 27M, 27S, 28M, and 28S; 
+those at 044 GHz are labeled 24M, 24S, 25M, 25S, 26M, and 26S; and 
+those at 070 GHz are 18M, 18S, 19M, 19S, 20M, 20S, 21M, 21S,
+22M, 22S, 23M, and 23S.
+</ul>
+
+<p>
+<!--
+<pre>
+XTENSION= 'BINTABLE'           / binary table extension
+BITPIX  =                    8 / 8-bit bytes
+NAXIS   =                    2 / 2-dimensional binary table
+NAXIS1  =                   52 / width of table in bytes
+NAXIS2  =               151824 / number of rows in table
+PCOUNT  =                    0 / size of special data area
+GCOUNT  =                    1 / one data group (required keyword)
+TFIELDS =                    9 / number of fields in each row
+TTYPE1  = 'ra      '           / label for field   1
+TFORM1  = 'D       '           / data format of field: 8-byte DOUBLE
+TUNIT1  = 'degrees '           / physical unit of field
+TTYPE2  = 'dec     '           / label for field   2
+TFORM2  = 'D       '           / data format of field: 8-byte DOUBLE
+TUNIT2  = 'degrees '           / physical unit of field
+TTYPE3  = 'psi     '           / label for field   3
+TFORM3  = 'E       '           / data format of field: 4-byte REAL
+TUNIT3  = 'degrees '           / physical unit of field
+TTYPE4  = 'mjd     '           / label for field   4
+TFORM4  = 'D       '           / data format of field: 8-byte DOUBLE
+TUNIT4  = 'days    '           / physical unit of field
+TTYPE5  = 'signal  '           / label for field   5
+TFORM5  = 'E       '           / data format of field: 4-byte REAL
+TUNIT5  = 'K_CMB   '           / physical unit of field
+TTYPE6  = 'glon    '           / label for field   6
+TFORM6  = 'D       '           / data format of field: 8-byte DOUBLE
+TUNIT6  = 'degrees '           / physical unit of field
+TTYPE7  = 'glat    '           / label for field   7
+TFORM7  = 'D       '           / data format of field: 8-byte DOUBLE
+TUNIT7  = 'degrees '           / physical unit of field
+TTYPE8  = 'sso     '           / label for field   8
+TFORM8  = 'L       '           / data format of field: 1-byte LOGICAL
+TTYPE9  = 'detector'           / label for field   9
+TFORM9  = '3A      '           / data format of field: ASCII Character
+EXTNAME = 'Table   '           / name of this binary table extension
+LONGSTRN= 'OGIP 1.0'           / The HEASARC Long String Convention may be used.
+COMMENT   This FITS file may contain long string keyword values that are
+COMMENT   continued over multiple keywords.  The HEASARC convention uses the &
+COMMENT   character at the end of each substring which is then continued
+COMMENT   on the next keyword which has the name CONTINUE.
+ADQL    = 'SELECT * FROM planck_toi_070 WHERE CONTAINS(POINT(''J2000 GEOCENTE&'
+CONTINUE  'R'',ra,dec),BOX(''GALACTIC GEOCENTER'',359.94421431244035,-0.046083&'
+CONTINUE  '278411692935,2,2))=1 AND ((detector = ''18M'' OR detector = ''18S''&'
+CONTINUE  ') AND (sso = ''0'') AND ((mjd >= 55270.5 AND mjd <= 55271.5) OR (mj&'
+CONTINUE  'd >= 55271.5 AND mjd <= 55272.5) OR (mjd >= 55272.5 AND mjd <= 5527&'
+CONTINUE  '3.5) OR (mjd >= 55273.5 AND mjd <= 55274.5)))'
+DATE    = '2015-01-29T21:22:01' / File Creation Date
+DETNAM  = '18M,18S '           / Detector Name
+FREQ    = '070     '           / GHz
+HEIGHT  = '2.000000'           / Search Box Height degrees
+INSTRUME= 'LFI     '           / Instrument Name
+OBJDEC  = '-29.007797'         / Search Target DEC degrees
+OBJECT  = 'sgra*   '           / Target Name
+OBJGLAT = '-0.046083278411692935' / Search Target GLAT degrees
+OBJGLON = '359.94421431244035' / Search Target GLON degrees
+OBJRA   = '266.416737'         / Search Target RA degrees
+OBJ_TYPE= 'Fixed   '           / Fixed or Moving
+PROCVER = 'DX11D   '           / Processing Version
+TELESCOP= 'PLANCK  '           / Telescope Name
+WIDTH   = '2.000000'           / Search Box Width degrees
+COMMENT  -------------------------------------------
+COMMENT  Information from Primary Header
+COMMENT  -------------------------------------------
+ROOTHEAD=                    T / file does conform to FITS standard
+COMMENT   FITS (Flexible Image Transport System) format is defined in 'Astronomy
+COMMENT   and Astrophysics', volume 376, page 359; bibcode: 2001A&A...376..359H
+ROOTEND =                    T
+END
+</pre>
+-->
+
+<p>
+
+The other tab available on the Search Results page produces an image from the selected TOIs using
+the Minimap algorithm. 
+Minimap creates a naive sky map from the TOI samples. 
+The pixel value is the unweighted average of the values of all the selected 
+TOI samples for which the detector pointing direction lies within the pixel. 
+It is assumed that offsets due to 1/f noise have already been removed from 
+the TOIs. The map projection is gnomonic, centered on the search direction, 
+and the pixel size is 2 arcmin. Unsampled pixels are marked by a NaN value.
+
+This brings up a simple confirmation dialog box listing the rows (starting at 0)
+that you selected in the MJD list. The only options here are 'OK" to proceed with the image
+generation or 'Cancel'.
+
+<p>
+<br> <img src="img/toi_mapgen.png"><br> 
+<p>
+The resulting Minimap image is displayed in the new tab labeled 'Minimap' which uses the
+standard IRSA image <a href="visualization.html">visualization environment</a>
+Your original search results are remain accessible via a tab that is tagged 
+by the Planck band, in our example '70 GHz'.
+During the download dialog you have the option of rerunning Minimap again with a 
+different selection of dates. If you do this then this new map is the one
+that you will download, i.e. not the tabbed version.
+<p>
+<br> <img src="img/toi_map.png"><br> 
+
+</BODY>
+</HTML>

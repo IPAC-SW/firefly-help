@@ -1,0 +1,70 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Data Discovery Tool: Searching" -->
+<HEAD>
+<TITLE>Data Discovery Tool: Searching
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Data Discovery Tool: Searching</h2>
+
+The Data Discovery Tool allows users to survey IRSA's holdings to see what data (images, catalogs, spectra) overlap a position on the sky.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<a href="#SingleObject">Single Object</a><br>
++<a href="#searchmethods">Search Methods</a><br>
+<P>&nbsp;<P>
+
+
+<h3><a name="SingleObject">Single Object: Coordinate or Object Name</a></h3>
+
+<p>Enter the name or coordinates (decimal degrees or sexigesimal
+format) of the center of your position search. If the input string
+cannot be  recognized as coordinates, then it will be sent first to <a
+href="http://ned.ipac.caltech.edu/" target="_blank">NED<img
+src="img/jumpout.jpg" height="10"></A>, then to  <a
+href="http://simbad.u-strasbg.fr/simbad/" target="_blank">SIMBAD<img
+src="img/jumpout.jpg" height="10"></A> to attempt name resolution.<P>
+
+
+Examples of valid inputs include:</p>
+
+<ul>
+<LI>m83
+<LI>17h 44m 34s -27d 59m 13s Equatorial J2000
+<LI>17h44m34s -27d59m13s
+<LI>00h42m44.3s +41d16m08s b1950
+<LI>00:42:44.3 -41:16:08
+<LI>00 42 44.3 -41 16 08 b1983
+<LI>004244.3 -411608
+<LI>17h -27d Equ J2000
+<LI>17h -27d
+<LI>34.5565 54.2321 gal
+<LI>34. 54. ecl
+</ul>
+
+Cutting and pasting from other sources can be done quickly and data entry in general can be performed without moving back and forth between the keyboard and mouse.<P>
+
+<h3><a name="searchmethods">Search Methods</a></h3>
+
+A search performs a cone search on a single contiguous
+region of the sky, returning sources within the specified radius.<P>
+
+In order to be listed in the results, a data set must intersect the search region specified by the cone search center and radius.<P>
+
+Images are approximated as circles for determining intersection with the search radius.<P>
+
+As such, then, the search results are an estimate, and additional work will be required to determine how useful the data set is.<P>
+
+Each data set is queried separately and given equal weight. As such, then, you can get WISE preliminary images (which should not be used, in favor of later releases), and uncertainty/mask images are given equal weight with science images. <P>
+
+
+
+</BODY>
+</HTML>

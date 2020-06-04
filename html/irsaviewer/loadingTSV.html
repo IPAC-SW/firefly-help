@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Time Series Tool: Loading in a Time Series" -->
+<HEAD>
+<TITLE>Time Series Tool: Loading in a Time Series
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Time Series Tool: Loading in a Time Series</h2>
+
+
+
+When you launch the Time Series Tool, the first screen you encounter
+is the screen in which you can upload a time series. <P>
+
+<P><img src="img/loadingTSV.png"><P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#mainoptions">Main Options</A><br>
++<A href="#data">Data Sets Accepted</A> <br>
++<A href="#requirements">Table Requirements</A> <br>
++<A href="#formatting">Table Formatting</A> <br>
++<A href="#default">Default Columns</A> <br>
++<A href="#newtable">New Tables</A> <br>
++<A href="#cancel">Cancelling</A> <br>
+<P>&nbsp;<P>
+
+<h3><A NAME="mainoptions">Main Options</A></h3>
+
+You can use a file on your disk or in the IRSA <a href="/docs/workspace/"
+target="_blank">Workspace <img src="img/jumpout.jpg" height="10"></A>.
+
+In either case, click on the "Browse" button to find  the file on your
+disk or in the workspace to upload into the tool.<P>
+
+For "mission", you can choose "WISE/NEOWISE", "PTF", "ZTF", or "Other". <P>
+
+<h3><A NAME="data">Data Sets Accepted</A></h3>
+
+For WISE/NEOWISE and PTF/ZTF, you can view measurements as a function
+of time, simultaneously visualize the single-epoch images, and
+optionally find the period of variability. <P>
+
+For other data sets, visualization of the single-epoch images is not
+currently available, but period analysis is available.  <P>
+
+<h3><A NAME="requirements">Table Requirements</A></h3>
+
+<DL><DT><strong>WISE/NEOWISE</strong></dt><DD>
+
+To load the single-epoch images, the WISE/NEOWISE table you upload
+must have the columns frame_id and source_id, or both scan_id and
+frame_num. (It needs those columns to be able to grab the
+corresponding exposue image.) Catalogs obtained from IRSA's Catalog
+Search Tool for the AllWISE multiepoch photometry catalog will work
+transparently; catalogs from  Catalog Search Tool for other single
+exposures <strong>need the long-form results</strong>, which include
+these columns, and then these catalogs will also work transparently.
+(Here is an <a href="exampleallwiseinput.tbl">example input table from
+AllWISE</A>.)
+<P>
+
+<DT><strong>PTF and ZTF</strong></dt><DD>
+
+To load the single-epoch images, the PTF or ZTF table you upload must
+have the column "pid" included in your table. Catalogs obtained from 
+IRSA's Catalog Search Tool for the PTF or ZTF light curve catalog will
+work transparently. (Here is an <a href="exampleptfinput.tbl">example
+input table from PTF</A>.) <P> 
+
+</dl>
+
+
+<h3><A NAME="formatting">Table Formatting</A></h3>
+
+If you upload your own catalog, your catalog needs to be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. IRSA has a <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank">table reformatting and validation service <img
+src="img/jumpout.jpg" height="10"></A> which may be helpful, or you
+can download just about any catalog you find through IRSA, and mimic
+that format. <P>
+
+
+<h3><A NAME="default">Default Columns</A></h3>
+
+If you have a data table with an independent and dependent variable
+(time and flux, time and temperature, position and color, whatever),
+you should choose "Other" and you will still be able to work with your
+data (it just won't be able to pull individual images for each data
+point). If it finds a column called MJD, mjd, BJD, bjd, or really
+anything followed by "jd", it will assume that is your time column. It
+doesn't know how to assume your dependent variable column. If there is
+only one other column, it grabs that as the dependent variable. If you
+have many columns, you may need to help it realize what column should
+be the dependent variable. <P>
+
+
+<h3><A NAME="newtable">New Tables</A></h3>
+
+You can retrieve this upload window at any time by clicking on the
+blue "upload" button in the upper left. From here you can upload a new
+table and start again.<P>
+
+
+<h3><A NAME="cancel">Cancelling</A></h3>
+
+Click "cancel" to cancel the upload.<P>
+
+<em><a href="main1TSV.html">Go on to Main Screen, Viewer (Initial View)</A>.</em><P>
+
+</BODY>
+</HTML>

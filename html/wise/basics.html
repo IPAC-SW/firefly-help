@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRSA/WISE Image Service: Basic Features and Functions" -->
+<HEAD>
+<TITLE>IRSA/WISE Image Service: Basic Features and Functions
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Basic Features and Functions in the IRSA/WISE Image Service</h2>
+
+This page is an overview of the basic features and functions of the
+IRSA/WISE Image Service; for an even faster overview, see the <a
+href="quickguide.html">Quick-Start Guide</A>. Most of this file
+follows the blue tabs across the top of the Image Service.<br> <img
+src="img/bluetabs.png" width="100%"> <P>
+
+Besides the online help (also available as a pdf), there are also WISE
+Image Service video tutorials, available at the <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel</A>. There is a playlist that
+collects together all of the WISE videos. Also see the set of
+"micro-tutorials" relevant for more than one archive.<P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#terminology">Terminology</A><br>
++<A href="#searching">Searches</A> -- The basics of searching<br>
++<A href="#searchHistory">History</A> -- Your search history <br>
++<A href="#help">Help</A> -- Getting more help<br>
++<A href="#catalogs">Catalogs</A> -- Retrieving and using catalogs<br>
++<A href="#download">Background Monitor</A> -- Downloading data and
+catalogs in the background<br>
+<P>&nbsp;<P>
+
+<A NAME="terminology"><H3>Terminology</H3></A>
+
+WISE obtained images at wavelengths of 3.4, 4.6, 12, and 22 microns
+(also referred to as W1, W2, W3, and W4, respectively) with spatial
+resolution ranging from 6 arcseconds at the shortest wavelength to 12
+arcseconds at the longest. <P>
+
+Individual exposure (Level 1b) WISE images are assembled into Atlas
+(Level 3) tiles 1.564 degrees on a side. The WISE image server does
+not re-mosaic these tiles. The degree of overlap between tiles is a
+function of ecliptic latitude. You can obtain all Atlas tiles on which your
+object appears, or individual exposures. Atlas tiles have point source
+profiles whose full width at half max (FWHM) is sqrt(2) times larger
+than the native (single-exposure) values. (See Explanatory Supplement
+for more details.) Also note that WISE images are in DN, not in
+absolute flux units.<P> 
+
+Various sets of WISE images and corresponding catalog data are
+available for download, and exactly what is available is a function of
+the release. Please consult the corresponding Explanatory Supplement
+for information on the data set you choose to use. <P>
+
+Search results are displayed in your browser in several sub-windows,
+sometimes referred to as "panes", like "window panes."<P>
+
+
+<A NAME="searching"><H3>Searches -- The basics of searching</H3></A>
+
+Searching the image archive is straightforward, and a variety of
+options are available by default (and can be retrieved after a search
+via clicking on the "Searches" blue tab at top left).  The position
+search is the most commonly used search option, and the default upon
+first loading this tool.  You may enter target names, which will be
+automatically resolved into coordinates using NED or Simbad.
+Alternatively, you may enter coordinates directly. These coordinates
+can be in decimal degrees or in hh:mm:ss dd:mm:ss format. By default,
+it assumes you are working in J2000 coordinates; you can also specify
+galactic, ecliptic, or B1950 coordinates as follows:
+<UL>
+<LI>'46.53, -0.251 gal' means 46.53, -0.251 degrees in galactic coordinates
+<LI>'12.7, +4.3 ecl' means 12.7, +4.3 degrees in ecliptic coordinates
+<LI>'19h17m 11d58m b1950' means 19h17m 11d58m in B1950 coordinates 
+</UL>
+Examples are given below the text entry box before you start typing in
+the box.<P><P>
+
+As you are completing a valid coordinate entry, it echoes back to you
+what it thinks you are entering. Look right below the box in which you
+are typing the coordinates to see it dynamically change.  <P>
+
+A <a href="searching.html#byTable">Multi-Object search option</A>
+using a user-supplied input table is also available. <P>
+
+You need to specify which image set to search: AllWISE (everything
+summed up), All-Sky (4-band, Full Cryo), 3-Band Cryo, NEOWISE
+Post-Cryo (2-band), or NEOWISE Reactivation (2-band). You also need to
+select the desired Data Product Level (single exposure images, coadded
+Atlas images, or both; note that some releases consist of only
+exposures or only Atlas images). If you want more frames than just the
+most centered result of your search, be sure to set "Return only the
+most centered image containing the target" to no. (If you select all
+the image sets, and leave "most centered" as 'yes', then you will only
+get the image set that is most centered, not the most centered <em>per
+set</em> which may not be what you want.)   There are many more search
+options, described in detail <a href="searching.html">on the page on
+searching</A>.<P>
+
+A list of the search results appears in a table in the top right pane
+of the search results window. These include basic information about
+all the WISE images which fulfill your search criteria. Note that
+there will be a separate table entry for each WISE band, so the total
+number of images in the table will (generally) be four times the
+number of WISE framesets or coadds available for the queried region.
+Different tabs here correspond to different products selected for the
+search, Atlas or single exposures. Catalogs will also appear as
+additional tabs here in this window pane, after you search for them.
+<P>
+
+An indication of each image's footprint on the sky can be found in the
+upper left window pane, with red polygons on top of an IRAS 100 um
+image. Selecting different rows in the search results pane changes
+what is highlighted in blue on the upper left left footprint tab.
+Other tabs in this window provide a multi-color WISE image of your
+selected region, and details about the image corresponding to the
+highlighted row in the results pane.<P>
+
+Along the bottom of the search results window in the image display
+plane are the WISE images corresponding to the search results selected
+in the upper right. If a single position search was used, this
+position will be highlighted by a blue circle in the center of the
+field of view. The actual FITS images are shown; for more on how to
+interact with them, see the <a href="visualization.html">Visualization
+section</A>.<P>
+
+You may wish to impose additional filters on your search results; see
+<a href="results.html#filtering">the section on filtering search
+results</A> for more information.<P>
+
+
+<A NAME="searchHistory"><H3>History -- Your search history</H3></A>
+
+The History menu option (blue tab at the top of the window, next to 
+"Searches") gives you access to your own search history. <P>
+
+All of the single-position searches that you perform during a given
+session with the WISE archive are remembered in the search history
+panel. A high-level summary of the search is also listed -- what kind
+of search you performed and which parameters you used.<P>
+
+You can resubmit the search (see buttons at top left of the search
+history window), remove the search from your history, or save the
+search as a favorite search to which you can return at a later
+time/date. However, in order to return to it during a different
+session, you do need to be logged in when you save the search -- see
+the <a href="user.html">user registration section</A>. <P>
+
+Note that batch searches are not retained, even if you log in and
+attempt to save them.<P>
+
+
+<A NAME="help"><H3>Help -- Getting more help</H3></A>
+
+The "Help" blue tab leads you into this online help. You can also
+download a PDF version of this manual; look at the top of the help
+window for the "View PDF" link.<P>
+
+More information on WISE can be found at
+<a href="https://irsa.ipac.caltech.edu/Missions/wise.html"
+target="_blank">https://irsa.ipac.caltech.edu/Missions/wise.html</A>.<P>
+
+Please consult the extensive corresponding Explanatory Supplement for
+the data set you choose to use.  A grid with a brief description of the
+data releases and links to the Explanatory Supplements is available at
+the beginning of the <a href="overview.html">Overview chapter</A>.<P>
+
+<strong>Have a question? </strong>Please read the <a
+href="faq.html">frequently asked questions (FAQs)</a> first. <p>
+
+The <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w">IRSA
+YouTube channel</A> has several tutorials that are relevant to WISE --
+see the WISE playlist as well as the set of "micro-tutorials" relevant
+for more than one archive. <P>
+
+<strong>Found a bug? </strong> 
+If you think you have found a bug, before reporting it, please check
+<a
+href="https://irsa.ipac.caltech.edu/docs/known_issues/nwabugslist.html"
+target="_blank">the list of known bugs and issues</A> and read the
+online help. It may be a "feature" we already know about.  If you have
+found a new, real bug then please do let us know by contacting the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk/" target="_blank">
+IRSA Help Desk</a>.  Please include your operating system version and
+your browser software and version.
+
+
+
+
+<A NAME="catalogs"><H3>Catalogs -- Retrieving and using catalogs</H3></A>
+
+
+(Note that catalogs are available via a blue tab that appears at the
+top of the page only after you have performed at least one search --
+in essence, you need to have something on which to overlay the catalog
+before it will let you search.)<P> 
+
+You can choose from any of a wide variety of <a
+href="catalogs.html">catalogs</A> to load and
+overlay on your <a href="visualization.html">visualized data</A>.
+They can be <A href="catalogs.html#irsacatalogs">catalogs from
+IRSA</A>, your own <A href="catalogs.html#owncatalogs">catalogs from
+disk</A>, or  <A href="catalogs.html#vocatalogs">catalogs from
+the VO</A>.  You can also make <a href="catalogs.html#xyplots">plots
+from the catalogs</A>.<P>
+
+For more on catalogs, see <a href="catalogs.html">the Catalogs
+section</A>.
+
+
+<A NAME="download"><H3>Background Monitor -- Downloading
+data and catalogs in the background</H3></A>
+
+The Background Monitor appears as a blue tab (or button) in the upper
+right of your window to keep track of the data downloads you have
+requested.  It actively changes to reflect what it is doing
+("Preparing", etc., e.g.,: <img src="img/preparing.png">) Data
+packaging all goes to the Background Monitor; larger catalog requests
+are also sent to the Background Monitor.  <P>
+
+A pop-up window can be called up at any time by clicking the
+"Background Monitor" tab.  You can watch your catalog being retrieved.
+It will update that window when the data are available for download
+and overlay on your image, providing a link for obtaining the data. It
+also keeps track of the downloads you have requested during the same
+session, and indicates with a checkmark those that you have already
+loaded. Remove them from the list by clicking on the blue 'x'.
+<br>
+<img src="img/backgroundpopup.png"><P>
+
+To stop any query mid-way through, click on the little red octagon
+("stop sign") that appears next to the query in the Background Monitor
+pop-up.<P>
+
+If you forgot to put in your email at the beginning, or if the
+packaging is taking longer than you expected, you can click on "Add
+email" from the lower right of the Background Monitor popup and add
+your email during the packaging process. <P>
+
+
+<DL>
+<DT><em>Downloading data</em><P>
+
+<DD>After deciding which data to download, click the checkboxes to
+select specific data files to download (click the checkbox at the top of
+the column of checkboxes to 'select all'), and then click "Prepare
+Download" to begin the  packaging and downloading process.  A pop-up
+window will appear in order to define exactly what kinds of data you
+would like to have packaged up. Clicking "Prepare Download" in the
+pop-up initializes this packaging process.<P>
+
+After you click "Prepare Download", the packaging process moves to 
+the Background Monitor.  The background monitor can be called up by
+simply clicking on the blue tab.  You can watch your data being
+packaged, and when the data are available for download, it will update
+that panel, providing a link for downloading the packaged data. Your
+most recent download request appears on the top of the list. <P>
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. <P>
+
+<dt><em>Downloading catalogs</em><P>
+<dd>The Background Monitor will also keep track of catalog downloads
+for you. The monitor will dynamically update to reflect its status,
+and will let you know when the catalog is ready to download or
+display. Open the background monitor and click on the catalog name to
+load it into a tab of its own. For more on catalogs, see the <a
+href="catalogs.html">Catalog section</A>. <P>
+</DL><P>
+
+
+</BODY>
+</HTML>

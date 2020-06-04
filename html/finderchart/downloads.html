@@ -1,0 +1,283 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Finder Chart: Downloading Data" -->
+<HEAD>
+<TITLE>Finder Chart: Downloading Data
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>Finder Chart: Downloading Data </h2>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#overview">Overview</A> <br>
++<A href="#downloadoptions">Options for Downloading Data</A>
+(including <a href="#reprojection">reprojection</A>)<br>
++<A href="#downloadScript">Download Script</A> <br>
++<A href="#ackn">Acknowledgments</A> <br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="overview">Overview</A></H3>
+
+On any search results page, click "Download" (near the top
+left of the image results window pane) to begin the packaging (and
+downloading) process.  A pop-up window will appear in order to define
+exactly what kinds of data you would like to have packaged up. Select
+what you want, and click "prepare download."<P>
+
+The packaging process spins off into the <a
+href="basics.html#background">background monitor</A>, which keeps
+track of its progress and notifies you when the downloads are
+complete. You can choose to have an email sent to you to let you know
+when things are ready, even after the packaging process has started. 
+<P> 
+
+Note that <b>you</b> control where the data are saved on your disk
+through your browser; your browser may be configured to store all
+downloads in a particular location on your disk. Look for a
+"Downloads" folder or search for recently modified files. <P>
+
+Now, we cover the various options for downloading data in much more
+detail.<P>
+
+
+<H3><A NAME="downloadoptions">Options for Downloading Data</A></H3>
+
+If you just quickly want a <strong>copy of the current images of the
+current target</strong>, you can choose the PDF icon (<img
+src="img/pdf.png">) on the upper left, and it will generate a
+PDF with all the images for your current target. You can
+then save it to disk for later viewing or printing. The search
+parameters will appear on the top of the PDF page. If you select all
+possible image sets, it will be more than one page per target; pare it
+down to just the image sets you need to make it fit on one page.  <P>
+
+For more complex situations, click on the "Download" button
+(near the top left of the image results window pane). You will obtain
+a pop-up window, which looks like this: <br><img
+src="img/downloadoptions.png"> <P>
+
+In the download pop-up, there are several options.
+
+<DL>
+<DT><strong>Current target/All targets</strong>
+<DD>If you searched for multiple targets, the first row asks if you
+would like the data for just the current target, or for all the
+targets on which you searched. If you searched on only one target,
+this row does not appear, because it assumes you want the one target
+on which you searched. <P>
+
+<DT> <strong>File type: FITS, HTML, PDF, PNG</strong>
+<DD> You can select FITS files, HTML (plus associated) files, PDF
+files, or PNG files.  
+<UL>
+<LI>The FITS files that are packaged for your
+download are the original FITS files delivered by the respective
+archive, which may or may not be north-up, and all surveys do not have
+the same pixel size. Also note that any overlays you have added will
+not be included in the FITS download, though artifacts will be
+included as IPAC table files. 
+<LI>PNG files, by contrast, will include the stretch and overlays as
+shown in the interface. You can save the color PNGs as well; see
+below.
+<LI>HTML format includes PNGs of all the images, with the stretch and
+overlay as shown in the interface.
+<LI>PDF files also include the stretch and overlays plus additional
+notations such as target location and survey.  For PDF files, the
+search parameters appear on the top of the PDF page. If you searched
+on multiple targets, you may wish to include an 'objname' column in
+your input file -- then your RA/Dec as well as your object name will
+appear. (NB: that "objname" name should just be letters and numbers --
+no parentheses or brackets, etc.) Please note that the PDF files take
+time to generate, and the maximum number of sources per PDF file is
+50. If you have requested data for more than 50 objects, it will
+generate more than one PDF file. Also note that, while it asks you
+whether or not you want one object per PDF page, if you have selected
+too many image sets, it will not fit one object per PDF page.
+</UL><P>
+
+<DT><strong>Separate by Object</strong>
+<DD>If you searched for multiple targets, you can choose to have the
+files separated into subdirectories for each of your targets, or all
+in one directory (a flat file structure). This option does not appear
+when downloading data from only one target.<P>
+
+<DT><strong>Include PNG Color Images</strong>
+<DD>You can choose to save the color images as well as the
+single-color-plane images. This option only makes sense (and therefore
+only appears) in the context
+of HTML or PNG files.It is particularly powerful for saving color
+images, automatically generated, for all your batch search targets at
+once.<P>
+
+<DT><strong><a name="reprojection">Reprojected (north up).</A> </strong>
+<dd>You can choose to have
+the images reprojected. Selecting this option rotates all the images
+to strictly north-up (many images may already be north-up by default,
+or close to it), preserving flux, and resamples the images to all be
+the same pixel size, 0.36 arcsec.  <strong>Do not select this option
+cavalierly</strong>, because it can take a very long time, especially
+for big images. (It is a non-linear process in that an image that is
+twice as big takes more than twice as long to reproject.) It is using
+<a href="http://montage.ipac.caltech.edu/" target="_blank">Montage <img src="img/jumpout.jpg" height="10"></A>
+(specifically the library mProjectPP) on IPAC's servers to do this
+reprojection; please see the Montage documentation for more details on
+what, exactly, it is doing. To reproject the images on your own
+(selecting your own pixel size, for example), download the original
+images, and then download, install, and use the <a
+href="http://montage.ipac.caltech.edu/" target="_blank">Montage <img src="img/jumpout.jpg" height="10"></A>
+software, which is is freely available for a variety of platforms.<P>
+
+<dt><strong>Page Layout</strong>
+<dd>This option controls how the HTML or PDF pages are generated --
+one per target, or one per image set (all images from a given survey).
+This option only makes sense in the context of HTML or PDF pages,
+because it is only in these cases where there is a page to lay out in
+the first place. However, note that if you pick all possible image
+sets to include, it will end up being more than one PDF page. Select
+fewer image sets to enforce fitting on one page.<P>
+
+<dt><strong>Email</strong>
+<DD>You have an option to
+provide an email address to which it will send an email when the
+packaging is done. (Within the same Finder Chart session, Finder Chart
+remembers what you have entered before, but when initiating a new
+Finder Chart session, you will have to re-enter this information.)
+This is useful if you are generating PDFs or color PNGs -- anything
+that takes longer than a few seconds to a few minutes. <P>
+</dl>
+
+After customizing all of that, click "Prepare Download" in the pop-up
+window, and it will go do it!<P>
+
+As it packages up the data, it will ask you if you want to spin off
+this packaging process to the <a
+href="basics.html#background">background monitor</A> and create zip
+files. This process could be virtually instantaneous, or take some
+time. You can watch it in the background monitor. If your packaging is
+taking longer than expected, you can add an email address mid-stream,
+and it will email you when it is done.<P>
+
+
+
+<H3><A NAME="downloadScript">Download Script</A> </h3>
+
+The Download Retrieval Script dialog gives you some options regarding
+which script you want to use. Generally speaking, the wget script is
+best for Linux and Unix users. The curl script is best for Mac users,
+because curl is part of the standard OS distribution; Mac users can
+also go retrieve and install <a
+href="http://www.gnu.org/software/wget/" target="_blank">wget <img src="img/jumpout.jpg" height="10"></A> and then use the
+wget scripts. For any of the scripts, you can also choose to include
+an option that unzips the zip files automatically.  The files stay on
+disk here for at least 72 hours, so you have a window of time to
+download them.<P>
+
+Save the script to a plain text file, and invoke the script.  You can
+copy and paste the script lines individually into your terminal
+window, or by  typing "csh [yourtextfile]" at the prompt.  The files
+will be automatically and sequentially downloaded to your disk, and if
+you've selected that option, unzipped as well.  <P>
+
+For Windows users, download and save the text file of URLs . Then follow the
+following steps to install the wget script and then download your data:
+<ol>
+<li>Go to the <a href="http://gnuwin32.sourceforge.net/packages/wget.htm" target="_blank">Windows wget web page <img src="img/jumpout.jpg" height="10"></a>
+<li>Scroll to the Download section and retrieve the wget installation.
+<li>Install wget and add the binary to your path.
+<li>Download the text file of URLs 
+<li>At the command prompt: wget --content-disposition -i &lt;file_of_urls_downloaded.txt&gt;
+</ol><P>
+
+
+Depending on how, exactly, you unzip your files, your computer may put
+the contents of each zipfile into one directory, rather than, say, the
+contents of each observation into one directory (which was the original
+design, and the conceptually most straightforward). If you are using a
+GUI-based method (e.g., click to uncompress), there should be a
+preferences option to allow you to uncompress subsequent zipfiles into
+the same root directory.  If you use the download script above, the
+flags sent on the command line that unzip the files should put all
+files from the same observation in the same directory.<P>
+
+<H3><A NAME="ackn">Acknowledgments</A> </h3>
+
+Note that you can use the \facilities call in AASTeX to acknowledge
+IRSA as a facility you used in your journal article. <P>
+
+
+The <a href="https://irsa.ipac.caltech.edu/about.html#ack" target="_blank">standard
+IRSA acknowledgment <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+This research has made use of the NASA/ IPAC Infrared Science Archive, which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration.
+</blockquote>
+<P>
+
+The <a href="http://gsss.stsci.edu/Acknowledgements/PublicationAcknowledgements.htm"  target="_blank">standard
+POSS/DSS acknowledgmet <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+The Digitized Sky Survey was produced at the Space Telescope Science Institute under U.S. Government grant NAG W-2166. The images of these surveys are based on photographic data obtained using the Oschin Schmidt Telescope on Palomar Mountain and the UK Schmidt Telescope. The plates were processed into the present compressed digital form with the permission of these institutions."
+</blockquote><P>
+
+The <a href="http://www.sdss3.org/collaboration/boiler-plate.php" target="_blank">standard
+SDSS acknowledgment <img src="img/jumpout.jpg" height="10"></A> is: 
+<blockquote>
+Funding for SDSS-III has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, and the U.S. Department of Energy Office of Science. The SDSS-III web site is http://www.sdss3.org/.
+
+SDSS-III is managed by the Astrophysical Research Consortium for the Participating Institutions of the SDSS-III Collaboration including the University of Arizona, the Brazilian Participation Group, Brookhaven National Laboratory, University of Cambridge, Carnegie Mellon University, University of Florida, the French Participation Group, the German Participation Group, Harvard University, the Instituto de Astrofisica de Canarias, the Michigan State/Notre Dame/JINA Participation Group, Johns Hopkins University, Lawrence Berkeley National Laboratory, Max Planck Institute for Astrophysics, Max Planck Institute for Extraterrestrial Physics, New Mexico State University, New York University, Ohio State University, Pennsylvania State University, University of Portsmouth, Princeton University, the Spanish Participation Group, University of Tokyo, University of Utah, Vanderbilt University, University of Virginia, University of Washington, and Yale University.
+</blockquote>
+<P>
+
+
+The <a href="https://irsa.ipac.caltech.edu/Missions/2mass.html"  target="_blank">standard
+2MASS acknowledgment <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
+</blockquote>
+<P>
+
+The <a
+href="http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec1_6b.html"
+target="_blank">standard
+Spitzer acknowledgment <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+This work is based on observations made with the Spitzer Space Telescope, which is operated by the Jet Propulsion Laboratory, California Institute of Technology under a contract with NASA.
+</blockquote>
+<P>
+
+The <a
+href="http://wise2.ipac.caltech.edu/docs/release/allsky/expsup/sec1_6b.html"
+target="_blank">standard
+WISE acknowledgment <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+This publication makes use of data products from the Wide-field Infrared Survey Explorer, which is a joint project of the University of California, Los Angeles, and the Jet Propulsion Laboratory/California Institute of Technology, funded by the National Aeronautics and Space Administration.
+</blockquote>
+<P>
+
+There does not seem to be a standard IRAS acknowledgment. The canonical IRAS reference is <a
+href="http://adsabs.harvard.edu/abs/1984ApJ...278L...1N"
+target="_blank">Neugebauer et al. 1984 <img src="img/jumpout.jpg" height="10"></A>. You may wish to include
+this in the acknowledgements:
+<blockquote>
+The Infrared Astronomical Satellite (IRAS) was a joint project of the US, UK and the Netherlands.
+</blockquote>
+<P>
+
+The <a
+href="https://arxiv.org/ftp/arxiv/papers/1102/1102.0526.pdf"
+target="_blank">standard
+AKARI acknowledgment <img src="img/jumpout.jpg" height="10"></A> is:
+<blockquote>
+This research  is  based  on  observations  with  AKARI,  a  JAXA  project with the participation of ESA.
+</blockquote>
+<P>
+
+
+
+
+</BODY>
+</HTML>

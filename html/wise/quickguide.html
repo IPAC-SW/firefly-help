@@ -1,0 +1,113 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "IRSA/WISE Image Service: Quick Start Guide" -->
+<HEAD>
+<TITLE>IRSA/WISE Image Service: Quick Start Guide
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>IRSA/WISE Image Service Quick Start Guide:  
+<font color="red">Getting Up and Running Fast</font></h2>
+
+Detailed information about the acquisition, processing, and
+calibration of WISE data can be found in the documentation that goes
+with each release; see the table at the beginning of the <a
+href="overview.html">Overview chapter</A>. Most people probably want
+the <strong>AllWISE release</strong>. <P>
+
+<b>Searching:</b><P>
+
+Many search methods are available. Most people will probably want to
+search by position, which is the default option. Target names can be
+automatically resolved into coordinates using NED or Simbad, or you
+can specify coordinates. See the section on <a
+href="searching.html">searching</A> for more information.<P>
+
+<b>Hints, Tips, and Term Definitions:</b> 
+<UL>
+
+<LI><b>"Most centered image"</b>:  WISE images are
+assembled into Atlas tiles 1.564 degrees on a side. The WISE image
+server does not re-mosaic these tiles. Using the "Return only the most
+centered image containing the target" option, you can ask for either
+just the Atlas tile most centered on your object, or all the tiles in
+which your search object appears. Keep in mind that if you pick
+multiple releases or sets, if "most centered image" is set to yes, you
+really will only get the most centered image, not the most centered
+image per release.<P>
+
+<LI><b>Atlas and Single Exposure</b>:  Multiple WISE exposures are
+assembled into Atlas tiles. If you want the highest level data
+product, where all available exposures are added, select "Atlas". If
+you want the individual exposures (which are higher spatial resolution
+by a factor of about sqrt(2), but each are lower signal-to-noise),
+select "Single Exposure."<P>
+
+<LI><b>Source Catalog Queries:</b> In addition to searching for WISE
+images, various WISE multiband source lists corresponding to each
+delivery are also available for queries, via the Catalogs tab on the
+top toolbar (which appears only after any search is performed). A
+variety of other catalogs are also available. Catalogs can be overlaid
+on images, filtered, and/or simple plots can be made.  Please consult
+the page on <a href="catalogs.html">Catalogs</a> for more
+information.  Catalog queries may also be performed using the separate
+<a href="https://irsa.ipac.caltech.edu/applications/Gator/"
+target="_blank">IRSA General Catalog Query Engine</A>; very
+sophisticated (e.g., sql) or automated queries are more easily
+obtained via that interface.  <P>
+
+<li><b>Preliminary Data:</b> The Preliminary All-Sky and Preliminary
+Post-Cryo Data Release Products are hidden by default because they
+have been superceded by more recent releases. However, these may be
+still accessed in lieu of the recommended product versions by
+selecting the <i>Obselete preliminary release data</i> triangle for
+additional options in the search pages. <p>
+
+<LI><b>Search Results:</b> Depending on which data products you have
+selected, the search results appear in up to 2 tabs: Atlas (Level 3),
+and/or Single Exposure (Level 1b). Each tab provides a list of the
+different levels of data retrieved by your search. See the page on <a
+href="results.html">understanding your search results</A> for more
+information. <a href="catalogs.html">Catalog searches</A> appear in
+additional tabs in this window pane.<P>
+
+<LI><b>Filtering:</b> Filters, either imposed on your initial search
+or via <a href="results.html#filter">your results page</A>, can
+provide a powerful tool for narrowing down the search results to the
+observations you want. Filters also work on catalogs. <P>
+
+<LI><b>Visualizing:</b>  <a
+href="visualization.html">Visualization</A> provides powerful tools
+for understanding how your object of interest was observed by WISE and
+deciding which data to download. You can also visualize catalogs via
+plotting.<P>
+
+<LI><b>Downloading Data:</b> You can select specific datasets by
+clicking on their respective checkboxes on the left hand side of their
+listing; you can also select the entire set by clicking on the
+checkbox on the top of that column. Then, click "Prepare Download" to
+begin packaging your data for download in the background. See the
+section on the <a href="basics.html#download">Background Monitor</A>
+for more information.<P> 
+
+</UL>
+
+For more help, definitions, etc., see the more detailed online help
+(also available as a PDF), or check out the <a
+href="faq.html">frequently asked questions (FAQs)</a>. The <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA
+YouTube channel</A> has several tutorials that are relevant to WISE --
+see the WISE playlist as well as the set of "micro-tutorials" relevant
+for more than one archive. <P>
+
+
+
+</BODY>
+</HTML>

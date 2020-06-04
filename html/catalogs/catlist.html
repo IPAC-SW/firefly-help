@@ -1,0 +1,153 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: API: Catlist" -->
+<HEAD>
+<TITLE>Catalog Search Tool: API: Catlist
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>API: Catlist</h2>
+
+<p>
+<b><i>CatList</i></b> returns a list of IRSA's public or private 
+catalog holdings in XML or HTML format. 
+</p> 
+
+<p> The general format of an HTTP GET query is : <br>
+    </p><dir><i><font size="-1"> 
+	[URL of program]?[keyword<b>1</b>=value<b>1</b>]&amp;[keyword<b>2</b>=value<b>2</b>]&amp;...[keyword<b>n</b>=value<b>n</b>]
+    </font></i></dir>
+<p></p>
+
+<p> The URL of the IRSA CatList program is <br>
+    </p><dir><i><font size="-1"> 
+        https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan	
+    </font></i></dir>
+<p></p>
+
+<br>&nbsp;<br>
+
+<center>
+
+<table width="600" cellpadding="50" border="1">
+  <tbody><tr align="left">
+    <td>
+ 
+      <p><b> For Public Catalogs, the service accepts the following keywords </b></p>
+      <table cellspacing="5" border="0">
+
+      <tbody><tr> 
+        <td valign="top"><i><font color="#000066">mode</font></i></td>
+        <td valign="top"><i> optional</i></td>
+        <td nowrap="nowrap">
+	    html  ___ display Gator catalog list in HTML (default). <br>
+	    xml   ___ output Gator catalog list in XML. <br>
+	    ascii ___ output Gator catalog list in IPAC ASCII. <br>
+	</td>
+      </tr> 
+      <tr><td colspan="3">&nbsp;</td></tr>
+
+      <tr> 
+        <td valign="top"><i><font color="#000066">projshort</font></i></td>
+        <td valign="top"><i> optional</i></td>
+        <td nowrap="nowrap">
+	    Groups catalogs by mission. <br>
+	    Then possible values are 2MASS(default), IRAS, SPITZER, and MSX</td>
+      </tr> 
+      
+      <tr><td colspan="3">&nbsp;</td>
+      
+      </tr><tr><td colspan="3"><b> Form Examples: </b></td></tr>
+      
+      <tr>
+	  <td>&nbsp;</td>
+          <td colspan="2" nowrap="nowrap" align="left">
+             <select name="projshort">
+		<option selected="selected">2MASS</option>
+		<option>IRAS</option>
+		<option>SPITZER</option>
+		<option>MSX</option>
+             </select>
+      </td></tr>
+
+      <tr>
+	  <td>&nbsp;</td>
+          <td colspan="2" nowrap="nowrap" align="left">
+             <input type="radio" name="mode" value="xml" checked="checked"> XML
+             <input type="radio" name="mode" value="html"> HTML
+             <input type="radio" name="mode" value="ascii"> IPAC ASCII<br>
+          
+	     <b>Note:</b>
+             <font size="-1"> <i>
+                 Your browser may
+                 not render XML structures correctly.
+             </i></font><br>
+	     <input type="submit" value="Get IRSA Public Released Catalog List">
+          </td>
+      </tr>
+      
+      <tr><td colspan="3">&nbsp;</td></tr>
+      <tr><td colspan="3"><b> URL Examples: </b></td></tr>
+      
+      <tr><td>&nbsp;</td>
+          <td colspan="3" nowrap="nowrap" align="left">
+          (1) Get list of <b>all</b> public catalogs in XML format: <br>
+	  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=xml <br> 
+          &nbsp;<a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=xml" target="xml">View Result in XML</a> 
+          </td>
+      </tr>
+
+      <tr><td colspan="4">&nbsp;</td>
+      
+      </tr><tr><td>&nbsp;</td>
+          <td colspan="3" align="left">
+        (2) Get Spitzer catalogs list in HTML format: <br>
+        https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?
+	mode=html&amp;projshort=SPITZER  <br>
+        <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=html&amp;projshort=SPITZER">
+	View Result in HTML</a> 
+      </td>
+      
+      </tr><tr><td colspan="4">&nbsp;</td>
+      
+      </tr><tr><td>&nbsp;</td>
+          <td colspan="3" nowrap="nowrap" align="left">
+          (3) Get list of 2MASS catalogs. <br>
+	  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=html <br> 
+          <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan?mode=html">View Result in HTML</a> 
+          </td>
+      </tr>
+
+      <tr><td colspan="4">&nbsp;</td>
+      
+      </tr><tr><td>&nbsp;</td>
+          <td colspan="3" nowrap="nowrap" align="left">
+          (4) Get list of 2MASS catalogs in HTML format. <br>
+	  https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan <br> 
+          <a href="https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-scan">View Result in HTML</a> 
+          </td>
+      </tr>
+      </tbody></table>
+
+
+      &nbsp;<br>&nbsp;<br>
+     
+
+<!--      <b><a href="catlist_int.html"> Get a list of Internal Project Catalogs.</a></b> -->
+    
+    </td>
+  </tr>
+</tbody></table>
+</center>
+</form>
+
+
+
+
+</BODY>
+</HTML>

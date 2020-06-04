@@ -1,0 +1,76 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Catalog Search Tool: Overview" -->
+<HEAD>
+<TITLE>Catalog Search Tool: Overview
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Catalog Search Tool: Overview</h2>
+
+The Catalog Search Tool allows users to search IRSA's catalogs
+using potentially complex constraints. These queries can be built
+using either a web-based interface (which is most of what is covered
+by this documentation) or a <a href="api.html">program interface</A>.
+
+The catalogs are stored as two-dimensional tables. Each row represents a record of the information for an individual source, such as a point-source in a catalog of point sources. Each column holds one datum or item of information about the source, such as position, magnitude, quality flags and so on.<P>
+
+Information in a database is accessed with the <a
+href="http://en.wikipedia.org/wiki/SQL" target="_blank">Structured
+Query Language (SQL) <img src="img/jumpout.jpg" height="10"></a>, a
+syntax optimized for database tasks. SQL queries are interpreted by a
+<a href="https://en.wikipedia.org/wiki/Relational_database"
+target="_blank">Relational Database Management System (RDBMS) <img src="img/jumpout.jpg" height="10"></A>, the
+engine that manages and organizes information in a database. While SQL
+is an easy language to master, complex queries are long and tedious to
+debug. The Catalog Search Tool shields users from the need to write
+SQL by providing a web-based form that allows users to build their
+query interactively. The Catalog Search Tool builds an SQL query based
+on the user's requests, launches it, and writes the retrieved data to
+an ASCII file for download. Complex search constraints can be quickly entered and run. <P>
+
+ 
+
+<h3>Searching</h3>
+
+See <a href="searching.html">the searching section</A> for more
+information on how to search.<P>
+
+
+<h3>Results: Visualization</h3>
+
+The images loaded into the visualizer appear in a 'window pane' in the
+top left of the results of your catalog search. <P> 
+
+See <a href="visualization.html">the visualization section</A> for
+more on visualization.<P>
+
+<h3>Results: Tables</h3>
+
+Search results appear in an interactive table at the bottom of your
+results. These tables can be sorted and filtered.  See <a
+href="tables.html">the tables section</A> for more on tables.<P>
+
+
+<h3>Results: Plots</h3>
+
+Plots from your catalog search results appear in the upper right of
+your results.  See <a href="plots.html">the Plots section</A> for more
+on plots.<P>
+
+
+<h3>API</h3>
+
+You can also interact with the Catalog Search Tool from code you
+write, e.g., the application programming interface (API).  See <a
+href="api.html">the API section</A> for more on that.<P>
+
+
+</BODY>
+</HTML>

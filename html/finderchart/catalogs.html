@@ -1,0 +1,351 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "Finder Chart: Catalogs" -->
+<HEAD>
+<TITLE>Finder Chart: Catalogs
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Finder Chart: Catalogs</h2>
+
+Note that catalogs are available in two ways: (1) from the front page,
+via your initial search, or (2) via a blue tab at the top of the page.
+You can choose from any of a wide variety of catalogs for overlaying
+on your <a href="visualization.html">visualized data</A>. <P>
+
+What is potentially confusing here is that, from the main search page,
+you could conceivably stumble into having (1) nothing overlaid; (2)
+only the central source overlaid, so it looks like nothing is
+overlaid; (3) so many sources overlaid that you can't see the image. 
+From the layers pop-up, you can control which of these loaded catalogs
+are shown on the selected image (and in which colors, and what symbol
+shape); see the <a
+href="visualization.html#catalogsandlayers">visualization
+section</A>.  <P>  
+
+This page covers the specific case of catalogs. Basic table manupulations (such as filtering and sorting) is covered in the <a href="tables.html">Tables section</A>. Plotting catalogs (which Finder Chart does by default) is covered in the <a href="plots.html">Plots section</A>.<P>
+
+<P>
+
+<em>Contents of page/chapter:</em><br>
++<a href="#fromfrontpage">Initially Searching on Catalogs</A> -
+Catalogs from the Search Page<br>
++<A href="#irsacatalogs">IRSA Catalogs</A> -- Overlaying catalogs
+from IRSA<br>
++<A href="#owncatalogs">Catalogs from disk</A> <br>
++<A href="#vocatalogs">VO Catalogs</A><br>
++<A href="#nedcatalogs">NED Catalogs</A> <br>
+<P>&nbsp;<P>
+
+
+<h3><a name="fromfrontpage">Initially Searching on Catalogs</A> -
+Catalogs from the Search Page</h3>
+
+From the main search page (for more information, see <a
+href="basics.html#searching">searching</A>), you can ask it to "Search
+Corresponding Catalog(s)." Specifically, you can ask for all the
+sources in the corresponding catalogs within the image boundary, or
+just within a certain search radius. You can further constrain it by
+selecting "One to One Match" -- in this case, it will find just the
+closest source to your position within your selected search radius,
+and <em>only</em> that closest source.<P>
+
+If you search on catalogs from the search results page, then
+Finder Chart will overlay these catalogs on your images as additional
+layers. These catalogs behave in the same way as the catalogs
+described in the rest of this section.<P>
+
+However, if you search on catalogs from the main search page, Finder
+Chart overlays the catalogs on your images right away, and it does so
+in a way that is quite powerful, but may be initially confusing. In
+order to understand what it is doing, you need to use the
+visualization tools, so there is more information (including an
+example) in the <a
+href="visualization.html#catalogsandlayers">Visualization
+section</A>.  Critical to understanding what it is doing (and how you
+can change it) is the concept of the "selected image" -- different
+things are overlaid on different images (and image sets), and your
+choices change depending on which image you have selected. If you
+choose to search the catalogs just over a small radius, and/or further
+constrain it to just find the closest source (one-to-one match) to
+your target, the overlays of the catalogs will (presumably) all be
+over the same, single source, and it will be much less clear that the
+catalogs are overlaid at all, much less that the catalogs are
+different on each set of images. But, it is behaving in the same
+way.<P>
+
+
+<h3><a name="irsacatalogs">IRSA Catalogs</A></h3>
+
+By clicking on the blue "Catalog" tab, a window appears with several
+options, as follows.<P>
+
+<img src="img/searchcatalogs.png" width="100%"><P>
+
+In the upper left of the window, you specify the catalog you want to
+search.  In order to help it give you a specific list of choices, you
+need to first tell it the project (default: WISE) and category
+(default: AllWISE Database). After you have selected these items,
+right below those choices, you then pick the specific catalog
+(default: AllWISE Source Catalog). To change catalogs, first select
+the "project" under which they are housed at IRSA, such as 2MASS,
+IRAS, WISE, MSX, etc.  The options under the "category" and the
+specific clickable catalog change according to the project you have
+selected.  A short description is provided for each of the catalogs,
+with links for more information (including definitions of the
+sometimes cryptic column names); an example of this link for more
+information is here:<br> <img src="img/catalogcoldef.png"><P>
+
+In the upper right is the search target and search region.
+By default, it pre-fills your search target to match your most
+recently searched target. To change the target, simply enter the new
+coordinates in the search box, with all the same options as <a
+href="basics.html#searching">searching Finder Chart in general</A>.
+Next, choose your search shape ("Search Method") from the pulldown;
+the options below the search method change accordingly (and sometimes
+the target vanishes, when it is not relevant):
+<UL>
+<LI><strong>cone</strong> - default; you specify the cone radius (pick
+units first then enter the number).
+<LI><strong>elliptical </strong> - you specify the semi-major axis (pick
+units first then enter the number), position angle, and axial ratio. 
+<LI><strong>box</strong> - you specify the length of the side of the
+box.
+<LI><strong>polygon</strong> - this has three sub-options:
+	<UL>
+        <LI>image - match the image that you have selected.
+        <LI>visible - match only the visible part of the image that
+        you have selected (e.g., if you zoom in, you are only viewing
+        part of the image).
+        <LI>custom - specify between 3 and 15 vertices delineating a
+        polygon on the sky in which to search.
+        </UL>
+<LI><strong>multi-object</strong> - upload an IPAC table format list
+of targets (just like searching <a href="basics.html#byTable">a list
+of targets from the main page</A>) and a radius for a cone search
+around each position in your file. (See <A
+href="#additional">"Additional Columns"</A> below for more information on
+additional columns that appear for a multi-position search.)
+<LI><strong>all-sky</strong> - search the whole catalog with no
+spatial constraints; you need at this point to impose filters by field
+in the lower half of the screen.
+</UL>
+
+You can also tell it that you want specific columns returned and/or 
+set restrictions on values in specific columns by using the table near
+the bottom of the window. You can choose what to display (standard or
+long form; 'standard' may omit some columns used less commonly), and
+filter what is returned (for example, only return objects with values
+in column y that are greater than x). You can also impose additional
+constraints in SQL. If you add more than one restriction, they are
+combined logically using an "AND" operators. Be careful, because you
+can thus restrict data such that none of the catalog meets your
+criteria.<P>
+
+<em>Power user tip:</em> By default, it may show you fewer columns
+than are available in the full catalog. By selecting "long form", you
+can access the full range of available columns. In some cases, there
+are literally hundreds of columns that you can access!<P>
+
+Click on "Search" to initiate the search. It will load the catalog
+into a tab of its own on the bottom left of the screen (in the
+catalogs window pane) and make a plot (see <a
+href="#xyplots">below</A>) on the bottom right.  The catalog objects
+will also be overlaid on the images you have loaded. The image and the
+plot and the catalog panes are interlinked -- clicking on a row in the
+table shows it on the image and plot; clicking on a source in the plot
+shows it in the image and table; clicking a source on the image shows
+it in the plot and table. <P>
+
+To close the catalog search window without searching on a catalog,
+click on "cancel" in the lower left.<P>
+
+
+<dl><dt><strong>On the speed of the catalog results...</strong><P>
+
+<dd>If the catalog search is successful quickly, it will promptly return
+the results in a tab of its own. <P> 
+
+<b>NOTE THAT</b> the search may take a long time to return, especially
+if you have asked for a large catalog, and you may think that nothing
+has happened, but be patient. <P>
+
+It may give you the option to put the catalog search in the <a
+href="basics.html#background">background monitor</A> (from which you
+can load it into a tab), or return a tab directly. If you do ask it to
+put it in the background monitor, the monitor will dynamically update
+to reflect its status, and will let you know when the catalog is ready
+to download or display. You may ask it to email you when it is ready.
+A popup appears asking if you want to load the catalog. Either click
+on the popup or explicitly open the background monitor and click on
+the catalog name to load it into a tab of its own.<P>
+
+Use large search radii with caution! Be sure you have a sense of how
+many sources you are likely to retrieve. Searches that retrieve more
+rows will take longer. Searches that retrieve thousands or tens of
+thousands of rows will take quite a while. <P>
+
+</dl>
+
+Note that if you overlay a catalog consisting of tens of thousands of
+sources, if you then <a
+href="visualization.html#fitsDownloadOptions">save a regions file from
+the catalog overlay</A>, then you will end up with only the first 500
+sources from the full catalog in the regions file.<P>
+
+
+
+<h3><a name="owncatalogs">Loading your own catalogs</A></h3><P>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top, "Load Catalog", to load your own
+catalog, either from disk or from the <a href="/docs/workspace/"
+target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
+height="10"></A>.<P>
+
+Your catalog needs to be in <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. IRSA has a <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank">table reformatting and validation service <img
+src="img/jumpout.jpg" height="10"></A> which may be helpful, or you
+can download just about any catalog you find through IRSA, and copy
+that format.<P>
+
+Your table file MUST have RA and Dec values, and unless it is
+specified, it assumes J2000.<P>
+
+You can add a "SYMBOL" parameter to change the shape
+(X, SQUARE, CROSS, EMP_CROSS, DIAMOND, DOT) of catalog marks, e.g.:
+<pre>
+\SYMBOL = X
+</pre>
+<P>
+
+You can add a "DEFAULT_COLOR" parameter to assign a CSS color name or
+a HEX value to catalog marks, e.g., either of these two:
+<pre>
+\DEFAULT_COLOR = lightcyan
+\DEFAULT_COLOR = #00FF00
+</pre>
+You can find the <a
+href="https://www.w3schools.com/cssref/css_colors.asp"
+target="_blank">CSS color code or the CSS color HEX values <img src="img/jumpout.jpg" height="10"></A> online.<P> 
+
+Your catalog is then shown (and interacted with) in the same way as
+the other catalogs described here.<P>
+
+
+<h3><A name="vocatalogs">VO Catalogs</A> -- Overlaying
+catalogs obtained via the VO</h3>
+
+(VO= <A href="http://www.virtualobservatory.org/" target="_blank">Virtual
+Observatory <img src="img/jumpout.jpg" height="10"></A>.)<P>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top, "VO Catalog", to search for
+and load  catalogs from the VO.<P>
+
+<br><img src="img/vocatalogs.png" width="100%"><br>
+<P>
+
+As for the IRSA catalog search, the tool pre-fills the target position
+with the coordinates of the target with which you have been working.
+In this case, you are limited to a cone search, so the next option is
+the cone search radius. As usual, pick your units from the pulldown
+first, and then enter a number; if you enter a number and then select
+from the pulldown, it will convert your number from the old units to
+the new units. There are both upper and lower limits to your search
+radius; it will tell you if you request something too big or too
+small. <P>
+
+If you know your VO URL already, you can jump down to the Cone Search
+URL box and type or paste your URL into the box and hit search.<P>
+
+More commonly, however, users do not know <em>a priori</em> which URL
+to use. Click on "Find Astronomical Data Resources" to be droped into
+a VO search. Find the URL corresponding to the catalog you want, copy
+it, and go back and paste it in the URL box. The URL should not have
+the RA and Dec in it; the tool will add your RA and Dec as listed to
+the URL in the right syntax. Click on
+"Search" to initiate the search. <P>
+
+The search results are then shown (and interacted with) in the same
+way as the other catalogs described here.<P>
+
+<strong>Example</strong><p>
+
+Load the tool. Search on IC1396. Go to the catalogs tab. Choose "VO
+Catalog." It wants the root URL for a cone search. Click on "Find
+Astronomical Data Resources", which goes <a
+href="http://vao.stsci.edu/keyword-search/" target="_blank">here <img
+src="img/jumpout.jpg" height="10"></A>. Search on IPHAS. Get <a
+href="http://vao.stsci.edu/keyword-search/?utf8=%E2%9C%93&search_field=all_fields&q=iphas"
+target="_blank">this page <img src="img/jumpout.jpg" height="10"></A>.
+Look for the complete catalog release (not just one associated with
+one specific study). The name of the catalog goes <a
+href="http://vao.stsci.edu/directory/getRecord.aspx?id=ivo://CDS.VizieR/II/321"
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. Hit
+the [+] to expand it. There is one URL listed there, under "available
+endpoints for the standard interface." Copy that URL and paste it into
+the search form. The IRSA tool will append your coordinates and radius
+and return you a table.<P>
+
+<strong>Troubleshooting</strong><p>
+
+Note that searching the VO means that you are using resources not
+specifically housed at IRSA, so servers may be down, or timeouts set,
+or limits on numbers of returned sources, etc., that are beyond our
+control. In most cases the solution is to specify as precise a search
+as possible.  The URL you enter into the box in Finder Chart must be a
+Cone Search base URL (not containing RA and Dec parameters, which are
+inserted into the URL by the tool in response to the search
+parameters you give it).<P>
+
+The master list of registries is <a href="http://rofr.ivoa.net/"
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You
+can also search the registries directly via that link (as opposed to
+via the IRSA tools). <P>
+
+
+<h3><A name="nedcatalogs">NED Catalogs</A> -- Overlaying
+catalogs obtained from NED</h3>
+
+(NED= <A href="http://ned.ipac.caltech.edu/" target="_blank">NASA
+Extragalactic Database <img src="img/jumpout.jpg" height="10"></A>.)<P>
+
+By clicking on the blue "Catalogs" tab, you are by default dropped
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the right, "NED", to search for
+and load a catalog from NED.<P>
+
+<img src="img/nedcat.png" width="100%"><P>
+
+As for the other catalog searches, the tool pre-fills the target
+position with the coordinates of the target with which you have been
+working. In this case, you are limited to a cone search, so the next
+option is the cone search radius. As usual, pick your units from the
+pulldown first, and then enter a number; if you enter a number and
+then select from the pulldown, it will convert your number from the
+old units to the new units. There are both upper and lower limits to
+your search radius; it will tell you if you request something too big
+or too small. <P>
+
+The search results are then shown (and interacted with) in the same
+way as the other catalogs described here.<P>
+
+
+
+
+
+
+</BODY>
+</HTML>

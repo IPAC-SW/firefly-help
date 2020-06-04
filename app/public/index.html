@@ -1,37 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="firefly/images/favicon.ico" />
-    <title>Firefly</title>
-  </head>
-  <style>
-    #banner {
-      height: 75px;
-      width: 100%;
-      background: url(firefly/images/ipac_bar.jpg);
-      display: inline-flex;
-      align-items: center;
-    }
-    #title {
-      color: white;
-      font-size: 25pt;
-      font-family: sans-serif;
-      text-shadow: 1px 1px 3px rgba(195,235,234, 0.79);
-    }
-  </style>
-  <body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>%REACT_APP_page_title%</title>
+</head>
+<body>
+<div id="page-root">
+  <div id="irsa-banner"   style= "min-width:768px;"></div>
+  <script>
+    fireflyToolbar= {
+      "rootComponentsURL" : "%REACT_APP_banner_host%",
+      "direct" : true,
+      "toolbarType" : "LARGE"
+    };
+  </script>
+  <script type="text/javascript" src='%REACT_APP_banner_host%/frontpage/frontpage.nocache.js'></script>
 
-    <div id="page-root">
-      <div id="banner">
-        <img src="firefly/images/fftools-logo-offset-small-75x75.png">
-        <div id="title">Firefly</div>
-      </div>
-
-      <!--
-        This HTML file is a template.  app-root is where the application with mount to.
-      -->
-      <div id="app-root"></div>
-    </div>
-  </body>
+  <div id="app-root"></div>
+</div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+-->
+</body>
 </html>

@@ -1,0 +1,144 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "SOFIA: Overview" -->
+<HEAD>
+<TITLE>SOFIA: Overview
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+
+<h2>SOFIA Science Data Archive: Search Results</h2>
+
+Results of a <a href="searching.html">search</A> of the SOFIA Science
+Data Archive appear in two different window panes, each with several
+tabs.<P> 
+
+<em>Contents of page/chapter:</em><br>
++<A href="#terminology">Terminology</A><br>
++<A href="#layout">Layout</A>  <br>
++<A href="#filtering">Filtering</A>  <br>
++<A href="#visualization">Visualization</A>  <br>
+<P>&nbsp;<P>
+
+
+
+
+<H3><A NAME="terminology">Terminology</A></H3>
+
+The search results appear in two "panes" (like "window panes"). You
+can grab and drag the division between the two panes to change their
+relative sizes. <P>
+
+<H3><A NAME="layout">Layout</A></H3>
+
+The left pane of the search results contains lists of observations
+that met your criteria. The right pane of the search results contains
+more details of the observations. The right pane changes depending on
+what row you have selected (clicked on) in the left pane.<P>
+
+The <strong>left pane</strong> of the search results could have
+several tabs -- one called "AOR" that is a list of AORs, and then one
+for each instrument you have selected ("instrument tabs"). The columns
+are different in each tab.  Each line includes basic information about
+all the observations which fulfill your search critera.  Each tab is
+its own table, which behaves in the same way that tables throughout
+IRSA tools with this look and feel. See the <A
+href="tables.html">Tables</A> section for more details, but in summary
+you can change the width of the columns, sort by columns, filter by
+column values, etc.<P>
+
+The corresponding data can be downloaded by checking the box at the
+start of each row (or the box at the top of the column of boxes to
+select all) and clicking "Prepare download".  (See the section on <a
+href="downloads.html">downloads</A> for more information.)<P>
+
+The <strong>right pane</strong>  of the search results contains three
+tabs that enable exploration of the data returned by your search.
+Click on a row in the left pane and the contents of the right pane
+change.  The "Details" tab provides details about the observation. The
+"Data" tab does not show anything when the AOR tab is in the
+foreground. The "Coverage" tab shows footprints of all the returned
+observations on an image; you can interact with the image using the <a
+href="visualization.html">visualization tools</A>. <P>
+
+In the coverage tab, you will see an indication of what portions of
+the sky are covered by the data meeting your search criteria. Click on
+the 'layers' icon to bring up a window with the list and to change
+colors or symbols (see <a href="visualization.html">visualization
+tools</A>). If you have done an all-sky query, the symbols used are:
+<UL>
+<LI>EXES - red square marker
+<LI>FIFI-LS - burgundy square marker
+<LI>FLITECAM - green square marker
+<LI>FORCAST - pink square marker
+<LI>FPI+ - small purple dot
+<LI>GREAT - magenta cross marker
+<LI>HAWC+ - small cyan dot
+</UL>
+If you have done a search that is not all-sky, you have a smaller
+region of sky shown in your coverage tab. For portions of the sky
+comparable to 30 arcmin or larger, you likely have a HiPS image;
+smaller regions may be shown on a FITS image. (see <a
+href="visualization.html">visualization tools</A>).
+<P>
+
+When an instrument tab is in the foreground on the left pane, the
+"Details" and "Data" tabs change accordingly. The "Data" tab has (for
+non-proprietary and non-GREAT data) the FITS file corresponding to the
+observation. You can interact with this FITS file using the <a
+href="visualization.html">visualization tools</A>; you can also
+overlay <a href="catalogs.html">catalogs</A> on the image. Note that
+GREAT data may not be in FITS format, and thus you cannot interact
+with the data, other than simply downloading it. The "Coverage" tab
+still indicates an indication of what portions of the sky are covered
+by the data meeting your search criteria. Note that even if an
+instrument tab is selected, the coverage tab shows all the results
+retrieved by the search. The coverage tab and the instrument tab are
+linked in that if you click on a row in the instrument tab, the
+corresponding symbol in the coverage tab is highlighted, and vice
+versa.  <P>
+
+If you do a <a href="searching.html#byTable">multiple target
+search</A>, so that you can more easily tie results to input, when you
+get results back from a batch search, the input RA and Dec are columns
+appended to the end of your results tables.<P>
+
+
+<H3><A NAME="filtering">Filtering Results</A></H3>
+
+Filters can provide a powerful tool for weeding down search results to
+the observations you want. Near the top of the search results window,
+there is this icon: <img src="img/filter.png"> Click on this icon in
+order to start the process of adding filters. A text entry box appears
+above each of the current catalog columns, with a small version of the
+filter icon corresponding to that row on the far left. You can type
+operators and values in these boxes -- hit return after typing or
+click in another box to implement the filter.  After you impose a
+filter, then the "filters" icon on the top right of the catalog pane
+has changed to remind you that there has been a filter applied, in
+this case just one filter: <img src="img/filtersapplied.png"> To clear
+the filters, click on the cancel filters icon (which also appears
+after you impose filters): <img src="img/cancelfilters.png">.<P>
+
+
+There is <a href="tables.html#filters">a whole section just on
+filtering<A>, which has much more information.<P>
+
+
+
+<h3><a name="visualization">Visualization</A></h3>
+
+Once you have data that you wish to investigate further, you can
+interact with the FITS files corresponding to most observations. 
+See <a href="visualization.html">the
+Visualization section</A> for more on visualization.<P>
+
+
+
+</BODY>
+</HTML>

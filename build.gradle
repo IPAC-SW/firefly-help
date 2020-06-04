@@ -1,13 +1,183 @@
 ext.buildRoot = "${rootDir}/build"
 ext.appRoot = "${rootDir}/app"
 
-project(':firefly') {
 
-/* uncomment this section to include a title section in the app
+project(':atlas') {
+
     ext.appConfig = {
-        REACT_APP_Title = "Firefly Help"
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'Atlas Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
     }
-*/
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':catalogs') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'Catalogs Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':discovery') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'Discovery Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':finderchart') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'FinderChart Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':heritage') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'Spitzer Heritage Archive Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':irsaviewer') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'IRSAViewer Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':irtf') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'IRTF Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':planck') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'Planck Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':ptf') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'PTF Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':sofia') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'SOFIA Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':wise') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'WISE Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
+
+    apply from: "${rootDir}/buildScript/help.gincl"
+}
+
+project(':ztf') {
+
+    ext.appConfig = {
+        REACT_APP_banner_host = ''
+        REACT_APP_page_title = 'ZTF Help'
+        environments {
+            local {
+                REACT_APP_banner_host = "https://irsadev.ipac.caltech.edu"
+            }
+        }
+    }
 
     apply from: "${rootDir}/buildScript/help.gincl"
 }

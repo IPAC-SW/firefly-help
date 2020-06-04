@@ -1,0 +1,489 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "SOFIA: Overview" -->
+<HEAD>
+<TITLE>SOFIA: Overview
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+
+<h2>SOFIA Science Data Archive: Overview</h2>
+
+The SOFIA Science Data Archive at IRSA is ultimately the repository
+for all data collected by SOFIA. The second release has data from most
+instruments (EXES, FIFI-LS, FLITECAM, FORCAST, FPI+, GREAT, HAWC+),
+Cycles 1 through Cycle 7; proprietary data has access restrictions.<P>
+
+Note that there are also SOFIA Science Data Archive video
+tutorials, available at the <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel</A>. Look for the playlist
+collecting all the SOFIA videos in one place.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#history">Background</A> -- A little more about SOFIA<br>
++<A href="#terminology">Terminology</A><br>
++<A href="#data">Instruments &amp; Data Available, and Caveats</A><br>
++<A href="#searching">Searching</A> (Quick Start)<br>
++<A href="#results">Results Overview</A>  <br>
++<A href="#visualization">Visualization Overview</A> -- Image viewing tools <br>
++<A href="#download">Downloading Data</A> -- Downloading data in the background<br>
++<A href="#login">Logging in</a><br>
++<A href="#help">Getting More Help</A><br>
+<P>&nbsp;<P>
+
+
+<H3><A NAME="history">Background</A></H3>
+
+SOFIA is an 80/20 partnership of NASA and the German Aerospace Center
+(DLR), consisting of an extensively modified Boeing 747SP aircraft
+carrying a 2.7-meter (106 inch) reflecting telescope (with an
+effective diameter of 2.5 meters or 100 inches). The aircraft is based
+at NASA's Armstrong Flight Research Center in Palmdale, California. The
+SOFIA Program Office is at NASA Ames Research Center in Moffett Field,
+California, which manages SOFIA's science and mission operations in
+cooperation with the Universities Space Research Association (USRA;
+Columbia, Maryland.) and the German SOFIA Institute (DSI; University of
+Stuttgart).<P>
+
+More information about SOFIA and its instrument suite can be found at
+<a href="https://www.sofia.usra.edu/" target="_blank">the SOFIA
+Science Center website</A>, specifically <a
+href="https://www.sofia.usra.edu/science/data"
+target="_blank">the data page at the SOFIA website</A>, which includes handbooks and the
+list of known issues with SOFIA data</A>.<P>
+
+To find out more about the SOFIA instruments, please see these links
+at the SOFIA Science Center:
+<UL>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/exes" target="_blank">EXES</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/fifi-ls" target="_blank">FIFI-LS</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/flitecam" target="_blank">FLITECAM</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/forcast" target="_blank">FORCAST</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/fpi" target="_blank">FPI+</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/great" target="_blank">GREAT</A>
+<LI><a href="https://www.sofia.usra.edu/science/instruments/hawc" target="_blank">HAWC+</A>
+</UL>
+
+<H3><A NAME="terminology">Terminology</A></H3>
+
+<UL>
+
+<LI><strong>Mission ID</strong> is a unique mission identifier. In the
+SOFIA framework, a mission is the same as a SOFIA flight. (<a
+href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+jsonb_extract_path_text%28telescope_keywords%2C%27MISSN-ID%27%2C%270%27%29+as+mission_id+from+sofia.observation+order+by+mission_id" target="_blank">List
+of all the SOFIA Mission IDs in the SOFIA Science Data Archive</A>, retrieved via <a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP</A>.)
+<P>
+
+<LI><strong>Flight Series</strong> means a grouping of missions (flights)
+close in time where SOFIA originates from the same airfield and the
+same instrument is used.<P>
+
+<LI><strong>Plan ID</strong> is the identifier for the observing plan
+which contains all the observations (AORs). Each accepted observing
+program has a Plan ID; this can be thought of as basically a proposal
+ID. (<a
+href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+proposal_id+from+sofia.observation+order+by+proposal_id" target="_blank">List
+of all the SOFIA Plan IDs in the SOFIA Science Data Archive</A>,retrieved via <a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP</A>.)<P>
+
+<LI><strong>AOR</strong> is astronomical observation request, an
+individual SOFIA observation sequence. Each AOR involves many
+frames, and therefore multiple files. <P>
+
+<LI><strong>AOR ID</strong> is the AOR identifier.  The AOR ID is
+assigned during the creation of the final version of an AOR to be used
+in flight. Multiple observations in one or more flights and/or
+instrument configurations can be associated with a single AOR.<P> 
+
+<LI><strong>Observation ID</strong> is the combination of Mission ID
+and AOR ID, which together uniquely identifies each SOFIA observation. An
+observation will contain multiple data files. AOR ID by itself is not
+sufficient since some AORs are spread across multiple flights. <P>
+
+</UL>
+
+In practice, during a SOFIA mission (or flight), several Plan IDs (or
+programs) are executed, and each of these consist of one or more
+AORs.<P>
+
+The Mission ID, Plan ID, and AOR ID are metadata that can be found in
+the header of an AOR file.<P>
+
+
+<a name="datalevels"><strong>Data levels</strong></A>
+<UL>
+<LI><strong> Level 0:</strong> raw data in FITS format. 
+<LI><strong> Level 1:</strong> raw data in FITS format.
+<LI><strong> Level 2:</strong> data corrected for instrument
+artifacts (e.g., flat-fielded, dark-subtracted, bad pixels
+removed).
+<LI><strong> Level 3:</strong> flux calibrated and telluric
+corrected data (e.g., units of Jy/pix).
+<LI><strong> Level 4:</strong> Any data product generated from the
+combination of Level 3 files (e.g., a mosaic) is a Level 4 product.
+For most instruments, Level 4 products could be generated from
+observations obtained across multiple flights, or even multiple flight
+series and observing cycles.
+</UL>
+Note that not all instruments will have all data levels.
+<P>
+
+<H3><A NAME="data">Instruments &amp; Data Available, and Caveats</A></H3>
+
+<strong>Cycle dates and instruments: Which data are in the Dec 2019
+release of the SOFIA archive</strong>:<P>
+<P>
+Not all instruments, all cycles are in the Dec 2019 release of the
+SOFIA Science Data Archive. The table summarizes which data are in the
+Archive.
+(DNE means does not exist, e.g., data do not exist for this instrument
+in this cycle.)<P>
+<table border="2">
+<tr><th>Cycle</th><th>Observation dates</th><th>EXES</th><th>FIFI-LS</th><th>FLITECAM</th><th>FORCAST</th><th>FPI+</th><th>GREAT</th><th>HAWC+</th><th>HIPO</th><th>Schedule/<br>Flight Plans link</th></tr>
+<tr><td>Short Science</td><td>12/10 -04/11</td><td>DNE</td><td>DNE</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td>DNE</td><td>...</td></tr>
+<tr><td>Basic Science</td><td>05/11 - 12/11</td><td>DNE</td><td>DNE</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td>DNE</td><td>...</td></tr>
+<tr><td>Cycle 0</td><td> 07/12 - 11/12</td><td>DNE</td><td>DNE</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>...</td></tr>
+<tr><td>Cycle 1</td><td> 04/13 - 02/14</td><td>DNE</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>...</td></tr>
+<tr><td>Cycle 2</td><td> 02/14 - 02/15</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#EC7063">No</td><td>...</td></tr>
+<tr><td>Cycle 3</td><td> 03/15 - 12/15</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#EC7063">No</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/past-proposal-calls/cycle-3/cycle-3-flight-plans" target="_blank">link</a></td></tr>
+<tr><td>Cycle 4</td><td> 02/16 - 02/17</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/proposal-calls/cycle-4/cycle-4-flight-plans" target="_blank">link</A></td></tr>
+<tr><td>Cycle 5</td><td> 02/17 - 11/17</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#EC7063">No</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/cycle-5-flight-plans">link</A></td></tr>
+<tr><td>Cycle 6</td><td> 05/18 - 03/19</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/node/1645" target="_blank">link</A></td></tr>
+<tr><td>Cycle 7</td><td> 04/19 - 04/20</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/proposal-calls/cycle-7/flight-plans" target="_blank">link</A></td></tr>
+</table>
+<P>
+ 
+<strong>Data currently in the SOFIA Science Data Archive</strong><P>
+
+For the second release, data from most instruments (EXES, FIFI-LS,
+FLITECAM, FORCAST, FPI+, GREAT, HAWC+), Cycles 1 through
+Cycle 7 (ongoing), are available in the SOFIA Science Data Archive.<P>
+
+<strong>Not yet in the archive:</strong>
+Early data through Cycle 0 are not yet in this archive. HIPO data are not in this archive.<P>
+
+Because this release includes proprietary data, the average user will
+not have access to all of the data in the archive. See <a
+href="user.html">here</A> for more information on gaining access to
+proprietary data.<P>
+
+<UL>
+<LI><a
+href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+jsonb_extract_path_text%28telescope_keywords%2C%27MISSN-ID%27%2C%270%27%29+as+mission_id+from+sofia.observation+order+by+mission_id" target="_blank">List
+of all the SOFIA Mission IDs in the SOFIA Science Data Archive</A>
+(retrieved via <a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP</A>)
+<LI><a
+href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+proposal_id+from+sofia.observation+order+by+proposal_id" target="_blank">List
+of all the SOFIA Plan IDs in the SOFIA Science Data Archive</A> (retrieved via <a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP</A>)
+</UL> 
+
+
+
+<strong>Specific items, caveats, etc. to keep in mind</strong><P>
+<DL>
+<DT>General information
+<DD><UL>
+<LI>In an all-sky search, some columns in the result table have
+missing PLAN ID (i.e., PLAN ID= unknown). These are typically
+calibration observations. <P>
+
+<LI>In an all-sky search, many rows of the result table have the
+Proposal PI column blank. These are typically calibration observations
+but may also be data products combining many different observations. 
+<P> 
+
+<LI>Some observation dates are erroneously set to 1970.<P>
+
+<LI>Some AOR ID and Plan ID are erroneously set to obviously incorrect
+values.<P>
+
+<LI>When NAIF ID appears to conflict with Target Name, believe the
+NAIF ID. This is most common for some of the calibration AORs.<P>
+
+<LI>Some data from the current observing cycle may only be available
+at Level 1 if the data are still being processed.<P>
+
+<LI>If the Observation Type is not OBJECT, users should not necessarily 
+believe the Target or NAIF ID fields; it could be, e.g., flatfields at
+a completely different position (not the stated target).<P>
+</UL>
+
+
+
+<DT>EXES
+<DD>
+<UL>
+<LI>EXES started operations in 2015, so no data are available before
+that date.<P>
+<LI>Level 1 raw files have no Product Type; Level 2 files have Product
+Type "raw".<P>
+<LI>The EXES instrument does not have Level 4 data products, so an
+all-sky query for EXES Level 4 returns no results. <P>
+<LI>Peculiar values for spectral resolution indicate calibration files.<P>
+
+
+</UL>
+
+<DT>FIFI-LS
+<DD>
+<UL>
+<LI>FIFI-LS started operations in 2014, so no data are available before
+that date.<P>
+<LI>Peculiar values for spectral resolution are shown here as
+propagated from the FITS headers.<P>
+
+</UL>
+
+
+<DT>FLITECAM
+<DD>
+<UL>
+<LI>FLITECAM was retired in 2018, so no data exist after that date for
+this instrument.<P>
+<LI>The blank spectral resolution for FLT_A1_LM (energy bounds 4.4-5.53
+microns) is working as intended; the Observer's Handbook doesn't list R 
+for that combination of grism and order sorting filter.<P>
+<LI>The FLITECAM instrument does not have Level 4 data products, so an
+all-sky query for FLITECAM Level 4 returns no results. <P>
+<LI>OC1E FLITECAM data is only Level 1, so there is no Level 2/3.<P>
+</UL>
+
+<DT>FORCAST
+<DD>
+<UL>
+<LI>The FORCAST instrument only rarely has Level 4 data products, so an
+all-sky query for FORCAST Level 4 returns relatively few results. <P>
+
+<LI>The cross-dispersed modes, X-, were not used in Cycle 4 and Cycle
+5, so an all-sky query for FORCAST, GRISM, FOR_XG063 or FOR_XG111,
+returns 0 results.<P>
+
+<LI>The FORCAST definition of SW and LW cameras is fluid so a few
+short wavelengths (such as 6.4 micron and 11.2 micron) fall under the
+LW category. This should not surprise the user. A complete definition
+of SW and LW cameras is provided on Table 7-3 at
+<a
+href="https://www.sofia.usra.edu/science/proposing-and-observing/sofia-observers-handbook-cycle-5/7-instruments-iv-forcast/71-1">https://www.sofia.usra.edu/science/proposing-and-observing/sofia-observers-handbook-cycle-5/7-instruments-iv-forcast/71-1</A><P>
+
+<LI>Users should be aware that in the FORCAST query menu, the second
+number that appears on the Spectral Element menu is the filter width
+(in microns) of a given filter. This is not the same as the spectral
+resolution, which is the quantity provided in the FORCAST result tab
+under "Details". The spectral resolution will be on the order of 100 
+(R~100) for spectroscopic observations, and on the order of
+3-50 (R~3-50) for imaging observations. <P>
+
+<LI> FORCAST footprints in the coverage tab may be larger than
+expected.  NAXIS* and CDELT* are the same for different levels, yet
+Level 1 is shown with a much smaller footprint than Levels 2-3. The
+valid data really is a 256x256 square, but the Level 2 coadd has an
+actual fits header with NAXIS*=656, with the valid data embedded
+within a square of NaNs. The coverage software sees the 656 pixel
+dimensions in the  actual FITS headers and draws the larger square.<P>
+
+</UL>
+
+
+<DT>FPI+
+<DD>
+<UL>
+<LI>FPI+ started operations in 2015, so data is only available after
+that date.<P>
+
+<LI>The FPI+ Instrument Team has not generated an instrument
+handbook, so this is not currently available.<P>
+</UL>
+
+
+<DT>GREAT
+<DD>
+<UL>
+
+<LI>The GREAT instrument does not have Level 2 data products, so an
+all-sky search for GREAT Level 2 returns 0 results.<P>
+
+<LI>Not all the GREAT data are in FITS format. All the Level 1 data
+are FITS files, while Level 3 data are CLASS files, and Level 4 can be
+either CLASS or FITS. (Level 2 data do not exist for this instrument.)<P>
+
+<LI>For the GREAT instrument, a frequency channel is defined as a delta
+function, not as a Gaussian with a FWHM. This has to be kept in mind
+when performing a query by frequency. This is not the case for the
+other instruments.<P>
+
+<LI>Some early GREAT observations have low spectral resolution (~1e3
+instead of the usual ~1e7) from a rarely-used continuum mode.<P>
+
+<LI>Some GREAT Line values seem unusual, like an observation of
+Jupiter with Line="L2_saturn", but those refer to continuum settings
+originally used on one calibrator but that may sometimes be used on
+others.<P>
+
+<LI>GREAT files with INSTMODE=CAL have incorrect coordinates, target
+name, and NAIF ID. Unfortunately the INSTMODE keyword isn't visible to
+users without downloading the files <P>
+
+<LI>The GREAT Instrument Team has not generated an instrument
+handbook, so this is not currently available.<P>
+</UL>
+
+
+<DT>HAWC+
+<DD>
+<UL>
+<LI>HAWC+ started operations in 2016, so HAWC+ data is only available
+after that date.<P>
+<LI>The raw data from HAWC+ correspond to Level 0 rather than Level 1.
+(Level 1 is raw for all the other instruments.)<P>
+</UL>
+
+
+</dl>
+<P>
+
+
+
+<H3><A NAME="searching">Searching (Quick Start)</A></H3>
+
+Several search options are provided, which are documented in more
+detail in the <a href="searching.html">Searching section</A>.  <P>
+
+Searching <a href="searching.html#byPosition">by position</A> is the
+most popular search, and you can also <a
+href="searching.html#byTable">search in "batch mode"</A> by uploading
+a table, from your local disk or the <a href="/docs/workspace/"
+target="_blank">IRSA Workspace</A> (which is a bit of disk space for
+you at IRSA).<P> 
+
+You can also search for Solar System objects by NAIF ID.<P>
+<!-- , or search
+over the whole archive.    <P> -->
+
+You can add additional constraints to, e.g., show only observations
+from one program or one flight or one instrument. Go to the <a
+href="searching.html">Searching section</A> for much more detailed
+information. <P>
+
+
+
+<H3><A NAME="results">Results Overview</A></H3>
+
+The search results appear in two "panes" (like "window panes"). You
+can grab and drag the division between the two panes to change their
+relative sizes. <P>
+
+The left pane of the search results contains lists of observations
+that met your criteria. The right pane of the search results contains
+more details of the observations. The right pane changes depending on
+what row you have selected (clicked on) in the left pane. (And the
+left pane can change depending on what you have selected in the
+coverage image in the right pane.)<P>
+
+Proprietary data (to which you do not have access in general) are red
+rows; public data are white rows. <P>
+
+The basic table manipulation tools are documented in the <a href=tables.html">Tables section</A>.<P>
+
+For more information, see <a href="results.html">the Results
+section</A>.<P>
+
+
+
+<h3><a name="visualization">Visualization Overview</A></h3>
+
+The images meeting your search criteria are shown as the results of
+the search, in the instrument tabs. The small circle overlaid by
+default is the search position you submitted.  <P> 
+
+Move your mouse over any image that is returned by your search.
+Details about the image and, specifically, the pixel beneath your
+mouse cursor, appear along the top of the window with a variety of
+useful items (see screenshot below). Some information is updated in
+real time (such as coordinates); some information (such as flux
+densities) is updated when you stop moving your mouse for a second or
+two.  The image can be interactively investigated in this fashion.
+<br> <img src="img/readout.png"> <P>
+
+There is a toolbar across the top of the window from which you can
+interact with the displayed FITS image files -- you can control the
+stretch, add a coordinate grid, etc. Clicking on the icon that looks
+like this: <img src="img/expandimagetiles.png"> enlarges the
+images to take up more space in the browser, and you can further zoom
+to make a single image take as much space in the browser as possible.
+You can scroll through all of the images in this maximally "zoomed-in"
+view. You can also add or remove overlays (such as coordinates or
+distances) to your images. See <a href="visualization.html">the
+Visualization section</A> for more on visualization.<P>
+
+
+
+<h3><a name="downloading">Downloading Data Overview</A></h3>
+
+
+You can download to disk the observations you have selected.  Check
+the box at the start of each row (or the box at the top of the column
+of boxes to select all) and click "Prepare download."  See <a
+href="downloads.html">the section on Downloads</A> or <a
+href="basics.html#background">the section on the Background
+Monitor</A> for more information. <P>
+
+
+
+<h3><a name="login">Logging in (Overview)</A></h3>
+
+The SOFIA Science Data Archive can remember you when you return.  See
+the <a href="user.html">user registration section</A> for more
+information.  <P>
+
+The SOFIA Science Data Archive contains proprietary data; you need to
+register in order to get access to your own SOFIA data. <P>
+
+
+<h3><A NAME="help">Getting More Help</A></h3>
+
+The "Help" blue tab leads you into this online help. There are also
+context-sensitive help markers throughout the tools (<img
+src="img/help.png">).  You can also download a PDF version of this
+manual; look at the top of the help window. (The PDF may be easier to
+search than the web pages; use your PDF reader's search function.) <P>
+
+You can submit questions to the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk/"
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg" height="10"></A>.<P>
+
+
+The <a href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg"
+height="10"></A> has lots of short videos about IRSA tools, inclugin specifically SOFIA.<P>
+
+A set of frequently asked questions (FAQs) is <a
+href="faq.html">here</A>. <p>
+
+<a name="bugs"></A><strong>Found a bug?</strong> The known bugs and
+issues in this version of the SOFIA Science Data Archive are listed <a
+href="https://irsa.ipac.caltech.edu/docs/known_issues/sofiabugslist.html"
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.  If you think you have found a bug, before
+reporting it, please check this list, and read this online help. It
+may be a "feature" we already know about.  If you have found a new,
+real bug then please do contact us via the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg" height="10"></A>. Please include your operating
+system version and your browser software and version.  If you can,
+please also include any specific error message you may have gotten.
+(NB: In our testing, copying shortcuts worked on Windows and Linux;
+the command-C did not work on Macs, but selecting and clicking the
+right mouse button did.)<P>
+
+
+</BODY>
+</HTML>
