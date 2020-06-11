@@ -5,20 +5,20 @@ This is a fork of [firefly-help](https://github.com/Caltech-IPAC/firefly-help/).
 
 ## Quick Start
 
-### `git clone https://github.com/IPAC-SW/irsa-ui-help`
+#### `git clone https://github.com/IPAC-SW/irsa-ui-help`
 
 Clone this repository into `irsa-ui-help` directory.  `cd irsa-ui-help` to perform the others commands 
 
 
-### `gradle projects`
+#### `gradle projects`
 
 List the projects in this repository.  Ignore `root`.
 
-### `gradle build`
+#### `gradle build`
 
 Builds all of the projects.  To build only one project, prefix `build` with the project name, i.e.  `gradle atlas:build`
 
-### `gradle ${project}:run`
+#### `gradle ${project}:run`
 
 Builds and launches the project's Help applications to your default browser.  
 Replace `${project}` with the name of the project you wish to run.
