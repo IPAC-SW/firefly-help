@@ -230,6 +230,15 @@ time. However, "exposure time &gt; 160 or &lt 100" works just fine
 number should be, like "w1snr &lt f") then it will let you know that
 something has gone really wrong, and let you go back to fix it.
 
+<LI>However, a filter like "ph_qual &lt; f" could be valid -- if the
+column with which you are working is a string, then a string is a valid
+filter. It is case-insensitive. For the ph_qual column in the 2MASS
+catalog, the values are always three letters, such as AAA or ABA or
+CUU. A filter like "ph_qual &lt; f" will operate as if you have
+alphabetized the list. Any string that starts with A comes before F
+and so will be retained. If you do "ph_qual &lt; BBB" then AAA will be
+left in, but so will "BAU", because alphabetically, BAU preceeds BBB.
+
 <LI>If you impose filters from a plot, it can manifest as several
 filters on the catalog, e.g., one for each side of the square you have
 drawn on the plot. If you want to remove, say, just one of the four
@@ -269,11 +278,15 @@ From here, you can save the table in a variety of formats:<br>
 
 It defaults to saving it as an <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table file <img src="img/jumpout.jpg" height="10"></A>, which is basically ASCII text
-with headers explaining the type of data in  each column, separated by
-vertical bars. <P>
+target="_blank">IPAC table file <img src="img/jumpout.jpg"
+height="10"></A>, which is basically ASCII text with headers
+explaining the type of data in  each column, separated by vertical
+bars. <P>
 
-Other formats include comma-separated values (suitable for, e.g., Excel), tab-separated values, and four different versions of <A href="http://www.ivoa.net/documents/VOTable/">VO tables <img src="img/jumpout.jpg" height="10"></A>.<P>
+Other formats include comma-separated values (suitable for, e.g.,
+Excel), tab-separated values, and four different versions of <A
+href="http://www.ivoa.net/documents/VOTable/" target="_blank">VO
+tables <img src="img/jumpout.jpg" height="10"></A>.<P>
 
 
 

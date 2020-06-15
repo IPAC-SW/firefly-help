@@ -65,8 +65,8 @@ method.
 If entering a position, the location information can take the form of
 coordinates in a variety of formats (see the examples at the bottom of
 main panel), or can be an object name. If it is the latter, first <a
-href="http://ned.ipac.caltech.edu/">NED <img src="img/jumpout.jpg"
-height="10"></a> and then <a href="http://simbad.u-strasbg.fr/">SIMBAD
+href="http://ned.ipac.caltech.edu/" target="_blank">NED <img src="img/jumpout.jpg"
+height="10"></a> and then <a href="http://simbad.u-strasbg.fr/" target="_blank">SIMBAD
 <img src="img/jumpout.jpg" height="10"></a> are checked to attempt
 name resolution; once the name is resolved, the celestial coordinates
 of that object are used for the search query.</p>
@@ -80,24 +80,16 @@ character. The default coordinate system is (RA DEC) Equatorial J2000,
 in decimal degrees (1st example below).</p>
 
   <p><a name="examples" id="examples"></a></p>
-
-  <center>
-    <table width="520">
-      <tbody><tr align="left">
-        <td>
-          <p><font size="-1"><b>EXAMPLES OF INPUT
-          COORDINATES:</b><br>
-          Equatorial J2000 (eq): "290.971773 11.774474
-          eq"&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          Local Equatorial J2000 (Equ): "19h23m53.23s +11d46m28.1s
-          Equ J2000"&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          Galactic (ga): "47.09669 -1.71325
-          ga"&nbsp;&nbsp;&nbsp;&nbsp;<br>
-          Object Name: "M 16"</font></p>
-        </td>
-      </tr>
-    </tbody></table>
-  </center>
+Examples of input coordinates:
+<OL>
+<LI>Equatorial J2000 (eq): "290.971773 11.774474
+<LI>eq"&nbsp;&nbsp;&nbsp;&nbsp;
+<LI>Local Equatorial J2000 (Equ): "19h23m53.23s +11d46m28.1s
+<LI>Equ J2000"&nbsp;&nbsp;&nbsp;&nbsp;
+<LI>Galactic (ga): "47.09669 -1.71325
+<LI>ga"&nbsp;&nbsp;&nbsp;&nbsp;
+<LI>Object Name: "M 16"
+</OL>
 
 <p>In the 2nd example above, "Local Equatorial J2000 (Equ)" is
 also known as "sexigesimal" (hours, minutes, seconds; degrees,
@@ -117,22 +109,24 @@ and of course could also be "B1950", <i>etc</i>.</p>
 
 </p><p>IRSA accepts four ASCII table formats for table upload:</p>
 <ul>
-  <li>IPAC ASCII Column-Aligned  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/IPAC_ASCII_one_header.tbl">Download template  <img src="img/jumpout.jpg"
-height="10"></a>)</li>
-  <li>Comma-Separated Values (CSV) or Comma-Delimited  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/csv_table_example.tbl">Download template  <img src="img/jumpout.jpg"
-height="10"></a>)</li>
-  <li>Tab-Delimited (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/tab_delimited_table_example.tbl">Download template  <img src="img/jumpout.jpg"
-height="10"></a>)</li>
-  <li>A Simple List of Objects (such as astronomical source names)  (<a href="https://irsa.ipac.caltech.edu/docs/tblexamples/list_of_obj_names.tbl">Download template <img src="img/jumpout.jpg"
-height="10"></a>)</li>
+  <li><a href="IPAC_ASCII_one_header.tbl">IPAC ASCII Column-Aligned</a></li>
+  <li><a href="csv_table_example.tbl">Comma-Separated Values (CSV) or Comma-Delimited</a></li>
+  <li><a href="tab_delimited_table_example.tbl">Tab-Delimited</a></li>
+  <li><a href="list_of_obj_names.tbl">A Simple List of Objects (such as astronomical source names)</a></li>
 </ul>
 
 <p>There are two ways to ensure your tables will work with IRSA's services:</p>
 <ol>
-  <li>Run your tables through IRSA's <a href="https://irsa.ipac.caltech.edu/applications/TblValidator/">Table Reformat and Validation <img src="img/jumpout.jpg"
-height="10"></a> tool to identify possible errors.</li>
-  <li>Read and follow the <a href="https://irsa.ipac.caltech.edu/docs/table_upload_help.html">Using Tables With IRSA Services  <img src="img/jumpout.jpg"
-height="10"></a> help document to learn and troubleshoot table formats, including:
+  <li>Run your tables through IRSA's <a
+href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
+target="_blank">Table Reformat and Validation <img
+src="img/jumpout.jpg" height="10"></a> tool to identify possible
+errors.</li>
+  <li>Read and follow the <a
+href="https://irsa.ipac.caltech.edu/docs/table_upload_help.html"
+target="_blank">Using Tables With IRSA Services  <img
+src="img/jumpout.jpg" height="10"></a> help document to learn and
+troubleshoot table formats, including:
   <ul>
     <li>Detailed descriptions of the four acceptable table formats</li>
     <li>A description of how sexagesimal and Galactic coordinates are handled by IRSA services</li>
@@ -155,9 +149,8 @@ height="10"></a> help document to learn and troubleshoot table formats, includin
   <li><a href="comma_coords.tbl">comma-delimited table of positions</a> as well as source names</li> 
   </ul>
 
-  Please note,
- <b>space-delimited</b> files are only valid if using IPAC table format.
- <p></p>
+  Please note, <b>space-delimited</b> files are only valid if using
+ IPAC table format. <p></p>
 
 
 
@@ -166,13 +159,13 @@ height="10"></a> help document to learn and troubleshoot table formats, includin
 
 
 <p>For Atlas datasets which include images, the "<b>Size</b>" search
-field (in degrees) is adjustable.  The maximum search size is
-listed, and the hard limit is 12.5 degrees. <a href="#table1">Table
-1</a> below lists all the maximum search sizes for all Atlas
-collections, in the third column. [The hard limit is due to the
-fact that the results are displayed as overlays on&nbsp;background
+field (in degrees) is adjustable.  The maximum search size is listed,
+and the hard limit is 12.5 degrees. <a href="results.html#table1">The
+table</a> (in the results section) lists all the maximum search sizes
+for all Atlas collections, in the third column. (The hard limit is due
+to the fact that the results are displayed as overlays on background
 'sky' images.  A value of 12.5 degrees is a reasonable limit for the
-ISSA "plates", the largest background images.]</p>
+ISSA "plates", the largest background images.)</p>
 
 <p><a name="covers" id="covers"></a> The checkbox "<b>Images must
 cover coordinate</b>" allows the user to choose to search for only
@@ -198,7 +191,9 @@ hitting the "<b>Submit</b>" button starts the search.</p>
 
 <h3><a name="references">References</a></h3>
 
-Every project should have some sort of documentation that arrived with the data. Usually they have published papers as well. References to those papers can be found at the bottom of the search page.<P> 
+Every project should have some sort of documentation that arrived with
+the data. Usually they have published papers as well. References to
+those papers can be found at the bottom of the search page.<P> 
 
 
 
