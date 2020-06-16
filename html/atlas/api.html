@@ -72,11 +72,11 @@ curl -o out.xml
 <h3><A name="inputparams">Input Parameters</A></h3>
 
 The input parameters are entered as standard
-"<tt>parameter=value</tt>" pairs in HTTP syntax. No extra spaces
-are allowed (a space can be encoded as a "+" sign) and special
-characters need to be encoded as shown in any HTTP reference
-(<i>e.g.</i> <a href="http://www.w3schools.com/tags/ref_urlencode.asp" target="_blank"> here <img src="img/jumpout.jpg"
-height="10"></a>).
+"<tt>parameter=value</tt>" pairs in HTTP syntax. No extra spaces are
+allowed (a space can be encoded as a "+" sign) and special characters
+need to be encoded as shown in any HTTP reference (<i>e.g.</i> <a
+href="http://www.w3schools.com/tags/ref_urlencode.asp"
+target="_blank"> here <img src="img/jumpout.jpg" height="10"></a>).
   </p>
 
   <font color="black"><b>
@@ -124,9 +124,11 @@ height="10"></a>).
         </b>
       </td>
       <td class="td3">
-        The <b>mission</b> parameter is required.  It is an acronym or
-        short name for the dataset.  Here is a complete list of the 
-        <a href="https://irsa.ipac.caltech.edu/applications/Atlas/index.html" target="_blank">datasets</a>.
+	The <b>mission</b> parameter is required.  It is an acronym or
+	short name for the dataset.  Here is a complete list of the 
+	<a
+	href="https://irsa.ipac.caltech.edu/applications/Atlas/index.html"
+target="_blank">datasets <img src="img/jumpout.jpg" height="10"></a>.
       </td>
     </tr>
 
@@ -173,8 +175,8 @@ height="10"></a>).
          The box search size, in degrees, for the image spatial
          search.  This parameter is required for image data.  In most
          cases, the maximum allowed <b>regSize</b> value is 12.5
-         degrees, but it can be smaller.  Maximum values for each
-         dataset are given on the <a href="https://irsa.ipac.caltech.edu/applications/Atlas/instructions.html" target="_blank">Instructions page</a>.  </td> </tr>
+         degrees, but it can be smaller.  There are maximum values for each
+         dataset.  </td> </tr>
 
     <tr>
       <td class="td1">
@@ -539,7 +541,7 @@ nph-atlas?mission=SGOODS&amp;locstr=03h32m38.06s+-27d53m28.0s+Equ+J2000&amp;regS
     </a>
     <br>
     Note: the XML output results of this example are discussed in the
-     <a href="#result">XML Output</a> section below.<br><br>
+     <a href="#xmloutput">XML Output</a> section below.<br><br>
   </li>
 
   <li><a name="iris"></a><font color="darkred">IRIS (HTML results)</font><br>
@@ -1161,9 +1163,10 @@ nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&am
         </b></font>
       </td>
       <td class="td3">
-         A link to a script (file) which contains bulk download instructions using the
-         unix tool "wget" to download all the search results:  image FITS, source catalog(s) and spectra
-         metadata.
+	 A link to a script (file) which contains bulk download
+	 instructions using the unix tool "wget" to download all the
+	 search results:  image FITS, source catalog(s) and spectra
+	 metadata.
       </td>
     </tr>
 
@@ -1174,7 +1177,13 @@ nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&am
         </b></font>
       </td>
       <td class="td3">
-         This section contains the information regarding the image results; metadata is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name), as well as in VO Table format (<b>metadataVOtable</b> tag name).   Note, these tags do not exist if no images were found.
+	 This section contains the information regarding the image
+results; metadata is provided in ASCII <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></a> (<b>metadata</b> tag name), as well as in VO Table
+format (<b>metadataVOtable</b> tag name).   Note, these tags do not
+exist if no images were found.
       </td>
     </tr>
 
@@ -1207,7 +1216,13 @@ nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&am
         </b></font>
       </td>
       <td class="td3">
-         This section contains the information regarding the catalog source results; each catalog is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name);  the number of sources in that catalog is indicated by the <b>counts</b> tag.  Note, these tags do not exist if no sources were found.  
+	 This section contains the information regarding the catalog
+source results; each catalog is provided in ASCII <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></a> (<b>metadata</b> tag name);  the number of sources in
+that catalog is indicated by the <b>counts</b> tag.  Note, these tags
+do not exist if no sources were found.  
       </td>
     </tr>
 
@@ -1240,8 +1255,13 @@ nph-atlas?mission=LH&amp;locstr=159.738690+54.932062+eq+B1950&amp;regSize=0.5&am
         </b></font>
       </td>
       <td class="td3">
-         This section contains the information regarding the spectra 
-source results; each spectra metadata table is provided in ASCII <a href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC table format</a> (<b>metadata</b> tag name);  the number of spectra in that catalog is indicated by the <b>counts</b> tag.  Note, these tags do not exist if no spectra were found.  
+	 This section contains the information regarding the spectra 
+source results; each spectra metadata table is provided in ASCII <a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></a> (<b>metadata</b> tag name);  the number of spectra in
+that catalog is indicated by the <b>counts</b> tag.  Note, these tags
+do not exist if no spectra were found.  
       </td>
     </tr>
 

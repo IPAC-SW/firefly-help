@@ -28,14 +28,21 @@ in the "Additional Constraints" section of the search interface. These
 include several classes of  constraints, both keywords and
 operators.</p>
 
-The examples given below show how queries can be built intuitively; these examples are given for each of the five types of search constraints that are supported.<P>
+The examples given below show how queries can be built intuitively;
+these examples are given for each of the five types of search
+constraints that are supported.<P>
 
 <DL>
 <DT><strong>Comparisons</strong>
-<dd>Compares the values of one expression to another. The great majority of queries will be of this type, which use simple mathematical operators.
+<dd>Compares the values of one expression to another. The great
+majority of queries will be of this type, which use simple
+mathematical operators.
 <UL>
-<LI>declination > 40  selects rows with declinations above 40 degrees; user defined constraints then allow for broader constraints than can be entered through the spatial constraints form.
-<LI>j_m <= 11 and  declination > 40 selects all rows having J magnitudes fainter than 11 and declinations above 40 degrees. 
+<LI>declination > 40  selects rows with declinations above 40 degrees;
+user defined constraints then allow for broader constraints than can
+be entered through the spatial constraints form.
+<LI>j_m <= 11 and  declination > 40 selects all rows having J
+magnitudes fainter than 11 and declinations above 40 degrees. 
 </UL>
 
 <dt><strong>Ranges</strong>
@@ -48,7 +55,9 @@ The examples given below show how queries can be built intuitively; these exampl
 <dt><strong>Set memberships</strong>
 <dd>Tests whether an expression matches any one of a set of values.
 <UL>
-<LI>Hubble_Type in ('Sa', 'Sb', 'Sc') selects rows where the Hubble Type has values of Sa, Sb or Sc. This is equivalent to Hubble_Type ='Sa' or Hubble_Type ='Sb' or Hubble_Type ='Sc' 
+<LI>Hubble_Type in ('Sa', 'Sb', 'Sc') selects rows where the Hubble
+Type has values of Sa, Sb or Sc. This is equivalent to Hubble_Type
+='Sa' or Hubble_Type ='Sb' or Hubble_Type ='Sc' 
 </UL>
 <dt><strong>Pattern Matching</strong>
 <dd>Tests whether the value of a column containing string data matches a specified pattern.
@@ -67,7 +76,10 @@ The examples given below show how queries can be built intuitively; these exampl
 
 This query  on the 2MASS All Sky Point Source Catalog:
 <blockquote>
-"return all sources at galactic latitudes greater 30 degrees with K magnitudes between 14 and 17 and uncertainties of less than 0.05 mag, that are not flagged as contaminated by extended sources and have a blue-red optical color of less then 1.5"
+"return all sources at galactic latitudes greater 30 degrees with K
+magnitudes between 14 and 17 and uncertainties of less than 0.05 mag,
+that are not flagged as contaminated by extended sources and have a
+blue-red optical color of less then 1.5"
 </blockquote>
 
 is built by the user-defined constraint:
@@ -76,7 +88,9 @@ is built by the user-defined constraint:
 </blockquote>
 <P>
 
-For users conversant with SQL, the tool uses the user-defined constraints to set up a WHERE clause in the SQL statement submitted to the DBMS. <P>
+For users conversant with SQL, the tool uses the user-defined
+constraints to set up a WHERE clause in the SQL statement submitted to
+the DBMS. <P>
 
 
 
@@ -84,9 +98,17 @@ For users conversant with SQL, the tool uses the user-defined constraints to set
 
 <a name="list"><h3>List of operators/keywords</h3></a>
 
-Any blank spaces around operators are ignored (for instance, "> =" is equivalent to ">="). In comparing character data, "<" means earlier and ">" means later in the alphabet. In comparing dates, "<" means earlier and ">" means later. Be sure to put single quotation marks (') around all text and date/time columns.  <P>
+Any blank spaces around operators are ignored (for instance, "> =" is
+equivalent to ">="). In comparing character data, "<" means earlier
+and ">" means later in the alphabet. In comparing dates, "<" means
+earlier and ">" means later. Be sure to put single quotation marks (')
+around all text and date/time columns.  <P>
 
-The only WHERE conditions that you can use on character columns are "=" (equals), LIKE or NOT LIKE. There are numerous character columns in the astronomical catalogs maintained at IPAC. Use the "COLUMN CONSTRAINTS / OUTPUT COLUMN SELECTION" panel to view the data type for any column of interest.<P>
+The only WHERE conditions that you can use on character columns are
+"=" (equals), LIKE or NOT LIKE. There are numerous character columns
+in the astronomical catalogs maintained at IPAC. Use the "COLUMN
+CONSTRAINTS / OUTPUT COLUMN SELECTION" panel to view the data type for
+any column of interest.<P>
 
 <table border="1">
 
@@ -99,44 +121,70 @@ The only WHERE conditions that you can use on character columns are "=" (equals)
 
 <tr>
 <td style="text-align:center">=</td>
-<td style="text-align:left">Compares two expressions.<br><br>The result is TRUE if both operands are equal.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>The
+result is TRUE if both operands are equal.<br><br>Otherwise, the
+result is FALSE.</td>
 <td style="text-align:center">expression = expression</td>
 <td style="text-align:center">designation = 'J095824.30+685729.3'</td>
 </tr>
 
 <tr>
 <td style="text-align:center">!=</td>
-<td style="text-align:left">Compares two expressions.<br><br>The result is TRUE if the left operand is not equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>The
+result is TRUE if the left operand is not equal to the right
+operand.<br><br>Otherwise, the result is FALSE.</td>
 <td style="text-align:center">expression != expression</td>
 <td style="text-align:center">designation != 'J095824.30+685729.3'</td>
 </tr>
 
 <tr>
 <td style="text-align:center">&lt;</td>
-<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand has a lower value than the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is earlier in the alphabet than the right operand. <br><br>When comparing dates, the results is TRUE if the left operand is earlier than the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>When
+comparing numeric values, the result is TRUE if the left operand has a
+lower value than the right operand.<br><br>When comparing character
+values, the results is TRUE if the left operand is earlier in the
+alphabet than the right operand. <br><br>When comparing dates, the
+results is TRUE if the left operand is earlier than the right
+operand.<br><br>Otherwise, the result is FALSE.</td>
 <td style="text-align:center">expression &lt; expression</td>
 <td style="text-align:center">w1mpro &lt; 16<br><br>designation &lt; 'J095824.30+685729.3'</td>
 </tr>
 
 <tr>
 <td style="text-align:center">&lt;=</td>
-<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is less than or equal to the right operand.<br><br>When
- comparing character values, the results is TRUE if the left operand is 
-earlier in the alphabet or equal to the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is earlier or equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>When
+comparing numeric values, the result is TRUE if the left operand is
+less than or equal to the right operand.<br><br>When comparing
+character values, the results is TRUE if the left operand is  earlier
+in the alphabet or equal to the right operand.<br><br>When comparing
+dates, the results is TRUE if the left operand is earlier or equal to
+the right operand.<br><br>Otherwise, the result is FALSE.</td>
 <td style="text-align:center">expression &lt;= expression</td>
 <td style="text-align:center">w1mpro&lt;=16<br><br>designation&lt;='J095824.30+685729.3'</td>
 </tr>
 
 <tr>
 <td style="text-align:center">&gt;</td>
-<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is greater than the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is later in the alphabet than the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is later than the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>When
+comparing numeric values, the result is TRUE if the left operand is
+greater than the right operand.<br><br>When comparing character
+values, the results is TRUE if the left operand is later in the
+alphabet than the right operand.<br><br>When comparing dates, the
+results is TRUE if the left operand is later than the right
+operand.<br><br>Otherwise, the result is FALSE.</td>
 <td style="text-align:center">expression &gt; expression</td>
 <td style="text-align:center">w1mpro&gt;16<br><br>designation&gt;'J095824.30+685729.3'</td>
 </tr>
 
 <tr>
 <td style="text-align:center">&gt;=</td>
-<td style="text-align:left">Compares two expressions.<br><br>When comparing numeric values, the result is TRUE if the left operand is greater than or equal to the right operand.<br><br>When comparing character values, the results is TRUE if the left operand is later in the alphabet or equal to the right operand.<br><br>When comparing dates, the results is TRUE if the left operand is later than or equal to the right operand.<br><br>Otherwise, the result is FALSE.</td>
+<td style="text-align:left">Compares two expressions.<br><br>When
+comparing numeric values, the result is TRUE if the left operand is
+greater than or equal to the right operand.<br><br>When comparing
+character values, the results is TRUE if the left operand is later in
+the alphabet or equal to the right operand.<br><br>When comparing
+dates, the results is TRUE if the left operand is later than or equal
+to the right operand.<br><br>Otherwise, the result is FALSE.</td>
 <td style="text-align:center">expression &gt;= expression</td>
 <td style="text-align:center">w1mpro&gt;=16<br><br>designation&gt;='J095824.30+685729.3'</td>
 </tr>
@@ -174,21 +222,29 @@ end_expression.</td>
 matches a specified pattern. A pattern can include regular characters 
 and wildcard characters. During pattern matching, regular characters 
 must exactly match the characters specified in the character string. 
-Wildcard characters, however, can be matched with arbitrary fragments of
- the character string. IRSA's Catalog Search Service accepts two 
-wildcards:<br><br>% (percent; matches any string of &gt;0 characters)<br><br>_ (underscore; matches any single character)<br>
-If you would like to include percent or underscore in your pattern,
-but do not wish them to be interepreted as wildcards, then you may specify an
-escape character using "ESCAPE escape_parameter".</td>
+Wildcard characters, however, can be matched with arbitrary fragments
+of the character string. IRSA's Catalog Search Service accepts two 
+wildcards:<br><br>% (percent; matches any string of &gt;0
+characters)<br><br>_ (underscore; matches any single character)<br> If
+you would like to include percent or underscore in your pattern, but
+do not wish them to be interepreted as wildcards, then you may specify
+an escape character using "ESCAPE escape_parameter".</td>
 <td style="text-align:center">match_expression <br>[ NOT ] LIKE pattern </td>
-<td style="text-align:center">designation LIKE 'J0958%' - selects any designation that starts with 'J0958%'<br><br>designation LIKE '%0958%' - selects any designation with '0958' in it.<br><br>ph_qual LIKE 'AAA_' - selects any ph_qual with four letters, the first three of which are 'AAA'.</td>
+<td style="text-align:center">designation LIKE 'J0958%' - selects any
+designation that starts with 'J0958%'<br><br>designation LIKE '%0958%'
+- selects any designation with '0958' in it.<br><br>ph_qual LIKE
+'AAA_' - selects any ph_qual with four letters, the first three of
+which are 'AAA'.</td>
 </tr>
 
 <tr>
 <td style="text-align:center">IS [NOT] NULL</td>
 <td style="text-align:left">An entry of NULL in a data table means that 
 there is no entry (e.g., missing data). NULL is not synonymous with 
-'zero' or 'blank'. 'NULL' and 'null' are equivalent.<br><br>If the value of expression is NULL, IS NULL returns TRUE; otherwise, it returns FALSE.<br><br>If the value of expression is NULL, IS NOT NULL returns FALSE; otherwise, it returns TRUE.</td>
+'zero' or 'blank'. 'NULL' and 'null' are equivalent.<br><br>If the
+value of expression is NULL, IS NULL returns TRUE; otherwise, it
+returns FALSE.<br><br>If the value of expression is NULL, IS NOT NULL
+returns FALSE; otherwise, it returns TRUE.</td>
 <td style="text-align:center">expression IS [ NOT ] NULL </td>
 <td style="text-align:center">w2sigmpro IS NOT NULL<br><br>
 w2sigmpro IS NULL</td>
@@ -325,9 +381,12 @@ the result returned is always the same.</td>
 
 <tr>
 <td style="text-align:center">ROUND</td>
-<td style="text-align:left">Returns the rounded value of the first expression, out to integer_expression digits</td>
+<td style="text-align:left">Returns the rounded value of the first
+expression, out to integer_expression digits</td>
 <td style="text-align:center">round(expression, integer_expression)</td>
-<td style="text-align:center">ROUND(123.9994, 3)=123.999<br><br>ROUND(123.9995, 3)=124.0000<br><br>ROUND(150.75, 0)=151.00</td>
+<td style="text-align:center">ROUND(123.9994,
+3)=123.999<br><br>ROUND(123.9995, 3)=124.0000<br><br>ROUND(150.75,
+0)=151.00</td>
 </tr>
 
 <tr>

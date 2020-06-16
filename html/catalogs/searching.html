@@ -17,7 +17,15 @@ There are many ways to search the Catalog Search Tool. Results are
 described on other pages; start from <a href="overview.html">the
 Overview page</A>.<P>
 
-In summary, you must go through two interfaces, one for selecting a catalog (accessible from the "Catalogs Listing" button), and then another for building a query to extract data from that catalog. Submitting the job automatically brings up the process monitor, which reports the status of the job, and which gives the link to the returned data. These data are always written to an ASCII file of size less than 2 GB that is kept on-line for 48 hours after the job is finished. (A processing summary is also sent to the user by email if the user requests it.)<P>
+In summary, you must go through two interfaces, one for selecting a
+catalog (accessible from the "Catalogs Listing" button), and then
+another for building a query to extract data from that catalog.
+Submitting the job automatically brings up the process monitor, which
+reports the status of the job, and which gives the link to the
+returned data. These data are always written to an ASCII file of size
+less than 2 GB that is kept on-line for 48 hours after the job is
+finished. (A processing summary is also sent to you by email if you
+request it.)<P>
 
 
 
@@ -42,7 +50,8 @@ In summary, you must go through two interfaces, one for selecting a catalog (acc
 <h3><a name="SelectingCatalog">Selecting a Catalog</a></h3>
 
 <p>The Catalog Search Tool begins with a list of the broad data sets
-available at IRSA. Choose one and click on the red "Select" button.</p>
+available at IRSA. Choose one and click on the red "Select"
+button.</p>
 
 <p>You then have a list of the individual catalogs associated with
 your chosen data set, along with information on the size of each
@@ -53,19 +62,31 @@ click on any of the red "Select" buttons.</p>
 catalog. It  has four main parts, each of which is described in detail
 next.</p>
 
-Information about any given catalog is given in the catalog listing -- the number of columns, the number of rows, and links to more information about the catalog appear next to each catalog in the list.<P>
+Information about any given catalog is given in the catalog listing --
+the number of columns, the number of rows, and links to more
+information about the catalog appear next to each catalog in the
+list.<P>
 
 <h3><a name="Building">Building a Query</a></h3>
 
-The query builder interface constrains which rows and columns will be retrieved from the catalog. There are three classes of constraints:
+The query builder interface constrains which rows and columns will be
+retrieved from the catalog. There are three classes of constraints:
 <UL>
-<LI> spatial constraints - which regions of the sky over which to select rows;
-<LI> column constraints - which columns to return, and upper and lower limits on the values of the entries in these columns, and
-<LI> user-defined custom constraints, which permit more complex queries than can be specified through the spatial and column constraints alone.
+<LI> spatial constraints - which regions of the sky over which to
+select rows;
+<LI> column constraints - which columns to return, and upper and lower
+limits on the values of the entries in these columns, and
+<LI> user-defined custom constraints, which permit more complex
+queries than can be specified through the spatial and column
+constraints alone.
 </UL>
 
 <a name="sourcecount">
-Rather than asking for a tabular listing of the requested rows and columns (the default), you can click the optional "Source Count Only" button to return a summary of the number of sources matching your constraints. This is useful for testing queries that might result in a very large output catalog.</A><P>
+Rather than asking for a tabular listing of the requested rows and
+columns (the default), you can click the optional "Source Count Only"
+button to return a summary of the number of sources matching your
+constraints. This is useful for testing queries that might result in a
+very large output catalog.</A><P>
 
 <h3><a name="SingleObject">Single Object: Coordinate or Object Name</a></h3>
 
@@ -127,7 +148,8 @@ below).</p>
 
 <tr>
 <td>PA</td>
-<td>Position Angle in degrees of the semi-major axis of an elliptical projected search area, measured East from North</td>
+<td>Position Angle in degrees of the semi-major axis of an elliptical
+projected search area, measured East from North</td>
 <td>not required</td>
 <td>default = 0</td>
 </tr>
@@ -158,7 +180,8 @@ to 15 vertices. Each input vertex must be entered as a J2000 RA and
 Dec  pair, in decimal degrees. Each vertex must be separated by a
 comma. The  first vertex does not need to be repeated.</p>
 
-<p><b>Example:</b> Define a search area that is a one degree wide square.  Vertices: 20.5 21.5, 20.5 20.5, 21.5 20.5, 21.5 21.5</p>
+<p><b>Example:</b> Define a search area that is a one degree wide
+square.  Vertices: 20.5 21.5, 20.5 20.5, 21.5 20.5, 21.5 21.5</p>
 
 
 
@@ -203,14 +226,16 @@ requirements.</p>
 <tr>
 <td>major</td>
 <td>optional</td>
-<td><a href="#searchmethodscone">semi-major axis of elliptical cone search, or radius of circular cone search</a></td>
+<td><a href="#searchmethodscone">semi-major axis of elliptical cone
+search, or radius of circular cone search</a></td>
 <td>arcsec</td>
 </tr>
 
 <tr>
 <td>ratio</td>
 <td>optional</td>
-<td><a href="#searchmethodscone">semi-minor axis divided by semi-major axis for elliptical cone search</a></td>
+<td><a href="#searchmethodscone">semi-minor axis divided by semi-major
+axis for elliptical cone search</a></td>
 <td>none</td>
 </tr>
 
@@ -231,7 +256,8 @@ angle in your  input table, the default values are assumed. </p>
 
 <strong>Example 1: Search a circular area around each of two positions.</strong></p>
 
-<p>First, make sure the radius box on the web interface is blank or "0". Next, create a table like this:</p>
+<p>First, make sure the radius box on the web interface is blank or
+"0". Next, create a table like this:</p>
 
 <pre>    \ EQUINOX = 'J2000.0'
     |   ra     |   dec    |  major |
@@ -363,7 +389,21 @@ checking the boxes under the "Sel" column in the table.
 
 <p>Some columns are indexed for fast access, and are indicated by an
 "X" in the "Indx" column. Queries with constraints on indexed columns
-run  faster than queries with constraints on unindexed columns.  An index is a storage structure that allows rapid access to the rows of a table. The DBMS interprets the index much the same way as a reader interprets the index of a book. The index contains data values for a given column in ascending or descending order, and pointers to the rows where those values are found. The DBMS can then quickly find the value it is seeking, then uses the pointer to access the row containing that datum. Generally speaking, IRSA only indexes a few columns in each catalog. The issue of how many columns to index is actually a complex one. While indexing a column allows rapid access to its data values, indices also increase storage space and the complexity of managing the tables. Moreover, the query optimization algorithms used by the DBMS take many factors into account in assessing the best path to take, and a large number of indices can slow down a query while the optimizer decides which one to use.</p>
+run  faster than queries with constraints on unindexed columns.  An
+index is a storage structure that allows rapid access to the rows of a
+table. The DBMS interprets the index much the same way as a reader
+interprets the index of a book. The index contains data values for a
+given column in ascending or descending order, and pointers to the
+rows where those values are found. The DBMS can then quickly find the
+value it is seeking, then uses the pointer to access the row
+containing that datum. Generally speaking, IRSA only indexes a few
+columns in each catalog. The issue of how many columns to index is
+actually a complex one. While indexing a column allows rapid access to
+its data values, indices also increase storage space and the
+complexity of managing the tables. Moreover, the query optimization
+algorithms used by the DBMS take many factors into account in
+assessing the best path to take, and a large number of indices can
+slow down a query while the optimizer decides which one to use.</p>
 
 <p>Ranges on any column can be specified by filling out the 
 corresponding "Low Limit" and "Upper Limit" boxes. Each constraint
@@ -420,9 +460,15 @@ same query is run twice, the returned rows are not guaranteed to be in
 the same order. The tool therefore sorts the data in ascending
 order.<P>
 
-For single-source cone searches, the rows will be returned in order of distance from the requested position. For other single-source search regions or all-sky searches via the web interface, there is no particular order, but the output table has sorting capability (by clicking on the column name).<P>
+For single-source cone searches, the rows will be returned in order of
+distance from the requested position. For other single-source search
+regions or all-sky searches via the web interface, there is no
+particular order, but the output table has sorting capability (by
+clicking on the column name).<P>
 
-For the program interface mode with single-source or all-sky searches, a parameter "order=(column_name)" may be used to order the rows by that column (in ascending order).<P>
+For the program interface mode with single-source or all-sky searches,
+a parameter "order=(column_name)" may be used to order the rows by
+that column (in ascending order).<P>
 
 For table upload, the service orders by distance from each source.<P>
 
@@ -435,7 +481,13 @@ You can monitor the progress of the query, cancel the query, or look
 at the log file associated with a query by clicking on the "Process
 Monitor" button at the top of the screen.</p>
 
-The log file in the Process Monitor has been designed to allow users to monitor the status of their jobs, while providing IRSA sufficient information to trace the cause of any errors. This information is given in the square brackets, and contains messages returned by the DBMS. The status messages are generally self-explanatory, but if you run into problems and mail the helpdesk, we may ask for information from that log. <P>
+The log file in the Process Monitor has been designed to allow users
+to monitor the status of their jobs, while providing IRSA sufficient
+information to trace the cause of any errors. This information is
+given in the square brackets, and contains messages returned by the
+DBMS. The status messages are generally self-explanatory, but if you
+run into problems and mail the helpdesk, we may ask for information
+from that log. <P>
 
 
 Results are described on other pages; start from <a
@@ -480,25 +532,42 @@ square roots and trigonometric functions.</li><P>
 <h3><a name="examples">Example Queries</a></h3>
 
 <strong>Example 1:</strong> 
-Perform a cone search of all measurements within 1 degree of M51 in the 2MASS Point Source Catalog; return ra, dec, J, H and K_s magnitudes, with output records ordered by K magnitude.<P>
+Perform a cone search of all measurements within 1 degree of M51 in
+the 2MASS Point Source Catalog; return ra, dec, J, H and K_s
+magnitudes, with output records ordered by K magnitude.<P>
 <OL>
 <LI>At the start-up page, choose the 2MASS catalogs.
-<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog by clicking the selection button for that catalog; click 'Select' to bring up the query builder window for that catalog.
-<LI>SPATIAL CONSTRAINTS: Select "Single Object Search" and enter "M51". Select "Cone," and enter 4 arcminutes radius of radial search ('PA' and "axial ratio' can be left blank for circular searches).
-<LI>COLUMN CONSTRAINTS:  Check the box in the "Sel" column for ra, dec, j_m, h_m and k_m; uncheck the "Sel" column for other columns.
-<LI>ADDITIONAL CONSTRAINTS: clear out any constraints typed in this space.
+<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog
+by clicking the selection button for that catalog; click 'Select' to
+bring up the query builder window for that catalog.
+<LI>SPATIAL CONSTRAINTS: Select "Single Object Search" and enter
+"M51". Select "Cone," and enter 4 arcminutes radius of radial search
+('PA' and "axial ratio' can be left blank for circular searches).
+<LI>COLUMN CONSTRAINTS:  Check the box in the "Sel" column for ra,
+dec, j_m, h_m and k_m; uncheck the "Sel" column for other columns.
+<LI>ADDITIONAL CONSTRAINTS: clear out any constraints typed in this
+space.
 <LI>Click "Run Query"
-<LI>The Process Monitor window briefly appears, and then the results are loaded into the  interactive viewer. (For documentation explaining the results, start from <a href="overview.html">the
-Overview page</A>.)
+<LI>The Process Monitor window briefly appears, and then the results
+are loaded into the  interactive viewer. (For documentation explaining
+the results, start from <a href="overview.html">the Overview
+page</A>.)
 </OL>
 
 <strong>Example 2:</strong> 
-Find all sources in the 2MASS Point Source Catalog that lie within 60 arcseconds of a list of sources; list the standard column output for these sources, and have a link to the results returned via e-mail upon completion.
+Find all sources in the 2MASS Point Source Catalog that lie within 60
+arcseconds of a list of sources; list the standard column output for
+these sources, and have a link to the results returned via e-mail upon
+completion.
 
 <OL>
 <LI>At the start-up page, choose the 2MASS catalogs.
-<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog by clicking the selection button for that catalog; click 'Select' to bring up the query builder window for that catalog.
-<LI>SPATIAL CONSTRAINTS: select "Multi-Object Search". Copy <a href="ex2query.tbl">this source list</A> to your disk and then upload it into the tool. The table must be in  <a
+<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog
+by clicking the selection button for that catalog; click 'Select' to
+bring up the query builder window for that catalog.
+<LI>SPATIAL CONSTRAINTS: select "Multi-Object Search". Copy <a
+href="ex2query.tbl">this source list</A> to your disk and then upload
+it into the tool. The table must be in  <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
 target="_blank">IPAC table file format <img src="img/jumpout.jpg"
 height="10"></A>. 
@@ -506,23 +575,38 @@ height="10"></A>.
 <LI>COLUMN CONSTRAINTS: click 'Standard' column selection
 <LI>ADDITIONAL CONSTRAINTS: clear out any constraints typed in this space.
 <LI>Click "Run Query".
-<LI>The Process Monitor window briefly appears, and then the results are loaded into the interactive viewer. (For documentation explaining the results, start from <a href="overview.html">the
-Overview page</A>.) An email is also sent upon completion.
+<LI>The Process Monitor window briefly appears, and then the results
+are loaded into the interactive viewer. (For documentation explaining
+the results, start from <a href="overview.html">the Overview
+page</A>.) An email is also sent upon completion.
 </OL>
 
 <strong>Example 3:</strong> 
-Simple query on the 2MASS Point Source catalog to retrieve all columns for all point sources fainter than 15th magnitude and confined to a strip of sky between declinations 17 and 18 degrees.
+Simple query on the 2MASS Point Source catalog to retrieve all columns
+for all point sources fainter than 15th magnitude and confined to a
+strip of sky between declinations 17 and 18 degrees.
 <OL>
 <LI>At the start-up page, choose the 2MASS catalogs.
-<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog by clicking the selection button for that catalog; click 'Select' to bring up the query builder window for that catalog.
-<LI>SPATIAL CONSTRAINTS: Select "All-Sky Search" to search the entire catalog without spatial constraints.
-<LI>OPTIONS: Enter a fully qualified email address; e.g. yourname@yourinstitution.edu.
+<LI>At the second page, choose the 2MASS All-Sky Point Source Catalog
+by clicking the selection button for that catalog; click 'Select' to
+bring up the query builder window for that catalog.
+<LI>SPATIAL CONSTRAINTS: Select "All-Sky Search" to search the entire
+catalog without spatial constraints.
+<LI>OPTIONS: Enter a fully qualified email address; e.g.
+yourname@yourinstitution.edu.
 <LI>COLUMN CONSTRAINTS: click "Long Form."
-<LI>ADDITIONAL CONSTRAINTS: clear out any constraints typed in the space; type '(j_m > 15) and (h_m > 15) and (k_m > 15) and (dec between 17 and 18)'.
+<LI>ADDITIONAL CONSTRAINTS: clear out any constraints typed in the
+space; type '(j_m > 15) and (h_m > 15) and (k_m > 15) and (dec between
+17 and 18)'.
 <LI>Click "Run Query".
-<LI>The Process Monitor window appears for several seconds as it executes the query.  You can check the status or stop the process from this screen. (It will result in 1205701 rows from the catalog, so it takes a little bit.)
-<LI>The results are loaded into the interactive viewer. (For documentation explaining the results, start from <a href="overview.html">the
-Overview page</A>.) An email is also sent upon completion.
+<LI>The Process Monitor window appears for several seconds as it
+executes the query.  You can check the status or stop the process from
+this screen. (It will result in 1205701 rows from the catalog, so it
+takes a little bit.)
+<LI>The results are loaded into the interactive viewer. (For
+documentation explaining the results, start from <a
+href="overview.html">the Overview page</A>.) An email is also sent
+upon completion.
 </OL>
 
 
