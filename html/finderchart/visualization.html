@@ -76,14 +76,13 @@ slightly.<P>
 
 
 The results are grouped by survey. The upper left of the loaded image
-tells you basic things about the image you are viewing. The <a
+tells you basic things about the image you are viewing: the <a
 href="overview.html#surveys">survey origin</A> (instrument, channel)
-and, where possible, the date of observation is given in the upper
-left of each image. (Some images are coadds from individual frames
-taken at different times, up to months or even years, so a single date
-may be misleading. Investigate the FITS header of the image using one
-of the other buttons below to obtain the average date suggested by the
-producer of the FITS files.)<P>
+and, where possible, the date of observation. (Some images are coadds
+from individual frames taken at different times, up to months or even
+years, so a single date may be misleading. Investigate the FITS header
+of the image using one of the other buttons below to obtain the
+average date suggested by the producer of the FITS files.)<P>
 
 <img src="img/2masslabel.png"> Example of image label.<P>
 
@@ -249,9 +248,9 @@ region can be resized by grabbing and dragging the corners of the box
 or the pixels delineating the corners of a box around your ellipse.
 You can make a new box right away by holding down the shift key and
 clicking and dragging to select a new box.  When you have selected a
-region of the image, additional icons appear above the image: <img
-src="img/selectoptions.png"> These icons will allow you to (from left
-to right):
+region of the image, additional icons appear above the image: 
+<img src="img/selectoptions.png"> These icons will allow you to (from
+left to right):
 <UL>
 <LI>crop the image to the selected region (then you can save the
 cropped image via the save icon described above);
@@ -335,11 +334,12 @@ below).<P>
 <dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em>
 <dd> When you click this icon, you get a pop-up window from which you
 can read in a DS9 regions file from your local disk. See the <a
-href="http://ds9.si.edu/doc/ref/region.html"
-target="_blank">DS9 website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of
-these DS9 region files. The supported regions are text, circle, box,
-polygon, line, and annulus. To make this window go away without doing
-anything, click on the 'x' in the upper right of the pop-up. <P>
+href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
+website <img src="img/jumpout.jpg" height="10"></A> for more
+information on the syntax of these DS9 region files. The supported
+regions are text, circle, box, polygon, line, and annulus. To make
+this window go away without doing anything, click on the 'x' in the
+upper right of the pop-up. <P>
 
 <dt><img src="img/layers.png"> <em>Viewing/changing the layers on the
 image.</em> 
@@ -352,7 +352,7 @@ pop-up window with a list of all the layers you have on top of the
 selected image. From the pop-up, you can turn layers off and on, at
 minimum, but you can often also change exactly what is displayed and
 what colors/symbols get used for it. Note that when you load 2MASS
-images, image artifacts ar automatically loaded but not displayed;
+images, image artifacts are automatically loaded but not displayed;
 they  can be overlaid the the layers pop-up as well.. To add new
 things, though, you need to go to other options within the toolbar.
 Here is an example of a well-populated layers pop-up. <br><img
@@ -364,19 +364,18 @@ with (here, WISE-4). The two icons
 next in that row indicate, respectively, "copy this location to the
 clipboard" and "center image on this position."<P>
 
-Where it's possible to change colors of a layer, click on
-the 'colors' link to be taken to a new pop-up from which you can
-select a new color. For catalogs or the search target, you can also
-select the symbol shape and size:<br>
-<img src="img/symbolpicker.png"><br> To adjust the size, type in the symbol
-size in pixels or use the up/down arrow keys to change the size by one
-pixel at a time. Click OK to implement your choices. 
-To delete a layer, click on "delete." Some layers do not have that
-option; to remove that layer, click on the corresponding icon from
-which you added that feature. Alternatively, you can "show all" or
-"hide all" with the buttons on the lower left of the pop-up window. 
-To make this pop-up window go away, click on the 'x' in the upper
-right of the pop-up. <P>
+Where it's possible to change colors of a layer, click on the 'colors'
+link to be taken to a new pop-up from which you can select a new
+color. For catalogs or the search target, you can also select the
+symbol shape and size:<br> <img src="img/symbolpicker.png"><br> To
+adjust the size, type in the symbol size in pixels or use the up/down
+arrow keys to change the size by one pixel at a time. Click OK to
+implement your choices.  To delete a layer, click on "delete." Some
+layers do not have that option; to remove that layer, click on the
+corresponding icon from which you added that feature. Alternatively,
+you can "show all" or "hide all" with the buttons on the lower left of
+the pop-up window.  To make this pop-up window go away, click on the
+'x' in the upper right of the pop-up. <P>
 
 If you searched on catalogs from the front page, you may have an
 intimidating number of layers right away. The interaction of the
@@ -429,9 +428,9 @@ reverse-alphabetical order, and a third time to return to the default
 order. Below are examples of the original and sorted FITS header.  
 To make this window go away,
 click on the 'x' in the upper right of the pop-up, or click
-"close" on the bottom.<br><img
-src="img/unsortedfitsheader.png" width="50%"><img
-src="img/sortedfitsheader.png" width="50%"> <P>
+"close" on the bottom.<br>
+<img src="img/unsortedfitsheader.png" width="45%">
+<img src="img/sortedfitsheader.png" width="45%"> <P>
 Further, you can click on the gears in the upper right of the window
 to bring up a dialog box via which you can filter down the header
 keywords (using the same syntax as the other <a
@@ -465,12 +464,11 @@ current choice. Then -- either with the pop-up window still up or not
 options. Note that the values in the pop-up change to reflect this
 current choice.<P>
 
-
-If you have a 3-color image, you can change the stretch in each color
-plane separately; select the tab at the top accordingly for red,
-green, or blue.  By default, it stretches each band independently, and
-you can set the parameters in the stretch pop-up accordingly.<P>
-<img src="img/3colorstretch.png"><P>
+If you have a <a href="#3color">3-color image</A>, you can change the
+stretch in each color plane separately; select the tab at the top
+accordingly for red, green, or blue.  By default, it stretches each
+band independently, and you can set the parameters in the stretch
+pop-up accordingly.<P> <img src="img/3colorstretch.png"><P>
 
 As described in <a
 href="https://ui.adsabs.harvard.edu/#abs/2004PASP..116..133L" 
@@ -555,8 +553,9 @@ The remaining markers are all footprints from various telescopes:
 Spitzer, SOFIA, HST, JWST, and Roman. HST, JWST and Roman are derived
 from information provided via MAST (see <a
 href="http://gsss.stsci.edu/webservices/footprints/help.html"
-target="_blank">http://gsss.stsci.edu/webservices/footprints/help.html</A>.)
-For JWST and Roman in particular, they are pre-launch values.<P>
+target="_blank">http://gsss.stsci.edu/webservices/footprints/help.html
+<img src="img/jumpout.jpg" height="10"></A>.) For JWST and Roman in
+particular, they are pre-launch values.<P>
 
 <img src="img/iracfoot.png"> <strong>Spitzer/IRAC 3.6 and 4.5 micron
 footprints.</strong> These two footprints are placed separately
@@ -624,7 +623,7 @@ from the layers pop-up.<P>
 
 <img src="img/jwstall.png"> <strong>JWST footprints.</strong> You can
 overlay the whole focal plane footprint, shown here, or individual
-instrument footprints (FGS, MIRI, NIRCAM, NIS, and NIRSPEC). <P>
+instrument footprints (FGS, MIRI, NIRCAM, NIS, and NIRSPEC). 
 <strong>Note that</strong> if you overlay the footprint on a very
 small image, nothing will appear to have happened. You need at least a
 30 arcmin image to comfortably see the entire JWST focal plane. Please
@@ -681,7 +680,8 @@ color planes:
 <tr><td>AKARI</td><td>WideL (140 um)</td><td>WideS (90 um)</td><td>n60 (65 um)</td></tr>
 <tr><td>IRAS</td><td>IRAS-60</td><td>IRAS-25</td><td>IRAS-12</td></tr>
 </table>
-<P>&nbsp;<P>
+<P>
+
 The "3-color" button is "sticky" in that if you turn it on, and then
 do another search, the new search will automatically make 3-color
 images.<P>
@@ -743,11 +743,11 @@ and the other with the plots from the catalogs. The images have
 catalogs overlaid -- the DSS doesn't have a corresponding survey, so
 it has no catalog, but the SDSS images have the SDSS catalog overlaid,
 the 2MASS images have the 2MASS catalog overlaid, etc. for all the
-other surveys with catalogs. By selecting the SDSS catalog tab on the
-bottom, and then selecting a row in the SDSS catalog, that object is
-highlighted in the SDSS image and the SDSS catalog plot. It works the
-other way as well - select an object in the SDSS image or plot , and
-the object is highlighted in the SDSS catalog. This behavior is
+other surveys with catalogs. By selecting the 2MASS catalog tab on the
+bottom, and then selecting a row in the 2MASS catalog, that object is
+highlighted in the 2MASS image and the 2MASS catalog plot. It works the
+other way as well - select an object in the SDSS image or plot, and
+the object is highlighted in the 2MASS catalog. This behavior is
 identical to that for <a href="catalogs.html">catalogs in
 general</A>.<P>
 
@@ -818,14 +818,17 @@ expands the window pane into a larger window, taking up as much space
 in your browser window as possible, but still leaving the images in
 tiled view.  <P>
 
-There are a set of options just above the images, even when the images
+There is a set of options just above the images, even when the images
 pane is smaller (and the catalogs/plots/other targets are visible):<br>
 <img src="img/expview.png"><br>
 The large "Close" arrow at the upper left is always available in the
 expanded views, and enables you to return back
 to the pane view.<P> 
 
-Next, there is a cluster of icons <img src="img/imagetiles.png"> that
+The "Prepare Download" button packages up your data so you can <a
+href="downloads.html">download it</A>.<P>
+
+There is a cluster of icons <img src="img/imagetiles.png"> that
 portray (in icon form) the different views you can have of the images
 you have loaded. The first icon (the big square) denotes "show one
 image at a time." The second icon (the cluster of four squares)
@@ -833,18 +836,13 @@ denotes "show smaller images of all the images I have loaded, but
 still take up the whole browser window with the set" (as opposed to
 going back to the window panes).  <P>
 
-<img src="img/expview2.png"><br>
-If you are viewing one image at a time,  the arrows allow you to
-click through  your set of images in the order they are loaded. <P>
+<img src="img/expview2.png"><br> If you are viewing one image at a
+time,  the arrows allow you to click through  your set of images in
+the order they are loaded. <P>
 
-<img src="img/expview3.png"><br>
-These next two icons will generate a PDF and turn on the <a
-href="#3color">3-color
-images</A>, respectively.<P>
-
-The next portion of the window has some WCS (world coordinate
-system)-related options that will be discussed <a
-href="#wcs">below</A>.<P>
+<img src="img/expview3.png"><br> These next two icons will generate a
+PDF and turn on the <a href="#3color">3-color images</A>,
+respectively.<P>
 
 
 
@@ -888,7 +886,7 @@ images. <P>
 
 You can align by the images' WCS (world coordinate system,
 e.g., RA and Dec), by the target (align by target on the screen,
-regargless of position in the sky), by the pixels according to the
+regardless of position in the sky), by the pixels according to the
 origin of the coordinate system in the image header, or by the pixel
 at the image center. The most common choice is likely the WCS align
 and lock.<P>

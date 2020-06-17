@@ -50,7 +50,9 @@ the "Close" arrow in the upper left.<P>
 
 The plotting tool, by default, starts with RA and Dec plotted if it
 can find RA and Dec in the catalog. Note that it does so following
-astronomical convention -- RA increases to the left. If the catalog does not have RA and Dec, it plots the first two numerical columns it finds. <P>
+astronomical convention -- RA increases to the left. If the catalog
+does not have RA and Dec, it plots the first two numerical columns it
+finds. <P>
 
 <h3><a name="firstlook">Plot format: a first look</A></h3>
 
@@ -89,7 +91,9 @@ for the "Number of y-bins" box.<P>
 The reason the tool makes a heatmap for large catalogs this is to more
 fairly represent the point density -- and to make the plotting faster.
 In these cases, though, it will not give you the option to overplot
-errors (see below). If you have a heatmap and want a scatter plot, you need to filter or otherwise restrict the catalog to have fewer points (see below).<P>
+errors (see below). If you have a heatmap and want a scatter plot, you
+need to filter or otherwise restrict the catalog to have fewer points
+(see below).<P>
 
 
 <h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
@@ -109,10 +113,10 @@ To change what is plotted, click on the gears icon in the upper right
 of the plot window pane: <img src="img/xyplotoptions.png"
 align="center">. Configuration options then appear; the options are a
 little different depending on whether the points are binned or
-not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%"> &nbsp; &nbsp;
-<img src="img/plotoptionspopup.png" width="30%"><br> The left has the
-options for binned plots, and the right has the options for plots that
-have individual points shown.<P>
+not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%">
+&nbsp; &nbsp; <img src="img/plotoptionspopup.png" width="30%"><br> The
+left has the options for binned plots, and the right has the options
+for plots that have individual points shown.<P>
 
 <DL><dt><strong>Both kinds of plots have the following
 options.</strong>
@@ -377,17 +381,18 @@ bad, and/or the sources are not point sources, and where the WISE
 measurements have to be pulled out of the reject catalog. <P>
 
 <OL>
-<LI>I have a <a href="example2input.tbl" target="_blank">target
-list <img src="img/jumpout.jpg" height="10"></A> containing 316 targets, which I have prepared in IPAC table
-format, of some objects claimed to be rapidly rotating K giants. They
-are all over the sky. Some are claimed to have IR excesses, and I want
-to see if they have WISE excesses, as well as look at the WISE images
-for them, just as <a
+<LI>I have a <a href="example2input.tbl" target="_blank">target list
+<img src="img/jumpout.jpg" height="10"></A> containing 316 targets,
+which I have prepared in IPAC table format, of some objects claimed to
+be rapidly rotating K giants. They are all over the sky. Some are
+claimed to have IR excesses, and I want to see if they have WISE
+excesses, as well as look at the WISE images for them, just as <a
 href="http://nitarp.ipac.caltech.edu/team/60-HG-WELS-Rebull"
-target="_blank">these fine folks did <img src="img/jumpout.jpg" height="10"></A>. Some of the coordinates are
-good to within an arcsecond, and some are very poor coordinates. Many
-of the sources are very bright (some saturated). Download that IPAC
-table file to your disk.
+target="_blank">these fine folks did <img src="img/jumpout.jpg"
+height="10"></A>. Some of the coordinates are good to within an
+arcsecond, and some are very poor coordinates. Many of the sources are
+very bright (some saturated). Download that IPAC table file to your
+disk.
 <LI>Launch the Finder Chart tool. Select "multiple positions". Click on
 "choose file" and locate the IPAC table file with the targets that you
 just downloaded.
@@ -413,7 +418,7 @@ in the list for which there are SDSS and/or SEIP data.) There are 6
 catalogs loaded in the bottom window pane. The catalog that is on top
 in the screen shot above is that from IRAS. We asked it for one-to-one
 matching within 90 arcseconds for IRAS. Out of the targets shown, it
-found a match for target 1 ("cntr_01" column),and it is within 3.5
+found a match for target 1 ("cntr_01" column), and it is within 3.5
 arcseconds ("dist_x" column). The catalogs are overlaid in a
 survey-by-survey fashion -- the 2MASS catalog is overlaid on the 2MASS
 images, and the WISE catalog is overlaid on the WISE images, but

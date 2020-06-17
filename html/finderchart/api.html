@@ -123,16 +123,18 @@ curl --output file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/s
 <strong>Please note</strong> that it is really easy to inadvertently
 launch something that is functionally equivalent to a '<a
 href="http://en.wikipedia.org/wiki/Denial-of-service_attack"
-target="_blank">denial-of-service<img src="img/jumpout.jpg" height="10"> </A>' attack on IRSA's servers if you
-are not careful. Please be sure to test your code using only a subset
-of your desired requests, and add throttle control to your code, e.g.,
-add some 'wait' steps between successive requests. If we notice an
-undue load on our servers (a real life example is more than 70,000
-requests over 10 hours, or an average of 2 per second), we
-may block your IP address, so if your requests suddenly stop working,
-this may be why. Please contact the <a
+target="_blank">denial-of-service <img src="img/jumpout.jpg"
+height="10"></A>' attack on IRSA's servers if you are not careful.
+Please be sure to test your code using only a subset of your desired
+requests, and add throttle control to your code, e.g., add some 'wait'
+steps between successive requests. If we notice an undue load on our
+servers (a real life example is more than 70,000 requests over 10
+hours, or an average of 2 per second over 10 hrs), we may block your
+IP address, so if your requests suddenly stop working, this may be
+why. Please contact the <a
 href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
-target="_blank">IRSA Help Desk <img src="img/jumpout.jpg" height="10"></A> in this case. 
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg"
+height="10"></A> in this case. 
 
 
 <h3><a name="inputparameters">API Input Parameters</A></h3>
@@ -277,7 +279,7 @@ through 8 produce valid results while 9 and 10 are examples of the
 error conditions. Number 11 is the updated version of URL
 construction. All of them should have this prepended: 
 <pre>
-https://irsa.ipac.caltech.edu/applications/finderchart/applications/finderchart/servlet/
+https://irsa.ipac.caltech.edu/applications/finderchart/servlet/
 </pre> 
 Note that several of these queries return XML files,
 which need to be parsed to find, e.g., the PDF or PNG files. Some
@@ -348,7 +350,7 @@ output examples are given below.
   <P></li>
   
   <li>
-    <a href="/applications/finderchart/servlet/api?locstr=m101&grid=true&marker=true&mode=getImage" target="_blank"> 
+    <a href="/applications/finderchart/servlet/api?locstr=m101&survey=2mass&grid=true&marker=true&mode=getImage" target="_blank"> 
     <b>api?locstr=m101&amp;survey=2mass&amp;grid=true&amp;marker=true&amp;mode=getImage</b></a>
    <br />
      Retrieves a zipfile of 2MASS images for the area centered on object "m101" with 
@@ -357,8 +359,8 @@ output examples are given below.
   <P></li>
   
   <li>
-    <a href="/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE,SEIP,AKARI&locstr=291.468658447%2B40.343852997" target="_blank"> 
-    <b>api?mode=getImage&amp;file_type=pdf&amp;subsetsize=5&amp;survey=DSS,SDSS,2MAS,IRIS,WISE,SEIP,AKARI&amp;locstr=291.468658447%2B40.343852997</b></a>
+    <a href="/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE,SEIP,AKARI&locstr=291.468658447+40.343852997" target="_blank"> 
+    <b>api?mode=getImage&amp;file_type=pdf&amp;subsetsize=5&amp;survey=DSS,SDSS,2MASS,IRIS,WISE,SEIP,AKARI&amp;locstr=291.468658447+40.343852997</b></a>
    <br />
      This requests the PDF file output for the given position, which
      includes 5 arcminute images from all 7 surveys. 
