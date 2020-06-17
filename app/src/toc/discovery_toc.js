@@ -116,7 +116,7 @@ const toc_visualization = {
         {
             id: 'visualization.newimage',
             title: 'New Image',
-            href: 'catalogs/visualization.html#newimage',
+            href: 'discovery/visualization.html#newimage',
         },
         {
             id: 'visualization.stretches',
@@ -140,7 +140,7 @@ const toc_visualization = {
         },
         {
             id: 'visualization.fitships',
-            title: 'Automatic FITS-HiPS-Aitoff Transitions',
+            title: 'Automatic FITS-HiPS Transitions',
             href: 'discovery/visualization.html#autozoom',
         },
     ]
