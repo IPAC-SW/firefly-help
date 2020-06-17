@@ -139,13 +139,14 @@ We now discuss each icon in turn.<P>
 
 <A NAME="fitsDownloadOptions"><!-- --></A>
 <A NAME="saveimage"><!-- --></A>
-<dt><img src="img/save.png"> <em>Saving the image.</em>
-<dd>The diskette icon will allow you to save the current image.  You
-can save files to your local disk or to the  <a
-href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>.  Note that
-<b>you</b> control where the file is saved on your disk through your
-browser; your browser may be configured to
-store all downloads in a particular location on your disk.<P>
+<dt><img src="img/save.png"> <em>Saving the image.</em> <dd>The
+diskette icon will allow you to save the current image.  You can save
+files to your local disk or to the  <a href="/docs/workspace/"
+target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
+height="10"></A>.  Note that <b>you</b> control where the file is
+saved on your disk through your browser; your browser may be
+configured to store all downloads in a particular location on your
+disk.<P>
 
 If the current image is a FITS file, you can save it as a FITS or PNG
 or regions file to your local disk. If it is a HiPS file, your only
@@ -156,8 +157,8 @@ have placed on the image, but will not include the underlying FITS
 image. Saved regions files will not save the underlying image, but
 will just save the overlays as a DS9 Regions file. See the <a
 href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
-website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of these DS9 region
-files. <P>
+website <img src="img/jumpout.jpg" height="10"></A> for more
+information on the syntax of these DS9 region files. <P>
 
 Note that you can save the original or a cropped version of a FITS
 file; see the "select region" icon below to crop, then click on the
@@ -177,13 +178,13 @@ one-at-a-time) before saving the PNG. <P>
 
 <!-- this needs to stay because it is part of gator's
 implementation -->
-<dt><img src="img/selectnew.png"> <em>Selecting a new
+<!-- <dt><img src="img/selectnew.png"> <em>Selecting a new
 image.</em>   
 <dd>This icon does not always appear. Clicking on this icon is the
 same as selecting the blue "Images" tab. Click on this icon -- or the
 blue Images tab -- to add a new image through a new search, or to
 change the current image to a new image. To change a HiPS image, see
-discussion in <a href="#wcs">WCS section</A> below.<P>
+discussion in <a href="#wcs">WCS section</A> below.<P>-->
 
 <dt><img src="img/zoominout.png"> <em>Zooming in or out.</em>  
 <dd>
@@ -348,7 +349,7 @@ icon changes above the catalog to indicate that there is a filter
 applied (<img src="img/filtersapplied.png">). To clear the filters,
 click on the cancel filters icon (which also appears after you impose
 filters): <img src="img/cancelfilters.png">. There is much more on <a
-href="tables.html#filters">filters</A> in the catalogs
+href="tables.html#filters">filters</A> in the Tables
 section.<P>
 
 <strong>Note that</strong>, if you have a rotated FITS image such that
@@ -416,11 +417,12 @@ below).<P>
 <dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em></A>
 <dd> When you click this icon, you get a pop-up window from which you
 can read in a DS9 regions file from your local disk. See the <a
-href="http://ds9.si.edu/doc/ref/region.html"
-target="_blank">DS9 website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of
-these DS9 region files. The supported regions are text, circle, box,
-polygon, line, and annulus. To make this window go away without doing
-anything, click on the 'x' in the upper right of the pop-up. <P>
+href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
+website <img src="img/jumpout.jpg" height="10"></A> for more
+information on the syntax of these DS9 region files. The supported
+regions are text, circle, box, polygon, line, and annulus. To make
+this window go away without doing anything, click on the 'x' in the
+upper right of the pop-up. <P>
 
 
 <a name="layers">
@@ -514,8 +516,8 @@ src="img/unsortedfitsheader.png" width="40%"><img
 src="img/sortedfitsheader.png" width="40%"> <P>
 Further, you can click on the gears in the upper right of the window
 to bring up a dialog box via which you can filter down the header
-keywords (using the same syntax as the other <a
-href="catalogs.html#filters">filters</A>):<br>
+keywords (using the same syntax as other <a
+href="tables.html#filters">filters</A>):<br>
 <img src="img/fitsheaderoptions.png"><P>
 An example of the HiPS properties window is here:<br>
 <img src="img/hipsinfo.png"><P>
@@ -566,11 +568,12 @@ you can set the parameters in the stretch pop-up accordingly.<P>
 
 As described in <a
 href="https://ui.adsabs.harvard.edu/#abs/2004PASP..116..133L" 
-target="_blank">Lupton et al. (2004) <img src="img/jumpout.jpg" height="10"></A>, a different algorithm may be
-useful for creating 3-band color images. Select "Hue preserving
-stretch" to invoke this option. This stretch should be a
-brightness-independent color-preserving asinh stretch, though in
-practical terms, it seems to work best for optical images. <P>
+target="_blank">Lupton et al. (2004) <img src="img/jumpout.jpg"
+height="10"></A>, a different algorithm may be useful for creating
+3-band color images. Select "Hue preserving stretch" to invoke this
+option. This stretch should be a brightness-independent
+color-preserving asinh stretch, though in practical terms, it seems to
+work best for optical images. <P>
 
 <img src="img/luptonstretch.png"><P>
 
@@ -595,11 +598,12 @@ Follow-up ticket for scaling coefficients and help is https://jira.lsstcorp.org/
 
 <a
 href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
-target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A> (hierarchical progressive survey) images are
-different than FITS images, and as such, the choices of what you can
-do with the HiPS images are different than what you can do with the
-FITS images. Choices you can make for HiPS images are sometimes
-different than what you get for FITS images.<P>
+target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A>
+(hierarchical progressive survey) images are different than FITS
+images, and as such, the choices of what you can do with the HiPS
+images are different than what you can do with the FITS images.
+Choices you can make for HiPS images are sometimes different than what
+you get for FITS images.<P>
 
 The whole point of HiPS images is to provide on-demand resolution
 changes. Zoom out, and it loads large pixels. Zoom in, and it loads
@@ -610,7 +614,8 @@ type to use.<P>
 There are HiPS images from all over the world; the complete list of
 HiPS images available from the IRSA Viewer search page includes (once
 the "IRSA Featured" checkbox is unchecked) many HiPS images from <a
-href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS <img src="img/jumpout.jpg" height="10"></A>. <P>
+href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS <img
+src="img/jumpout.jpg" height="10"></A>. <P>
 
 HiPS images have the color and stretch set by the person who
 originally made them. Thus, you cannot change the color/stretch of
@@ -624,6 +629,36 @@ image.<P>
 Catalog searches (see <a href="catalogs.html">Catalogs section</A>) on
 top of HiPS images are limited to a maximum of 5 degrees. <P>
 
+
+<a name="hipsgrid"><strong>HiPS Grid</strong></A><P>
+
+Once you have loaded a HiPS image into the IRSA Viewer, if you click
+on the layers icon (<img src="img/layers.png">), you will have
+new, HiPS-specific choices in the layers:<br>
+<img src="img/hipslayers.png"><br>
+
+To turn on these choices, click the checkbox to the left of "HEALPix
+(HiPS) Grid". <P>
+
+<strong>Auto</strong>: This option overlays a position grid, with the
+tile numbers marked in the center of each box. As you continue to zoom
+in, when smaller tiles are needed, they are drawn, with the new tile
+numbers marked. You may not zoom beyond HiPS Norder level 14 tiles.
+The numbers after the "/" is in the "NESTED" (as opposed to RING or
+NUNIQ) numbering system; see <a
+href="http://www.ivoa.net/documents/HiPS/" target="_blank">the IVOA
+standards document <img src="img/jumpout.jpg" height="10"></A> for
+more information.<P>
+
+<strong>Grid Match Image Depth</strong>:  If you select this option,
+the grid will adjust to a new level when you zoom in and a new level
+of HiPS image both exists and is used for the display.<P> 
+
+<strong>Grid Level Lock</strong>: Selecting this option yields an
+additional numerical pull-down menu. The higher number you pick, the
+smaller the grid boxes are that are drawn. When this option is
+selected, the boxes stay the same size regardless of how zoomed-in on
+the image you are.<P>
 
 
 
@@ -739,8 +774,8 @@ placed separately) are:
 <LI>214 microns (Band E), Polarization
 </UL>
 </UL>
-Change the color, delete, or add
-more copies of the SOFIA footprints from the layers pop-up.<P>
+Change the color, delete, or add more copies of the SOFIA footprints
+from the layers pop-up.<P>
 
 
 
@@ -851,10 +886,11 @@ above on <a href="#breakingout">Breaking out of the pane</A>). <P>
 <strong>Image List</strong><P>
 
 Depending on what you have loaded, you may have an additional icon:
-<img src="img/imagelist.png"><BR>
-Clicking on this icon brings up a list of the images you have loaded,
-with some additional information on each one. The power of this table
-is best demonstrated by an example. <P>
+<img src="img/imagelist.png"><BR> Clicking on this icon brings up a
+list of the images you have loaded, with some additional information
+on each one. This list is a <a href="tables.html">table like any
+other</A> in this tool. The power of this table is best demonstrated
+by an example. <P>
 
 Example: Load the tool. Search on M101, with the default image size. 
 Select all bands from the following data sets: SEIP, DUSTiNGS, LVL,
@@ -960,35 +996,6 @@ image tile.<br>
 
 
 
-<strong>HiPS Grid</strong><P>
-
-Once you have loaded a HiPS image into the IRSA Viewer, if you click
-on the layers icon (<img src="img/layers.png">), you will have
-new, HiPS-specific choices in the layers:<br>
-<img src="img/hipslayers.png"><br>
-
-To turn on these choices, click the checkbox to the left of "HEALPix
-(HiPS) Grid". <P>
-
-<strong>Auto</strong>: This option overlays a position grid, with the
-tile numbers marked in the center of each box. As you continue to zoom
-in, when smaller tiles are needed, they are drawn, with the new tile
-numbers marked. You may not zoom beyond HiPS Norder level 14 tiles.
-The numbers after the "/" is in the "NESTED" (as opposed to RING or
-NUNIQ) numbering system; see <a
-href="http://www.ivoa.net/documents/HiPS/" target="_blank">the IVOA
-standards document <img src="img/jumpout.jpg" height="10"></A> for more information.<P>
-
-<strong>Grid Match Image Depth</strong>:  If you select this option,
-the grid will adjust to a new level when you zoom in and a new level
-of HiPS image both exists and is used for the display.<P> 
-
-<strong>Grid Level Lock</strong>: Selecting this option yields an
-additional numerical pull-down menu. The higher number you pick, the
-smaller the grid boxes are that are drawn. When this option is
-selected, the boxes stay the same size regardless of how zoomed-in on
-the image you are.<P>
-
 
 &nbsp;<P>
 
@@ -1013,6 +1020,7 @@ The next subsection covers more details about the coverage image.<P>
 
 <A NAME="autozoom"><A NAME="changing"><h3>Automatic FITS-HiPS-Aitoff Transitions</h3></A></A>
 
+<!-- should remove aitoff ultimately because plain irsa viewer doesn't need it. !-->
 
 <img src="img/coveragechoices1.png"><img
 src="img/coveragechoices.png"> Coverage images can have many choices;
