@@ -13,12 +13,14 @@
 
 <h2>IRSA Viewer: Catalogs</h2>
 
-Catalogs are a special case of <a href="tables.html">tables</A>; the basic functionality of tables is covered in the <a href="tables.html">Tables section</A>. 
-You can choose from any of a wide variety of catalogs to load for
-overlaying on your <a href="visualization.html">visualized data</A>.
-If you don't have an image loaded, and you search on a catalog, the
-tool will pick an image for you and overlay the catalog on that image. Once you've loaded a catalog, you can <a href="plots.html">make plots</A>.
-<P>
+Catalogs are a special case of <a href="tables.html">tables</A>; the
+basic functionality of tables is covered in the <a
+href="tables.html">Tables section</A>.  You can choose from any of a
+wide variety of catalogs to load for overlaying on your <a
+href="visualization.html">visualized data</A>. If you don't have an
+image loaded, and you search on a catalog, the tool will pick an image
+for you and overlay the catalog on that image. Once you've loaded a
+catalog, you can <a href="plots.html">make plots</A>. <P>
 
 <em>Contents of page/chapter:</em><br>
 +<A href="#irsacatalogs">IRSA Catalogs</A> -- Overlaying catalogs
@@ -55,28 +57,28 @@ the radius of the cone). The parameters for each of these searches
 change dynamically as you select search options, as follows:  <P>
 
 <DL>
-<DT><strong>Caution</strong>: <DD>Pick your units from the pulldown first, and
-then enter a number; if you enter a number and then select from the
-pulldown, it will convert your number from the old units to the new
-units. There are both upper and lower limits to your search radius; it
-will tell you if you request something too big or too small. Note that
-these limits are survey-dependent.   <P>
+<DT><strong>Caution</strong>: <DD>Pick your units from the pulldown
+first, and then enter a number; if you enter a number and then select
+from the pulldown, it will convert your number from the old units to
+the new units. There are both upper and lower limits to your search
+radius; it will tell you if you request something too big or too
+small. Note that these limits are survey-dependent.   <P>
 
 <DT><strong>Cone search</strong>: <dd> <img
-src="img/catsearch-cone.png"> It has guessed what position you want,
+src="img/catsearch-cone.png"><br> It has guessed what position you want,
 based on prior searches. You specify the cone radius.<P>
 
 <DT><strong>Elliptical search</strong>: <dd> <img
-src="img/catsearch-ellip.png"> It has guessed what position you want,
+src="img/catsearch-ellip.png"><br> It has guessed what position you want,
 based on prior searches. You specify the search ellipse's semi-major
 axis, position ratio, and axial ratio.<P>
 
 <DT><strong>Box search</strong>: <dd> <img
-src="img/catsearch-box.png"> It has guessed what position you want,
+src="img/catsearch-box.png"><br> It has guessed what position you want,
 based on prior searches. You specify the box's length on a side.<P>
 
 <DT><strong>Polygon search</strong>: <dd> <img
-src="img/catsearch-polygon.png"> Now, note that it no longer has a
+src="img/catsearch-polygon.png"><br> Now, note that it no longer has a
 single target location. It has pre-filled the vertices of the position it
 thinks you want, based on prior searches.  You can select whether you
 want the catalog request to match the entire area of the image you
@@ -91,15 +93,17 @@ is a maximum of 5 degrees imposed on catalog searches to match HiPS
 images.<P>
 
 <DT><strong>Multi-Object search</strong>: <dd> <img
-src="img/catsearch-multiobj.png"> In this case, it has not attempted
-to guess what position you want. You need to upload a file in <a
+src="img/catsearch-multiobj.png"><br> In this case, it has not
+attempted to guess what position you want. You need to upload a file
+in <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table format <img src="img/jumpout.jpg" height="10"></A>, which is a varietal of plain
-text. (IRSA has a <a
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. (IRSA has a <a
 href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
-target="_blank">table validator <img src="img/jumpout.jpg" height="10"></A> which
-may be helpful.) Note that you also have to specify the radius over
-which to search for each of the targets in your list.<P>
+target="_blank">table validator <img src="img/jumpout.jpg"
+height="10"></A> which may be helpful.) Note that you also have to
+specify the radius over which to search for each of the targets in
+your list.<P>
 
 When you do a multi-position search on catalogs, three new columns are
 added to the catalog as it is returned to you. These columns are :
@@ -186,20 +190,22 @@ off "pan by table row".
 <h3><a name="owncatalogs">Loading your own catalogs</A></h3><P>
 
 By clicking on the blue "Catalogs" tab, you are by default dropped
-into the interface for searching for catalogs at IRSA. However, you can
-pick another tab from the top, "Load Catalog", to load your own
-catalog, either from disk or from the <a
-href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>.<P>
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top, "Load Catalog", to load your own
+catalog, either from disk or from the <a href="/docs/workspace/"
+target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
+height="10"></A>.<P>
 
 
 Your catalog needs to be in <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table format <img src="img/jumpout.jpg" height="10"></A>, which is a varietal of plain
-text. IRSA has a <a
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. IRSA has a <a
 href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
-target="_blank">table reformatting and validation service <img src="img/jumpout.jpg" height="10"></A> which
-may be helpful, or you can download just about any catalog you find
-through IRSA, and mimic that format.<P>
+target="_blank">table reformatting and validation service <img
+src="img/jumpout.jpg" height="10"></A> which may be helpful, or you
+can download just about any catalog you find through IRSA, and mimic
+that format.<P>
 
 Your table file MUST have RA and Dec values, and unless it is
 specified, it assumes J2000.<P>
@@ -219,7 +225,8 @@ a HEX value to catalog marks, e.g., either of these two:
 </pre>
 You can find the <a
 href="https://www.w3schools.com/cssref/css_colors.asp"
-target="_blank">CSS color code or the CSS color HEX values <img src="img/jumpout.jpg" height="10"></A> online.<P> 
+target="_blank">CSS color code or the CSS color HEX values <img
+src="img/jumpout.jpg" height="10"></A> online.<P> 
 
 
 <h3><A name="vocatalogs">VO Catalogs</A> -- Overlaying
@@ -257,8 +264,8 @@ the RA and Dec in it; the tool will add your RA and Dec as listed to
 the URL in the right syntax. Click on
 "Search" to initiate the search. <P>
 
-The search results are then shown (and interacted with) in the same way as
-the other catalogs described here.<P>
+The search results are then shown (and interacted with) in the same
+way as the other catalogs described here.<P>
 
 <strong>Example</strong><p>
 
@@ -291,8 +298,9 @@ inserted into the URL by the tool in response to the search
 parameters you give it).
 
 <LI>The master list of registries is <a href="http://rofr.ivoa.net/"
-target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You can also search the registries directly
-via that link (as opposed to via the IRSA tools). 
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You
+can also search the registries directly via that link (as opposed to
+via the IRSA tools). 
 
 </UL><P>
 
