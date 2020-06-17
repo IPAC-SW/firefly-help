@@ -99,12 +99,6 @@ const toc_visualization = {
             hidden: true,
         },
         {
-            id: 'visualization.newimage',
-            title: 'Selecting New Image',
-            href: 'discovery/visualization.html#newimage',
-            hidden: true,
-        },
-        {
             id: 'visualization.fitsViewer',
             title: 'The FITS/HiPS viewer',
             href: 'discovery/visualization.html#fitsViewer',
@@ -118,6 +112,11 @@ const toc_visualization = {
             id: 'visualization.toolbar',
             title: 'Image Toolbar',
             href: 'discovery/visualization.html#toolbar',
+        },
+        {
+            id: 'visualization.newimage',
+            title: 'New Image',
+            href: 'catalogs/visualization.html#newimage',
         },
         {
             id: 'visualization.stretches',
