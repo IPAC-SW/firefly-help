@@ -36,22 +36,25 @@ without the need to go through interactive web pages.</p>
 
 <p>IRSA offers three APIs for searching catalogs. <P>
 
-<strong><a href="https://irsa.ipac.caltech.edu/docs/vo_scs.html">Simple Cone Search (SCS) <img
+<strong><a href="https://irsa.ipac.caltech.edu/docs/vo_scs.html" target="_blank">Simple Cone Search (SCS) <img
 src="img/jumpout.jpg" height="10"></a></strong><P>
 
 SCS is a VO-compliant method of searching catalogs for sources that
 lie within a specified radius of any position on the sky. The output
-can be <a href="http://www.ivoa.net/documents/VOTable/">VO Table <img
-src="img/jumpout.jpg" height="10"></a>, <a
-href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC
-Table <img src="img/jumpout.jpg" height="10"></a>, comma-separated
-values (CSV) table, tab-separated values table, or FITS table. The
-ability to upload a list of sources positions is not supported. Users
-interested in table upload functionality should use the TAP protocol
-(below).<P>
+can be <a href="http://www.ivoa.net/documents/VOTable/"
+target="_blank">VO Table <img src="img/jumpout.jpg" height="10"></a>,
+<a
+href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
+target="_blank">IPAC Table <img src="img/jumpout.jpg"
+height="10"></a>, comma-separated values (CSV) table, tab-separated
+values table, or FITS table. The ability to upload a list of sources
+positions is not supported. Users interested in table upload
+functionality should use the TAP protocol (below).<P>
 
-<strong><a href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">Table Access Protocol (TAP) <img
-src="img/jumpout.jpg" height="10"></a></strong><P>
+<strong><a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html"
+target="_blank">Table Access Protocol (TAP) <img src="img/jumpout.jpg"
+height="10"></a></strong><P>
 
 TAP is a VO-compliant method of searching catalogs. TAP allows cone,
 box, polygon, and multi-position searches with optional SQL
@@ -68,8 +71,8 @@ The rest of this page describes this API.<P>
 
 
 The output can be HTML, <A
-href="http://www.ivoa.net/documents/VOTable/">VO table <img
-src="img/jumpout.jpg" height="10"></A>, <a
+href="http://www.ivoa.net/documents/VOTable/" target="_blank">VO table
+<img src="img/jumpout.jpg" height="10"></A>, <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
 target="_blank">IPAC table file <img src="img/jumpout.jpg"
 height="10"></A> (ASCII text with a certain format), Extensible Markup
@@ -98,7 +101,7 @@ The bulk of this page describes this service.</li>
 <li><a href="catlist.html">Catalog List Service</a> - This service
 returns a list of catalogs held at IRSA in either XML or HTML
 format.</li>
-<li><a href="dd.html">Catalog Data Dictionary Form Service</a> - This
+<li><a href="catdd.html">Catalog Data Dictionary Form Service</a> - This
 service returns information about the columns in a given catalog.</li>
 </ul>
 
@@ -249,7 +252,7 @@ Note especially that setting the 'spatial' field to "No Spatial Constraints" wil
         <td>selcols</td>
         <td>optional</td>
         <td>Comma-separated list of output columns desired</td>
-        <td><a href="dd.html">Query for available columns</a></td>
+        <td><a href="catdd.html">Query for available columns</a></td>
       </tr>
 
       <tr>
@@ -624,7 +627,7 @@ https://irsa.ipac.caltech.edu/cgi-bin/Gator/nph-query?searchForm=MO&amp;spatial=
                 <td>selcols</td>
                 <td>optional</td>
                 <td>Comma-separated list of output <br>columns desired</td>
-                <td><a href="dd.html">Query for available columns</a></td>
+                <td><a href="catdd.html">Query for available columns</a></td>
               </tr>
 
               <tr>

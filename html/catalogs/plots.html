@@ -16,9 +16,9 @@
 Plots can be made from <a href="tables.html">Tables</A>, and plots are
 made automatically in the Catalog Search Tool when catalogs are
 loaded. Plotting is covered in this section. The <a
-href="tables.html">Tables</A> section discusses tables more generally. The <a
-href="visualization.html">Visualization</A> section covers how a
-catalog is overlaid on images. <P>
+href="tables.html">Tables</A> section discusses tables more generally.
+The <a href="visualization.html">Visualization</A> section covers how
+a catalog is overlaid on images. <P>
 
 
 <em>Contents of page/chapter:</em><br>
@@ -46,7 +46,9 @@ the "Close" arrow in the upper left.<P>
 
 The plotting tool, by default, starts with RA and Dec plotted if it
 can find RA and Dec in the catalog. Note that it does so following
-astronomical convention -- RA increases to the left. If the catalog does not have RA and Dec, it plots the first two numerical columns it finds. <P>
+astronomical convention -- RA increases to the left. If the catalog
+does not have RA and Dec, it plots the first two numerical columns it
+finds. <P>
 
 <h3><a name="firstlook">Plot format: a first look</A></h3>
 
@@ -85,7 +87,9 @@ for the "Number of y-bins" box.<P>
 The reason the tool makes a heatmap for large catalogs this is to more
 fairly represent the point density -- and to make the plotting faster.
 In these cases, though, it will not give you the option to overplot
-errors (see below). If you have a heatmap and want a scatter plot, you need to filter or otherwise restrict the catalog to have fewer points (see below).<P>
+errors (see below). If you have a heatmap and want a scatter plot, you
+need to filter or otherwise restrict the catalog to have fewer points
+(see below).<P>
 
 
 <h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
@@ -105,10 +109,10 @@ To change what is plotted, click on the gears icon in the upper right
 of the plot window pane: <img src="img/xyplotoptions.png"
 align="center">. Configuration options then appear; the options are a
 little different depending on whether the points are binned or
-not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%"> &nbsp; &nbsp;
-<img src="img/plotoptionspopup.png" width="30%"><br> The left has the
-options for binned plots, and the right has the options for plots that
-have individual points shown.<P>
+not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%">
+&nbsp; &nbsp; <img src="img/plotoptionspopup.png" width="30%"><br> The
+left has the options for binned plots, and the right has the options
+for plots that have individual points shown.<P>
 
 <DL><dt><strong>Both kinds of plots have the following
 options.</strong>
@@ -230,7 +234,8 @@ you that you have a filter applied. Only those sources that pass the
 filter are shown overlaid on the image(s) or in the catalog. (This is
 the behavior of 'filter', as opposed to 'select'; the former restricts
 what is shown, the latter just highlights the objects.) For more on
-filters, see <a href="table.html#filters">the filter section</A>.<P>
+filters, see <a href="tables.html#filters">the filtering dicussion in
+the tables section</A>.<P>
 
 <!-- If you have a big catalog, zooming or filtering may reduce the number
 of plotted points to below 15,000, which means
