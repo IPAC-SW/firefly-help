@@ -271,16 +271,16 @@ The third tab is just the table metadata:<br>
 
 <UL>
 <LI>If you impose logically inconsistent restrictions such as
-"exposure time &gt; 160" and "exposure time &lt 100"
+"exposure time &gt; 160" and "exposure time &lt; 100"
 ("&gt;160;&lt;100" in the filter box for the column marked "exposure
 time"), no data will result, because no data are (can be) both less
 than 160 seconds long and greater than 100 seconds long at the same
-time. However, "exposure time &gt; 160 or &lt 100" works just fine
+time. However, "exposure time &gt; 160 or &lt; 100" works just fine
 ("&gt;160 or &lt;100" in the filter box for the column marked
 "exposure time").  
 
 <LI>If you impose nonsensical filters (like using a letter where a
-number should be, like "w1snr &lt f") then it will let you know that
+number should be, like "w1snr &lt; f") then it will let you know that
 something has gone really wrong, and let you go back to fix it.
 
 <LI>However, a filter like "ph_qual &lt; f" could be valid -- if the
