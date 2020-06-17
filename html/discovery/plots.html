@@ -54,17 +54,20 @@ target="_blank">VizieR <img src="img/jumpout.jpg" height="10"></A>.
 
 <h3><a name="firstlook">Plot format: a first look</A></h3>
 
-<img src="img/nedsed.png" width="500"><BR>
-This is the SED that the Data Discovery tool shows for Arp 220, with the data being retrieved from NED.<P>
+<img src="img/nedsed.png" width="500"><BR> This is the SED that the
+Data Discovery tool shows for Arp 220, with the data being retrieved
+from NED.<P>
 
-Letting your mouse hover over a point tells you the
-values of the point under your cursor:<img src="img/nedsedonepoint.png" width="200">. Clicking (in an unbinned
-plot)  highlights that point, and it stays highlighted, though you
-must keep your mouse on the point in order to see the information
-about how many points it represents.<P>
+Letting your mouse hover over a point tells you the values of the
+point under your cursor:<img src="img/nedsedonepoint.png"
+width="200">. Clicking (in an unbinned plot)  highlights that point,
+and it stays highlighted, though you must keep your mouse on the point
+in order to see the information about how many points it
+represents.<P>
 
-<img src="img/viziersed.png" width="500"><BR>
-This is the SED that the Data Discovery tool shows for HD 878, with the data being retrieved from Vizier.<P>
+<img src="img/viziersed.png" width="500"><BR> This is the SED that the
+Data Discovery tool shows for HD 878, with the data being retrieved
+from Vizier.<P>
 
 
 
@@ -81,23 +84,46 @@ the image.<P>
 
 <h3><a name="orign">What is it Plotting?</A></h3>
 
-The tool is plotting its best guess as to what the SED is of the object. The y-axis is nuF_nu and the x-axis is wavelength in microns. <P>
+The tool is plotting its best guess as to what the SED is of the
+object. The y-axis is nuF_nu and the x-axis is wavelength in microns.
+<P>
 
 <strong>NED</strong> <P>
 
-If it uses NED to translate the name of the object to RA/Dec, then it will use NED data to get an SED. Very common names are resolved via NED but may not have an SED in NED. Try "M101" to get an SED; try "M16" to get the coordinates from NED but find no SED.<P>
+If it uses NED to translate the name of the object to RA/Dec, then it
+will use NED data to get an SED. Very common names are resolved via
+NED but may not have an SED in NED. Try "M101" to get an SED; try
+"M16" to get the coordinates from NED but find no SED.<P>
 
-The units from the points are what are supplied by NED. No additional translation has been done here, aside from multiplying to get nuF_nu.<P>
+The units from the points are what are supplied by NED. (note that the
+carats are used in an on/off sense, e.g., erg s^-1^ cm^-2^ means ergs
+per second per centimeter squared, where the first carat means
+"superscript" and the second carat means "back to normal".)  No
+additional translation has been done here, aside from multiplying to
+get nuF_nu.<P>
 
-The points that NED reports can come in a variety of units, but the data are filtered down to only include those in units of Jy before multiplying and plotting.<P>
- 
+The points that NED reports can come in a variety of units, but the
+data are filtered down to only include those in units of Jy before
+multiplying and plotting.<P>
+
 <strong>VizieR</strong> <P>
 
-If it uses SIMBAD to translate the name of the object to RA/Dec, then it will use  VizieR to get an SED. Try the name of a star (like HD 878) to get an SED. <P>
+If it uses SIMBAD to translate the name of the object to RA/Dec, then
+it will use  VizieR to get an SED. Try the name of a star (like HD
+878) to get an SED. <P>
 
-The VizieR photometry tool allows for easy visualization of photometry points extracted around a sky position from photometry-enabled catalogues in VizieR. Even when an object name is used as a target, what is returned is just a list of photometry point found within some search radius, and should not be mistaken for an actual SED for the target object: there is no guarantee that all photometry points correspond to the target, especially for extended sources or stars in a cluster in close (projected) proximity.<P>
+The VizieR photometry tool allows for easy visualization of photometry
+points extracted around a sky position from photometry-enabled
+catalogues in VizieR. Even when an object name is used as a target,
+what is returned is just a list of photometry point found within some
+search radius, and should not be mistaken for an actual SED for the
+target object: there is no guarantee that all photometry points
+correspond to the target, especially for extended sources or stars in
+a cluster in close (projected) proximity.<P>
 
-Note that, for VizieR searches, an additional circle appears on the image on the left; this is the search radius used to retrieve the points from VizieR that are shown here.<P>
+Note that, for VizieR searches, an additional circle appears on the
+image on the left; this is the search radius used to retrieve the
+points from VizieR that are shown here.<P>
 
 
 
@@ -106,7 +132,8 @@ Note that, for VizieR searches, an additional circle appears on the image on the
 To change what is plotted, click on the gears icon in the upper right
 of the plot window pane: <img src="img/xyplotoptions.png"
 align="center">. Configuration options then appear; the options are a
-little different than other plots in tools like this:<br>  <img src="img/nedsedplotparameters.png" width="30%"> <br> <P>
+little different than other plots in tools like this:<br>  <img
+src="img/nedsedplotparameters.png" width="30%"> <br> <P>
 
 You can see that it is doing manipulations to plot what is shown. The
 magnifying glass is a link that brings up a table that lists all of
