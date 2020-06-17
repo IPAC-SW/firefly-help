@@ -25,24 +25,23 @@ in which you might encounter them in the window.<P>
 
 
 <em>Contents of page/chapter:</em><br>
-+<A href="#fitsViewer">FITS/HiPS Viewer</a><br>
-+<A href="#imageinfo">Image Information</a><br>
-+<A href="#toolbar">Image Toolbar</a><br>
-+<a href="#stretches">Information on Color Stretches</A><br>
-+<a href="#hipsViewer">Information on HiPS features</A><br>
-+<a href="#footprints">Footprints</A><br>
++<A href="#fitsViewer">Basic FITS/HiPS Viewer</a><br>
++<A href="#imageinfo">Basic Image Information</a><br>
++<A href="#imageoptions">Visualization Tools -- Image Options</a><br>
++<a href="#stretches">Specific information on Color Stretches</A><br>
++<a href="#hipsViewer">Specific information on HiPS features</A><br>
++<a href="#footprints">Footprints</A> -- overlaying markers<br>
 +<A href="#breakingout">Breaking out of the pane (and going back)</A><br>
 +<A href="#imagenavigation">Image Navigation</A><br>
 +<a href="#wcs">World Coordinate System (WCS) Alignment and Releated
 Features</A><br>
-+<a href="#coverage">Coverage Image</A><br>
 +<a href="#autozoom">Automatic FITS-HiPS-Aitoff Transitions</A><br>
 <P>&nbsp;<P>
 
 
 
 
-<h3><A NAME="fitsViewer">FITS/HiPS Image Viewer</A></h3>
+<h3><A NAME="fitsViewer">Basic FITS/HiPS Image Viewer</A></h3>
 
 
 You can interactively explore the image with the mouse. Move your
@@ -65,7 +64,7 @@ slightly.<P>
 
 &nbsp;<P>
 
-<H3><A NAME="imageinfo">Image Information</A></H3>
+<H3><A NAME="imageinfo">Basic Image Information</A></H3>
 
 
 The upper left of the loaded image tells you basic things about the
@@ -113,8 +112,7 @@ as the pixel scale and orientation).<P>
 
 &nbsp;<P>
 
-<a name="imageoptions"> <!-- --> </A>
-<h3><a name="toolbar">Image Toolbar (FITS and HiPS)</A></h3>
+<h3><a name="imageoptions">Visualization Tools -- FITS and HiPS Image Options</A></h3>
 
 The image toolbox is always present as a row of tools just under the
 IRSA banner. Letting your mouse hover over any of these icons will
@@ -138,15 +136,13 @@ We now discuss each icon in turn.<P>
 <DL>
 
 <A NAME="fitsDownloadOptions"><!-- --></A>
-<A NAME="saveimage"><!-- --></A>
-<dt><img src="img/save.png"> <em>Saving the image.</em> <dd>The
-diskette icon will allow you to save the current image.  You can save
-files to your local disk or to the  <a href="/docs/workspace/"
-target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
-height="10"></A>.  Note that <b>you</b> control where the file is
-saved on your disk through your browser; your browser may be
-configured to store all downloads in a particular location on your
-disk.<P>
+<dt><img src="img/save.png"> <em>Saving the image.</em>
+<dd>The diskette icon will allow you to save the current image.  You
+can save files to your local disk or to the  <a
+href="/docs/workspace/" target="_blank">IRSA Workspace</A>.  Note that
+<b>you</b> control where the file is saved on your disk through your
+browser; your browser may be configured to
+store all downloads in a particular location on your disk.<P>
 
 If the current image is a FITS file, you can save it as a FITS or PNG
 or regions file to your local disk. If it is a HiPS file, your only
@@ -157,8 +153,8 @@ have placed on the image, but will not include the underlying FITS
 image. Saved regions files will not save the underlying image, but
 will just save the overlays as a DS9 Regions file. See the <a
 href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
-website <img src="img/jumpout.jpg" height="10"></A> for more
-information on the syntax of these DS9 region files. <P>
+website</A> for more information on the syntax of these DS9 region
+files. <P>
 
 Note that you can save the original or a cropped version of a FITS
 file; see the "select region" icon below to crop, then click on the
@@ -176,15 +172,15 @@ The saved PNG is the same size as it is on your screen. If you want a
 big version, make the desired image big on your screen (view
 one-at-a-time) before saving the PNG. <P>
 
-<!-- this needs to stay because it is part of gator's
+<!-- this needs to stay because it is part of gator;s
 implementation -->
-<!-- <dt><img src="img/selectnew.png"> <em>Selecting a new
+<dt><img src="img/selectnew.png"> <em>Selecting a new
 image.</em>   
 <dd>This icon does not always appear. Clicking on this icon is the
 same as selecting the blue "Images" tab. Click on this icon -- or the
 blue Images tab -- to add a new image through a new search, or to
 change the current image to a new image. To change a HiPS image, see
-discussion in <a href="#wcs">WCS section</A> below.<P>-->
+discussion in <a href="#wcs">WCS section</A> below.<P>
 
 <dt><img src="img/zoominout.png"> <em>Zooming in or out.</em>  
 <dd>
@@ -309,8 +305,7 @@ the image in the window, or center on a target of your choice. For the
 last of those, you can simply center on that target, or center and
 leave a marker on the image at that location.<P>
 
-<a name="selectregion">
-<dt><img src="img/selectregion.png"> <em>Selecting a region.</em></A>
+<dt><img src="img/selectregion.png"> <em>Selecting a region.</em>
 <dd>When you click this icon, you are right away given a choice of a
 rectangular selection or an elliptical selection. After you make that
 choice, at first, nothing seems to happen. But, now you can click and
@@ -349,7 +344,7 @@ icon changes above the catalog to indicate that there is a filter
 applied (<img src="img/filtersapplied.png">). To clear the filters,
 click on the cancel filters icon (which also appears after you impose
 filters): <img src="img/cancelfilters.png">. There is much more on <a
-href="tables.html#filters">filters</A> in the Tables
+href="catalogs.html#columnsfilters">filters</A> in the catalogs
 section.<P>
 
 <strong>Note that</strong>, if you have a rotated FITS image such that
@@ -372,9 +367,9 @@ as well; find the layer associated with the distance measurement and
 tick the "offset calculation" box. When it displays the offset
 calculation, it will give you the angle in degrees in one corner, and
 the length of the line segment in the RA and Dec directions, in the
-units you have specified.  Clicking on this icon a second time removes
+units you have specified. Clicking on this icon a second time removes
 the distance tool. (You can also remove this layer via the layers
-icon.)  <P>
+icon.) <P>
 
 <dt><img src="img/marker.png"> <em>Put a marker on the image. </em>
 <dd> When you click this icon, a pull-down menu appears with several
@@ -413,21 +408,18 @@ e.g., Galactic coordinates) via the "layers" icon (described
 below).<P>
 
 
-<a name="ds9regions">
-<dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em></A>
+<dt><img src="img/ds9icon.png"> <em>Read in a DS9 Regions file </em>
 <dd> When you click this icon, you get a pop-up window from which you
 can read in a DS9 regions file from your local disk. See the <a
-href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
-website <img src="img/jumpout.jpg" height="10"></A> for more
-information on the syntax of these DS9 region files. The supported
-regions are text, circle, box, polygon, line, and annulus. To make
-this window go away without doing anything, click on the 'x' in the
-upper right of the pop-up. <P>
+href="http://ds9.si.edu/doc/ref/region.html"
+target="_blank">DS9 website</A> for more information on the syntax of
+these DS9 region files. The supported regions are text, circle, box,
+polygon, line, and annulus. To make this window go away without doing
+anything, click on the 'x' in the upper right of the pop-up. <P>
 
 
-<a name="layers">
 <dt><img src="img/layers.png"> <em>Viewing/changing the layers on the
-image.</em></A> 
+image.</em> 
 <dd>If you've been following along by trying these various options,
 you now have an image with a lot of annotations on it. The number that
 appears in blue over the layers icon tells you at any given time how
@@ -438,8 +430,9 @@ you have on top of the image. From the pop-up, you can turn layers off
 and on, at minimum, but you can often also change exactly what is
 displayed and what colors get used for it. To add new things, though,
 you need to go to other options within the toolbar. Here is an example
-of a well-populated layers pop-up. <br><img
-src="img/layerspopup.png"><br> 
+of a well-populated layers pop-up. The tickboxes indicate "show this
+item."  <br><img
+src="img/layerspopup.png"><br>
 Note the target description:<img src="img/targetrowofpopup.png">
 This reminds you
 of the target on which you searched -- here, it was M16, where the
@@ -470,7 +463,6 @@ defaults</em>
 everything you've done. Click this button to restore everything to
 their original default values. Some layers may persist; remove them
 via the layers icon described above. <P>
-
 
 
 <dt><img src="img/lockedimages.png"><em>Lock/unlock image color tables
@@ -516,8 +508,8 @@ src="img/unsortedfitsheader.png" width="40%"><img
 src="img/sortedfitsheader.png" width="40%"> <P>
 Further, you can click on the gears in the upper right of the window
 to bring up a dialog box via which you can filter down the header
-keywords (using the same syntax as other <a
-href="tables.html#filters">filters</A>):<br>
+keywords (using the same syntax as the other <a
+href="catalogs.html#filters">filters</A>):<br>
 <img src="img/fitsheaderoptions.png"><P>
 An example of the HiPS properties window is here:<br>
 <img src="img/hipsinfo.png"><P>
@@ -568,12 +560,11 @@ you can set the parameters in the stretch pop-up accordingly.<P>
 
 As described in <a
 href="https://ui.adsabs.harvard.edu/#abs/2004PASP..116..133L" 
-target="_blank">Lupton et al. (2004) <img src="img/jumpout.jpg"
-height="10"></A>, a different algorithm may be useful for creating
-3-band color images. Select "Hue preserving stretch" to invoke this
-option. This stretch should be a brightness-independent
-color-preserving asinh stretch, though in practical terms, it seems to
-work best for optical images. <P>
+target="_blank">Lupton et al. (2004)</A>, a different algorithm may be
+useful for creating 3-band color images. Select "Hue preserving
+stretch" to invoke this option. This stretch should be a
+brightness-independent color-preserving asinh stretch, though in
+practical terms, it seems to work best for optical images. <P>
 
 <img src="img/luptonstretch.png"><P>
 
@@ -598,12 +589,11 @@ Follow-up ticket for scaling coefficients and help is https://jira.lsstcorp.org/
 
 <a
 href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
-target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A>
-(hierarchical progressive survey) images are different than FITS
-images, and as such, the choices of what you can do with the HiPS
-images are different than what you can do with the FITS images.
-Choices you can make for HiPS images are sometimes different than what
-you get for FITS images.<P>
+target="_blank">HiPS</A> (hierarchical progressive survey) images are
+different than FITS images, and as such, the choices of what you can
+do with the HiPS images are different than what you can do with the
+FITS images. Choices you can make for HiPS images are sometimes
+different than what you get for FITS images.<P>
 
 The whole point of HiPS images is to provide on-demand resolution
 changes. Zoom out, and it loads large pixels. Zoom in, and it loads
@@ -614,8 +604,7 @@ type to use.<P>
 There are HiPS images from all over the world; the complete list of
 HiPS images available from the IRSA Viewer search page includes (once
 the "IRSA Featured" checkbox is unchecked) many HiPS images from <a
-href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS <img
-src="img/jumpout.jpg" height="10"></A>. <P>
+href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS</A>. <P>
 
 HiPS images have the color and stretch set by the person who
 originally made them. Thus, you cannot change the color/stretch of
@@ -629,36 +618,6 @@ image.<P>
 Catalog searches (see <a href="catalogs.html">Catalogs section</A>) on
 top of HiPS images are limited to a maximum of 5 degrees. <P>
 
-
-<a name="hipsgrid"><strong>HiPS Grid</strong></A><P>
-
-Once you have loaded a HiPS image into the IRSA Viewer, if you click
-on the layers icon (<img src="img/layers.png">), you will have
-new, HiPS-specific choices in the layers:<br>
-<img src="img/hipslayers.png"><br>
-
-To turn on these choices, click the checkbox to the left of "HEALPix
-(HiPS) Grid". <P>
-
-<strong>Auto</strong>: This option overlays a position grid, with the
-tile numbers marked in the center of each box. As you continue to zoom
-in, when smaller tiles are needed, they are drawn, with the new tile
-numbers marked. You may not zoom beyond HiPS Norder level 14 tiles.
-The numbers after the "/" is in the "NESTED" (as opposed to RING or
-NUNIQ) numbering system; see <a
-href="http://www.ivoa.net/documents/HiPS/" target="_blank">the IVOA
-standards document <img src="img/jumpout.jpg" height="10"></A> for
-more information.<P>
-
-<strong>Grid Match Image Depth</strong>:  If you select this option,
-the grid will adjust to a new level when you zoom in and a new level
-of HiPS image both exists and is used for the display.<P> 
-
-<strong>Grid Level Lock</strong>: Selecting this option yields an
-additional numerical pull-down menu. The higher number you pick, the
-smaller the grid boxes are that are drawn. When this option is
-selected, the boxes stay the same size regardless of how zoomed-in on
-the image you are.<P>
 
 
 
@@ -726,10 +685,8 @@ called 'marker') is a red circle.   <P>
 The remaining markers are all footprints from various telescopes:
 Spitzer, SOFIA, HST, JWST, and Roman. HST, JWST and Roman are derived
 from information provided via MAST (see <a
-href="http://gsss.stsci.edu/webservices/footprints/help.html"
-target="_blank">http://gsss.stsci.edu/webservices/footprints/help.html
-<img src="img/jumpout.jpg" height="10"></A>.) For JWST and Roman in
-particular, they are pre-launch values.<P>
+href="http://gsss.stsci.edu/webservices/footprints/help.html">http://gsss.stsci.edu/webservices/footprints/help.html <img src="img/jumpout.jpg" height="10"></A>.)
+For JWST and Roman in particular, they are pre-launch values.<P>
 
 <img src="img/iracfoot.png"> <strong>Spitzer/IRAC 3.6 and 4.5 micron
 footprints.</strong> These two footprints are placed separately
@@ -774,8 +731,8 @@ placed separately) are:
 <LI>214 microns (Band E), Polarization
 </UL>
 </UL>
-Change the color, delete, or add more copies of the SOFIA footprints
-from the layers pop-up.<P>
+Change the color, delete, or add
+more copies of the SOFIA footprints from the layers pop-up.<P>
 
 
 
@@ -783,9 +740,8 @@ from the layers pop-up.<P>
 You can overlay the whole focal plane footprint, shown here, or
 individual instrument footprints (NICMOS, WFPC2, ACS/WFC, ACS/HRC,
 ACS/SBC, WFC3/UVIS, and WFC3/IR).  Consult the <a
-href="http://www.stsci.edu/hst/observatory/apertures"
-target="_blank">HST documentation <img src="img/jumpout.jpg"
-height="10"></A> for specifics on which apertures are which. The
+href="http://www.stsci.edu/hst/observatory/apertures">HST
+documentation <img src="img/jumpout.jpg" height="10"></A> for specifics on which apertures are which. The
 footprint can be moved or rotated. Click and drag the center of the
 footprint. A circle appears with four small circles ("handles") around
 it. Grab and drag the small circles to rotate it, or drag the big
@@ -798,30 +754,29 @@ the layers pop-up.<P>
 <img src="img/jwstall.png"> <strong>JWST footprints.</strong>
 You can overlay the whole focal plane footprint, shown here, or
 individual instrument footprints (FGS, MIRI, NIRCAM, NIS, and NIRSPEC).
+<P>
 <strong>Note that</strong> if you overlay the footprint on a very
 small image, nothing will appear to have happened. You need at least a
-30 arcmin image to comfortably see the entire JWST focal plane. Please
-consult the <a href="http://www.stsci.edu/jwst/" target="_blank">JWST
-documentation <img src="img/jumpout.jpg" height="10"></A> for details
+30 arcmin image to comfortably see the entire JWST focal plane. Please consult the <a
+href="http://www.stsci.edu/jwst/">JWST documentation <img src="img/jumpout.jpg" height="10"></A> for details
 about the footprints.  In all cases, if the footprint is 'active', a
 circle near the middle of the footprint will appear with four small
 circles ("handles") around it. Grab and drag the small circles to
 rotate it, or drag the big circle to move it. Change the color,
 delete, or add more copies of the footprints from the layers pop-up.<P>
 
-<img src="img/wfirst.png"> <strong>Nancy Grace Roman Space Telescope
-(WFIRST) focal plane footprint.</strong> As above, the footprint can
-be moved or rotated. Click and drag the boresight (the cross hairs),
-which appears by default to the upper right of the array of squares. 
-A circle appears, centered on the boresight, with four small circles
-("handles") around it. Grab and drag the small circles to rotate it,
-or drag the big circle to move it. <strong>Note that</strong> if you
-overlay the footprint on a very small image, nothing will appear to
-have happened. You need at least a 60 arcmin image to comfortably see
-the footprint, and even then you will probably have to click and drag
-to see the entire footprint. Consult the <a
-href="https://wfirst.ipac.caltech.edu/" target="_blank">WFIRST
-documentation <img src="img/jumpout.jpg" height="10"></A> for
+<img src="img/wfirst.png"> <strong>Nancy Grace Roman Space Telescope (WFIRST) focal plane
+footprint.</strong> As above, the footprint can be moved or rotated.
+Click and drag the boresight (the cross hairs), which appears by
+default to the upper right of the array of squares.  A circle appears,
+centered on the boresight, with four small circles ("handles") around
+it. Grab and drag the small circles to rotate it, or drag the big
+circle to move it. <strong>Note that</strong> if you overlay the
+footprint on a very small image, nothing will appear to have happened.
+You need at least a 60 arcmin image to comfortably see the footprint,
+and even then you will probably have to click and drag to see the
+entire footprint. Consult the <a
+href="https://wfirst.ipac.caltech.edu/">Roman documentation <img src="img/jumpout.jpg" height="10"></A> for
 specifics on the apertures. Change the color, delete, or add more
 copies of the Roman footprint from the layers pop-up.<P> 
 
@@ -886,11 +841,10 @@ above on <a href="#breakingout">Breaking out of the pane</A>). <P>
 <strong>Image List</strong><P>
 
 Depending on what you have loaded, you may have an additional icon:
-<img src="img/imagelist.png"><BR> Clicking on this icon brings up a
-list of the images you have loaded, with some additional information
-on each one. This list is a <a href="tables.html">table like any
-other</A> in this tool. The power of this table is best demonstrated
-by an example. <P>
+<img src="img/imagelist.png"><BR>
+Clicking on this icon brings up a list of the images you have loaded,
+with some additional information on each one. The power of this table
+is best demonstrated by an example. <P>
 
 Example: Load the tool. Search on M101, with the default image size. 
 Select all bands from the following data sets: SEIP, DUSTiNGS, LVL,
@@ -976,7 +930,7 @@ images. <P>
 
 You can align by the images' WCS (world coordinate system,
 e.g., RA and Dec), by the target (align by target on the screen,
-regardless of position in the sky), by the pixels according to the
+regargless of position in the sky), by the pixels according to the
 origin of the coordinate system in the image header, or by the pixel
 at the image center. The most common choice is likely the WCS align
 and lock.<P>
@@ -996,10 +950,40 @@ image tile.<br>
 
 
 
+<strong>HiPS Grid</strong><P>
+
+Once you have loaded a HiPS image into the IRSA Viewer, if you click
+on the layers icon (<img src="img/layers.png">), you will have
+new, HiPS-specific choices in the layers:<br>
+<img src="img/hipslayers.png"><br>
+
+To turn on these choices, click the checkbox to the left of "HEALPix
+(HiPS) Grid". <P>
+
+<strong>Auto</strong>: This option overlays a position grid, with the
+tile numbers marked in the center of each box. As you continue to zoom
+in, when smaller tiles are needed, they are drawn, with the new tile
+numbers marked. You may not zoom beyond HiPS Norder level 14 tiles.
+The numbers after the "/" is in the "NESTED" (as opposed to RING or
+NUNIQ) numbering system; see <a
+href="http://www.ivoa.net/documents/HiPS/" target="_blank">the IVOA
+standards document <img src="img/jumpout.jpg" height="10"></A> for more information.<P>
+
+<strong>Grid Match Image Depth</strong>:  If you select this option,
+the grid will adjust to a new level when you zoom in and a new level
+of HiPS image both exists and is used for the display.<P> 
+
+<strong>Grid Level Lock</strong>: Selecting this option yields an
+additional numerical pull-down menu. The higher number you pick, the
+smaller the grid boxes are that are drawn. When this option is
+selected, the boxes stay the same size regardless of how zoomed-in on
+the image you are.<P>
+
 
 &nbsp;<P>
 
-<A NAME="coverage"><h3>Coverage Image</h3></A></A>
+<A NAME="autozoom"><A NAME="changing"><h3>Automatic FITS-HiPS-Aitoff Transitions</h3></A></A>
+
 
 If you have launched IRSA Viewer by initially doing a catalog search
 (as opposed to an image search), when the catalog is loaded, it will
@@ -1008,19 +992,6 @@ pick an image on your behalf, called a coverage image. <P>
 If you have launched IRSA Viewer with images and then do a catalog
 search, it will generate the coverage image for you and create a new
 tab under your loaded images. <P>
-
-The next subsection covers more details about the coverage image.<P>
-
-
-
-
-
-
-&nbsp;<P>
-
-<A NAME="autozoom"><A NAME="changing"><h3>Automatic FITS-HiPS-Aitoff Transitions</h3></A></A>
-
-<!-- should remove aitoff ultimately because plain irsa viewer doesn't need it. !-->
 
 <img src="img/coveragechoices1.png"><img
 src="img/coveragechoices.png"> Coverage images can have many choices;
@@ -1075,34 +1046,16 @@ Used in conjunction with the image readout and/or the coordinate
 layer button (both described above), you can change what coordinate
 system it uses.<P>
 
-
-<a name="changehips"><strong>Change HiPS</strong></A><P>
+<strong>Change HiPS</strong><P>
 
 As seen in that screen snapshot just above, the choices made by the
 creator of this HiPS image result in the brightest region of M42 (here
-indicated by the target marker) being saturated.  Color tables and
+indicated by the target marker) is saturated.  Color tables and
 stretches are set by the creator of the HiPS map and cannot be
 changed. If the HiPS map as shown does not suit your needs and you
 wish to change the HiPS image, click on the "Change HiPS" button, seen
-in the screen shot above. It brings up this pop-up:<br>
-<img src="img/changehips.png"> <p>
-Things to note:
-<UL>
-<LI>To select a new image, click on the row corresponding to the new
-HiPS image you want, and click "Search" on the bottom left. 
-<LI>To cancel without selecting a new image, click "Cancel."
-<LI>This is an interactive table, so all the <a
-href="tables.html#filters">filtering</A> and <a
-href="tables.html#columns">column manipulation</A> tools apply here
-too. You can filter down the columns to find the image you want to
-use.
-<LI>To learn more about each HiPS map, click on the i with the circle
-in the second column. It will spawn another window with standardized
-information about the HiPS map.
-<LI>By default, it shows HiPS maps corresponding to IRSA data
-collections. To see a more comprehensive list, unclick the box marked
-"IRSA Featured."
-</UL>
+in the screen shot above. It brings up a pop-up just like the <a
+href="basics.html#hips">main search screen for HiPS images</A>.  <P>
 
 
 

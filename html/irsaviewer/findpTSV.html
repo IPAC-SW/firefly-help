@@ -19,7 +19,7 @@
 +<A href="#initialview">Initial View</A><br>
 +<A href="#settings">Settings and Adjusting Periods</A><br>
 +<A href="#plot">Plot</A> <br>
-+<A href="#pgram">Calculate Periodogram</A> <br>
++<A href="#pgram">Find Periodogram</A> <br>
 +<A href="#pgramresults">Periodogram Results</A> <br>
 +<A href="#acceptp">Accepting a Period</A> <br>
 <P>&nbsp;<P>
@@ -62,8 +62,8 @@ periodogram"</A> button in the lower portion of the screen (see below for
 more information).
 </OL>
 
-It has also extracted the time of the first epoch in your data file
-and listed it in the box labeled "Time Offset." You can change this if
+It has also extracted the time of the first epoch in your data file and
+listed it in the box labeled "Time Offset." You can change this if
 you want.<P>
 
 Once you have a period you like, click "accept" to accept means to
@@ -76,10 +76,10 @@ curve.<P>
 <h3><A NAME="plot">Plot</A></h3>
 
 The plot in the upper right is a plot of the uploaded light curve,
-phased to the currently selected period. It comes up without an
-initial period. If you enter a different period in the <a
-href="#settings">settings pane</A>, then this plot dynamically
-updates.<P>
+phased to the currently selected period. It comes up without an initial
+period. If you enter a different period in the <a
+href="#settings">settings pane</A>, then
+this plot dynamically updates.<P>
 
 This plot is unlike any other plot within this tool in that you cannot
 control what is plotted or how. <P>
@@ -87,12 +87,11 @@ control what is plotted or how. <P>
 <h3><A NAME="pgram">Calculate Periodogram</A></h3>
 
 When you first load this portion of the tool, the bottom has only a
-"Calculate Periodogram" button. Clicking on it starts the process of
-the  periodogram calculation. The code that is actually run by the
-tool is that from <a
+"Calculate Periodogram" button. Clicking on it starts the process of the 
+periodogram calculation. The code that is actually run by the tool is
+that from <a
 href="http://exoplanetarchive.ipac.caltech.edu/docs/pgram/pgram_parameters.html"
-target="_blank">NExScI periodogram service <img src="img/jumpout.jpg"
-height="10"></A>. <P>
+target="_blank">NExScI periodogram service <img src="img/jumpout.jpg" height="10"></A>. <P>
 
 Clicking on the button brings up this configuration pop-up:<br>
 <img src="img/configpgramTSV.png"><br>
@@ -157,9 +156,9 @@ and the phased light curve changes. In the settings pane, the period
 next to "enter manually" is updated to reflect the period you
 selected.  <P>
 
-If you select the other table, the table of peaks, on the left, all
-the same functionalities apply, except the plot on the lower right is
-now power versus peak number. <P>
+If you select the other table, the table of peaks, on the left, all the same
+functionalities apply, except the plot on the lower right is now power
+versus peak number. <P>
 
 (This power spectrum and period are what you get if you use this 
 <a href="exampleallwiseinput.tbl">example input table from
@@ -179,10 +178,10 @@ to reduce the number of plotted points to &lt; 50,000. You can filter
 down the table or the plot. To filter down the table, click on the
 filter icon (<img src="img/filter.png">), and add a filter to the
 period or power columns. For a more complete introduction to filtering
-tables, please see the <a href="tables.html#filters">Filters portion
-of the Tables section</A>. To filter down the plot, click and drag in
-the plot, then click the filter icon on the upper left of the plot:
-<br>
+tables, please see the <a href="catalogs.html#columnsfilters">Catalogs
+section on columns and filters</A> from the main IRSA Viewer section.
+To filter down the plot, click and drag in the plot, then click the
+filter icon on the upper left of the plot: <br>
 <img src="img/densitypwrspec2.png"><br>
 Once you get fewer points (&lt; 50,000) in the plot, it will render them as
 individual points:<br>
@@ -218,7 +217,7 @@ if the time series has large gaps. Simulations are helpful to know
 what to believe.<P>
 
 <strong>Troubleshooting 3:</strong> The version of Plot.ly used by the
-IRSA Viewer sometimes makes ...unusal label choices for logarithmic
+IRSA Viewer sometimes makes ..unusal label choices for logarithmic
 plots. The two minor ticks between major ticks are 2 and 5, so if they
 occur between 10 and 100, it means 20 and 50. <P>
 
