@@ -13,10 +13,11 @@
 
 <h2>SOFIA Science Data Archive: Catalogs</h2>
 
-Catalogs are a special case of <a href="tables.html">tables</A>; the basic functionality of tables is covered in the <a href="tables.html">Tables section</A>. 
-You can choose from any of a wide variety of catalogs to load for
-overlaying on your <a href="visualization.html">visualized data</A>.
-<P>
+Catalogs are a special case of <a href="tables.html">tables</A>; the
+basic functionality of tables is covered in the <a
+href="tables.html">Tables section</A>.  You can choose from any of a
+wide variety of catalogs to load for overlaying on your <a
+href="visualization.html">visualized data</A>. <P>
 
 
 <P>
@@ -58,7 +59,7 @@ In the upper right is the search target and search region.
 By default, it pre-fills your search target to match your most
 recently searched target. To change the target, simply enter the new
 coordinates in the search box, with all the same options as <a
-href="basics.html#searching">searching the SOFIA Science Data Archive in general</A>.
+href="searching.html">searching the SOFIA Science Data Archive in general</A>.
 Next, choose your search shape ("Search Method") from the pulldown;
 the options below the search method change accordingly (and sometimes
 the target vanishes, when it is not relevant):
@@ -79,10 +80,10 @@ box.
         polygon on the sky in which to search.
         </UL>
 <LI><strong>multi-object</strong> - upload an IPAC table format list
-of targets (just like searching <a href="basics.html#byTable">a list
-of targets from the main page</A>) and a radius for a cone search
+of targets (just like searching <a href="searching.html#byTable">a
+list of targets from the main page</A>) and a radius for a cone search
 around each position in your file. (See <A
-href="#multi">multi-position columns</A> below for more information on
+href="tables.html#columns">columns section</A> for more information on
 additional columns that appear for a multi-position search.)
 <LI><strong>all-sky</strong> - search the whole catalog with no
 spatial constraints; you need at this point to impose filters by field
@@ -107,13 +108,13 @@ are literally hundreds of columns that you can access!<P>
 
 Click on "Search" to initiate the search. It will load the catalog
 into a tab of its own on the bottom left of the screen (in the
-catalogs window pane) and make a plot (see <a
-href="#xyplots">below</A>) on the bottom right.  The catalog objects
-will also be overlaid on the images you have loaded. The image and the
-plot and the catalog panes are interlinked -- clicking on a row in the
-table shows it on the image and plot; clicking on a source in the plot
-shows it in the image and table; clicking a source on the image shows
-it in the plot and table. <P>
+catalogs window pane) and make a plot (see <a href="plots.html">plots
+section</A>) on the bottom right.  The catalog objects will also be
+overlaid on the images you have loaded. The image and the plot and the
+catalog panes are interlinked -- clicking on a row in the table shows
+it on the image and plot; clicking on a source in the plot shows it in
+the image and table; clicking a source on the image shows it in the
+plot and table. <P>
 
 To close the catalog search window without searching on a catalog,
 click on "cancel" in the lower left.<P>
@@ -156,10 +157,11 @@ sources from the full catalog in the regions file.<P>
 <h3><a name="owncatalogs">Loading your own catalogs</A></h3><P>
 
 By clicking on the blue "Catalogs" tab, you are by default dropped
-into the interface for searching for catalogs at IRSA. However, you can
-pick another tab from the top, "Load Catalog", to load your own
-catalog, either from disk or from the <a
-href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>.<P>
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top, "Load Catalog", to load your own
+catalog, either from disk or from the <a href="/docs/workspace/"
+target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
+height="10"></A>.<P>
 
 Your catalog needs to be in <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
@@ -188,7 +190,8 @@ a HEX value to catalog marks, e.g., either of these two:
 </pre>
 You can find the <a
 href="https://www.w3schools.com/cssref/css_colors.asp"
-target="_blank">CSS color code or the CSS color HEX values <img src="img/jumpout.jpg" height="10"></A> online.<P> 
+target="_blank">CSS color code or the CSS color HEX values <img
+src="img/jumpout.jpg" height="10"></A> online.<P> 
 
 Your catalog is then shown (and interacted with) in the same way as
 the other catalogs described here.<P>
@@ -237,17 +240,18 @@ the other catalogs described here.<P>
 Load the tool. Search on IC1396. Go to the catalogs tab. Choose "VO
 Catalog." It wants the root URL for a cone search. I click on "Find
 Astronomical Data Resources", which takes me <a
-href="http://vao.stsci.edu/keyword-search/" target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.
-Search on IPHAS. Get <a
+href="http://vao.stsci.edu/keyword-search/" target="_blank">here <img
+src="img/jumpout.jpg" height="10"></A>. Search on IPHAS. Get <a
 href="http://vao.stsci.edu/keyword-search/?utf8=%E2%9C%93&search_field=all_fields&q=iphas"
-target="_blank">this page <img src="img/jumpout.jpg" height="10"></A>. Look for the complete catalog release
-(not just one associated with one specific study). The name of the
-catalog goes <a
+target="_blank">this page <img src="img/jumpout.jpg" height="10"></A>.
+Look for the complete catalog release (not just one associated with
+one specific study). The name of the catalog goes <a
 href="http://vao.stsci.edu/directory/getRecord.aspx?id=ivo://CDS.VizieR/II/321"
-target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. Hit the [+] to expand it. There is one URL
-listed there, under "available endpoints for the standard interface."
-Copy that URL and paste it into the search form. The IRSA tool will
-append your coordinates and radius and return you a table.<P>
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. Hit
+the [+] to expand it. There is one URL listed there, under "available
+endpoints for the standard interface." Copy that URL and paste it into
+the search form. The IRSA tool will append your coordinates and radius
+and return you a table.<P>
 
 <strong>Troubleshooting</strong><p>
 
@@ -261,8 +265,9 @@ inserted into the URL by the tool in response to the search
 parameters you give it).<P>
 
 The master list of registries is <a href="http://rofr.ivoa.net/"
-target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You can also search the registries directly
-via that link (as opposed to via the IRSA tools). <P>
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You
+can also search the registries directly via that link (as opposed to
+via the IRSA tools). <P>
 
 
 <h3><A name="nedcatalogs">Catalogs from NED</A> -- Overlaying
