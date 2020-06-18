@@ -385,11 +385,22 @@ click on the "Long Form" button. Regardless of whether you choose
 checking the boxes under the "Sel" column in the table.
 </p>
 
+<P>Some columns have no checkbox in the "Sel" column, and those are
+linked to the prior column, such as in the case of errors. If you are
+asking for a brightness measurement, you get the errors on that
+measurement "for free" along with your query.</P>
+
+<P>To find out what columns are, click on the column name to be taken
+to additional documentation describing the column.</P>
+
+
 <h3><a name="ColumnConstraints">Column Constraints</a></h3>
+
 
 <p>Some columns are indexed for fast access, and are indicated by an
 "X" in the "Indx" column. Queries with constraints on indexed columns
-run  faster than queries with constraints on unindexed columns.  An
+run  faster than queries with constraints on unindexed columns.  
+<!-- An
 index is a storage structure that allows rapid access to the rows of a
 table. The DBMS interprets the index much the same way as a reader
 interprets the index of a book. The index contains data values for a
@@ -403,7 +414,8 @@ its data values, indices also increase storage space and the
 complexity of managing the tables. Moreover, the query optimization
 algorithms used by the DBMS take many factors into account in
 assessing the best path to take, and a large number of indices can
-slow down a query while the optimizer decides which one to use.</p>
+slow down a query while the optimizer decides which one to use. !-->
+</p>
 
 <p>Ranges on any column can be specified by filling out the 
 corresponding "Low Limit" and "Upper Limit" boxes. Each constraint
