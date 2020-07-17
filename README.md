@@ -1,3 +1,11 @@
+## About `irsa-ui-help`
+
+This is a fork of [firefly-help](https://github.com/Caltech-IPAC/firefly-help/).  
+Additional information for `irsa-ui-help` are [here].(./README-irsa-ui.md) 
+
+
+
+
 ## About Firefly Help
 
 Firefly Help is an open source template for creating help content.  It's used by [Firefly](https://github.com/Caltech-IPAC/firefly/)
@@ -286,9 +294,4 @@ This is straight forward.  But, what if I need to add my additional project's sp
     }    
     
     
-
-## Additional Docs
-
-- `irsa-ui-help` [readme](./README-irsa-ui.md) 
-
     

@@ -96,7 +96,7 @@ First, clone the repository:
 Then, follow the steps outlined above, but replacing `irsa-up-help` with `firefly-help`.
 
 
-### To pull `firefly-help` changes to `irsa-ui-help`    
+### To pull `firefly-help` changes to `irsa-ui-help` via GitHub   
 
 Because `irsa-ui-help` is a fork of `firefly-help`, you may need to pick up changes that was made to `firefly-help` from time to time.
 This process should be done by an admin.    
@@ -112,5 +112,22 @@ To sync `irsa-ui-help` on github:
 - This may require resolving merge conflicts
 
 
+### To pull `firefly-help` changes to `irsa-ui-help` directly without a pull requst via command line 
 
+Add the `firefly-help` as an upstream repository
+
+    git remote add upstream https://github.com/Caltech-IPAC/firefly-help
+    git remote -v
+        origin	https://github.com/IPAC-SW/irsa-ui-help (fetch)
+        origin	https://github.com/IPAC-SW/irsa-ui-help (push)
+        upstream	https://github.com/Caltech-IPAC/firefly-help (fetch)
+        upstream	https://github.com/Caltech-IPAC/firefly-help (push)
+        
+Merging `firefly-help` into `irsa-ui-help`
+
+    git checkout master
+    git merge upstream/master
+
+    # once satisfy with the changes, push it to github
+    git push origin master
 
