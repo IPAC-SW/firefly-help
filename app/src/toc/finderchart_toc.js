@@ -62,7 +62,7 @@ const toc_basics = {
             href: 'finderchart/basics.html#byTable',
         },
         {
-            id: 'basics.catalog',
+            id: 'basics.catalogs',
             title: 'Retrieving and Using Catalogs',
             href: 'finderchart/basics.html#catalogs',
         },
@@ -99,6 +99,12 @@ const toc_visualization = {
             id: 'visualization.Rotate',
             title: 'Rotate Image',
             href: 'finderchart/visualization.html#rotateImage',
+            hidden: true,
+        },
+        {
+            id: 'visualization.imageoptions',
+            title: 'Image Toolbar',
+            href: 'finderchart/visualization.html#toolbar',
             hidden: true,
         },
         {
@@ -210,6 +216,18 @@ const toc_catalogs = {
             id: 'visualization.xyplotViewer',
             title: 'Making Plots',
             href: 'finderchart/catalogs.html#xyplots',
+            hidden: true,
+        },
+        {
+            id: 'catalogs.vo',
+            title: 'VO Catalogs',
+            href: 'finderchart/catalogs.html#vocatalogs',
+            hidden: true,
+        },
+        {
+            id: 'catalogs.ned',
+            title: 'NED Catalogs',
+            href: 'finderchart/catalogs.html#nedcatalogs',
             hidden: true,
         },
         {
