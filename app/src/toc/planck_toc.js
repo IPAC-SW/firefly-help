@@ -88,6 +88,12 @@ const toc_searching = {
             hidden: true,
         },
         {
+            id: 'searching.toiByPosition',
+            title: 'TOI Search',
+            href: 'planck/searching.html#toi',
+            hidden: true,
+        },
+        {
             id: 'searching.toi',
             title: 'TOI Search',
             href: 'planck/searching.html#toi',
