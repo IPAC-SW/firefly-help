@@ -3,3 +3,4 @@ rootProject.name = 'root'
 include 'atlas', 'catalogs', 'discovery', 'finderchart', 'heritage',
         'irsaviewer', 'irtf', 'planck', 'ptf', 'sofia', 'wise', 'ztf'
 
+startParameter.excludedTaskNames += [':atlas:install', ':catalogs:install', ':discovery:install', ':irtf:install']
