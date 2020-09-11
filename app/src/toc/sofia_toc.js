@@ -216,6 +216,12 @@ const toc_visualization = {
             hidden: true,
         },
         {
+            id: 'visualization.zoomin',
+            title: 'zoomin',
+            href: 'sofia/visualization.html#zoomin',
+            hidden: true,
+        },
+        {
             id: 'visualization.fitsViewer',
             title: 'The FITS/HiPS viewer',
             href: 'sofia/visualization.html#fitsViewer',
