@@ -167,32 +167,35 @@ then the rest of the parameters in alphabetical order.
 <table border="2">
 <tr><th>Parameter</th><th>Values</th><th>Default</th><th>Description</th></tr>
 
-<tr><td>locstr <br><strong>(REQUIRED)</strong></td><td> This input field must contain either a sky
-coordinate or an object name resolvable via NED or SIMBAD.
-If the input field contains a string which can be interpreted as a
-coordinate representation, it is used as such. Both decimal degree and
-sexagesimal notations are supported. 
+<tr><td>locstr <br><strong>(REQUIRED)</strong></td><td> 
+This input field must contain either a sky coordinate or an object
+name resolvable via NED or SIMBAD. If the input field contains a
+string which can be interpreted as a coordinate representation, it is
+used as such. Both decimal degree and sexagesimal notations are
+supported. Spaces, etc. shoul dbe encooded
 </td><td>no default</td><td>
 The "locstr" is the only required parameter; if it is an object
 name, it is resolved into coordinates using NED and, if that fails,
-SIMBAD. 
-The following are examples of acceptable name/coordinate formats:
+SIMBAD. Any spaces or minus signs or other special characters must be 
+encoded (see, e.g., <a href="https://www.w3schools.com/tags/ref_urlencode.ASP"
+target="_blank">this site <img src="img/jumpout.jpg"
+height="10"></A> for more information).
+The following are examples of acceptable name/coordinate formats
+(human-readable version in parentheses):
 <UL>
 <LI>m83
-<LI>NGC+7479
-<LI>2MASXJ23045666%2B1219223
-<LI>23h04m56.63s%2B12d19m22.7s+Equ+J2000
-<LI>22h57m57.5s+%2B26d09m00.09s+Equatorial+B1950
-<LI>17h44m34s+-27d59m13s
-<LI>00h42m44.3s+%2B41d16m08s+b1950
-<LI>00:42:44.3+-41:16:08
-<LI>34.5565,54.2321 gal
-<LI>34.5565,54.2321+gal
-<LI>34.5565%2B54.2321+gal
-<LI>34.+54.+ecl
-<LI>34.+54.+ecl
-<LI>34.,+54. ecl
-<LI>34.%2B+54.%2Becl
+<LI>NGC%207479 (= NGC 7479)
+<LI>2MASXJ23045666%2B1219223 (= 2MASXJ23045666+1219223)
+<LI>23h04m56.63s%2B12d19m22.7s%20Equ%20J2000 (= 23h04m56.63s 12d19m22.7s Equ J2000)
+<LI>22h57m57.5s%20%2B26d09m00.09s%20Equatorial%20B1950 (= 22h57m57.5s +26d09m00.09s Equatorial B1950)
+<LI>17h44m34s%20%2D27d59m13s (= 17h44m34s -27d59m13s)
+<LI>00h42m44.3s%20%2B41d16m08s%20b1950 (= 00h42m44.3s +41d16m08s b1950)
+<LI>00:42:44.3%20%2D41:16:08 (= 00:42:44.3 -41:16:08)
+<LI>34.5565%2054.2321%20gal (= 34.5565 54.2321 gal)
+<LI>34.5565%20%2D54.2321%20gal (= 34.5565 -54.2321 gal)
+<LI>34.5565%2B54.2321%20gal (= 34.5565+54.2321 gal)
+<LI>34.%20+54.%20ecl (= 34. +54. ecl)
+<LI>34.%20%2D+54.%20ecl (= 34. -54. ecl)
 </UL>
 </td></tr>
 
