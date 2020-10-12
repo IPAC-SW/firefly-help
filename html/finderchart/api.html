@@ -114,10 +114,10 @@ Note that when you parse the XML file, you will be looking for URLs.
 To retrieve a URL using wget or curl, you should enclose the URL in
 quotes. Here are some examples: 
 <pre>
-wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
-curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
-wget --output-document=file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=2MASS,AKARI,WISE,SEIP&locstr=247.025+-24.541667"
-curl --output file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=DSS,SDSS,2MASS,AKARI,WISE,SEIP&locstr=247.025+-24.541667"
+wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447%20+40.343852997"
+curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447%20+40.343852997"
+wget --output-document=file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=2MASS,AKARI,WISE,SEIP&locstr=247.025%20-24.541667"
+curl --output file.xml "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?subsetsize=15&survey=DSS,SDSS,2MASS,AKARI,WISE,SEIP&locstr=247.025%20-24.541667"
 </pre><P>
 
 <strong>Please note</strong> that it is really easy to inadvertently
@@ -320,8 +320,8 @@ output examples are given below.
   <P></li>
   
   <li>
-    <a href="/applications/finderchart/servlet/api?locstr=210.77805++54.32714&subsetsize=4.0" target="_blank"> 
-    <b>api?locstr=210.77805++54.32714&amp;subsetsize=4.0</b></a>
+    <a href="/applications/finderchart/servlet/api?locstr=210.77805%20+54.32714&subsetsize=4.0" target="_blank"> 
+    <b>api?locstr=210.77805%20+54.32714&amp;subsetsize=4.0</b></a>
    <br />
      Retrieves xml file containing links to images for the area centered on object at coordinates "210.77805 +54.32714" 
      (14h03m06.73175s +54d19m37.7082s) and with image size of 4.0 arcmin. 
@@ -537,9 +537,9 @@ results using wget or curl. In order to do this, you should enclose
 the URL in quotes, and tell it what to do with the output. Here are
 some explicit examples of using quotes around URLs for wget or curl: 
 <pre>
-wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+wget --output-document=file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447%20+40.343852997"
 
-curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447+40.343852997"
+curl --output file.pdf "https://irsa.ipac.caltech.edu/applications/finderchart/servlet/api?mode=getImage&file_type=pdf&subsetsize=5&survey=DSS,SDSS,2MASS,IRIS,WISE&locstr=291.468658447%20+40.343852997"
 </pre><P>
 
 
