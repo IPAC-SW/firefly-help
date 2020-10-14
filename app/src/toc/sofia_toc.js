@@ -161,6 +161,11 @@ const toc_results = {
             href: 'sofia/results.html#filtering',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'sofia/tables.html#cells',
+        },
+        {
             id: 'results.visualization',
             title: 'Visualization',
             href: 'sofia/results.html#visualization',

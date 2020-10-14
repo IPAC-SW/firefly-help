@@ -43,14 +43,19 @@ const toc_overview = {
             href: 'irsaviewer/overview.html#terminology',
         },
         {
-            id: 'overview.visualization',
-            title: 'Visualization Overview',
-            href: 'irsaviewer/overview.html#visualization',
+            id: 'overview.tools',
+            title: 'Tools Overview',
+            href: 'irsaviewer/overview.html#tools',
         },
         {
             id: 'overview.login',
             title: 'User Login',
             href: 'irsaviewer/overview.html#login',
+        },
+        {
+            id: 'overview.help',
+            title: 'Getting More Help',
+            href: 'irsaviewer/overview.html#help',
         },
     ]
 };
@@ -73,7 +78,7 @@ const toc_basics = {
         },
         {
             id: 'basics.searching',
-            title: 'Getting Started: Loading Images',
+            title: 'Searching for Images',
             href: 'irsaviewer/basics.html#searching',
         },
         {
@@ -87,8 +92,13 @@ const toc_basics = {
             href: 'irsaviewer/basics.html#hips',
         },
         {
+            id: 'basics.images',
+            title: 'Interacting with Images',
+            href: 'irsaviewer/basics.html#images',
+        },
+        {
             id: 'basics.catalogs',
-            title: 'Retrieving and Using Catalogs',
+            title: 'Interacting with Tables',
             href: 'irsaviewer/basics.html#catalogs',
         },
         {
@@ -167,9 +177,9 @@ const toc_visualization = {
             href: 'irsaviewer/visualization.html#imageinfo',
         },
         {
-            id: 'visualization.imageoptions',
-            title: 'Visualization Tools',
-            href: 'irsaviewer/visualization.html#imageoptions',
+            id: 'visualization.toolbar',
+            title: 'Image Toolbar',
+            href: 'irsaviewer/visualization.html#toolbar',
         },
         {
             id: 'visualization.stretches',
@@ -219,6 +229,46 @@ const toc_visualization = {
         },
     ]
 };
+
+const toc_tables = {
+    id: 'tables',
+    title: 'Tables',
+    href: 'irsaviewer/tables.html',
+    items: [
+        {
+            id: 'tables.tableoptions',
+            title: 'Table Options',
+            href: 'irsaviewer/tables.html#tableoptions',
+            hidden: true,
+        },
+        {
+            id: 'tables.header',
+            title: 'Table Header',
+            href: 'irsaviewer/tables.html#header',
+        },
+        {
+            id: 'tables.columns',
+            title: 'Table Columns',
+            href: 'irsaviewer/tables.html#columns',
+        },
+        {
+            id: 'tables.filters',
+            title: 'Table Filters',
+            href: 'irsaviewer/tables.html#filters',
+        },
+        {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'irsaviewer/tables.html#cells',
+        },
+        {
+            id: 'tables.save',
+            title: 'Saving Tables',
+            href: 'irsaviewer/tables.html#save',
+        },
+    ]
+};
+
 
 
 
@@ -281,6 +331,60 @@ const toc_catalogs = {
     ]
 };
 
+
+export const toc_plots = {
+    id: 'plots',
+    title: 'Plots',
+    href: 'irsaviewer/plots.html',
+    items: [
+        {
+            id: 'plots.default',
+            title: 'Default Plot',
+            href: 'irsaviewer/plots.html#default'
+        },
+        {
+            id: 'plots.firstlook',
+            title: 'Plot Format: A First Look',
+            href: 'irsaviewer/plots.html#firstlook'
+        },
+        {
+            id: 'plots.linking',
+            title: 'Plot Linking',
+            href: 'irsaviewer/plots.html#linking'
+        },
+        {
+            id: 'plots.changing',
+            title: 'Changing What is Plotted',
+            href: 'irsaviewer/plots.html#changing'
+        },
+        {
+            id: 'plots.manipulating',
+            title: 'Plotting Manipulated Columns',
+            href: 'irsaviewer/plots.html#manipulating'
+        },
+        {
+            id: 'plots.restricting',
+            title: 'Restricting What is Plotted',
+            href: 'irsaviewer/plots.html#restricting'
+        },
+        {
+            id: 'plots.saving',
+            title: 'Saving Plots',
+            href: 'irsaviewer/plots.html#saving'
+        },
+        {
+            id: 'plots.adding',
+            title: 'Adding Plots',
+            href: 'irsaviewer/plots.html#adding'
+        },
+        {
+            id: 'plots.example',
+            title: 'Example Plots',
+            href: 'irsaviewer/plots.html#example'
+        },
+    ]
+};
+
 const toc_visualizationCST = {
     id: 'visualizationCST',
     title: 'Catalog Search Tool: Visualization',
@@ -325,8 +429,8 @@ const toc_visualizationCST = {
 };
 
 
-const toc_tables = {
-    id: 'tables',
+const toc_tablesCST = {
+    id: 'tablesCST',
     title: 'Catalog Search Tool: Tables',
     href: 'irsaviewer/tablesCST.html',
     items: [
@@ -624,10 +728,12 @@ let myToc = [
     toc_overview,
     toc_basics,
     toc_visualization,
+    toc_tables,
     toc_catalogs,
+    toc_plots,
     toc_overviewCST,
     toc_visualizationCST,
-    toc_tables,
+    toc_tablesCST,
     toc_xyplotViewer,
     toc_overviewTSV,
     toc_loadingTSV,

@@ -14,26 +14,32 @@
 
 <h2>Catalog Search Tool: Overview</h2>
 
-The Catalog Search Tool allows users to search IRSA's catalogs
-using potentially complex constraints. These queries can be built
-using either a web-based interface (which is most of what is covered
-by this documentation) or a <a href="api.html">program interface</A>.
+The Catalog Search Tool allows users to search IRSA's catalogs using
+potentially complex constraints. These queries can be built using
+either a web-based interface (which is most of what is covered by this
+documentation) or a <a href="api.html">program interface</A>.
 
-The catalogs are stored as two-dimensional tables. Each row represents a record of the information for an individual source, such as a point-source in a catalog of point sources. Each column holds one datum or item of information about the source, such as position, magnitude, quality flags and so on.<P>
+The catalogs are stored as two-dimensional tables. Each row represents
+a record of the information for an individual source, such as a
+point-source in a catalog of point sources. Each column holds one
+datum or item of information about the source, such as position,
+magnitude, quality flags and so on.<P>
 
 Information in a database is accessed with the <a
 href="http://en.wikipedia.org/wiki/SQL" target="_blank">Structured
 Query Language (SQL) <img src="img/jumpout.jpg" height="10"></a>, a
 syntax optimized for database tasks. SQL queries are interpreted by a
 <a href="https://en.wikipedia.org/wiki/Relational_database"
-target="_blank">Relational Database Management System (RDBMS) <img src="img/jumpout.jpg" height="10"></A>, the
-engine that manages and organizes information in a database. While SQL
-is an easy language to master, complex queries are long and tedious to
-debug. The Catalog Search Tool shields users from the need to write
-SQL by providing a web-based form that allows users to build their
-query interactively. The Catalog Search Tool builds an SQL query based
-on the user's requests, launches it, and writes the retrieved data to
-an ASCII file for download. Complex search constraints can be quickly entered and run. <P>
+target="_blank">Relational Database Management System (RDBMS) <img
+src="img/jumpout.jpg" height="10"></A>, the engine that manages and
+organizes information in a database. While SQL is an easy language to
+master, complex queries are long and tedious to debug. The Catalog
+Search Tool shields users from the need to write SQL by providing a
+web-based form that allows users to build their query interactively.
+The Catalog Search Tool builds an SQL query based on the user's
+requests, launches it, and writes the retrieved data to an ASCII file
+for download. Complex search constraints can be quickly entered and
+run. <P>
 
  
 

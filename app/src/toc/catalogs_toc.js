@@ -199,6 +199,11 @@ const toc_tables = {
             href: 'catalogs/tables.html#filters',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'catalogs/tables.html#cells',
+        },
+        {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'catalogs/tables.html#save',

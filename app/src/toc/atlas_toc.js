@@ -83,6 +83,11 @@ const toc_tables = {
             href: 'atlas/tables.html#filters',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'atlas/tables.html#cells',
+        },
+        {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'atlas/tables.html#save',

@@ -152,16 +152,18 @@ have placed on the image, but will not include the underlying FITS
 image. Saved regions files will not save the underlying image, but
 will just save the overlays as a DS9 Regions file. See the <a
 href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
-website <img src="img/jumpout.jpg" height="10"></A> for more information on the syntax of these DS9 region
-files. <P>
+website <img src="img/jumpout.jpg" height="10"></A> for more
+information on the syntax of these DS9 region files. <P>
 
 Note that you can save the original or a cropped version of the FITS
 file; see the "select region" icon below to crop, and then be sure to 
 save the FITS image.   This is not available for HiPS images. <P>
 
-Note also that if you <a href="catalogs.html">overlay a catalog</A>
-consisting of tens of thousands of sources, only the first 500
-sources will be saved in the regions file, not the full catalog.<P>
+Note that if you <a href="catalogs.html">overlay a large catalog</A>,
+then turn around and save a regions file from the catalog overlay, the
+full catalog may not be saved to the regions file. If you have
+&gt;15,000 sources, not every source will be overlaid on the image,
+even if you zoom in, and thus will not be in the regions file.<P>
 
 
 <dt><a name="zoomin"><img src="img/zoominout.png"> <em>Zooming in or out.</em></A>  

@@ -13,32 +13,27 @@
 
 <h2>IRSA Viewer: Catalogs</h2>
 
-You can choose from any of a wide variety of catalogs to load for
-overlaying on your <a href="visualization.html">visualized data</A>.
-If you don't have an image loaded, and you search on a catalog, the
-tool will pick an image for you and overlay the catalog on that image.
-<P>
+Catalogs are a special case of <a href="tables.html">tables</A>; the
+basic functionality of tables is covered in the <a
+href="tables.html">Tables section</A>.  You can choose from any of a
+wide variety of catalogs to load for overlaying on your <a
+href="visualization.html">visualized data</A>. If you don't have an
+image loaded, and you search on a catalog, the tool will pick an image
+for you and overlay the catalog on that image. Once you've loaded a
+catalog, you can <a href="plots.html">make plots</A>. <P>
 
 <em>Contents of page/chapter:</em><br>
-+<A href="#irsacatalogs">Catalogs from IRSA</A> -- Overlaying catalogs
++<A href="#irsacatalogs">IRSA Catalogs</A> -- Overlaying catalogs
 from IRSA<br>
-+<A href="#owncatalogs">Catalogs from disk</A> -- Overlaying your own
-catalogs<br>
-+<A href="#vocatalogs">Catalogs from VO</A> -- Overlaying
-catalogs obtained via the VO<br>
-+<A href="#ned">Catalog from NED</A> -- Overlaying
-catalog from NED<br>
-+<A href="#tablechoices">Interacting with Tables</A> <br>
-+<A href="#columnsfilters">Columns and Filters in Tables</A> <br>
-+<a href="#xyplots">Plotting catalogs</A> -- Default Plots<br>
-+<a href="#xyplots2">Plotting catalogs</A> -- Additional Plots <br>
-+<a href="#examples">Examples of catalog plots</A><br>
++<A href="#owncatalogs">Catalogs from disk</A> <br>
++<A href="#vocatalogs">VO Catalogs</A><br>
++<A href="#nedcatalogs">NED Catalogs</A> <br>
 <P>&nbsp;<P>
 
 
 
 
-<h3><a name="irsacatalogs">Catalogs from IRSA</A></h3>
+<h3><a name="irsacatalogs"><a name="catalogs">IRSA Catalogs</A></A></h3>
 
 By clicking on the blue "Catalog" tab (which also looks like a
 button), a window appears with several options, as follows.  <P>
@@ -62,12 +57,12 @@ the radius of the cone). The parameters for each of these searches
 change dynamically as you select search options, as follows:  <P>
 
 <DL>
-<DT><strong>Caution</strong>: <DD>Pick your units from the pulldown first, and
-then enter a number; if you enter a number and then select from the
-pulldown, it will convert your number from the old units to the new
-units. There are both upper and lower limits to your search radius; it
-will tell you if you request something too big or too small. Note that
-these limits are survey-dependent.   <P>
+<DT><strong>Caution</strong>: <DD>Pick your units from the pulldown
+first, and then enter a number; if you enter a number and then select
+from the pulldown, it will convert your number from the old units to
+the new units. There are both upper and lower limits to your search
+radius; it will tell you if you request something too big or too
+small. Note that these limits are survey-dependent.   <P>
 
 <DT><strong>Cone search</strong>: <dd> <img
 src="img/catsearch-cone.png"> It has guessed what position you want,
@@ -84,29 +79,31 @@ based on prior searches. You specify the box's length on a side.<P>
 
 <DT><strong>Polygon search</strong>: <dd> <img
 src="img/catsearch-polygon.png"> Now, note that it no longer has a
-single target location. It has pre-filled the vertices of the position it
-thinks you want, based on prior searches.  You can select whether you
-want the catalog request to match the entire area of the image you
-have selected ("image"), or just the portion of the image you can see
-in the current view ("visible"), or your own ("custom") area. The list
-of vertices in the coordinates box are in decimal RA and Dec in
-degrees. You must enter at least 3 and at most 15 vertices, separated
-by a comma. Note that, for overlaying catalogs on HiPS images, you
-cannot select "image", because HiPS images are generally very, very
-large, so this would result in too many points being returned. There
-is a maximum of 5 degrees imposed on catalog searches to match HiPS
-images.<P>
+single target location. It has pre-filled the vertices of the position
+it thinks you want, based on prior searches or current image.  You can
+select whether you want the catalog request to match the entire area
+of the image you have selected ("image"), or just the portion of the
+image you can see in the current view ("visible"), or your own
+("custom") area. The list of vertices in the coordinates box are in
+decimal RA and Dec in degrees. You must enter at least 3 and at most
+15 vertices, separated by a comma. Note that, for overlaying catalogs
+on HiPS images, you cannot select "image", because HiPS images are
+generally very, very large, so this would result in too many points
+being returned. There is a maximum of 5 degrees imposed on catalog
+searches to match HiPS images.<P>
 
 <DT><strong>Multi-Object search</strong>: <dd> <img
-src="img/catsearch-multiobj.png"> In this case, it has not attempted
-to guess what position you want. You need to upload a file in <a
+src="img/catsearch-multiobj.png"><br> In this case, it has not
+attempted to guess what position you want. You need to upload a file
+in <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table format <img src="img/jumpout.jpg" height="10"></A>, which is a varietal of plain
-text. (IRSA has a <a
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. (IRSA has a <a
 href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
-target="_blank">table reformatting and validation service <img src="img/jumpout.jpg" height="10"></A> which
-may be helpful.) Note that you also have to specify the radius over
-which to search for each of the targets in your list.<P>
+target="_blank">table validator <img src="img/jumpout.jpg"
+height="10"></A> which may be helpful.) Note that you also have to
+specify the radius over which to search for each of the targets in
+your list.<P>
 
 When you do a multi-position search on catalogs, three new columns are
 added to the catalog as it is returned to you. These columns are :
@@ -117,7 +114,7 @@ and the object it found
 <LI>pang_x - the position angle between the target position you requested
 and the object it found
 </UL>
-These additional columns can help you assess if the target it found is
+These additional columns can help you assess if the target(s) it found is
 the target that should be matched to the position you requested.<P>
 
 
@@ -143,7 +140,7 @@ restrict data such that none of the catalog meets your criteria.<P>
 Click on "Search" to initiate the search. It will load the catalog
 into a tab of its own. The objects will also be overlaid on any images
 you have loaded, and a default x-y plot will be shown. (For more on the
-x-y plots, see <a href="#xyplots">below</A>.)  All of these
+x-y plots, see <a href="plots.html">Plots section</A>.)  All of these
 representations are interlinked -- clicking on a row in the table
 shows it on the image and in the plot, and clicking on an object in
 the image shows it in the table and in the plot, and clicking on an
@@ -167,11 +164,28 @@ sources you are likely to retrieve. Searches that retrieve more rows
 will take longer. Searches that retrieve tens of thousands of rows
 will take quite a while. 
 
+<LI>If you want to impose additional constraints on the catalog during
+your initial search, you can do so in the lower half of the screen
+(e.g., SNR &gt; n in some band, or an SQL command), you can place
+constraints at this point. However, be advised that it is easy to
+combine constraints such that no sources are retrieved!
+
+<LI> If you overlay a large catalog, large enough that the <a
+href="plots.html">plot is a binned heatmap</A>, <strong>the entire
+source list is NOT overlaid, even if you zoom in a lot</strong>. The
+way to work within these constraints is to impose a filter on the
+catalog to get it below the threshhold for a regular plot -- weed out
+lower SNR sources, or filter based on RA/Dec, etc.
+
 <LI> If you overlay a large catalog, then turn around and <a
 href="visualization.html#fitsDownloadOptions">save a regions file from
-the catalog overlay</A>, then currently it is the case that only the
-first 499 sources in the full catalog will be saved to the regions
-file.
+the catalog overlay</A>, then unusual things can happen. If the plot
+that results from the catalog is small enough to show individual
+points in the plot, then all of the overlays will be saved to the
+regions file. BUT if you have a <a href="plots.html">plot with enough
+points that it is a binned heatmap</A>, the greatly abbreviated
+("decimated") source list overlay will be saved, <strong>NOT</strong>
+the entire catalog!
 
 <LI>If you have "pan by table row" turned on (see <a
 href="visualization.html#panbytablerow">Visualization chapter</A>),
@@ -187,20 +201,21 @@ off "pan by table row".
 <h3><a name="owncatalogs">Loading your own catalogs</A></h3><P>
 
 By clicking on the blue "Catalogs" tab, you are by default dropped
-into the interface for searching for catalogs at IRSA. However, you can
-pick another tab from the top, "Load Catalog", to load your own
-catalog, either from disk or from the <a
-href="/docs/workspace/" target="_blank">IRSA Workspace</A>.<P>
-
+into the interface for searching for catalogs at IRSA. However, you
+can pick another tab from the top, "Load Catalog", to load your own
+catalog, either from disk or from the <a href="/docs/workspace/"
+target="_blank">IRSA Workspace <img src="img/jumpout.jpg"
+height="10"></A>.<P>
 
 Your catalog needs to be in <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table format <img src="img/jumpout.jpg" height="10"></A>, which is a varietal of plain
-text. IRSA has a <a
+target="_blank">IPAC table format <img src="img/jumpout.jpg"
+height="10"></A>, which is a varietal of plain text. IRSA has a <a
 href="https://irsa.ipac.caltech.edu/applications/TblValidator/"
-target="_blank">table reformatting and validation service <img src="img/jumpout.jpg" height="10"></A> which
-may be helpful, or you can download just about any catalog you find
-through IRSA, and mimic that format.<P>
+target="_blank">table reformatting and validation service <img
+src="img/jumpout.jpg" height="10"></A> which may be helpful, or you
+can download just about any catalog you find through IRSA, and mimic
+that format.<P>
 
 Your table file MUST have RA and Dec values, and unless it is
 specified, it assumes J2000.<P>
@@ -220,7 +235,9 @@ a HEX value to catalog marks, e.g., either of these two:
 </pre>
 You can find the <a
 href="https://www.w3schools.com/cssref/css_colors.asp"
-target="_blank">CSS color code or the CSS color HEX values <img src="img/jumpout.jpg" height="10"></A> online.<P> 
+target="_blank">CSS color code or the CSS color HEX values <img
+src="img/jumpout.jpg" height="10"></A> online.<P> 
+
 
 
 <h3><A name="vocatalogs">Catalogs from the VO</A> -- Overlaying
@@ -264,19 +281,20 @@ the other catalogs described here.<P>
 <strong>Example</strong><p>
 
 Load the tool. Search on IC1396. Go to the catalogs tab. Choose "VO
-Catalog." It wants the root URL for a cone search. I click on "Find
-Astronomical Data Resources", which takes me <a
-href="http://vao.stsci.edu/keyword-search/" target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.
-Search on IPHAS. Get <a
+Catalog." It wants the root URL for a cone search. Click on "Find
+Astronomical Data Resources", which goes <a
+href="http://vao.stsci.edu/keyword-search/" target="_blank">here <img
+src="img/jumpout.jpg" height="10"></A>. Search on IPHAS. Get <a
 href="http://vao.stsci.edu/keyword-search/?utf8=%E2%9C%93&search_field=all_fields&q=iphas"
-target="_blank">this page <img src="img/jumpout.jpg" height="10"></A>. Look for the complete catalog release
-(not just one associated with one specific study). The name of the
-catalog goes <a
+target="_blank">this page <img src="img/jumpout.jpg" height="10"></A>.
+Look for the complete catalog release (not just one associated with
+one specific study). The name of the catalog goes <a
 href="http://vao.stsci.edu/directory/getRecord.aspx?id=ivo://CDS.VizieR/II/321"
-target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. Hit the [+] to expand it. There is one URL
-listed there, under "available endpoints for the standard interface."
-Copy that URL and paste it into the search form. The IRSA tool will
-append your coordinates and radius and return you a table.<P>
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. Hit
+the [+] to expand it. There is one URL listed there, under "available
+endpoints for the standard interface." Copy that URL and paste it into
+the search form. The IRSA tool will append your coordinates and radius
+and return you a table.<P>
 
 <strong>Tips and Troubleshooting.</strong> 
 <UL>
@@ -291,14 +309,15 @@ inserted into the URL by the tool in response to the search
 parameters you give it).
 
 <LI>The master list of registries is <a href="http://rofr.ivoa.net/"
-target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You can also search the registries directly
-via that link (as opposed to via the IRSA tools). 
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>. You
+can also search the registries directly via that link (as opposed to
+via the IRSA tools). 
 
 </UL><P>
 
 
-<h3><A name="ned">Catalog from NED</A> -- Overlaying
-catalog obtained from NED</h3>
+<h3><A name="nedcatalogs">NED Catalogs</A> -- Overlaying
+catalogs obtained from NED</h3>
 
 (NED= <A href="http://ned.ipac.caltech.edu/" target="_blank">NASA
 Extragalactic Database <img src="img/jumpout.jpg" height="10"></A>.)<P>
@@ -322,617 +341,9 @@ your search radius; it will tell you if you request something too big
 or too small. <P>
 
 
-The search results are then shown (and interacted with) in the same way as
-the other catalogs described here.<P>
+The search results are then shown (and interacted with) in the same
+way as the other catalogs described here.<P>
 
-
-
-
-<h3><A name="tablechoices">Interacting with Tables</A></h3>
-
-Tables in IRSA Viewer all have the same functionality, whether it is a
-catalog you have loaded, the <a href="basics.html#hips">list of
-possible HiPS images</A>, the <a
-href="visualization.html#imagenavigation">list of images you have
-loaded into IRSA Viewer</A>, an image header, or anything else with
-this look-and-feel.<P>
-
-If you have loaded a catalog into a tab, to see more of the window,
-grab the divider between the two window panes and slide it up, or use
-the expand arrow icon (<img src="img/expand-24x24.png">) to enlarge
-the window pane to take up the whole window.<P>
-
-The table is shown exactly as it appears in the corresponding database
-(or, if your own catalog, as it appeared on your disk), with all
-columns as defined for that catalog. To understand what each column
-is, please see the documentation associated with that catalog. (For
-IRSA catalogs, this documentation is available via the <a
-href="#moreinfo">catalog searching popup window</A>, or by navigating
-through the IRSA website.)<P>
-
-The tab (and table) name itself indicates whether it is a WISE
-catalog, etc. To remove catalog tabs you have added, click on the "X"
-on the tab.<P>
-
-Immediately below the tab name, there are several symbols:<br> <img
-src="img/tablehead.png"><br> which we now describe.<P>
-
-The first thing to notice is that only the first 100 rows of the
-possible available rows are displayed in the table. In the example
-here, there are more than 28,000 observations that were retrieved as
-part of the search.  The left/right black arrows plus the page number
-allow you to navigate among these 'pages' of 100 rows each.  Note that
-the entire set of results (not just the rows you are currently
-viewing) can be sorted by clicking on any column's name. <P>
-
-Going from left to right along the top of the catalog tab, the next
-icon represents a filter: <img src="img/filter.png"> Filters are a
-<em>very</em> powerful way of exploring the data in a table, so they
-have <a href="columnsfilters">their own subsection</A>.  <P>
-
-
-The next icon is <img src="img/texttable.png"> -- clicking on this
-changes the table display into a text display. The icon then changes
-to <img src="img/table.png"> -- click this again to return to the
-default table view.<P>
-
-The next icon is <img src="img/savetable.png"> which is "Save" -- this
-is how you may save the catalog to your own local disk. If you have
-filtered the catalog down, it will save the filtered catalog (though
-as of this writing,  the total number of rows retrieved in the table
-header will still be the original number). It defaults to saving it as an <a
-href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table file <img src="img/jumpout.jpg" height="10"></A>, which is basically ASCII text
-with headers explaining the type of data in  each column, separated by
-vertical bars.  You can, however, save it in any of a number of
-formats, seen here:<br>
-<img src="img/savetableoptions.png"><P>
-
-By default, the filename includes the word "gator"
-because, under the hood, the software is talking to the <a
-href="https://irsa.ipac.caltech.edu/applications/Gator/"
-target="_blank">IRSA General Catalog Query Engine <img src="img/jumpout.jpg" height="10"></A>, powered by
-Gator.<P>
-
-The next to last option on the top of the catalog tab is this: <img
-src="img/tableoptions.png">.  From here, you can change:
-<UL>
-<LI>Whether units are shown at the tops of the columns.
-<LI>Whether or not the filters are shown at the tops of the columns
-(same as clicking on the filter icon).
-<LI>How many rows are displayed per page. (Note that expanding the
-page size to numbers much greater than 100 may result in a substantial
-performance degradation -- e.g., your browser will appear to freeze or
-not appear to be doing anything while it manages and renders the large
-table.)  
-<LI>Which columns are shown (tickboxes on the left of each row). 
-By default, all columns are shown. To select all of them at once,
-click on the tickbox at the top of the column.
-</UL>
-From this pop-up, you can also see the description of each field in
-the database (note that you can scroll right to see them all), and
-impose filters just like at the top of the columns. The set of all the
-imposed filters is collected at the bottom of this window (in the
-"Filters" box). Remember that the filters are "AND"ed together.<P>
-  <P>
-
-Note also that if you resize columns, and then go and add new columns,
-the original columns are resized back to their defaults after the new
-columns are added.<P>
-
-Finally, when your mouse is in the catalog window pane, you see this
-as the last option on the top of the catalog tab: <img
-src="img/expand-24x24.png">. Clicking on this expands the catalog
-window pane to take up the entire browser window. To return to the
-prior view, click on "Close" in the upper left.<P>
-
-
-<h3><A name="columnsfilters">Columns and Filters in Tables</A></h3>
-
-
-Filters are a <em>very</em> powerful way of exploring any data in a
-table.  Click on this icon <img src="img/filter.png">  in order to
-start the process of adding filters. A text entry box appears above
-each of the table columns, with a small version of the filter icon
-corresponding to that row on the far left. You can type operators and
-values in these boxes -- hit return after typing or click in another
-box to implement the filter.  <P>
-
-<img src="img/tableoptions.png"> If your table also has this icon (with
-gears), you may have additional options such as the columns displayed
-(see prior section). Filters can also be imposed from the
-pop-up that is displayed when you click on the gears.<P>
-
-<em>For columns (fields) with a limited set of choices</em>, instead
-of a text entry box, an arrow next to the filter box will appear;
-click on it to get a pulldown from which you can select the available
-choices; to implement the filter, make the choices, and click "filter"
-when you are done. Click "clear" in the pull-down menu to remove
-that filter.   For example, in the <a
-href="visualization.html#imagenavigation">table that appears when you have
-loaded in many images</A>, you can filter on "Success" to leave only
-the successfully loaded images.<P>
-
-<em>Filters can be used in combination</em>. Note that the filters
-between columns are logically "AND"ed together, but filters within the
-same column can be logically "AND"ed or "OR"ed together; examples are
-below.  <P>
-
-The available logical operators are :
-<UL>
-<LI> =  which means 'equal to' (exactly!), e.g., the parameter on
-whichyou are querying (the column headers as shown) is exactly equal to
-this value you are specifying.
-<LI> &gt; which means 'greater than'
-<LI> &lt; which mean 'less than'
-<LI> != which means 'not equal to' (exactly!)
-<LI> &gt;= which means 'greater than or equal to'
-<LI> &lt;= which means 'less than or equal to'
-<LI> IN which means 'included within this list', e.g., the parameter
-on which you are querying is included within the list you are
-specifying (if the column filter is free-form text, type
-"value1,value2" and it will give you rows that have value1 or value2).
-<LI> LIKE which means 'resembles the text that is entered', e.g., the text
-resembles the text that you type in the box.
-<LI>IS which effectively is the same as =
-<LI>IS NOT  which effectively is the same as !=
-</UL>
-
-<strong>Examples</strong>:
-<UL>
-<LI> Retain rows for which a certain parameter is not an empty
-string: !=''
-<LI> Retain rows for which a certain parameter is not NULL and is
-larger than 1.234: &gt; 1.234 and IS NOT NULL
-<LI> Retain rows with a parameter greater than one value or exactly
-equal to another value: &gt; 12345 or != 3000 
-<LI>Retain rows with a parameter equal to one of the values in a list:
- IN a,b,c,d
-</UL>
-
-You can also select rows one at a time from the far left column and
-then filter that down. Example: Search on anything. Select rows by
-ticking the box on the left, say, every other row out of the first 12.
-Click on the filter icon on the top of the column.  The filter is
-imposed to only include the 6 rows you selected.<P>
-
-<strong>Tips and Troubleshooting</strong>:
-
-<UL>
-<LI>If you impose logically inconsistent restrictions such as "exposure
-time &gt; 160" and "exposure time &lt 100" ("&gt;160;&lt;100" in the
-filter box for the column marked "exposure time"), no data will result,
-because no data are (can be) both less than 160 seconds long and
-greater than 100 seconds long at the same time. However, "exposure
-time &gt; 160 or &lt 100" works just fine ("&gt;160 or &lt;100" in the
-filter box for the column marked "exposure time").  
-
-<LI>If you impose nonsensical filters (like using a letter where a number
-should be, like "w1snr &lt f") then it will let you know that
-something has gone really wrong, and let you go back to fix it.
-
-<LI>If you impose filters from the plot (see next section), it
-manifests as four filters on the catalog, one for each side of the
-square you have drawn on the plot. If you want to remove, say, just
-one of the four filters (rather than all of them by cancelling all
-filters), you can do so from the table options pop-up.
-</UL>
-
-
-
-<strong>Cancelling filters</strong><P>
-
-After you impose a filter, then the "filters" icon on the top right of
-the catalog pane has changed to remind you that there has been a
-filter applied, in this case just one filter: <img
-src="img/filtersapplied.png"> To clear the filters, click on the
-cancel filters icon (which also appears after you impose filters):
-<img src="img/cancelfilters.png">.<P>
-
-
-
-
-
-
-
-<h3><a name="xyplots">Plotting catalogs</A> -- Default Plots</h3>
-
-By default, after the catalog has loaded, a plot  appears on the
-bottom of the browser window. The plot, the image, and the catalog are
-all interlinked -- clicking on a row in the table shows it on the
-image and in the plot, and clicking on an object in the image shows it
-in the table and in the plot, and clicking on an object in the plot
-shows it in the table and on the image.<P>
-
-To obtain a full-screen view of your plot, click on the expand icon in
-the upper right of the window pane when your mouse is in the window:
-<img src="img/expand-24x24.png">. To return to the prior view, click
-the "Close" arrow in the upper left.<P>
-
-The plotting tool, by default, starts with RA and Dec plotted. Note
-that it does so following astronomical convention -- RA increases to
-the left.  <P>
-
-<strong>Plot format: a first look</strong><P>
-
-If you have loaded a catalog with many (&gt; 15,000) points, you may
-have an RA/Dec plot that looks something like the one on the left
-here. If you have loded a catalog with few (&lt; 15,000) points, you
-will have an RA/Dec plot that looks more like the one on the right
-here.<br> <img src="img/defaultradecbinned.png" width="50%"><img
-src="img/defaultradecunbinned.png" width="50%"><P>
-
-The difference between them is that, for larger catalogs (left), the
-plot is binned -- more points are encompassed in a black tile and
-fewer points are encompassed in a white tile. In the context of this
-tool, this is called a <strong>heatmap</strong>. For smaller catalogs
-(right), each individual point is shown as a blue dot. In the context
-of this tool, this is called a <strong>scatter plot</strong>. <P>
-
-In either case, letting your mouse hover over a point tells you the
-values of the point under your cursor, and (if binned) how many points
-are represented:<br> <img src="img/morethanonepoint.png"> for binned
-plots, and <br> <img src="img/justonepoint.png"> for just one point.
-<br> <img src="img/morethanonepoint2.png"> Clicking (in an unbinned
-plot)  highlights that point, and it stays highlighted, though you
-must keep your mouse on the point in order to see the information
-about how many points it represents.<P>
-
-
-<strong>Plots are linked to catalog and image(s)</strong><P>
-
-If you move your mouse over any of the points in the plot, you will
-get a pop-up telling you the values corresponding to the point under
-your cursor. For scatter plots, if you click on any of the points, the
-object(s) corresponding to that point will be highlighted in the
-overlays in the images shown, and highlighted in the catalog table. 
-This works the other way too - click on a row in the catalog, or an
-object in the images, and the object will be highlighted in the plot
-or the catalog or the image.<P>
-
-
-<strong>Changing what is plotted</strong><P>
-
-To change what is plotted, click on the gears icon in the upper right
-of the plot window pane: <img src="img/xyplotoptions.png"
-align="center">. Configuration options then appear; the options are a
-little different depending on whether the points are binned or
-not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%"> &nbsp; &nbsp;
-<img src="img/plotoptionspopup.png" width="30%"><br> The left has the
-options for binned plots, and the right has the options for plots that
-have individual points shown.<P>
-
-<DL><dt><strong>Both kinds of plots have the following
-options.</strong>
-<dd>
-In either case, you can specify what should be plotted on each
-axis. The magnifying glass is a link that brings up a table that lists
-all of the available columns in the catalog. Alternatively, you can
-just start typing, and viable options appear below the box. Whatever
-you put in the box must match the column name as shown in the catalog
-<em>exactly</em>. <P>
-
-Click on the triangle to open additional options for the layout. <P>
-
-In both of the examples above, RA is plotted on the x-axis. It has
-pulled the column name for the label; in this table, the column is
-"ra" rather than "RA". It has copied over the units ("deg") from the
-catalog. You can change what column is plotted, as well as what label
-and units are shown in the plot. <P>
-
-You can enter <strong>simple mathematical relations</strong> in these
-boxes too, such as "w1mpro-w4mpro" to put [W1]-[W4] on one axis.
-Supported operators:
-<UL>
-<LI>+,-,*,/
-<LI>abs(x), acos(x), asin(x), atan(x), atan2(x), ceil(x), cos(x),
-exp(x), floor(x), lg(x), ln(x), log10(x), log(x), power(x,y),
-round(x), sin(x), sqrt(x), tan(x)
-<LI>Non-alphanumeric column names (e.g., those with - or + or similar
-characters) should be quoted in expressions.
-</UL>
-<P>
-
-In both kinds of plots (scatter or heatmap [binned]), you can enter
-the label for the axes, and choose whether or not a grid is included
-on that axis, and whether or not the axis is reversed -- in this case,
-because it's plotting RA, the x-axis is reversed. <P>
-
-By default, the boundaries of the plot are set to encompass the full
-data range. Here you can change the boundaries to specific numbers.
-(This can also be set via filtering from the plot; see below.)<P>
-
-If you want a square or rectangular plot, you can change the x/y ratio
-as displayed.<P>
-
-Click "Apply" to apply, and "Close" to return to the plot without
-making changes.<P>
-
-<dt><strong>Options found only in binned plots</strong>
-<dd>(Plots are binned if there are &gt; 15,000 points in the catalog.)
-Frome the pop-up, you can control the color table that is used
-(greyscale is the default; there are many other choices in the
-pulldown menu), as well as the number of bins in the x and y
-directions.   If you change the number of bins but then want to go
-back to the original values, leave the "Number of bins" boxes
-blank.<P>
-
-
-<dt><strong>Options found only in plots showing individual points</strong>
-<dd>In these plots, at the top of the plot options pop-up,  you can
-control whether the points are shown as individual points, connected
-points, or just a line. <P>
-
-You can specify an error (either a column in the catalog, or
-calculated from a column in the catalog). Those errors can be
-symmetric or asymmetric (see pulldown menu). <P>
-
-You can also change either axis to be logarithmically scaled.
-<P>
-</dl>
-
-
-Example: Load a WISE catalog. Plot w1snr vs. w1mpro. Change the labels
-by clicking on the triangles below each entry box, and make the label
-"SNR in WISE-1" rather than the more cryptic column header "w1snr".
-Depending on your catalog, you may need to adjust the y axis range.
-Obtain this plot:<P>
-<img src="img/w1snrexample.png" width="70%"><img
-src="img/w1snrexampleconfig.png" width="30%"><p>
-
-<strong>Plotting manipulated columns</strong><P>
-
-You can choose a single column to plot against another column, as
-above. However, you can also do simple mathematical manipulations.<P>
-
-For example, if you have loaded a WISE catalog, you can plot [W1]-[W2] vs.
-[W3]-[W4]. In terms of the names of the columns in the database, this
-is w1mpro-w2mpro vs. w3mpro-w4mpro.  <br>
-
-<img src="img/wisecolorexample.png" width="70%"><img
-src="img/wisecolorexampleconfig.png" width="30%"><p>
-
-If you have few enough points that the plot is not binned, you can add
-errors, and you can also manipulate those:<br> <img
-src="img/plotoptionspopup2.png"><br>  In this case, the positions
-in this catalog are in degrees, but the errors are in arcseconds.
-This plot request converts the errors to degrees
-before plotting. <P>
-
-
-<strong>Restricting what is plotted</strong><P>
-
-
-You can also restrict what data are plotted in any of several
-different ways. <P>
-
-You can set axis limits on the plot itself from the plot options
-pop-up (discussed above).<P>
-
-However, and perhaps more powerfully, you can set limits from the plot
-itself using a rubber band zoom.  Click and drag in a sub-region of
-the plot. A new icon appears in the upper right of the plot: <img
-src="img/plotoptions.png">. This means "filter the catalog to leave
-only those objects encompassed by the selection in the plot." If you
-click on the zoom icon, then the plot axes change to encompass just
-the sources you have selected. If you click on the filter icon, then
-the catalog view is filtered down, restricted to just those sources
-you have selected, and the filter notes in the upper left of the plot
-window (and the upper right of the catalog window) change to remind
-you that you have a filter applied. Only those sources that pass the
-filter are shown overlaid on the image(s) or in the catalog. (This is
-the behavior of 'filter', as opposed to 'select'; the former restricts
-what is shown, the latter just highlights the objects.) For more on
-filters, see <a href="#filters">the filter section</A>.<P>
-
-<!-- If you have a big catalog, zooming or filtering may reduce the number
-of plotted points to below 15,000, which means
-that then individual points can be shown, rather than binned
-points.<P> -->
-
-If you move your mouse over any of the points, you will get a pop-up
-telling you the values corresponding to the point under your cursor.
-If you click on any of the points, the object(s) corresponding to that
-point will be highlighted in the overlays in the images shown, and
-highlighted in the catalog table.  This works the other way too -
-click on a row in the catalog, or an object in the images, and the
-object will be highlighted in the plot or the catalog or the image.<P>
-
-You can also zoom with your mouse on the plot -- do whatever you would
-do with your mouse to scroll but with your mouse over the plot. You
-can also grab-and-drag the plot axes to change the plotting range.<P>
-
-<strong>Saving a plot to a file</strong><P>
-Click on the diskette icon (<img src="img/save.png">). Your plot will
-then be saved as a png file. 
-The saved PNG is the same size as it is on your screen. If you want a
-big version, make the desired plot big on your screen (expand the view
-to take up as much space as possible) before saving the PNG. <P>
- <P>
-
-
-
-
-<h3><a name="xyplots2">Plotting catalogs</A>: Additional Plots</h3>
-
-If you want to make additional plots, after you have a catalog loaded,
-click on the blue tab at the top labeled "Charts." This brings up a
-dialog from which you can choose to make another scatter plot (left
-below) or a histogram (right below): <br> <img
-src="img/charts2.png" width="30%">&nbsp;&nbsp;<img
-src="img/charts3.png" width="30%">&nbsp;&nbsp;<img src="img/charts.png" width="30%"><br>  The
-options for these plots here are the same as they are when you click
-on the gears in one of these plots. You can change what is plotted
-after plotting once by clicking on the gears. <P>
-
-Using this "charts" tab, you
-can have as many  plots up at the same time as you need. Note that
-many plots of a large catalog may make your browser run slowly; it
-will refuse to make a scatter plot for catalogs with &gt;15,000 points. 
-<P>
-
-<strong>Scatter plots</strong> allow you to choose points, connected
-points, or lines; you can add errors to each point. There is a maximum
-of 15,000 points for scatter plots.<P>
-
-<strong>Heatmap plots</strong> are binned scatter plots; you can
-choose what color scale and how many bins to use. <P>
-
-<strong>Histogram plots</strong> allow you to choose how many bins or
-the bin width. <P>
-
-All of them allow you to reverse axes and change labels. You can plot
-single columns or mathematical manipulations of columns.<P>
-
-Note that, if you provide a minimum number, the binning starts at the
-minimum value you provide, and may exceed the maximum you entered in
-order to fit in a whole bin. <P>
-
-<P>
-
-You can view these plots all at once or one at a time by clicking on
-the corresponding icons above the plots (just as when you have
-multiple images loaded): <img src="img/singlegrid.png">. If you are
-viewing one at a time and have more than one plot loaded, you can
-scroll between them by clicking on the arrows (just as when you have
-multiple images loaded).<P>
-
-
-<h3><a name="examples">Examples of catalog plots</A></h3>
-
-<strong>Example: Plotting [W1] vs. [W1]-[W4] in a star-forming
-region</strong><P>
-
-In a star-forming region defined for this example, we are trying to
-find young stars. We will search in the WISE AllWISE catalog. Stars
-without circumstellar dust should be at a variety of W1 brightnesses,
-but all have [W1]-[W4]~0.  Background galaxies should be faint and
-red. Stars with circumstellar dust (e.g., young stars) should be
-bright and red. Here, we will make a plot, identify a bright and red
-object in the plot, and find where it is in the WISE images.
-
-<OL>
-<LI>Launch the IRSA Viewer tool. Ensure "View FITS Images" is
-selected.  Enter target as IC1396. Use Simbad's interpretation of the
-coordinates.  Select image size of 1 degree.  Select WISE AllWISE
-Atlas, all four bands.  Click 'Search.'
-<LI>Click on the blue "catalogs" tab. Select Project=WISE. Select the
-AllWISE database, and the AllWISE Source Catalog. Leave the cone
-search method and target as what it comes set up with as the default -
-it is set to the target we just used for our search. However, make
-sure to change the units of the pulldown to "deg" and enter 0.5 degree
-in the cone radius to match the images. Leave all the defaults in the
-Table Selection section. Click "Search."  You may have to wait a bit
-for the catalog to be returned. 
-<LI>Now the catalog is loaded in the upper right, overplotted on the
-image in the upper left, and plotted as an x-y plot on the bottom.
-Note that all ~17,500 sources are overplotted on the images to the
-left of the catalog and in the plot below the catalog, but only the
-first 100 are shown in the catalog in the upper right (though all are
-loaded).  Note that selecting a source in the image makes its
-corresponding row in the catalog change color and point in the plot
-change color; this is all interchangable such that picking a source in
-one place highlights it in the other places. (In the image, your
-search target is a crosshair symbol, the selected source has an x in the
-symbol. You may have to view just one image at a time and click on the
-'zoom to fit' icon to see your selected source in the image.)
-<LI>The plot comes up with an RA/Dec plot by default. Because there
-are more than 15,000 points in this catalog, it is a binned (heatmap)
-plot; each point represents more than one row of the catalog. Mouse
-over a point to see how many rows are represented: <img
-src="img/morethanonepoint.png">
-<LI>Click on the expand (<img src="img/expand-24x24.png">) icon in the
-upper right of the plot window to make it big. 
-<LI>Click on the gear <img src="img/xyplotoptions.png"> icon in the
-upper left of the plot window to change what is plotted.
-<LI>Enter in the x box: w1mpro-w4mpro. This is WISE-1 profile-fitted
-measurement in magnitudes minus WISE-4 profile-fitted
-measurement in magnitudes,or [W1]-[W4]. 
-<LI>Enter in the y box: w1mpro. This is the [W1] mag.
-<LI>Click on the triangle next to "Layout options", and enter
-"[W1]-[W4] (mag)" for the x-label, and "[W1] (mag)" for the y-label.
-Click on "reverse" to make the brighter objects appear at the top of
-the plot. Check "grid" to make the grid appear for both axes.
-<LI>Click on the triangle next to "Y label/unit", and enter [W1] for
-the label. Enter "mag" for the unit.  Click the "grid" box.
-<LI>Click "Apply."
-<LI>Obtain this plot:<br>
-<img src="img/ex1-plot.png" width="75%"><br>
-<LI>Note that the points are shades of grey, denoting that
-at least one of the points in the plot is representative of more than
-one row in the catalog. The legend for how many points correspond to
-each shade of grey is given on the right.
-<LI>Click and drag from corner given approximately by (2,6) to (7,11). 
-<LI>The icons in the upper right change after you do this, and we want
-to filter on this region. Click on the filter icon. This filters the
-table as well as the plot. Close the plot ("Close" in the upper left)
-and go back to the table.
-<LI>After this filtering, you should have about 250 points left in the
-catalog. Since this is few enough points (&lt; 15,000) it will make a
-scatter plot for you. The scatter plot after the filtering looks
-something like this:<br> <img src="img/ex1-plotp2.png"><br>
-The points are shown as blue circles. Where they overlap, the blue appears darker.  
-<LI>Find the brightest source near [W1]-[W4]~4.5. Click on that point. 
-<LI>The (astrophysically) bright and red object we selected in the
-plot is highlighted in the overlays on top of the image and in the
-catalog (though you may need to scroll in the catalog to find the
-highlighted line). To find it even more easily, you can click
-and drag around this point in the plot. Click on the filter icon in
-the upper left. The plot at this point looks silly, but only that
-point is left in the overlay of sources on the images and in the
-catalog list. (If you have been following closely, it should be
-J213808.44+572647.6.)  
-<LI>To see the object in each of the four WISE images you have loaded,
-expand the image view. select the Tiled view if necessary. Select the
-"align and lock by WCS" option from the second lock icon in the
-toolbar. Select one of the image tiles. Zoom in until you can see the
-source. Inspect it all four WISE bands.<br>
-<img src="img/ex1-img.png">
-</OL>
-
-
-<strong>Abbreviated Example: Plotting [W1] vs. [W3]-[W4] with errors</strong><P>
-
-Because you can do simple mathematical manipulations when specifying
-what to plot or use for errors, you can calculate these things on the
-fly. From the initial catalog as in the prior example, filter it down
-(by SNR cuts; require all 4 bands to have SNR&gt;10) to make sure that
-there are fewer than 15,000 individual points. You then need to
-intitiate a new plot by clicking on the "Charts" tab.<P>
-
-For the x-axis: Ask it to plot w3mpro-w4mpro. Use
-sqrt(power(w3sigmpro,2) + power(w4sigmpro,2)) for the symmetric
-errors. For the y-axis, ask it to plot w1mpro, and use w1sigmpro for
-the errors. Reverse the y-axis to get bright objects at the top.
-Obtain a plot something like this, which shows the calculated error
-bars for each point. Note that there are errors in both
-directions. <BR> <img src="img/ex2-img.png" width="50%"><P>
-
-
-<!-- <strong>Abbreviated Example: Plotting [W1] vs. [W4] with errors</strong><P>
-
-If you ask it to plot a scatter plot from the catalog as in the prior
-example, it will complain that there are more than 15,000 rows. Ask for
-a scatter plot anyway. Then, filter the catalog down (by SNR cuts;
-require all 4 bands to have SNR&gt;10) to make sure that there are
-fewer than 15,000 individual points. The plot should dynamically update
-to reflect the filtered catalog. <P>
-
-For the x-axis: Ask it to plot w1mpro vs. w4mpro. Use w1sigmpro and
-w4sigmpro for the symmetric errors.  Reverse the y-axis to get bright
-objects at the top and right. Obtain a plot something like this, which
-shows the calculated error bars for each point. Note that the
-brightest points have small errors, and some of the faintest sources
-have large errors in both directions. <BR> <img src="img/ex2-img.png"><P> -->
-
-<strong>Abbreviated Example: Plotting a histogram of [W1] </strong><P>
-
-Load the catalog as in the first example. Click on the blue 'charts'
-tab near the top of the window. Select "histogram." Enter 
-w1mpro for the column. If you leave everything else to the defaults,
-you can obtain a plot like the below. As for xy plots, mousing over a
-column tells you more information about the contents of the column.
-<BR> <img src="img/histo.png" width="50%"><P>
 
 
 </BODY>

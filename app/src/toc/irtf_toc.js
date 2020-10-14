@@ -50,6 +50,11 @@ const toc_tables = {
             href: 'irtf/tables.html#filters',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'irtf/tables.html#cells',
+        },
+        {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'irtf/tables.html#save',

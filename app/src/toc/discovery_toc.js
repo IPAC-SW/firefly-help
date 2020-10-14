@@ -62,6 +62,11 @@ const toc_tables = {
             href: 'discovery/tables.html#filters',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'discovery/tables.html#cells',
+        },
+        {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'discovery/tables.html#save',
