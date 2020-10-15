@@ -109,33 +109,38 @@ const toc_searching = {
             href: 'sofia/searching.html#byTable',
         },
         {
-            id: 'searching.allsky',
-            title: 'Searching the Whole Sky',
-            href: 'sofia/searching.html#allsky',
-        },
-        {
             id: 'searching.bySSO',
             title: 'Searching by Solar System Object',
             href: 'sofia/searching.html#bySSO',
         },
         {
+            id: 'searching.precovery',
+            title: 'Precovery',
+            href: 'sofia/searching.html#precovery',
+        },
+        {
+            id: 'searching.allsky',
+            title: 'Searching the Whole Sky',
+            href: 'sofia/searching.html#allsky',
+        },
+        {
             id: 'searching.byProposal',
-            title: 'Proposal Constraints Search',
+            title: 'Proposal Constraints',
             href: 'sofia/searching.html#byProposal',
         },
         {
             id: 'searching.byObservation',
-            title: 'Observation Constraints Search',
+            title: 'Observation Constraints',
             href: 'sofia/searching.html#byObservation',
         },
         {
             id: 'searching.byInstrument',
-            title: 'Instrument Constraints Search',
+            title: 'Instrument Constraints',
             href: 'sofia/searching.html#byInstrument',
         },
         {
             id: 'searching.byData',
-            title: 'Data Product Constraints Search',
+            title: 'Data Product Constraints',
             href: 'sofia/searching.html#byData',
         },
     ]
@@ -159,11 +164,6 @@ const toc_results = {
             id: 'results.filtering',
             title: 'Filtering',
             href: 'sofia/results.html#filtering',
-        },
-        {
-            id: 'tables.cells',
-            title: 'Table Cells',
-            href: 'sofia/tables.html#cells',
         },
         {
             id: 'results.visualization',
@@ -301,6 +301,11 @@ const toc_tables = {
             href: 'sofia/tables.html#filters',
         },
         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'sofia/tables.html#cells',
+        },
+        {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'sofia/tables.html#save',
@@ -396,6 +401,39 @@ const toc_catalogs = {
     ]
 };
 
+
+const toc_spectra = {
+    id: 'spectra',
+    title: 'Spectra',
+    href: 'sofia/spectra.html',
+    items: [
+        {
+            id: 'spectra.intro',
+            title: 'Introduction',
+            href: 'sofia/spectra.html#intro',
+        },
+        {
+            id: 'spectra.imageplanes',
+            title: 'Image Planes',
+            href: 'sofia/spectra.html#imageplanes',
+        },
+        {
+            id: 'spectra.tables',
+            title: 'Tables',
+            href: 'sofia/spectra.html#tables',
+        },
+        {
+            id: 'spectra.plots',
+            title: 'Plots (Charts)',
+            href: 'sofia/spectra.html#plots',
+        },
+        {
+            id: 'spectra.tablechartimage',
+            title: 'Table, Chart, or Image',
+            href: 'sofia/spectra.html#tablechartimage',
+        },
+    ]
+};
 const toc_downloads = {
     id: 'downloads',
     title: 'Downloading Data',
@@ -454,7 +492,8 @@ let myToc = [
     toc_visualization,
     toc_tables,
     toc_catalogs,
-//    toc_plots,
+    toc_plots,
+    toc_spectra,
     toc_downloads,
     toc_user,
     toc_faq,

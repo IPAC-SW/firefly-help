@@ -1,0 +1,159 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "SOFIA : Spectra" -->
+<HEAD>
+<TITLE>SOFIA: Spectra
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>SOFIA Science Data Archive: Spectra</h2>
+
+Visualization of SOFIA spectra use capabilities of  <a
+href="tables.html">Tables</A>, (image) <a
+href="visualization.html">Visualization</A>, and <a
+href="plots.html">Plots</A>. Generic help on those capabilities can be
+found in those other sections; this section focuses on spectra
+specifically found in the SOFIA Science Data Archive.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#intro">Introduction</A> <br>
++<A href="#imageplanes">Image Planes</A> <br>
++<A href="#tables">Data Tables</A> <br>
++<A href="#plots">Plots (Charts)</A> <br>
++<A href="#tablechartimage">Choosing among Table, Chart, or Image</A><br>
++<A href="#filecontents">File Contents Menu</A> <br>
+<P>&nbsp;<P>
+
+
+<h3><A name="intro">Introduction</A></h3>
+
+Some of the spectral files in the SOFIA Science Data Archive show the
+spectrum as an image, some as a table, and some as a plot. In many
+of the more processed data (e.g., levels 3 and 4), you can interact
+with the spectrum as rendered in any of these ways. Some of the data
+products are multi-plane files, and you can scroll through them
+and/or pick the plane to visualize.<P>
+
+To visualize spectra, you must be on the search <a
+href="results.html">results</A> page, with an instrument tab in the
+foreground on the left (not the AOR tab) and have the "Data" tab in
+the foreground on the right. (And, of course, your search must have
+returned spectra.) <P>
+
+
+<h3><a name="imageplanes">Image Planes</A></h3>
+
+If the data are stored as a multi-plane FITS file, you may be able
+to scroll through the planes, as in this EXES Level 2 raw product:<br>
+<img src="img/spectralplanes.png"><p>
+
+If the data are stored as a multi-plane FITS file, but where each
+plane is a separate, extracted spectrum, it may look like this EXES
+Level 3 "spec" product:<br>
+<img src="img/spectralplanes2.png"><p>
+
+
+Click on the blue arrows in the top left of the image to scroll
+through the planes.<P>
+
+Each of these images can be interacted with as described in the (image) <a
+href="visualization.html">Visualization</A> section. However, zooming
+has little/no meaning in particular for the extracted spectrum, and
+zooming in/out has no effect on the image.<P>
+
+
+<h3><a name="tables">Data Tables</A></h3>
+
+Some FITS files are tables, as in the case of this FIFI-LS 
+Level 1 product:<br>
+<img src="img/spectraltables.png"><p>
+
+Each of these tables can be interacted with as described in the <a
+href="tables.html">Tables</A> section. Note that you can copy or view
+the contents of a <a href="tables.html#cells">table cell</A>.<P>
+
+
+<h3><a name="plots">Plots (Charts)</A></h3>
+
+Some FITS files can be rendered as plots (sometimes called charts), as
+in the case of this EXES Level 3 mrgordspec product:<br> <img
+src="img/spectralcharts.png"><p>
+
+Each of these plots can be interacted with as described in the <a
+href="plots.html">Plots</A> section. The axes labels and units are
+taken from the FITS file itself, and may be cryptic, but are meant to
+give you some indication of the file contents before you download it
+to work with on your own disk. <P>
+
+
+<h3><a name="tablechartimage">Choosing among Table, Chart, or Image</A></h3>
+
+For some products, you can choose whether to view the data
+product/data product plane as a table, chart, or image. The data come
+up with a default choice, but you can pick a different option. In
+this: <img src="img/tablechartimage.png">, "Image" is selected; to
+pick another option, just click on your choice.<P>
+
+
+<h3><a name="filecontents">File Contents Menu</A></h3>
+
+Some products have a "File Contents" menu: <img
+src="img/filecontents.png"> You can use this menu to select which
+part of the data product to view. <P>
+
+When you click on this menu, you can have something short, as this for
+GREAT Level 1 product:<br> <img src="img/filecontentsgreat.png"><br>
+In this case, you can view the extracted spectrum as an image, or the
+extracted spectrum as a table or chart, seen here as "HDU #0 (1D image
+- show as table or chart)."<P>
+
+<a name="extracteddata"></A>You can also have these options, as for
+this EXES Level 3 product:<br> <img
+src="img/filecontentsexes.png"><br> In this case, you can view the
+original data, seen here as "HDU #0 (2D image - show as table or chart
+or image)." Or, you can view the "Extracted Data." Note that this
+option is indented on the menu. This is sort of a value-added view of
+the data that the tool is presenting you, and this view should be the
+default for data products with this option. The "Extracted Data" view
+will combine information so as to, e.g., plot flux as a function of
+wave number. If you go back to the "HDU #0..." view, and view that as
+a table or plot, you will find data with columns like "naxis1_data_0,"
+which is what is provided by the data file itself, but the "Extracted
+Data" view interprets naxis1_data_0 properly as wavenumber. Here is an
+example for this EXES Level 3 product; the first is the "Extracted
+Data" table view and the second is the "HDU #0" table view.<br>
+<img src="img/filecontentsexesextracted.png"><img
+src="img/filecontentsexeshdu0.png"><P>
+
+
+This example File Contents menu is from a HAWC+ Level 4 product, and
+nearly all the image planes are true images. <br> <img
+src="img/filecontentshawc.png"><br> In this case, the selected option
+is "All Images in File," and it becomes a view like the multi-plane
+images described above, where you use the blue arrows to page through
+the image planes. However, this menu can also be used to select the
+image you would like to view, or view the last three planes (which are
+tables). Note that each of the HDUs for the HAWC+ data are
+multiple planes themselves, so if you pick "HDU #0", for this product,
+you have 16 planes to page through, just in HDU #0. <P>
+
+An example File Contents menu from a FIFI-LS Level 3 product:<br>
+<img src="img/filecontentsfifils.png"><br>
+shows a mixture of 2D images and tables, including one that contains a
+single table cell. This menu also has an "All Images in File," and you
+can scroll through all the images. But the data products in this filie
+are far more diverse than just images, and the File Contents menu is
+the most efficient way of exploring these other data planes.<P>
+
+
+
+
+
+</BODY>
+</HTML>

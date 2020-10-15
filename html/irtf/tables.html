@@ -177,6 +177,7 @@ resembles the text that you type in the box.
 string: !=''
 <LI> Retain rows for which a certain parameter is not NULL and is
 larger than 1.234: &gt; 1.234 and IS NOT NULL
+<LI> Retain rows that have values between -0.5 and 1.25: &gt; -05 and &lt; 1.25
 <LI> Retain rows with a parameter greater than one value or exactly
 equal to another value: &gt; 12345 or != 3000 
 <LI>Retain rows with a parameter equal to one of the values in a list:
@@ -214,7 +215,8 @@ constraints you have imposed are in the "current constraints" box, and
 you can apply additional SQL constraints via the free-form text box.
 Hints for syntax are given below the entry box. This window can be
 resized such that you can see the whole set of hints and imposed
-filters.<P>
+filters. Note that in this interface, column headers must be enclosed
+within double quotes.<P>
 
 The third tab is just the table metadata:<br>
 <img src="img/tablemetadata.png" width="25%"><P>

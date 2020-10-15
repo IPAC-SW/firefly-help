@@ -15,15 +15,17 @@
 <h2>SOFIA Science Data Archive: Overview</h2>
 
 The SOFIA Science Data Archive at IRSA is ultimately the repository
-for all data collected by SOFIA. The second release has data from most
+for all data collected by SOFIA. The third release has data from most
 instruments (EXES, FIFI-LS, FLITECAM, FORCAST, FPI+, GREAT, HAWC+),
-Cycles 1 through Cycle 7; proprietary data has access restrictions.<P>
+Cycles 1 through Cycle 8 (ongoing); proprietary data has access
+restrictions. (More information below.)<P>
 
-Note that there are also SOFIA Science Data Archive video
-tutorials, available at the <a
+Note that there are also SOFIA Science Data Archive video tutorials,
+available at the <a
 href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
-target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg" height="10"></A>. Look for the playlist
-collecting all the SOFIA videos in one place.<P>
+target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg"
+height="10"></A>. Look for the playlist collecting all the SOFIA
+videos in one place.<P>
 
 
 <em>Contents of page/chapter:</em><br>
@@ -54,10 +56,11 @@ Stuttgart).<P>
 
 More information about SOFIA and its instrument suite can be found at
 <a href="https://www.sofia.usra.edu/" target="_blank">the SOFIA
-Science Center website <img src="img/jumpout.jpg" height="10"></A>, specifically <a
-href="https://www.sofia.usra.edu/science/data"
-target="_blank">the data page at the SOFIA website <img src="img/jumpout.jpg" height="10"></A>, which includes handbooks and the
-list of known issues with SOFIA data</A>.<P>
+Science Center website <img src="img/jumpout.jpg" height="10"></A>,
+specifically <a href="https://www.sofia.usra.edu/science/data"
+target="_blank">the data page at the SOFIA website <img
+src="img/jumpout.jpg" height="10"></A>, which includes handbooks and
+the list of known issues with SOFIA data</A>.<P>
 
 To find out more about the SOFIA instruments, please see these links
 at the SOFIA Science Center:
@@ -77,10 +80,12 @@ at the SOFIA Science Center:
 
 <LI><strong>Mission ID</strong> is a unique mission identifier. In the
 SOFIA framework, a mission is the same as a SOFIA flight. (<a
-href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+jsonb_extract_path_text%28telescope_keywords%2C%27MISSN-ID%27%2C%270%27%29+as+mission_id+from+sofia.observation+order+by+mission_id" target="_blank">List
-of all the SOFIA Mission IDs in the SOFIA Science Data Archive <img src="img/jumpout.jpg" height="10"></A>, retrieved via <a
-href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP <img src="img/jumpout.jpg" height="10"></A>.)
-<P>
+href="https://irsa.ipac.caltech.edu/TAP/sync?format=html&query=select+distinct+jsonb_extract_path_text%28telescope_keywords%2C%27MISSN-ID%27%2C%270%27%29+as+mission_id+from+sofia.observation+order+by+mission_id"
+target="_blank">List of all the SOFIA Mission IDs in the SOFIA Science
+Data Archive <img src="img/jumpout.jpg" height="10"></A>, retrieved
+via <a
+href="https://irsa.ipac.caltech.edu/docs/program_interface/TAP.html">TAP
+<img src="img/jumpout.jpg" height="10"></A>.) <P>
 
 <LI><strong>Flight Series</strong> means a grouping of missions (flights)
 close in time where SOFIA originates from the same airfield and the
@@ -138,14 +143,12 @@ Note that not all instruments will have all data levels.
 
 <H3><A NAME="data">Instruments &amp; Data Available, and Caveats</A></H3>
 
-<strong>Cycle dates and instruments: Which data are in the Dec 2019
-release of the SOFIA archive</strong>:<P>
+<strong>Cycle dates and instruments: Which data are in the SOFIA archive</strong>:<P>
 <P>
-Not all instruments, all cycles are in the Dec 2019 release of the
-SOFIA Science Data Archive. The table summarizes which data are in the
-Archive.
-(DNE means does not exist, e.g., data do not exist for this instrument
-in this cycle.) HIPO data are available <a
+Not all instruments, all cycles are in the  SOFIA Science Data
+Archive. The table summarizes which data are in the Archive. (DNE
+means does not exist, e.g., data do not exist for this instrument in
+this cycle.) HIPO data are available <a
 href="https://irsa.ipac.caltech.edu/data/SOFIA/HIPO/hipo.html"
 target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.<P>
 <table border="2">
@@ -159,15 +162,16 @@ target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.<P>
 <tr><td>Cycle 4</td><td> 02/16 - 02/17</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/proposal-calls/cycle-4/cycle-4-flight-plans" target="_blank">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
 <tr><td>Cycle 5</td><td> 02/17 - 11/17</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA"><a href="https://irsa.ipac.caltech.edu/data/SOFIA/HIPO/hipo.html" target="_blank">here<img src="img/jumpout.jpg" height="10"></A></td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/cycle-5-flight-plans">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
 <tr><td>Cycle 6</td><td> 05/18 - 03/19</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/node/1645" target="_blank">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
-<tr><td>Cycle 7</td><td> 04/19 - 04/20</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/proposal-calls/cycle-7/flight-plans" target="_blank">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
+<tr><td>Cycle 7</td><td> 04/19 - 03/20?</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/flights/cycle-7/" target="_blank">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
+<tr><td>Cycle 8</td><td> 08/20? - 04/21?</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td bgcolor="#82E0AA">Yes</td><td>DNE</td><td><a href="https://www.sofia.usra.edu/science/proposing-and-observing/flights/cycle-8/" target="_blank">link <img src="img/jumpout.jpg" height="10"></A></td></tr>
 </table>
 <P>
  
 <strong>Data currently in the SOFIA Science Data Archive</strong><P>
 
-For the second release, data from most instruments (EXES, FIFI-LS,
-FLITECAM, FORCAST, FPI+, GREAT, HAWC+), Cycles 1 through
-Cycle 7 (ongoing), are available in the SOFIA Science Data Archive.<P>
+Data from most instruments (EXES, FIFI-LS, FLITECAM, FORCAST, FPI+,
+GREAT, HAWC+), Cycles 1 through Cycle 8 (ongoing), are available in
+the SOFIA Science Data Archive.<P>
 
 <strong>Not yet in the archive:</strong> Some early data through Cycle
 0 are not yet in this archive. HIPO data are available <a
@@ -212,25 +216,38 @@ but may also be data products combining many different observations.
 <LI>Some AOR ID and Plan ID are erroneously set to obviously incorrect
 values.<P>
 
+<LI>Some positions, especially in the earliest data, have larger
+uncertainties. Recommend larger search radii to be sure you're
+catching all the relevant observations.<P>
+
+<LI>The Preview tab in the results is only populated for (some) GREAT
+and HAWC+ Level 4 products, and other instruments (or low level data
+for any instrument) will have blank "No Preview Available." This is
+working as intended.<P>
+
 <LI>When NAIF ID appears to conflict with Target Name, believe the
 NAIF ID. This is most common for some of the calibration AORs.<P>
 
 <LI>Some data from the current observing cycle may only be available
 at Level 1 if the data are still being processed.<P>
 
-<LI>If the Observation Type is not OBJECT, users should not necessarily 
+<LI>If the Observation Type is not OBJECT, do not not necessarily 
 believe the Target or NAIF ID fields; it could be, e.g., flatfields at
 a completely different position (not the stated target).<P>
 
-<LI>To search for occultation observations, do an all-sky query and
-filter the results by the object name of the occulter you're
-interested in (example: Titan). Results for that object but with no
-NAIF_ID are likely occultations, since the telescope was pointing at a
-sidereal target. You can confirm by looking at the proposal abstract
-in the AOR tab (example: 06_0160).  (Note: Once Precovery is
-released,  this will be simpler; just search for the occulter of
-interest, look for results with target_moving = 0, which is equivalent
-to no NAIF_ID.)<P>
+<LI>On searching for occultation observations: there are two choices.
+Easier: use the precovery search. Search for the occulter of interest,
+and look for results with target_moving = 0, which is equivalent to no
+NAIF_ID. Harder: do an all-sky query and filter the results by the
+object name of the occulter you're interested in (example: Titan).
+Results for that object but with no NAIF_ID are likely occultations,
+since the telescope was pointing at a sidereal target. You can confirm
+by looking at the proposal abstract in the AOR tab (example:
+06_0160).  <P>
+
+<LI>The GUI filtering menu for Product Type considers blank fields to
+be "NULL" (for example, FLITECAM raw data), which seems a bit
+misleading but is working correctly (this is a feature not a bug).<P>
 </UL>
 
 
@@ -256,6 +273,8 @@ all-sky query for EXES Level 4 returns no results. <P>
 that date.<P>
 <LI>Peculiar values for spectral resolution are shown here as
 propagated from the FITS headers.<P>
+<LI>Level 4 wxy_resampled, HDU 10, display shows pixels in units of Jy
+even though it's a coverage map.<P>
 
 </UL>
 
@@ -271,6 +290,8 @@ for that combination of grism and order sorting filter.<P>
 <LI>The FLITECAM instrument does not have Level 4 data products, so an
 all-sky query for FLITECAM Level 4 returns no results. <P>
 <LI>OC1E FLITECAM data is only Level 1, so there is no Level 2/3.<P>
+<LI>Some data products may be included in the download that according
+to the Data Handbook should not have been saved or archived.<P>
 </UL>
 
 <DT>FORCAST
@@ -294,9 +315,8 @@ href="https://www.sofia.usra.edu/science/proposing-and-observing/sofia-observers
 number that appears on the Spectral Element menu is the filter width
 (in microns) of a given filter. This is not the same as the spectral
 resolution, which is the quantity provided in the FORCAST result tab
-under "Details". The spectral resolution will be on the order of 100 
-(R~100) for spectroscopic observations, and on the order of
-3-50 (R~3-50) for imaging observations. <P>
+under "Details". Most spectra are resolution (R)~100; cross-dispersed 
+spectra (XG*) are R~1000. <P>
 
 <LI> FORCAST footprints in the coverage tab may be larger than
 expected.  NAXIS* and CDELT* are the same for different levels, yet
@@ -305,6 +325,9 @@ valid data really is a 256x256 square, but the Level 2 coadd has an
 actual fits header with NAXIS*=656, with the valid data embedded
 within a square of NaNs. The coverage software sees the 656 pixel
 dimensions in the  actual FITS headers and draws the larger square.<P>
+
+<LI>FORCAST FOR_F086 energy_bounds and spectral resolution may not be
+populated.<P>
 
 </UL>
 
@@ -328,8 +351,13 @@ handbook, so this is not currently available.<P>
 all-sky search for GREAT Level 2 returns 0 results.<P>
 
 <LI>Not all the GREAT data are in FITS format. All the Level 1 data
-are FITS files, while Level 3 data are CLASS files, and Level 4 can be
-either CLASS or FITS. (Level 2 data do not exist for this instrument.)<P>
+are FITS files, while Level 3 data are tarfiles consisting of CLASS
+files, and Level 4 can be either CLASS or FITS. (Level 2 data do not
+exist for this instrument.)<P>
+
+<LI>GREAT Level 4: velocities derived by Firefly are wrong.<P>
+
+<LI>GREAT previews may not exist for all data.<P>
 
 <LI>For the GREAT instrument, a frequency channel is defined as a delta
 function, not as a Gaussian with a FWHM. This has to be kept in mind
@@ -360,6 +388,11 @@ handbook, so this is not currently available.<P>
 after that date.<P>
 <LI>The raw data from HAWC+ correspond to Level 0 rather than Level 1.
 (Level 1 is raw for all the other instruments.)<P>
+<LI>A few early HAWC+ observations used both band A and B in the same
+Observation, which results in the band B energy_bounds not being
+computed correctly since the ingest code sees a band A Observation and
+doesn't expect or allow for spectral elements to change within an
+Observation. <P>
 </UL>
 
 
@@ -482,7 +515,7 @@ height="10"></A>.<P>
 
 The <a href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
 target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg"
-height="10"></A> has lots of short videos about IRSA tools, inclugin
+height="10"></A> has lots of short videos about IRSA tools, including
 specifically SOFIA.<P>
 
 A set of frequently asked questions (FAQs) is <a
