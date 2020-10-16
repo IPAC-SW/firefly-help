@@ -432,6 +432,16 @@ const toc_spectra = {
             title: 'Table, Chart, or Image',
             href: 'sofia/spectra.html#tablechartimage',
         },
+        {
+            id: 'spectra.filecontents',
+            title: 'File Contents Menu',
+            href: 'sofia/spectra.html#filecontents',
+        },
+        {
+            id: 'spectra.wavelengths',
+            title: 'Wavelengths',
+            href: 'sofia/spectra.html#wavelengths',
+        },
     ]
 };
 const toc_downloads = {
@@ -461,6 +471,12 @@ const toc_downloads = {
             href: 'sofia/downloads.html#downloadScript',
         },
     ]
+};
+
+const toc_api = {
+    id: 'api',
+    title: 'API',
+    href: 'sofia/api.html',
 };
 
 const toc_user = {
@@ -495,6 +511,7 @@ let myToc = [
     toc_plots,
     toc_spectra,
     toc_downloads,
+    toc_api,
     toc_user,
     toc_faq,
     toc_privacy,

@@ -36,35 +36,54 @@ relative sizes. <P>
 
 <H3><A NAME="layout">Layout</A></H3>
 
+
 The left pane of the search results contains lists of observations
 that met your criteria. The right pane of the search results contains
 more details of the observations. The right pane changes depending on
 what row you have selected (clicked on) in the left pane.<P>
 
-The <strong>left pane</strong> of the search results could have
-several tabs -- one called "AOR" that is a list of AORs, and then one
-for each instrument you have selected ("instrument tabs"). The columns
-are different in each tab.  Each line includes basic information about
-all the observations which fulfill your search critera.  Each tab is
-its own table, which behaves in the same way that tables throughout
-IRSA tools with this look and feel. See the <A
-href="tables.html">Tables</A> section for more details, but in summary
-you can change the width of the columns, sort by columns, filter by
-column values, etc.<P>
+<strong>Left pane</strong><P>
+
+The left pane of the search results could have several tabs -- one
+called "AOR" that is a list of AORs, and then one for each instrument
+you have selected ("instrument tabs"). The columns are different in
+each tab.  Each line includes basic information about the
+observation(s) which fulfill your search critera.  Each tab is its own
+table, which behaves in the same way that tables throughout IRSA tools
+with this look and feel. See the <A href="tables.html">Tables</A>
+section for more details, but in summary you can change the width of
+the columns, sort by columns, filter by column values, etc.<P>
+
+The AOR tab provides the most compact view of the observations meeting
+your search criteria. Note that you can scroll to the right and find,
+if applicable, a link to the abstract and (again, if applicable) a
+link to any publications.<P>
+
+The instrument tabs contain more information than is shown. To, e.g.,
+add the observation start time or date at which the data go public,
+click on the gears and select the additional columns to show. More
+information on column selection in general can be found in the <a
+href="tables.html">tables section</A>.<P>
 
 The corresponding data can be downloaded by checking the box at the
 start of each row (or the box at the top of the column of boxes to
 select all) and clicking "Prepare download".  (See the section on <a
 href="downloads.html">downloads</A> for more information.)<P>
 
-The <strong>right pane</strong>  of the search results contains three
+
+<strong>Right pane</strong><P>
+
+The right pane  of the search results contains four
 tabs that enable exploration of the data returned by your search.
 Click on a row in the left pane and the contents of the right pane
 change.  The "Details" tab provides details about the observation. The
-"Data" tab does not show anything when the AOR tab is in the
-foreground. The "Coverage" tab shows footprints of all the returned
-observations on an image; you can interact with the image using the <a
-href="visualization.html">visualization tools</A>. <P>
+"Data" tab contains the FITS file corresponding to the row you have
+selected, but does not show anything when the AOR tab is in the
+foreground. Note that not all FITS files can be shown in the "Data"
+tab. The "Preview" tab contains, for some GREAT and HAWC+
+observations, a representation of the data (which gives an indication
+of the data, but cannot be interacted with like the "Data" tab).  The
+"Coverage" tab shows footprints of all the returned observations. <P>
 
 In the coverage tab, you will see an indication of what portions of
 the sky are covered by the data meeting your search criteria. Click on
@@ -136,7 +155,9 @@ filtering<A>, which has much more information.<P>
 Once you have data that you wish to investigate further, you can
 interact with the FITS files corresponding to most observations. 
 See <a href="visualization.html">the
-Visualization section</A> for more on visualization.<P>
+Visualization section</A> for more on visualization, and the <a
+href="spectra.html">the Spectra section</A> for more on the specific
+case of visualizing a spectrum.<P>
 
 
 
