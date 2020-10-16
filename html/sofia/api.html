@@ -1,0 +1,89 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "SOFIA: API and URL Construction" -->
+<HEAD>
+<TITLE>SOFIA: API
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>SOFIA Science Data Archive: API and URL Construction</h2>
+
+<h3>Introduction</h3>
+
+There are two ways to interact with the SOFIA Science Data Archive in
+an automatic or semi-automatic fashion.
+<P>
+<DL>
+<DT><strong>Batch searching</strong>
+<DD>You can pass a list of up to 1000 sources to the SOFIA Science
+Data Archive from the search screen, and then bundle up the results to
+download all at once in any of a variety of formats. More information
+on that is in the <a href="searching.html#byTable">Searching</A>
+section. This option is best if you don't want to write code to search
+and parse the results, and/or if you have at most a few thousand
+sources.<P>
+
+<DT><strong>API, or application programming interface</strong>
+<DD>An API, or application programming interface, enables programs to
+create a URL that will launch the tool with some fields pre-populated.
+This is described in this section.
+<P>
+</dl>
+
+
+<h3>Parameters</h3>
+
+<table border=2>
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td>WorldPt</td><td>Coordinates of the search position (semi-colon separated) - example: 10.68479;41.26906;EQ_J2000</td></tr>
+<tr><td>radiusInArcSec</td><td> Radius of search in arcseconds
+<tr><td>spatialConstraints</td><td>Possible values are: position, allsky, multi, or sso (precovery not supported)</td></tr>
+<tr><td>naifid</td><td>Search Solar System objects (moving targets) by NAIF ID.</td></tr>
+<tr><td>planId</td><td>Alphanumeric value representing a Plan ID</td></tr>
+<tr><td>aorId</td><td>Alphanumeric value representing an AOR ID</td></tr>
+<tr><td>worldPt or ra/dec</td><td>coordinates of the search<br>
+worldPt format - lon;lat;Csys - eg: 1.0;2.3;EQ_J2000 or 5;4;GAL<br>
+ra, dec format - ra=1&dec=2 - always j2000</td></tr>
+<tr><td>sr</td><td>radius of search (optional)<br>
+sr format options: d or none - degrees, m - arcminutes, s - arcseconds<br>
+sr=1.1d or sr=1.1 - 1.1 degrees<br>
+sr=150s - 150 arcseconds<br>
+sr=22m - 22 arcminutes</td></tr>
+<tr><td>processingLevel</td><td>
+Processing level values, in a comma-separated string list <br> Combination of accepted values are: LEVEL_0, LEVEL_1, LEVEL_2, LEVEL_3, and LEVEL_4</td></tr>
+<tr><td>instrument</td><td>Instrument name <br>Available values: FORCAST, EXES, FIFI-LS, FLITECAM, FPI_PLUS, GREAT, or HAWC_PLUS</td></tr>
+<tr><td>execute</td><td>true or false - if true execute the search and show the results</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<table border=2>
+<tr><th>Description</th><th>URL</th></tr>
+<tr><td>Open SOFIA search panel with all sky option set</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&spatialConstraints=allsky&execute=false</td></tr>
+<tr><td>Open SOFIA search panel with a particular object coordinates pre-filled</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&WorldPt=83.773986;-5.418506;EQ_J2000&sr=300s&spatialConstraints=position</td></tr>
+<tr><td>Return SOFIA results from a fixed target cone search with specified radius in arcseconds</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&WorldPt=83.773986;-5.418506;EQ_J2000&sr=300s&spatialConstraints=position&execute=true</td></tr>
+<tr><td>Search and return SOFIA result with following criteria: all-sky, plan ID, and AOR ID</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&spatialConstraints=allsky&planId=70_0002&aorId=70_0002_52&execute=true</td></tr>
+<tr><td>Open SOFIA search panel with specific processing levels LEVEL_1 and LEVEL_2</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&WorldPt=83.773986;-5.418506;EQ_J2000&sr=300s&spatialConstraints=position&processingLevel=LEVEL_1,LEVEL_2</td></tr>
+<tr><td>Open SOFIA search panel with a object ra, dec, and radius pre-filled</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&ra=83.7739862708531&dec=-5.41850696034436&sr=300s&spatialConstraints=position</td></tr>
+<tr><td>Open SOFIA search panel with specific instrument configuration</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&ra=83.7739862708531&dec=-5.41850696034436&sr=300s&spatialConstraints=position&instrument=FORCAST</td></tr>
+<tr><td>Search SOFIA and return results for SSO object</td><td>
+https://irsa.ipac.caltech.edu/applications/sofia/?api=search&naifid=2000001&spatialConstraints=sso&execute=true</td></tr>
+</table>
+
+
+</BODY>
+</HTML>
