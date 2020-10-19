@@ -3,70 +3,95 @@
 <!--NewPage-->
 <HTML>
 
-<!-- FOOTER LEFT "Catalog Search Tool: : X-Y Plots" -->
+<!-- FOOTER LEFT "Catalog Search Tool: : Plots" -->
 <HEAD>
-<TITLE>Catalog Search Tool: : X-Y Plots
+<TITLE>Catalog Search Tool: : Plots
 </TITLE>
 
 </HEAD>
 
 <BODY BGCOLOR="white" >
-<h2>X-Y Plots</h2>
+<h2>Plots</h2>
 
-Certain implementations of the Abbreviated IRSA Viewer either display
-results in an x-y plot format, or allow users to make such a plot.
-These plots are interactive. This section describes features of this
-x-y plotting service.<P>
-
+Plots can be made from <a href="tables.html">Tables</A>, and plots are
+made automatically in the Catalog Search Tool when catalogs are
+loaded. Plotting is covered in this section. The <a
+href="tablesCST.html">Tables</A> section discusses tables more generally.
+The <a href="visualizationCST.html">Visualization</A> section covers how
+a catalog is overlaid on images. <P>
 
 <em>Contents of page/chapter:</em><br>
-+<a href="#xyplots">Interacting with X-Y plots</A><br>
-+<a href="#catalogs">Plotting catalogs</A><br>
-+<a href="#examples">Examples of plotting a catalog</A><P>
++<a href="#default">Default Plot</A><br>
++<a href="#firstlook">Plot Format: A First Look</A><br>
++<a href="#linking">Plot Linking</A><br>
++<a href="#changing">Changing What is Plotted</A><br>
++<a href="#manipulating">Plotting Manipulated Columns</A><br>
++<a href="#restricting">Restricting What is Plotted</A><br>
++<a href="#saving">Saving Plots</A><br>
++<a href="#examples">Examples</A><br>
 <P>&nbsp;<P>
 
-<h3><a name="xyplots">Interacting with X-Y plots</A></h3>
-
-Depending on how the xy plot is created, it most likely comes up with
-RA and Dec displayed first. Note that RA increases to
-the left. <P>
-
-If you have more than 15,000 points, the plot is 'binned' (called a
-'heatmap'), such that individual points are not shown, but shades of
-grey reflect how many points are in that bin. If you have fewer than
-15,000 points, individual sources are shown.<P>
-
-One of the most powerful aspects of the x-y plots is its
-interactivity. If you click on an individual source in the plot, it is
-highlighted in other portions of the display - perhaps overplotted on
-an image or highlighted in a catalog.<P>
-
-You can click and drag to zoom in the plot. This is called "rubber
-band zoom." You can also use this feature to filter the catalog that
-is plotted -- this is another aspect of the <a
-href="tablesCST.html#filters">table filtering</A> covered in another
-section.<P>
-
-You can change what is plotted by clicking on the gears icon: <img
-src="img/xyplotoptions.png"> See the next section.<P>
 
 
+<h3><a name="default">Default Plot</A></h3>
 
+By default, after a catalog has loaded, a plot appears in the upper
+right of your browser window.<P>
 
-<h3><a name="catalogs">Plotting catalogs</A></h3>
+To obtain a full-screen view of your plot, click on the expand icon in
+the upper right of the window pane when your mouse is in the window:
+<img src="img/expand-24x24.png">. To return to the prior view, click
+the "Close" arrow in the upper left.<P>
 
-The plotting tool, by default, starts with RA and Dec plotted.  For
-large catalogs, the plot is binned -- more points are encompassed in a
-black tile and fewer points are encompassed in a white tile. For small
-catalogs, each individual point is shown as a blue dot.<P>
+The plotting tool, by default, starts with RA and Dec plotted if it
+can find RA and Dec in the catalog. Note that it does so following
+astronomical convention -- RA increases to the left. If the catalog
+does not have RA and Dec, it plots the first two numerical columns it
+finds. <P>
+
+<h3><a name="firstlook">Plot format: a first look</A></h3>
+
+If you have loaded a catalog with many (&gt; 15,000) points, you may
+have an RA/Dec plot that looks something like the one on the left
+here. If you have loded a catalog with few (&lt; 15,000) points, you
+will have an RA/Dec plot that looks more like the one on the right
+here.<br> <img src="img/defaultradecbinned.png" width="50%"><img
+src="img/defaultradecunbinned.png" width="50%"><P>
+
+The difference between them is that, for larger catalogs (left), the
+plot is binned -- more points are encompassed in a black tile and
+fewer points are encompassed in a white tile. In the context of this
+tool, this is called a <strong>heatmap</strong>. For smaller catalogs
+(right), each individual point is shown as a blue dot. In the context
+of this tool, this is called a <strong>scatter plot</strong>. <P>
 
 In either case, letting your mouse hover over a point tells you the
 values of the point under your cursor, and (if binned) how many points
-are represented:<br> <img src="img/morethanonepoint.png"><P>
+are represented:<br> <img src="img/morethanonepoint.png"> for binned
+plots, and <br> <img src="img/justonepoint.png"> for just one point.
+<br> <img src="img/morethanonepoint2.png"> Clicking (in an unbinned
+plot)  highlights that point, and it stays highlighted, though you
+must keep your mouse on the point in order to see the information
+about how many points it represents.<P>
+
+You can change the bin size and shading. If you have a binned plot,
+you have a "binning options" arrow near the bottom of the plot options
+pop-up. You can choose whether the binning is set automatically (leave
+boxes blank), or by you (populate the boxes). You can also choose if
+the grey shading is set linearly or logarithmically.  NOTE
+THAT you can't change the bin size in just one direction; if you enter
+a number for the "Number of x-bins" box, you must also enter a number
+for the "Number of y-bins" box.<P>
+
+The reason the tool makes a heatmap for large catalogs this is to more
+fairly represent the point density -- and to make the plotting faster.
+In these cases, though, it will not give you the option to overplot
+errors (see below). If you have a heatmap and want a scatter plot, you
+need to filter or otherwise restrict the catalog to have fewer points
+(see below).<P>
 
 
-
-<strong>Plots are linked to catalog and image(s)</strong><P>
+<h3><a name="linking">Plot Linking:</A> Plots are linked to catalog and image(s)</h3>
 
 If you move your mouse over any of the points in the plot, you will
 get a pop-up telling you the values corresponding to the point under
@@ -77,17 +102,16 @@ This works the other way too - click on a row in the catalog, or an
 object in the images, and the object will be highlighted in the plot
 or the catalog or the image.<P>
 
-
-<strong>Changing what is plotted</strong><P>
+<h3><a name="changing">Changing what is plotted</A></h3>
 
 To change what is plotted, click on the gears icon in the upper right
 of the plot window pane: <img src="img/xyplotoptions.png"
 align="center">. Configuration options then appear; the options are a
 little different depending on whether the points are binned or
-not:<br>  <img src="img/plotoptionspopup-decimated.png" width="35%"> &nbsp; &nbsp;
-&nbsp; <img src="img/plotoptionspopup.png" width="35%"><br> The left has the
-options for binned plots, and the right has the options for plots that
-have individual points shown.<P>
+not:<br>  <img src="img/plotoptionspopup-decimated.png" width="30%">
+&nbsp; &nbsp; <img src="img/plotoptionspopup.png" width="30%"><br> The
+left has the options for binned plots, and the right has the options
+for plots that have individual points shown.<P>
 
 <DL><dt><strong>Both kinds of plots have the following
 options.</strong>
@@ -137,7 +161,7 @@ making changes.<P>
 
 <dt><strong>Options found only in binned plots</strong>
 <dd>(Plots are binned if there are &gt; 15,000 points in the catalog.)
-Frome the pop-up, you can control the color table that is used
+From the pop-up, you can control the color table that is used
 (greyscale is the default; there are many other choices in the
 pulldown menu), as well as the number of bins in the x and y
 directions.   If you change the number of bins but then want to go
@@ -167,28 +191,27 @@ Obtain this plot:<P>
 <img src="img/w1snrexample.png" width="70%"><img
 src="img/w1snrexampleconfig.png" width="30%"><p>
 
-<strong>Plotting manipulated columns</strong><P>
+
+<h3><a name="manipulating">Plotting Manipulated Columns</A></h3>
 
 You can choose a single column to plot against another column, as
 above. However, you can also do simple mathematical manipulations.<P>
 
-For example, if you have loaded a WISE catalog, you can plot [W1]-[W2] vs.
-[W3]-[W4]. In terms of the names of the columns in the database, this
-is w1mpro-w2mpro vs. w3mpro-w4mpro.  <br>
+For example, if you have loaded a WISE catalog, you can plot [W1]-[W2]
+vs. [W3]-[W4]. In terms of the names of the columns in the database,
+this is w1mpro-w2mpro vs. w3mpro-w4mpro.  <br>
 
 <img src="img/wisecolorexample.png" width="70%"><img
 src="img/wisecolorexampleconfig.png" width="30%"><p>
 
 If you have few enough points that the plot is not binned, you can add
 errors, and you can also manipulate those:<br> <img
-src="img/plotoptionspopup2.png"><br>  In this case, the RA
-in this catalog is in degrees, but the RA errors are in arcseconds.
-This plot request converts the RA errors to degrees
+src="img/plotoptionspopup2.png"><br>  In this case, the positions
+in this catalog are in degrees, but the errors are in arcseconds.
+This plot request converts the errors to degrees
 before plotting. <P>
 
-
-<strong>Restricting what is plotted</strong><P>
-
+<h3><a name="restricting">Restricting What is Plotted</A></h3>
 
 You can also restrict what data are plotted in any of several
 different ways. <P>
@@ -200,27 +223,46 @@ However, and perhaps more powerfully, you can set limits from the plot
 itself using a rubber band zoom.  Click and drag in a sub-region of
 the plot. A new icon appears in the upper right of the plot: <img
 src="img/plotoptions.png">. This means "filter the catalog to leave
-only those objects encompassed by the selection in the plot." If you
+only those points encompassed by the selection in the plot." If you
 click on the zoom icon, then the plot axes change to encompass just
 the sources you have selected. If you click on the filter icon, then
 the catalog view is filtered down, restricted to just those sources
-you have selected, and the filter notes in the upper left of the plot
-window (and the upper right of the catalog window) change to remind
-you that you have a filter applied. Only those sources that pass the
-filter are shown overlaid on the image(s) or in the catalog. (This is
-the behavior of 'filter', as opposed to 'select'; the former restricts
-what is shown, the latter just highlights the objects.) For more on
-filters, see <a href="tablesCST.html#filters">the filter section</A>.<P>
+you have selected, and the plot is zoomed in; the filter notes just
+above the plot (and the above the table, as applicable) change to
+remind you that you have a filter applied. Only those data points that
+pass the filter are shown in the plot, in the table, and/or overlaid
+on the image(s). (This is the behavior of 'filter', as opposed to
+'select'; the former restricts what is shown, the latter just
+highlights the points.) For more on filters, see <a
+href="tables.html#filters">the filtering dicussion in the tables
+section</A>.<P>
 
+<!-- If you have a big catalog, zooming or filtering may reduce the number
+of plotted points to below 15,000, which means
+that then individual points can be shown, rather than binned
+points.<P> -->
+
+If you move your mouse over any of the points, you will get a pop-up
+telling you the values corresponding to the point under your cursor.
+If you click on any of the points, the object(s) corresponding to that
+point will be highlighted in the overlays in the images shown, and
+highlighted in the catalog table.  This works the other way too -
+click on a row in the catalog, or an object in the images, and the
+object will be highlighted in the plot or the catalog or the image.<P>
 
 You can also zoom with your mouse on the plot -- do whatever you would
 do with your mouse to scroll but with your mouse over the plot. You
 can also grab-and-drag the plot axes to change the plotting range.<P>
 
+<h3><a name="saving">Saving Plots</A> </h3>
 
-<strong>Saving a plot to a file</strong><P>
 Click on the diskette icon (<img src="img/save.png">). Your plot will
-then be saved as a png file.  <P>
+then be saved as a png file. 
+The saved PNG is the same size as it is on your screen. If you want a
+big version, make the desired plot big on your screen (expand the view
+to take up as much space as possible) before saving the PNG. <P>
+ <P>
+
 
 
 <h3><a name="examples">Examples of catalog plots</A></h3>
@@ -318,5 +360,11 @@ two epochs and filter via the icon at the top of the plot.
 Obtain a plot something like this, which shows the error
 bars for each point.  <BR> <img src="img/ex2-imgcst.png" width="50%"><P>
 
-You can send the light curve so obtained to the <a
-href="overviewTSV.html">Time Series Tool</A>.
+You can send the light curve so obtained to the Time Series Tool for
+further analysis.<P>
+
+
+
+
+</BODY>
+</HTML>

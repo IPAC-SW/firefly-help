@@ -389,25 +389,35 @@ const toc_visualizationCST = {
     id: 'visualizationCST',
     title: 'Catalog Search Tool: Visualization',
     href: 'irsaviewer/visualizationCST.html',
-    items: [
+    items: [	
         {
             id: 'visualizationCST.fitsViewer',
-            title: 'Basic FITS Viewer',
+            title: 'The FITS/HiPS viewer',
             href: 'irsaviewer/visualizationCST.html#fitsViewer',
         },
         {
-            id: 'visualizationCST.imageoptions',
-            title: 'Visualization Tools -- Image Options',
-            href: 'irsaviewer/visualizationCST.html#imageoptions',
+            id: 'visualizationCST.imageinfo',
+            title: 'Image Information',
+            href: 'irsaviewer/visualizationCST.html#imageinfo',
+        },
+        {
+            id: 'visualizationCST.toolbar',
+            title: 'Image Toolbar',
+            href: 'irsaviewer/visualizationCST.html#toolbar',
+        },
+        {
+            id: 'visualizationCST.newimage',
+            title: 'New Image',
+            href: 'irsaviewer/visualizationCST.html#newimage',
         },
         {
             id: 'visualizationCST.stretches',
-            title: 'Specific information on Color Stretches',
+            title: 'Color Stretches',
             href: 'irsaviewer/visualizationCST.html#stretches',
         },
         {
             id: 'visualizationCST.hipsViewer',
-            title: 'Specific HiPS features',
+            title: 'Specific HiPS Features',
             href: 'irsaviewer/visualizationCST.html#hipsViewer',
         },
         {
@@ -417,7 +427,7 @@ const toc_visualizationCST = {
         },
         {
             id: 'visualizationCST.breakingout',
-            title: 'Breaking out of the pane (and going back)',
+            title: 'Breaking out of the pane',
             href: 'irsaviewer/visualizationCST.html#breakingout',
         },
         {
@@ -435,19 +445,35 @@ const toc_tablesCST = {
     href: 'irsaviewer/tablesCST.html',
     items: [
         {
-            id: 'tablesCST.header',
+            id: 'tables.tableoptionsCST',
+            title: 'Table Options',
+            href: 'irsaviewer/tablesCST.html#tableoptions',
+            hidden: true,
+        },
+        {
+            id: 'tables.headerCST',
             title: 'Table Header',
             href: 'irsaviewer/tablesCST.html#header',
         },
         {
-            id: 'tables.columns',
+            id: 'tables.columnsCST',
             title: 'Table Columns',
             href: 'irsaviewer/tablesCST.html#columns',
         },
         {
-            id: 'tables.filters',
+            id: 'tables.filtersCST',
             title: 'Table Filters',
             href: 'irsaviewer/tablesCST.html#filters',
+        },
+        {
+            id: 'tables.cellsCST',
+            title: 'Table Cells',
+            href: 'irsaviewer/tablesCST.html#cells',
+        },
+        {
+            id: 'tables.saveCST',
+            title: 'Saving Tables',
+            href: 'irsaviewer/tablesCST.html#save',
         },
     ]
 };
@@ -459,14 +485,39 @@ export const toc_xyplotViewer = {
     href: 'irsaviewer/xyplotsCST.html',
     items: [
         {
-            id: 'xyplotsCST.xyplots',
-            title: 'Interacting with X-Y plots',
-            href: 'irsaviewer/xyplotsCST.html#xyplots'
+            id: 'xyplotsCST.default',
+            title: 'Default Plot',
+            href: 'irsaviewer/xyplotsCST.html#default'
         },
         {
-            id: 'xyplotsCST.catalogs',
-            title: 'Making X-Y plots from catalogs',
-            href: 'irsaviewer/xyplotsCST.html#catalogs'
+            id: 'xyplotsCST.firstlook',
+            title: 'Plot Format: A First Look',
+            href: 'irsaviewer/xyplotsCST.html#firstlook'
+        },
+        {
+            id: 'xyplotsCST.linking',
+            title: 'Plot Linking',
+            href: 'irsaviewer/xyplotsCST.html#linking'
+        },
+        {
+            id: 'xyplotsCST.changing',
+            title: 'Changing What is Plotted',
+            href: 'irsaviewer/xyplotsCST.html#changing'
+        },
+        {
+            id: 'xyplotsCST.manipulating',
+            title: 'Plotting Manipulated Columns',
+            href: 'irsaviewer/xyplotsCST.html#manipulating'
+        },
+        {
+            id: 'xyplotsCST.restricting',
+            title: 'Restricting What is Plotted',
+            href: 'irsaviewer/xyplotsCST.html#restricting'
+        },
+        {
+            id: 'xyplotsCST.saving',
+            title: 'Saving Plots',
+            href: 'irsaviewer/xyplotsCST.html#saving'
         },
         {
             id: 'xyplotsCST.examples',
