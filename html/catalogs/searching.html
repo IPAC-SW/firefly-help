@@ -23,8 +23,8 @@ another for building a query to extract data from that catalog.
 Submitting the job automatically brings up the process monitor, which
 reports the status of the job, and which gives the link to the
 returned data. These data are always written to an ASCII file of size
-less than 2 GB that is kept on-line for 48 hours after the job is
-finished. (A processing summary is also sent to you by email if you
+up to about 2 GB, which is kept on-line for 72 hours after the job was
+started. (A processing summary is also sent to you by email if you
 request it.)<P>
 
 
@@ -51,12 +51,16 @@ request it.)<P>
 
 <p>The Catalog Search Tool begins with a list of the broad data sets
 available at IRSA. Choose one and click on the red "Select"
-button.</p>
+button. Example:</p>
+
+<img src="img/selectmission.png" width="50%"><P>
 
 <p>You then have a list of the individual catalogs associated with
 your chosen data set, along with information on the size of each
 catalog and links to the relevant documentation. Choose a catalog and
-click on any of the red "Select" buttons.</p>
+click on any of the red "Select" buttons. Example:</p>
+
+<img src="img/selectcatalog.png" width="50%"><P>
 
 <p>The next screen allows you to build a query for your selected
 catalog. It  has four main parts, each of which is described in detail
@@ -70,7 +74,13 @@ list.<P>
 <h3><a name="Building">Building a Query</a></h3>
 
 The query builder interface constrains which rows and columns will be
-retrieved from the catalog. There are three classes of constraints:
+retrieved from the catalog. Example: <P>
+
+<img src="img/query.png" width="50%"><P>
+
+
+
+There are three classes of constraints:
 <UL>
 <LI> spatial constraints - which regions of the sky over which to
 select rows;
@@ -133,8 +143,8 @@ below).</p>
 <tbody><tr>
 <td><b>Parameter</b></td>
 <td><b>Description</b></td>
-<td><b>Required</b></td>
-<td><b>Allowed Values</b></td>
+<td><b>Is it required?</b></td>
+<td><b>Notes</b></td>
 </tr>
 
 <tr>
@@ -143,7 +153,8 @@ below).</p>
 1); <br> OR<br>the semi-major axis of an elliptical projected search area
 (i.e. Axial Ratio &lt; 1).</td>
 <td>required</td>
-<td>0 &lt; Radius &lt; 3600 arcsec</td>
+<td>Radius must be positive; max value depends on the catalog being
+queried, and is shown in red on the search form.</td>
 </tr>
 
 <tr>
@@ -170,7 +181,9 @@ projected search area, measured East from North</td>
 
 <p>The Box Query returns objects that lie within a square centered on 
 the search position. The width of the square is defined by the Size 
-parameter, which can range from 0 &lt; Size &#8804; 7200 arcsec.</p>
+parameter, which must be positive. The maximum value depends on the
+catalog being queried. The maximum value is shown on the search form
+in red.</p>
 
 <strong><a name="searchmethodspolygon">Search Methods: Polygon</a></strong><P>
 
@@ -203,10 +216,10 @@ requirements.</p>
 <table border="1">
 
 <tbody><tr>
-<td><b>column name</b></td>
-<td><b>required?</b></td>
-<td><b>description</b></td>
-<td><b>units</b></td>
+<td><b>Column Name</b></td>
+<td><b>Is it required?</b></td>
+<td><b>Description</b></td>
+<td><b>Units</b></td>
 </tr>
 
 <tr>
@@ -266,8 +279,10 @@ angle in your  input table, the default values are assumed. </p>
      186.000000  15.000000     500.
 </pre>
 
-<p>Since there are is no column labeled "ratio," the value under major
-is interpreted as the radius of a circular search.</p>
+<p>The "major" column is optional; you can submit a table consisting
+just of RA and Dec.  Since there is no column labeled "ratio," the
+value under major is interpreted as the radius of a circular search.
+</p>
 
 
 
@@ -346,12 +361,14 @@ downloading the results in table format.</A><P>
 <tbody><tr>
 <td><b>Option</b></td>
 <td><b>Description</b></td>
-<td><b>Required?</b></td>
+<td><b>Is it required?</b></td>
 </tr><tr>
 <td>Table Output</td>
 <td>Click this option to return an <a
 href="https://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html"
-target="_blank">IPAC table file <img src="img/jumpout.jpg" height="10"></A>.</td>
+target="_blank">IPAC table file <img src="img/jumpout.jpg"
+height="10"></A>. 
+This is the default output.</td>
 <td>Required for Single Object  and 
 Multi-Object Searches</a>.<br>Optional for All-Sky Searches.</td>
 </tr>
@@ -360,7 +377,8 @@ Multi-Object Searches</a>.<br>Optional for All-Sky Searches.</td>
 <td>Source Counts Only</td>
 <td>Click this option to return the number of sources matching your 
 constraints. This is useful for estimating the size of a table result 
-before actually requesting the table.</td>
+before actually requesting the table. This option is only supported
+for an all-sky search.</td>
 <td>Optional</td>
 </tr>
 
@@ -382,8 +400,11 @@ By default, the service provides a "Standard" list of columns that
 you can choose to output. To see a list of all columns available,
 click on the "Long Form" button. Regardless of whether you choose
 "Standard" or "Long Form", you can further tailor the output by
-checking the boxes under the "Sel" column in the table.
+checking the boxes under the "Sel" column in the table. Example:
 </p>
+
+<img src="img/colsel.png" width="50%"><P>
+
 
 <P>Some columns have no checkbox in the "Sel" column, and those are
 linked to the prior column, such as in the case of errors. If you are
@@ -467,10 +488,8 @@ or, not), mathematical computations, and data constraints.<P>
 
 <h3><a name="order">Order of Results</a></h3>
 
-The rows in a relational database have no particular order. If the
-same query is run twice, the returned rows are not guaranteed to be in
-the same order. The tool therefore sorts the data in ascending
-order.<P>
+The rows in a relational database have no particular order. As a
+result, the output is similarly not ordered.<P>
 
 For single-source cone searches, the rows will be returned in order of
 distance from the requested position. For other single-source search
@@ -478,11 +497,12 @@ regions or all-sky searches via the web interface, there is no
 particular order, but the output table has sorting capability (by
 clicking on the column name).<P>
 
-For the program interface mode with single-source or all-sky searches,
+For table upload, the service orders by distance from each source.<P>
+
+We note here that, for <a href="api.html">API queries</A>, you can control
+how the output is ordered. For single-source or all-sky searches,
 a parameter "order=(column_name)" may be used to order the rows by
 that column (in ascending order).<P>
-
-For table upload, the service orders by distance from each source.<P>
 
 
 <h3><a name="RunningQuery">Running the Query</a></h3>
@@ -513,24 +533,29 @@ href="overview.html">the Overview page</A>.<P>
 <ul>
 
 <li>Queries that result in very large files may take a long time to 
-return, and can impact other users. Queries that result in tables
-that  are larger than 2GB will fail. Before going on to execute your
-full  query, first experiment by doing a similar query that returns
-fewer than 1000 sources. This can be done by making your cone search
-radius small, or limiting the number of entries in a multi-object
-search to less than 1000, or setting outrows=1000. Inspect the output
-table to see how  large it is in GB. (Even when the number of rows is
-known, the size  varies from catalog to catalog based on the number of
-columns requested  and their contents.) Use this information to scale
-your query up to  produce output files that are less than 2
-GB.</li><p>
+return, and can impact other users. Queries that result in tables that
+are larger than 2GB will truncate the output and output the warning
+message in red: "The output of the query may be truncated." Before
+going on to execute your full  query, first experiment by doing a
+similar query that returns fewer than 1000 sources. This can be done
+by making your cone search radius small, or limiting the number of
+entries in a multi-object search to less than 1000, or setting
+outrows=1000, or reduce the number of selected columns in the output
+to reduce file size. Inspect the output table to see how large it is
+in GB. (Even when the number of rows is known, the size varies from
+catalog to catalog based on the number of columns requested and their
+contents.) Use this information to scale your query up to produce
+output files that are less than 2 GB.</li><p>
 
 <li>Query on indexed columns as much as possible. If you are using
 the  web interface, you can see which columns are indexed in the table
 that  allows you to select which columns to download. The indexed
 columns are  marked with an X.</li><p>
 
-<li>Users with spatial constraints, a polygon search is generally
+<LI>Choose logical 'AND' and avoid 'OR' whenever possible when
+providing multiple constraints. </li><p>
+
+<li>For users with spatial constraints, a polygon search is generally
  faster than adding ra and dec constraints in the column constraint
  fields.</li><p>
 
@@ -546,7 +571,7 @@ square roots and trigonometric functions.</li><P>
 <strong>Example 1:</strong> 
 Perform a cone search of all measurements within 1 degree of M51 in
 the 2MASS Point Source Catalog; return ra, dec, J, H and K_s
-magnitudes, with output records ordered by K magnitude.<P>
+magnitudes.<P>
 <OL>
 <LI>At the start-up page, choose the 2MASS catalogs.
 <LI>At the second page, choose the 2MASS All-Sky Point Source Catalog
