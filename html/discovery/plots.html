@@ -182,6 +182,28 @@ symmetric or asymmetric (see pulldown menu). <P>
 
 You can also change either axis to be linearly or logarithmically scaled.<P>
 
+<strong>Hints and tips:</strong>
+<UL>
+<LI>VizieR searches by position to find all counterparts. As such, you
+may want to change the plot to be RA/Dec and filter down so that you
+select different counterparts. Then, you'll want to return to the SED
+view of your now filtered points. The values to copy back into the plot
+parameters box are:
+<UL>
+<LI>x: 2.998*power(10,14)/("_sed_freq"*power(10,9))
+<LI>no x errors by default
+<LI>y: ("_sed_flux")*("_sed_freq"*power(10,9))
+<LI>y error, symmetric: ("_sed_eflux")*("_sed_freq"*power(10,9))
+</UL>
+<LI>NED SEDs are curated, so outliers are less likely to be a problem.
+BUT if you need them, the values to copy back into the plot
+parameters box are:
+<UL>
+<LI>x: 2.998*power(10,14)/("Frequency")
+<LI>no x errors by default
+<LI>y: ("Flux Density")*("Frequency")
+<LI>y error, symmetric: ("Upper limit of uncertainty")*("Frequency")
+</UL>
 
 
 <h3><a name="restricting">Restricting What is Plotted</A></h3>
