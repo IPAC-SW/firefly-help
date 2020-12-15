@@ -1,7 +1,7 @@
 ## About `irsa-ui-help`
 
 This is a fork of [firefly-help](https://github.com/Caltech-IPAC/firefly-help/).  
-Additional information for `irsa-ui-help` are [here].(./README-irsa-ui.md) 
+Additional information for `irsa-ui-help` are [here](./README-irsa-ui.md) 
 
 
 
