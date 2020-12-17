@@ -145,11 +145,12 @@ FITS image. Be sure to save the cropped FITS image (see annotated
 figure). <br>
 <img src="img/savecropped.png"> <P>  <P>
 
-Note that if you <a href="catalogs.html">overlay a catalog</A>
-consisting of tens of thousands of sources, then turn around and save
-a regions file from the catalog overlay, then you will have far fewer
-sources in the regions file than you have in the full catalog. This is
-a known issue.<P>
+Note that if you <a href="catalogs.html">overlay a large catalog</A>,
+then turn around and save a regions file from the catalog overlay, the
+full catalog may not be saved to the regions file. If you have
+&gt;15,000 sources, enough that the accompanying plot is shown in
+shades of grey, not every source will be overlaid on the image, even
+if you zoom in, and thus will not be in the regions file.<P>
 
 The saved PNG is the same size as it is on your screen. If you want a
 big version, make the desired image big on your screen (view
@@ -805,10 +806,18 @@ are overlaid at all, much less that the catalogs are different on each
 set of images. But, it is behaving in the same way as what is
 described here!<P>
 
-<strong>Helpful tip:</strong> If you leave the layers pop-up window
-open while you click on different images to select them, you can see the
-contents of the pop-up layers window change to reflect the layers (and
-options) present in that selected image. <P>
+<strong>Troubleshooting and Tips:</strong> 
+<UL>
+<LI> If you leave the layers pop-up window open while you click on
+different images to select them, you can see the contents of the
+pop-up layers window change to reflect the layers (and options)
+present in that selected image. 
+<LI> If you want to overlay a source list on all the images retrieved
+from a multi-target search, don't overlay it as a regions file;
+regions files will only be shown on the currently selected target's
+images. Overlay your source list as another catalog on its own, and
+then those sources will appear in each image for each target.
+</UL>
 
 
 <A NAME="breakingout"><H3>Breaking out of the pane (and going back)</H3></A>

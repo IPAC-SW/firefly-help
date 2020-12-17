@@ -199,7 +199,12 @@ const toc_tables = {
             title: 'Table Filters',
             href: 'finderchart/tables.html#filters',
         },
-        {
+         {
+            id: 'tables.cells',
+            title: 'Table Cells',
+            href: 'finderchart/tables.html#cells',
+        },
+       {
             id: 'tables.save',
             title: 'Saving Tables',
             href: 'finderchart/tables.html#save',
