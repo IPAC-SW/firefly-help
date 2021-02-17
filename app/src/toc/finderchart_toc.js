@@ -404,11 +404,6 @@ const toc_api = {
             title: 'Output Examples',
             href: 'finderchart/api.html#outputexamples',
         },
-        {
-            id: 'api.urlconstruction',
-            title: 'URL Construction',
-            href: 'finderchart/api.html#urlconstruction',
-        },
     ]
 };
 
