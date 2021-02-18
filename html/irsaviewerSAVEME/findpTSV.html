@@ -1,0 +1,224 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Time Series Tool: Period Finder" -->
+<HEAD>
+<TITLE>Time Series Tool: Period Finder
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Time Series Tool: Period Finder</h2>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#initialview">Initial View</A><br>
++<A href="#settings">Settings and Adjusting Periods</A><br>
++<A href="#plot">Plot</A> <br>
++<A href="#pgram">Calculate Periodogram</A> <br>
++<A href="#pgramresults">Periodogram Results</A> <br>
++<A href="#acceptp">Accepting a Period</A> <br>
+<P>&nbsp;<P>
+
+<h3><A NAME="initialview">Initial View</A></h3>
+
+When you click on the "Period Finder" button, this is the screen you
+get:<br>
+<P><img src="img/findpTSV.png" width="100%"><P>
+
+The upper left is another <a href="#settings">pane</A>, and the upper
+right will have (eventually) a plot of the light curve. Initially,
+there is nothing here because no period has been determined yet.<P>
+
+Now we describe these portions of the screen, as well as what to do
+next.<P>
+
+<h3><A NAME="settings">Settings and Adjusting Periods</A></h3>
+
+The settings pane carries with it the time and dependent variable
+columns you set in the <a href="main1TSV.html">Viewer</A> (prior
+screen). These columns cannot be changed from here; you must return to
+the <a href="main1TSV.html">main screen</A> to change them.<P>
+
+You can set the period from this screen in three different ways:
+<OL>
+<LI><strong>Enter manually</strong>. Just type the period you want in
+the box. 
+<LI><strong>Slide to select</strong>.  The boxes on the far left and right of the
+slider control the range over which the slider applies. By default, it
+comes up with 0.001 d and 365 d. If your target has, say, a period
+near 0.7 d, but you are not sure exactly what it is (perhaps due to
+changes in the source itself), you can reset the slider limits to be
+0.5 and 1 d, then click and drag the slider slowly through the various
+periods. The <a href="#plot">plot of the phased light curve</A> in the
+upper right changes dynamically as you move the slider.
+<LI><strong>Calculate periodogram and click to select period</strong>.
+To use this option, click on the <a href="#pgram">"Calculate
+periodogram"</A> button in the lower portion of the screen (see below for
+more information).
+</OL>
+
+It has also extracted the time of the first epoch in your data file
+and listed it in the box labeled "Time Offset." You can change this if
+you want.<P>
+
+Once you have a period you like, click "accept" to accept means to
+return to the <a href="main2TSV.html">main screen</A>, and plot the 
+phase folded light curve using the selected period on that screen.
+Cancel to return to the main screen without phase folding the light
+curve.<P>
+
+
+<h3><A NAME="plot">Plot</A></h3>
+
+The plot in the upper right is a plot of the uploaded light curve,
+phased to the currently selected period. It comes up without an
+initial period. If you enter a different period in the <a
+href="#settings">settings pane</A>, then this plot dynamically
+updates.<P>
+
+This plot is unlike any other plot within this tool in that you cannot
+control what is plotted or how. <P>
+
+<h3><A NAME="pgram">Calculate Periodogram</A></h3>
+
+When you first load this portion of the tool, the bottom has only a
+"Calculate Periodogram" button. Clicking on it starts the process of
+the  periodogram calculation. The code that is actually run by the
+tool is that from <a
+href="http://exoplanetarchive.ipac.caltech.edu/docs/pgram/pgram_parameters.html"
+target="_blank">NExScI periodogram service <img src="img/jumpout.jpg"
+height="10"></A>. <P>
+
+Clicking on the button brings up this configuration pop-up:<br>
+<img src="img/configpgramTSV.png"><br>
+From here, you can select from pull-down menus:
+<UL>
+<LI>Periodogram type. Lomb-Scargle is the only choice. (Lomb-Scargle
+is an approximation of the Fourier transform for unevenly spaced time
+sampling. It identifies periodic signals that are simple combinations
+of sinsinusoids.)
+<LI>Period step method. You can select fixed frequency or fixed
+period.
+</UL>
+The next set of choices are left blank by default: Fixed step size,
+period min, and period max. If you leave these variables blank, the
+routine will calculate values for these parameters as follows:
+<UL>
+<LI>fixed step size - if using fixed frequency, this is the delta f;
+if using fixed period, this is the delta P. The default value is 
+(max-min)/(number of periods to sample), where number of
+periods to sample is 10 times the number of data points.
+<LI>period min - minimum period to calculate. The default value is twice 
+the median time step in the data (which is about the Nyquist limit).
+<LI>period max - maximum period to calculate. The default value is
+half the time baseline.
+<LI>number of peaks - number of peaks to identify in a separate table
+returned by the calculation. The default is 50.
+</UL>
+If you want to override any of these selections, you can do so in the
+boxes in the pop-up.<P>
+
+Click on 'Reset' to reset the parameters to the defaults. <P>
+
+Click on 'Cancel' to close the pop-up without doing anything.<P>
+
+Click on 'Calculate' to initiate the calculation.<P>
+
+After a periodogram calculation has been completed, a "Recalculate
+Periodogram" button  is located on the upper left of the results pane.<P>
+
+<h3><A NAME="pgramresults">Periodogram Results</A></h3>
+
+The results of the periodogram calculation appear in two tables (left)
+and a plot (right), both on the bottom of the screen. <P>
+
+<P><img src="img/foundpTSV.png" width="100%"><P>
+
+On the left, the two tables are (1) the periodogram itself (which is
+in the foreground by default) and (2) a table listing just the top
+<em>N</em> peaks, where <em>N</em> is a value you specify in the
+periodogram finding pop-up (the default is 50). <P>
+
+On the right, the periodogram is plotted. This is a plot with all the
+<a href="main1TSV.html#plots">same basic functionality provided by
+this tool</A> in that you can change what and how it is plotted -- for
+example, if you want to remove the lines connecting the points, click
+on the gears (<img src="img/tableoptions.png">) to bring up options
+for the table and choose a different plot option from the pop-up.<P>
+
+<strong>The plots and tables are dynamically linked.</strong>  If you
+click a point in the periodogram, the row is highlighted in the table,
+and the phased light curve changes. In the settings pane, the period
+next to "enter manually" is updated to reflect the period you
+selected.  <P>
+
+If you select the other table, the table of peaks, on the left, all
+the same functionalities apply, except the plot on the lower right is
+now power versus peak number. <P>
+
+(This power spectrum and period are what you get if you use this 
+<a href="exampleallwiseinput.tbl">example input table from
+AllWISE</A>.)<P>
+
+<strong>Troubleshooting 1: power spectrum does not have a single peak</strong>
+<br>
+If your light curve is sampled with large gaps (as a lot of
+WISE/NEOWISE and PTF light curves are), use caution when interpreting
+the power spectrum. For example, <a
+href="VYLib_neowise_yr123.tbl">here</A> is the NEOWISE light curve for
+VY Lib, a variable star. If you plot the light curve, you will see big
+gaps between clumps of observations.<br>
+<img src="img/vylib1.png"><br>
+This (above) is what you get if you let the period searching routine
+pick all its own defaults. The period is 0.532 d. There is a peak at
+that period that sticks up above the noise.<br>
+<img src="img/vylib2.png"><br>
+This (above) is what you get if you force the minimum period to be 0.1
+d, which changes the influence of the gaps. 
+The 0.532 peak no longer stands out from the other peaks, and with
+just this result, one could justifiably conclude there is no
+significant period here. Except there really is one, and it's 0.532 d.
+<br>
+<img src="img/vylib3.png"><br>
+This (above) is what you get if you use only three of the campaigns.
+There are fewer points overall, but there are also fewer big gaps in
+the light curve. Now the distribution of peaks in the power spectrum
+has changed again, though 0.532 still seems to be the favored peak.
+<strong>Caution is warranted</strong> when interpreting power spectra
+if the time series has large gaps. Simulations are helpful to know
+what to believe.<P>
+
+<strong>Troubleshooting 2:</strong> The version of Plot.ly used by the
+IRSA Viewer sometimes makes ...unusal label choices for logarithmic
+plots. The two minor ticks between major ticks are 2 and 5, so if they
+occur between 10 and 100, it means 20 and 50. <P>
+
+
+<h3><A NAME="acceptp">Accepting a Period</A></h3>
+
+In practice, you may want to work with all of the available tools to
+find a period -- periodograms calculated in different ways, different
+peaks selected, sliders used to align particularly ill-behaved
+waveforms, etc. After you have a period that you like, that value
+should be in the box next to the "enter manually" text in the <a
+href="#settings">settings pane</A>. <P>
+
+The buttons in the lower left of that pane now read "accept" and
+"cancel." 'Cancel' closes the period-finding window without doing
+anything further.  'Accept' takes that period as the best
+possible period, and returns you to the main screen, but now that
+screen is a little different, because it is <a
+href="main2TSV.html">after Period Finding</A>.<P>
+
+ 
+
+<em><a href="main1TSV.html">Go back to Main Screen, Viewer (Initial View)</A> or 
+<a href="main2TSV.html">go on to Main Screen, Viewer (After Period Finder)</A>.</em><P>
+
+</BODY>
+</HTML>

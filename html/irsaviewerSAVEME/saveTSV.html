@@ -1,0 +1,105 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Time Series Tool: Saving Results" -->
+<HEAD>
+<TITLE>Time Series Tool: Saving Results
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Time Series Tool: Saving Results</h2>
+
+
+There are several different ways to save results of analysis done in
+the Time Series Tool.<P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#tables">Tables</A><br>
++<A href="#plots">Plots</A><br>
++<A href="#singleimages">Single Images</A> <br>
++<A href="#multipleimages">Multiple Images</A> <br>
+<P>&nbsp;<P>
+
+<h3><A NAME="tables">Tables</A></h3>
+
+On the upper right of any table shown in the tool, there is a diskette
+option: <img src="img/savetable.png">. Click on this icon to save the
+table as an IPAC table (which is a variant of plain text). <P>
+
+
+<h3><A NAME="plots">Plots</A></h3>
+
+To save a plot, click on the diskette icon (<img src="img/save.png">).
+The plot will be saved to your disk as a png file.<P>
+
+<h3><A NAME="singleimages">Single Images</A></h3>
+
+If you want to save a single image, click on the image you want to
+save so that it has the orange highlighted box around it. The diskette
+icon in the image toolbar (<img src="img/save.png"> near the top of
+the screen) will allow you to save that currently selected image as a
+FITS or PNG or even a ds9 regions file to your local disk.  Note that
+<b>you</b> control where the file is saved on your disk through your
+browser; your browser may be configured to store all downloads in a
+particular location on your disk. <P>
+
+Saved FITS images will not save the color stretches or overlays; it
+will just save the underlying FITS image.  Saved PNG files WILL
+include any overlays or annotations you have placed on the image, but
+will not include the underlying FITS image. Saved regions files will
+not save the underlying image, but will just save the overlays as a
+DS9 Regions file. See the <a
+href="http://ds9.si.edu/doc/ref/region.html" target="_blank">DS9
+website <img src="img/jumpout.jpg" height="10"></A> for more
+information on the syntax of these DS9 region files. <P>
+
+<h3><A NAME="multipleimages">Multiple Images</A></h3>
+
+To save multiple images, identify the row(s) in the table you wish to
+save. Click on the tickbox on the far left of that row. Select as many
+as you want; click on the tickbox at the top of the column to select
+all. <P>
+
+Now, go up to the upper right and click "Prepare Download." It will
+give you a pop-up:<br>
+<img src="img/saveTSV.png"><br>
+From here, you can specify:
+<UL>
+<LI> the title of the download (used in the background monitor to keep
+track of jobs);
+<LI> whether you want the full images or just the cutouts that are
+displayed in the tool;
+<LI> whether you want the file structure to be binned such that each
+epoch is in a different subdirectory (structured) or with all the
+files at the same level  in the directory hierarchy (flattened);
+<LI> the filename of the saved zip file;
+<LI> whether that file should be saved on your local disk or in the <a
+href="/docs/workspace/" target="_blank">IRSA Workspace <img src="img/jumpout.jpg" height="10"></A>;
+<LI> whether you want it to send you email when it is done (and if you
+tick the box, you can enter your email address).
+</UL>
+
+If it is a small download, it might ask you right away where to put
+the file on your disk.<P>
+
+If it is a big download, the packaging process will spin off to the
+"Background monitor" in the upper right. Click on that blue tab to
+watch it package, and enter an email if you want it to email you when
+it is done. <P> 
+
+<strong>Note that even if you were working with just one WISE channel,
+the images from all available channels will be included in the
+download.</strong><P>
+
+
+
+
+<em><a href="main2TSV.html">Go back to Main Screen, Viewer (After Period Finding)</A>.</em><P>
+
+</BODY>
+</HTML>

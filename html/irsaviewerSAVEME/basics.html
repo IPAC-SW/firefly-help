@@ -1,0 +1,494 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+<!-- FOOTER LEFT "IRSA Viewer: Basic Features and Functions" -->
+<HEAD>
+<TITLE>IRSA Viewer: Basic Features and Functions
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+<h2>IRSA Viewer: Basic Features and Functions </h2>
+
+You can initiate the IRSA Viewer by loading the tool directly from the
+icon on the home page, or by clicking on a link that looks like this:
+<img src="img/viewerlaunch.png">. If the you have loaded the tool
+directly, the first time you see the IRSA Viewer, it does not have an
+image pre-loaded; if you have clicked the icon to launch it, the first
+time you see the IRSA Viewer, it already has an image loaded.<P> The
+contents of this section essentially follow the menu options for the
+IRSA Viewer (e.g., basically the blue tabs across the top, under the
+IRSA menu) and major features of the tool in the order in which you
+might encounter them.<br> <img src="img/bluetabs.png"><p>
+
+
+Besides the online help (also available as a pdf; see top right), note
+that there are also IRSA Viewer Tool and Catalog Search Tool video
+tutorials, including  quick start and longer AAS-demo style overviews,
+available at the <a
+href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg"
+height="10"></A>.  Also see the IRSA Viewer playlist (which collects
+all the IRSA Viewer tutorials together), as well as the playlist of
+tutorials relevant for more than one archive.<P>
+
+
+<em>Contents of page/chapter:</em><br>
++<A href="#searching">Searching for and Loading Images</A> <br>
++<A href="#3-color">Making 3-color Images</A> <br>
++<A href="#hips">HiPS Images</A> <br>
++<A href="#images">Interacting with Images</A> <br>
++<A href="#tables">Interacting with Tables</A> <br>
++<A href="#catalogs">Catalogs</A> -- Retrieving and using catalogs<br>
++<A href="#plots">Charts</A> --  Making additional plots<br>
++<A href="#help">Help</A> -- Getting more help<br>
++<A href="#bgmon">Background Monitor</A><br>
+<P>&nbsp;<P>
+
+
+<h3><A NAME="searching">Searching for and Loading Images</A></h3>
+
+When you first start the IRSA Viewer, depending on how you get into
+it, either an image is pre-loaded, or the first screen you come to is
+a position search for images. If the image is pre-loaded, you can
+start manipulating the image right away; see <a
+href="visualization.html">the Visualization section</A>. If,
+however, you do not have an image pre-loaded, you will need to select
+an image to load.<P>
+
+If you do not have an image pre-loaded, the default start position is
+in the position search for images. It is assuming by default that you
+want to load an image from IRSA services, though you can also load an
+image from disk or off another service on the web (see below).  <P>
+
+The search window looks like this:<br>
+<img src="img/search.png" width="70%">
+<P>
+
+<strong>First</strong>, you select which images you want to load: FITS
+images (individually), FITS images that you load into a new
+three-color image, or <a
+href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
+target="_blank">HiPS images <img src="img/jumpout.jpg"
+height="10"></A> (also see <a
+href="http://www.ivoa.net/documents/HiPS/" target="_blank">IVOA docs
+<img src="img/jumpout.jpg" height="10"></A>). (More on <a
+href="#3-color">3-color images</A> and <a href="#hips">HiPS</A>
+below.)<P>
+
+<strong>Second</strong>, you select whether you want to pull an image
+from IRSA's archives ("Search"; see below), your own disk ("Use my
+image"), elsewhere on the web ("URL"), or the IRSA <a
+href="/docs/workspace/" target="_blank">Workspace <img
+src="img/jumpout.jpg" height="10"></A> ("Workspace"). Note that to use
+the Workspace (reading from or writing to it), you'll need to <a
+href="user.html">log in</A>. <P>
+
+In the cases other than "Search", nearly all of the additional options
+below this line vanish because they are no longer relevant. To
+<strong>select an image off of your local disk</strong>, select "Use
+my image", and then tell it where to find the image on your local
+disk. To load an <strong>image from the web</strong>, pick the "URL"
+option and enter the URL from which you want an image loaded.  To load
+an <strong>image from the IRSA Workspace</strong>, pick the
+"Workspace" option and find the file you want to load.<P>
+
+If you would like to load an image from IRSA's archives, select
+"Search" and go on to these subsequent additional search
+parameters.<P>
+
+<strong>Third</strong>, you select a target. You may enter a target
+name, and have either NED-then-Simbad  or Simbad-then-NED resolve the
+target name into coordinates.  Alternatively, you may enter
+coordinates directly. These coordinates can be in decimal degrees or
+in hh:mm:ss dd:mm:ss format. By default, it assumes you are working in
+J2000 coordinates; you can also specify galactic, ecliptic, or B1950
+coordinates as follows:
+<UL>
+<LI>'46.53, -0.251 gal' means 46.53, -0.251 degrees in galactic coordinates
+<LI>'12.7, +4.3 ecl' means 12.7, +4.3 degrees in ecliptic coordinates
+<LI>'19h17m 11d58m b1950' means 19h17m 11d58m in B1950 coordinates 
+</UL>
+Examples are given below the text entry box before you start typing in
+the box.<P>
+
+As you are completing a valid coordinate entry, it echoes back to
+you what it thinks you are entering. Look right below the box in which
+you are typing the coordinates to see it dynamically change.  <P>
+
+Below the box where you enter the target, you can then specify the
+size of the images you want.  You may enter the cutout size in
+arcseconds, arcminutes, or degrees; just change the pulldown option
+accordingly. <strong>Caution:</strong> pick your units from the
+pulldown first, and then enter a number; if you enter a number and
+then select from the pulldown, it will convert your number from the
+old units to the new units. There are both upper and lower limits to
+your search size; it will tell you if you request something too big
+or too small. Note that these limits may be image-dependent; larger
+images may be available from certain surveys and smaller images may be
+available from other surveys. <strong>If you want the whole image
+tile</strong>, just leave the image size blank, then the closest image
+tile in its entirety will be returned. <P>
+
+
+<strong>Fourth</strong>, you select the data set. There are myriad
+choices, which you can filter in various ways to allow you to find
+what you need. Statistically, any one spot on the sky will only be
+found in a few of these data sets, so it makes sense to weed down the
+list, at least a little bit.<P>
+
+<em>On the left hand side</em>, you can filter by :
+<DL>
+<DT>Mission (or survey)
+<DD>Spitzer, WISE, Herschel, 2MASS, IRAS, ZTF, PTF, AKARI, DSS, SDSS, MSX,
+COSMOS, MUSYC, BLAST, IRTS, BOLOCAM.
+<DT>Project Type 
+<dd>Compilation (meaning, e.g., all the data available from a mission
+that was not an all-sky survey), extragalactic, galactic, all-sky. 
+<dt>Band 
+<dd>X-ray, UV, optical, near-IR, mid-IR, far-IR, mm, radio. (Yes, you
+can find data from non-IR missions/surveys here, depending on what
+projects have delivered back to IRSA.)
+</DL>
+To expand or contract the options
+below each of these broad categories, click on the black arrow on the
+left. To see all of the choices in each of these broad categories,
+click on the black arrow and then click "more" near the bottom of the
+list. To select any of the options, click on the checkbox on the left.
+In response to your selections, two things happen. (1) checked items
+appear in red italics above this part of the page, underneath "filter
+by"; (2) the list of programs for selection on the right hand side
+changes.<P>
+
+<em>On the right hand side</em>, you can select individual surveys and
+individual bands therein. To expand or contract the options below each
+of the categories, click on the black arrow on the left. To select any
+of the waveband options, click on the checkbox on the left of the
+individual survey or individual bands.<P>
+
+To find out more information about any given data set, click on the i
+in the circle. This takes you to a master list of all data sets
+available in IRSA Viewer, from which you can obtain standard
+information about the data sets (mission, wavlengths, links to more
+information about the program or delivery, and more). <P>
+
+To actually complete the task as requested, choose the "Search" button
+in the lower left.<P>
+
+<strong>Tips and Troubleshooting</strong>.
+<UL>
+<LI>You don't have to select something on the left side before
+selecting something on the right side. If you know exactly what you
+want, just jump in and select things on the right and click "search."
+<LI>If you select something on the left side, it will limit your
+choices accordingly on the right side. 
+<LI>If you clear filters on the left side, it doesn't affect
+selections you've made on the right. You must "clear filters" (on the
+left) and "clear selections" (on the right) to remove all filters and
+return to the initial state.
+<LI>If you want to expand all the choices on the right (to ease in
+band selection), click "expand all" to show all options, or "collapse
+all" to collapse them again.
+<LI>For more information on the data sets included in IRSA Viewer, see <a
+href="https://irsa.ipac.caltech.edu/docs/irsaviewer_datasets.html"
+target="_blank">this list <img src="img/jumpout.jpg" height="10"></A>.
+<LI>IRSA Viewer will NOT return not ALL the images for your specified
+combination of dataset+band+position; it returns the most centered
+science image it can find. This is usually but not always actually
+going to be the most useful to you, depending on what you're trying to
+do.  Some programs delivered PSFs, mosaics created with alternate
+algorithms, etc.  To find all the data at IRSA for a given target,
+enter the position in the big search box on the <a
+href="https://irsa.ipac.caltech.edu/" target="_blank">IRSA home page
+<img src="img/jumpout.jpg" height="10"></A> (this accesses a tool
+called Data Discovery), or navigate specifically to the page
+corresponding to your desired data set and search there by position
+(this accesses a tool called Atlas). 
+</UL>
+
+Example: I want all data covering M16. M16, the Eagle Nebula, is
+essentially in the galactic plane. Thus, I don't need to search really
+any of the extragalactic data sets. I select on the left hand side,
+under project type, compilation, galactic, and all-sky. I am still
+left with a long list of programs (though it is much shorter than it
+was before). However, I can omit some programs from consideration
+based on their names -- programs studying Taurus or Orion are unlikely
+to have any data on M16. I can then individually select the dozen or
+so data sets likely to cover M16.<P>
+
+<strong>Adding new images</strong>. Additional images can be added
+after an initial search by clicking on the blue "Images" tab near the
+top left. The resulting window resembles the initial search window. 
+You can use the same target as before, or change the target. To close
+the search window without getting a new image, click on "cancel" in
+the lower left.<P>
+
+<strong>Tips and Troubleshooting.</strong> 
+<UL>
+<LI>If you go back to add new images of the same target, be sure to
+uncheck the images you had previously selected, otherwise you will
+load in second copies of those images. 
+<LI>To remove an image you have already loaded (or an error message
+from a program that had no data covering your target), click on the
+small blue "x" in the upper right of the corresponding image tile. 
+</UL>
+Much more detail about interacting with images can be found in the <a
+href="visualization.html">Visualization section</A>.
+<P>
+
+
+<h3><A NAME="3-color">Making 3-color Images</A></h3>
+
+You can create 3-color images directly from the image search screen.
+Select "Create 3-Color Composite" from the top row of options. The
+rest of the pop-up changes to look like the following:<br>
+<img src="img/3colors.png" width="70%"><P>
+By default, you can select the red plane first; you then populate that
+color plane with all the same choices as you would have for a single
+channel image. To set the additional color planes, click on "green"
+and then "blue" to populate those planes accordingly.  <p>
+
+It assumes that you must want the same position for all three color
+planes.<P>
+
+Select your options individually for each color plane (red, green,
+blue), and click 'Search' in the lower left. Click 'Cancel' to
+cancel.<P>
+
+To change the color stretch of each color plane individually, click on
+the "Color Stretch" icon in the toolbox on the top of the IRSA Viewer
+window; see the <a href="visualization.html">Visualization
+section</A>. Much more detail about interacting with images can be
+found in the <a href="visualization.html">Visualization
+section</A>.<P>
+
+<strong>Tips and Troubleshooting.</strong> 
+<UL>
+<LI>You load all three images at once, e.g., you do NOT pick red,
+click search, then go back and pick green, click search, then go back
+and pick blue, click search. Instead, click red and define what you
+want for that image, then go to green and do the same, then go to blue
+and do the same. Don't click "search" until you have specified all
+three bands.
+<LI> The images will be downsampled to the resolution of the red
+image. If you, say, load an MSX image into the red plane, a WISE image
+into the green plane, and a 2MASS image into the blue plane, all of
+the images will have MSX-sized pixels. If you load a WISE image into
+the red and green planes, and a 2MASS image into the blue plane, the
+images will have WISE-sized pixels. 
+<LI>You have to set the size of the image separately on each color
+plane. It does not automatically assume you want the same size of
+sky covered. <P>
+</UL>
+
+
+<h3><A NAME="hips">HiPS Images</A></h3>
+
+<a
+href="https://ui.adsabs.harvard.edu/#abs/2015A&A...578A.114F/abstract"
+target="_blank">HiPS <img src="img/jumpout.jpg" height="10"></A>
+stands for hierarchical progressive surveys, and these kinds of images
+are multi-resolution <a href="http://healpix.sourceforge.net/"
+target="_blank">HEALPix <img src="img/jumpout.jpg" height="10"></A>
+images (where HEALPix stands for Hierarchical Equal Area isoLatitude
+Pixelation). (Also see <a href="http://www.ivoa.net/documents/HiPS/"
+target="_blank">IVOA docs on HiPS <img src="img/jumpout.jpg"
+height="10"></A>.) In pratice, what this means in practice is that you
+can interact with images of a very large chunk of sky, and as you
+zoom, the pixel size changes dynamically. <P>
+
+Select "View HiPS Images" from the top row of options. The
+rest of the pop-up changes to look like the following:<br>
+<img src="img/hips.png" width="70%"><P>
+
+<strong>First</strong>, you tell it whether you want to search
+among the HiPS images available to this tool, or at a URL. <P>
+
+<strong>Second</strong>, give it a target; this works as for FITS
+images above.<P>
+
+<strong>Third</strong>, you need to pick an image size. If you leave
+the image size blank, the whole HiPS image will be loaded. Note that
+the field of view (FOV) here is large; it can be no smaller than
+0.0025 deg, and can be up to 180 degrees. Here, again, pick the units
+first, and then enter the number.<P>
+
+<strong>Fourth</strong>, select a data set. By default, the list of
+possible choices is limited (via the checkbox at the top of the table)
+to "IRSA Featured" choices, meaning data that IRSA users are most
+likely to want. If you uncheck this box, you will have a much larger
+list of HiPS image choices (from <a href="http://cdsweb.u-strasbg.fr/"
+target="_blank">CDS <img src="img/jumpout.jpg" height="10"></A>) to
+load.  <P>
+
+<strong>Tips and Troubleshooting.</strong> 
+<UL>
+<LI>The table of choices is like all the other <a
+href="tables.html">tables in this tool</A>, so you
+can sort/filter/etc. to locate the image you want to load. If you
+click the gears in the upper right of the table, you can change the
+table characteristics and impose filters on columns, or you can turn
+on the option to impose filters via the boxes on the tops of each
+column. 
+<LI>To learn more about any given image, click on the i with a circle
+around it in the second column of the table. Another window will spawn
+with basic information about that HiPS image.
+<LI>Note that color HiPS images are available and that the color
+stretch is set by the person making the HiPS image
+originally (so you can't change it). You can change the color table
+(but not the stretch); see the <a
+href="visualization.html">Visualization section</A>.
+<LI>A blank HiPS image (basically a blank canvas) is also available
+from the list of HiPS images.
+</UL>
+<P>
+
+<strong>Column definitions.</strong> The table that appears when
+selecting a HiPS image has several columns:
+<UL>
+<LI>Type - image (all that is available in this context)
+<LI>Properties - links to more information for that image
+<LI>Title - descriptive words for the HiPS image
+<LI>Waveband - Approximate wavelength range
+<LI>Coverage - sky coverage (100% or less) -- this is sometimes
+referred to as "MOC", or multi-order coverage.
+<LI>Pixel scale - At the highest order (zoomed in the most), this is
+the pixel size
+<LI>HiPS Order - HiPS order, e.g., how deep you can zoom
+<LI>Frame - coordinate sytem, e.g., equatorial, galactic, etc.
+<LI>Release date - Date that HiPS image became available
+<LI>Dataset IVOA ID - Unique (worldwide) identifier for the dataset
+</UL>
+
+
+<h3><A NAME="images">Interacting with Images</A></h3>
+
+The <a href="visualization.html">Visualization section</A> has
+much more information about interacting with images.<P>
+
+Once any image appears in your browser window, let your mouse
+hover any portion of the image. Details about the image and the
+portion of the image under your mouse cursor appear in the upper
+right:<br>
+<img src="img/pixelreadout.png"><P>
+
+The upper left of the loaded image tells you basic things about the
+image you are viewing. The telescope and/or instrument and/or data
+release is in black. The field of view is in green font; this
+corresponds to the (horizontal) width of the image window.<P>
+
+<img src="img/iraclabel.png"> <img src="img/uvlabel.png"> Two examples
+of image labels. The former is from Spitzer Enhanced Imaging Products
+(SEIP), IRAC channel 2, and the field of view is 11 arcmin. The latter
+is far-ultraviolet (FUV) data delivered by the Local Volume Legacy
+(LVL) project, and the field of view is 6.8 arcmin.<P>
+
+<img src="img/multiplanelabel.png"> Images can have multiple planes;
+the blue arrows shown here allow you to page through the planes. (This
+is from the HerMES project and is Herschel SPIRE 350 micron data.)<P>
+
+
+<h3><A NAME="tables"><A NAME="catalogs">Interacting with Tables and Catalogs</A></A></h3>
+
+The <a href="tables.html">Tables section</A> has
+much more information about interacting with tables in general.<P>
+
+The <a href="catalogs.html">Catalogs section</A> has much more
+information about interacting specifically with catalogs, including
+searhing for them.<P>
+
+You can choose from any of a wide variety of catalogs (from IRSA,
+your own disk, the VO, or NED) to load and overlay on your <a
+href="visualization.html">visualized data</A>. <P>
+
+
+
+<h3><A NAME="plots"><A NAME="charts">Charts</A></A> --  Making additional plots</h3>
+
+By default, when you load a <a href="catalogs.html">catalog</A>, you
+get an x-y plot displayed as well. The "Charts" tab allows you to
+create additional plots. See the <a href="plots.html">Plots
+section</A> for lots more information.<P>
+
+
+<h3><A NAME="help">Getting Help</A></h3>
+
+The "Help" blue tab leads you into this online help. There are also
+context-sensitive help markers throughout the tools (<img
+src="img/help.png">).  You can also download a PDF version of this
+manual; look at the top of the help window. (The PDF may be easier to
+search than the web pages; use your PDF reader's search function.) <P>
+
+You can submit questions to the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk/"
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg" height="10"></A>.<P>
+
+A set of frequently asked questions (FAQs) about the IRSA Viewer is <a
+href="faq.html">here</A>. <p>
+
+The <a href="https://www.youtube.com/channel/UCIysJbamhNnlu0Bgdrwxn_w"
+target="_blank">IRSA YouTube channel <img src="img/jumpout.jpg"
+height="10"></A> has lots of short videos about IRSA tools.<P>
+
+
+<a name="bugs"></A><strong>Found a bug?</strong> The known bugs and
+issues in this version of the IRSA Viewer are listed <a
+href="https://irsa.ipac.caltech.edu/docs/known_issues/irsaviewerbugslist.html"
+target="_blank">here <img src="img/jumpout.jpg" height="10"></A>.  If
+you think you have found a bug, before reporting it, please check this
+list, and read this online IRSA Viewer help. It may be a "feature" we
+already know about.  If you have found a new, real bug, then please do
+contact us via the <a
+href="https://irsa.ipac.caltech.edu/applications/Helpdesk"
+target="_blank">IRSA Help Desk <img src="img/jumpout.jpg"
+height="10"></A>. Please include your operating system version and
+your browser software and version.  If you can, please also include
+any specific error message you may have gotten. (NB: In our testing,
+copying shortcuts worked on Windows and Linux; the command-C did not
+work on Macs, but selecting and clicking the right mouse button
+did.)<P>
+
+<h3><A NAME="bgmon">Background Monitor</A></h3>
+
+The Background Monitor appears as a blue tab (or button) in the upper
+right of your window to keep track of the data downloads you have
+requested.  It actively changes to reflect what it is doing (e.g.,
+this is preparing a catalog: <img src="img/preparing.png">) Larger
+catalog requests can be sent to the Background Monitor.  It also
+provides a <a href="downloads.html#downloadScript">download script</A>
+(optional) if you have more than one package to download.<P>
+
+A pop-up window can be called up at any time by clicking the
+"Background Monitor" tab.  You can watch your data being retrieved.
+It will update that window when the data are available for download
+and/or overlay on your image, providing a link (or links) for obtaining
+the data. It also keeps track of the downloads you have requested
+during the same session, and indicates with a checkmark those that you
+have already loaded. Remove them from the list by clicking on the blue
+'x'. <br>
+<img src="img/backgroundpopup.png"><img src="img/backgroundpopup2.png"><P>
+
+If you have made, say, a large catalog request and don't want the
+pending catalog request to occupy screen space while it loads, you can
+click on the button marked "send to background" to reclaim your screen
+space. When the background monitor finishes, however, you will have to
+actively tell it to display results (it doesn't do it automatically).
+You can ask it to send you email when it is ready. 
+<P>
+
+To stop any query mid-way through, click on the little red octagon
+("stop sign") that appears next to the query in the Background Monitor
+pop-up.<P>
+
+If you forgot to put in your email at the beginning, or if the
+packaging is taking longer than you expected, you can click on "Enable
+email notification" from the bottom of the Background Monitor popup
+and add your email during the packaging process. <P>
+
+
+
+
+</BODY>
+</HTML>

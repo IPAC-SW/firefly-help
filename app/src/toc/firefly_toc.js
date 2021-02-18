@@ -134,6 +134,11 @@ const toc_visualization = {
             href: 'firefly/visualization.html#changehips',
               hidden: true,
        },
+        {
+            id: 'visualization.catalogload',
+            title: 'Catalog loading',
+            href: 'firefly/visualization.html#catalogload',
+        },
     ]
 };
 

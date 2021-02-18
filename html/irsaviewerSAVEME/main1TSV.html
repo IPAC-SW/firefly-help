@@ -1,0 +1,211 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--NewPage-->
+<HTML>
+
+<!-- FOOTER LEFT "Time Series Tool: Main Screen, Viewer (Initial View)" -->
+<HEAD>
+<TITLE>Time Series Tool: Main Screen, Viewer (Initial View)
+</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR="white" >
+
+<h2>Time Series Tool: Main Screen, Viewer (Initial View)</h2>
+
+
+After you load in a time series, you get a screen where you are
+presented with several different panes: settings, table, plot, and
+images, highlighted in the screen shot below. The table, plot, and
+images are all connected in that clicking in one changes things in the
+others.
+
+<P><img src="img/main1TSV.png" width="100%"><P>
+
+<em>Contents of page/chapter:</em><br>
++<A href="#settings">Settings</A><br>
++<A href="#table">Table</A> <br>
++<A href="#plot">Plot</A> <br>
++<A href="#images">Images</A> <br>
+<P>&nbsp;<P>
+
+<h3><A NAME="settings">Settings</A></h3>
+
+This box in the upper left controls the time series with which you are
+working. For WISE/NEOWISE, you can view measurements as a function of
+time, simultaneously visualize the single-epoch images, and optionally
+find the period of variability. For other data sets, visualization of
+the single-epoch images is not currently available, but period
+analysis is available. <P>
+
+The upper left starts with the file you have uploaded, followed by the
+mission you have selected. Then it has a place to enter the time and
+time-dependent column.<P>
+
+For WISE/NEOWISE time series, it assumes that the time column you want
+is "mjd", and the time-dependent variable column is "w1mpro_ep". You
+can change this to any of the other 3 WISE channels (w2mpro_ep,
+w3mpro_ep, w4mpro_ep). You can change both of these to be any other
+column in the catalog.  <P>
+
+For PTF time series, it assumes that the time column you want
+is "obsmjd", and the time-dependent variable column is "mag_autocorr".
+You can change both of these to be any other
+column in the catalog.  <P>
+
+If you have uploaded your own time series, you can control which
+columns are plotted (and eventually <a href="findpTSV.html">sent to
+the period-finding function</A>) from this settings pane. 
+If it finds a column called MJD, mjd, BJD, bjd, or really
+anything followed by "jd", it will assume that is your time column. It
+doesn't know how to assume your dependent variable column. If there is
+only one other column, it grabs that as the dependent variable. If you
+have many columns, you may need to help it realize what column should
+be the dependent variable. <P>
+
+The bottom left of this box has a button, "Period Finder", which
+launches period finding; see <a href="findpTSV.html">Period
+Finding</A>.<P>
+
+The upper right of this box controls the images displayed, if the
+images are displayed at all.<P>
+
+By default, for WISE/NEOWISE time series, it displayes the W1 images
+at the bottom of the window (see <a href="#images">images</A>, below).
+To have different WISE images displayed (for any column in the
+uploaded table, not just another WISE magnitude), click on the radio
+buttons. <P>
+
+The "cutout size" controls the size of these image cutouts.<P>
+
+
+
+<h3><A NAME="table">Table</A></h3>
+
+Just below the settings pane is a pane with the data table displayed.
+This is the time series you have uploaded into the tool. <P>
+
+The table, if very long, is divided into 'pages' you can scroll
+through. You can filter and sort the table. You can control which
+columns are shown. For a more complete introduction to this tool's
+table manipulation functions, please see the <a
+href="tables.html">Tables section</A>.<P>
+
+<strong>Quick start: Sorting.</strong> Click on any column heading to
+sort the table by that column in ascending order; click it again to
+make it descending order, or click it a 3rd time to return the table
+to the unsorted state.<P>
+
+The table comes up, by default, sorted by the time column you have
+selected in the <a href="#settings">settings pane</A>.<P>
+
+After you run <a href="findpTSV.html">Period Finding</A>, there will
+be another table loaded in to this pane. See the section on <a
+href="main2TSV.html">main screen, after period finding</A>.<P>
+
+
+<h3><A NAME="plot">Plot</A></h3>
+
+On the upper right, there is a plot of the input light curve you have
+loaded into the tool. It takes the time and dependent variable you
+have selected in the <a href="#settings">settings pane</A>. If you
+change the settings pane, this plot changes. If you have &gt; 50,000
+points in your light curve, the plot will be binned, e.g., show the
+light curve as a density plot, where each bin can represent multiple
+points.<P>
+
+You can change what is plotted and how it is plotted. You can add
+error bars. For a more complete introduction to this tool's plotting
+functions, please see the <a href="plots.html">Plots
+section</A>.<P>
+
+<strong>Quick start: Adding errors.</strong> To add error bars to the
+plot of the light curve, click on the gears (<img
+src="img/tableoptions.png">) to bring up options for the table:<br>
+<img src="img/tableoptionspopupTSV.png"><P> From here, you can tell it
+which column of your catalog  to use for the error bars. Note that the
+errors you add to this plot are for display purposes only and are not
+used in subsequent period finding. <P>
+
+"Apply" to implement your changes, "close" to exit without further
+changes. You can also click on the 'x' in the upper right to remove this pop-up.<P>
+
+
+
+<h3><A NAME="images">Images</A></h3>
+
+<strong>Purpose</strong><P>
+
+The purpose of having each image from each epoch displayed is to look
+for any irregularities (instrumental or otherwise) on or near your
+target in each individual exposure. <P>
+
+<strong>Default view</strong><P>
+
+If you have loaded in a WISE/NEOWISE or PTF time series, on the bottom
+of the screen there is a set of 5 images. Each of these images is
+centered on your target, and is of the cutout size specified in the <a
+href="#settings">settings pane</A>. Note that if you change the time
+series to be, say, "w2mpro_ep", the images will NOT automatically
+change to WISE-2; you must control what images are shown by clicking
+the radio buttons near the words "image display" near the top of the
+window.<P>
+
+<strong>Dynamic Linking</strong> <P>
+
+The images are dynamically linked to the table and the
+plot. Click on a row of the table, and the images (and plot)
+change; the image in the center of the row of 5 corresponds to the
+table row you have selected. Click on a point in the plot, and images
+(and table) change; the image in the center of the row of 5
+corresponds to the plot point you have selected.  <em>If you change
+the sort order of the table</em> to, say, sort by brightness, then the
+order of the images also changes. (This will become more important
+after you run <a href="findpTSV.html">Period Finding</A>.) <P>
+
+<strong>Image Displays</strong><P>
+
+The text immediately above the images reminds you how you have sorted
+the table, and whether it is ascending or descending.<P>
+
+You can control whether 1, 3, 5, or 7 images are displayed in the
+sequence. <P>
+
+You can control the size of the image cutouts in the settings box on
+the top left.<P>
+
+The upper left corner of each image reminds you which survey, channel,
+exposure, size, and zoom you are using.<P>
+
+By default, the tool loads with each image centered on your target.
+Some targets are on the edge of WISE exposures, so the image may not
+fill the entire image box for each epoch. To turn this feature off,
+unclick the "Target Match" box near the upper right of the images
+pane.<P>
+
+<strong>Image Interactions</strong><P>
+
+When you interact with these images, you are interacting with the FITS
+files, so you can change the color table and stretch, measure
+distances, etc.  For a more comprehensive introduction to this tool's
+image manipulations functions, please see the <a
+href="visualization.html">Visualization section</A>.<P>
+
+<strong>Quick start: Changing the color table or stretch.</strong> <P>
+
+To change the color table, go up to the image toolbar near the top of
+the window. Click on the color table icon (<img
+src="img/colortable.png">) and select a new color table from the
+options presented. Similarly, for the color stretch, click on the
+color stretch icon (<img src="img/stretch.png">) and select a new
+color stretch from the options presented.<P>
+
+
+
+
+<em><a href="loadingTSV.html">Go back to loading a time series</A> or 
+<a href="findpTSV.html">go on to Period Finder</A>.</em><P>
+
+</BODY>
+</HTML>

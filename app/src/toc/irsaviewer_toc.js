@@ -227,6 +227,11 @@ const toc_visualization = {
             title: 'Automatic FITS-HiPS-Aitoff Transitions',
             href: 'irsaviewer/visualization.html#autozoom',
         },
+        {
+            id: 'visualization.catalogload',
+            title: 'Catalog loading',
+            href: 'irsaviewer/visualization.html#catalogload',
+        },
     ]
 };
 
