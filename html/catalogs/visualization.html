@@ -160,12 +160,14 @@ figure). This feature is not available for HiPS images.<br> <img
 src="img/savecropped.png"> <P>
 
 The Catalog Search Tool, by default, overlays the catalog on the
-image.  If you have &lt;15,000 sources, your catalog will be saved
-fully in the regions file. If your catalog consists of &gt;15,000
-sources, not every source will be overlaid on the image, even if you
-zoom in, and thus will not be in the regions file. (If the plot is 
-shades of grey rather than individual points, then not every source is
-overlaid on the image.) <P> 
+image.  
+Note that if you overlay a large catalog,
+then turn around and save a regions file from the catalog overlay, the
+full catalog may not be saved to the regions file. If you have
+&gt;15,000 sources, enough that the accompanying plot is shown in
+shades of grey, <strong>not every source will be overlaid on the
+image</strong>, even if you zoom in, and thus will not be in the
+regions file.<P>
 
 <dt><img src="img/selectnew.png"> <em>Selecting a new image.</em>  
 <dd>Click on this icon to change the current image to a new image.
@@ -185,6 +187,9 @@ you to more rapidly select the zoom level (field of view) you want.
 Select the desired level, or click on the 'x' in the upper right to
 make the window go away. Here is an example: <br><img
 src="img/zoomlevel.png"><P>
+
+You can alternatively zoom using the mouse wheel (or drag forward
+and backward on a touchpad or magic mouse).<P>
 
 Note that there is a maximum (or minimum) allowed zoom level, and they
 are different for FITS and HiPS images. A notification will appear
@@ -229,11 +234,18 @@ might not be what you want to do. <P>
 
 <dt><img src="img/colortable.png"> <em>Changing the color table.</em>
 <dd>This icon enables you to change the color table of the
-displayed image. (This option is only available for FITS, not HiPS,
+displayed image. (This option is available for FITS and HiPS
 images.)  When you click the button, a pull-down menu appears
 with a wide variety of color table choices. Select your new color
 table from the options shown:<br>
 <img src="img/colortableoptions.png"><P>
+The arrow in the upper right creates a pop-up window out of this
+pulldown menu so that you can leave the choices up while settling on
+the best option. Click to select the color table you want.
+Alternatively, you can use the "color bar" slider to move among the
+color tables. Below the color bar slider, there are sliders
+controlling the bias and contrast. Click or drag the slider to change
+the image display.<P>
 
 <dt><img src="img/stretch.png"> <em>Changing the color stretch.</em> 
 <dd>This icon enables you to change the color stretch of the displayed
@@ -742,9 +754,10 @@ href="http://cdsweb.u-strasbg.fr/" target="_blank">CDS <img
 src="img/jumpout.jpg" height="10"></A>. <P>
 
 HiPS images have the color and stretch set by the person who
-originally made them. Thus, you cannot change the color/stretch of
-HiPS images from within IRSA Viewer. This is why there may be multiple
-versions of some data sets in the list of HiPS images.<P>
+originally made them. The color table can be remapped within this
+tool. But, you cannot change the stretch of HiPS images from within
+IRSA Viewer. This is why there may be multiple versions of some data
+sets in the list of HiPS images.<P>
 
 You can't save HiPS images from within IRSA's tool. To download your
 own copy, you will have to track down the original source of the
@@ -812,10 +825,10 @@ seconds, they vanish.<P>
 <LI>Some of these footprints are <em>large</em>. If you have a small
 image, some of these footprints will be larger than your image. Zoom
 out to see it, or find a larger image to use. If you overlay, say, a
-Nancy Grace Roman Space Telescope (WFIRST) footprint on a 2MASS image,
-you may need to zoom out a considerable amount before you can see the
-WFIRST footprint. You will see the center indicator of the marker
-before you will see the WFIRST footprint itself. 
+Nancy Grace Roman Space Telescope (formerly WFIRST) footprint on a
+2MASS image, you may need to zoom out a considerable amount before you
+can see the WFIRST footprint. You will see the center indicator of the
+marker before you will see the WFIRST footprint itself. 
 <LI>You can add multiple copies of the same marker using the layers
 pop-up (described generally above).  From the layers pop-up, there is
 a link right under the 'angle' option that says "Add [marker type]" --
@@ -930,7 +943,7 @@ delete, or add more copies of the footprints from the layers
 pop-up.<P>
 
 <img src="img/wfirst.png"> <strong>Nancy Grace Roman Space Telescope
-(WFIRST) focal plane footprint.</strong> As above, the footprint can
+focal plane footprint.</strong> As above, the footprint can
 be moved or rotated. Click and drag the boresight (the cross hairs),
 which appears by default to the upper right of the array of squares. 
 A circle appears, centered on the boresight, with four small circles
