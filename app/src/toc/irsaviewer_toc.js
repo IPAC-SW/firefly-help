@@ -289,44 +289,102 @@ const toc_catalogs = {
             href: 'irsaviewer/catalogs.html#irsacatalogs',
         },
         {
-            id: 'catalogs.owncatalogs',
-            title: 'Your Own Catalogs',
-            href: 'irsaviewer/catalogs.html#owncatalogs',
-        },
-        {
-            id: 'catalogs.vocatalogs',
-            title: 'VO Catalogs',
-            href: 'irsaviewer/catalogs.html#vocatalogs',
-        },
-        {
             id: 'catalogs.nedcatalogs',
             title: 'NED Catalogs',
             href: 'irsaviewer/catalogs.html#nedcatalogs',
         },
         {
+            id: 'catalogs.owncatalogs',
+            title: 'Your Own Catalogs',
+            href: 'irsaviewer/catalogs.html#owncatalogs',
+        },
+        {
+            id: 'catalogs.votap',
+            title: 'VO TAP Search',
+            href: 'irsaviewer/catalogs.html#votap',
+        },
+        {
+            id: 'catalogs.voscs',
+            title: 'VO SCS Search',
+            href: 'irsaviewer/catalogs.html#voscs',
+        },
+        {
+            id: 'tapSearches.form',
+            title: 'VO TAP Search',
+            href: 'irsaviewer/catalogs.html#tapSearches.form',
+             hidden: true,
+        },
+        {
+            id: 'tapSearches.tapService',
+            title: 'Select TAP Service',
+            href: 'irsaviewer/catalogs.html#tapSearches.tapService',
+             hidden: true,
+        },
+        {
+            id: 'tapSearches.selectBy',
+            title: 'Select Query Type',
+            href: 'irsaviewer/catalogs.html#tapSearches.selectBy',
+             hidden: true,
+        },
+         {
+            id: 'tapSearches.selectTable',
+            title: 'Select Table',
+            href: 'irsaviewer/catalogs.html#tapSearches.selectTable',
+             hidden: true,
+        },
+         {
+            id: 'tapSearches.constraints',
+            title: 'Enter Constraints',
+            href: 'irsaviewer/catalogs.html#tapSearches.constraints',
+             hidden: true,
+        },
+         {
+            id: 'tapSearches.spatial',
+            title: 'Spatial Constraints',
+            href: 'irsaviewer/catalogs.html#tapSearches.spatial',
+             hidden: true,
+        },
+         {
+            id: 'tapSearches.temporal',
+            title: 'Temporal Constraints',
+            href: 'irsaviewer/catalogs.html#tapSearches.temporal',
+             hidden: true,
+        },
+         {
+            id: 'tapSearches.adql',
+            title: 'ADQL',
+            href: 'irsaviewer/catalogs.html#tapSearches.adql',
+             hidden: true,
+        },
+       {
             id: 'catalogs.tablechoices',
             title: 'Interacting with Tables',
             href: 'irsaviewer/catalogs.html#tablechoices',
+             hidden: true,
         },
         {
             id: 'catalogs.columnsfilters',
             title: 'Columns and Filters in Tables',
             href: 'irsaviewer/catalogs.html#columnsfilters',
+             hidden: true,
         },
         {
             id: 'catalogs.xyplots',
             title: 'Making plots from catalogs',
             href: 'irsaviewer/catalogs.html#xyplots',
-        },
+              hidden: true,
+       },
         {
             id: 'catalogs.xyplots2',
             title: 'Making more plots',
             href: 'irsaviewer/catalogs.html#xyplots2',
+             hidden: true,
         },
         {
             id: 'catalogs.examples',
             title: 'Catalog plot examples',
             href: 'irsaviewer/catalogs.html#examples',
+             hidden: true,
         },
     ]
 };
