@@ -315,7 +315,7 @@ const toc_catalogs = {
         },
         {
             id: 'tapSearches.form',
-            title: 'VO TAP Search',
+            title: 'VO TAP Search Form',
             href: 'irsaviewer/catalogs.html#tapSearches.form',
              hidden: true,
         },
@@ -359,36 +359,6 @@ const toc_catalogs = {
             id: 'tapSearches.adql',
             title: 'ADQL',
             href: 'irsaviewer/catalogs.html#tapSearches.adql',
-             hidden: true,
-        },
-       {
-            id: 'catalogs.tablechoices',
-            title: 'Interacting with Tables',
-            href: 'irsaviewer/catalogs.html#tablechoices',
-             hidden: true,
-        },
-        {
-            id: 'catalogs.columnsfilters',
-            title: 'Columns and Filters in Tables',
-            href: 'irsaviewer/catalogs.html#columnsfilters',
-             hidden: true,
-        },
-        {
-            id: 'catalogs.xyplots',
-            title: 'Making plots from catalogs',
-            href: 'irsaviewer/catalogs.html#xyplots',
-              hidden: true,
-       },
-        {
-            id: 'catalogs.xyplots2',
-            title: 'Making more plots',
-            href: 'irsaviewer/catalogs.html#xyplots2',
-             hidden: true,
-        },
-        {
-            id: 'catalogs.examples',
-            title: 'Catalog plot examples',
-            href: 'irsaviewer/catalogs.html#examples',
              hidden: true,
         },
     ]
