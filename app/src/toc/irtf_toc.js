@@ -20,6 +20,14 @@ const toc_searching = {
     id: 'searching',
     title: 'Searching',
     href: 'irtf/searching.html',
+    items: [
+        {
+            id: 'basics.searching',
+            title: 'Searching',
+            href: 'irtf/searching.html',
+            hidden: true,
+        },
+    ]
 };
 
 

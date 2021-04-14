@@ -15,6 +15,12 @@ const toc_searching = {
     href: 'catalogs/searching.html',
     items: [
         {
+            id: 'basics.searching',
+            title: 'Searching',
+            href: 'catalogs/searching.html',
+            hidden: true,
+        },
+        {
             id: 'searching.SelectingCatalog',
             title: 'Selecting a Catalog',
             href: 'catalogs/searching.html#SelectingCatalog',

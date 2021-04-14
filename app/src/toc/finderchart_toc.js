@@ -81,6 +81,12 @@ const toc_basics = {
             title: 'Background Monitor',
             href: 'finderchart/basics.html#background',
         },
+        {
+            id: 'basics.bgmon',
+            title: 'Background Monitor',
+            href: 'finderchart/basics.html#background',
+            hidden: true,
+        },
     ]
 };
 
