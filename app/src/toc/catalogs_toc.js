@@ -223,7 +223,7 @@ const toc_visualization = {
     href: 'catalogs/visualization.html',
     items: [
         {
-            id: 'visualization.Rotate',
+            id: 'visualization.rotate',
             title: 'Rotation',
             href: 'catalogs/visualization.html#rotateImage',
             hidden: true,
@@ -244,6 +244,24 @@ const toc_visualization = {
             id: 'visualization.ds9regions',
             title: 'ds9 Regions',
             href: 'catalogs/visualization.html#ds9regions',
+            hidden: true,
+        },
+        {
+            id: 'visualization.saveimage',
+            title: 'Save Image',
+            href: 'catalogs/visualization.html#saveimage',
+            hidden: true,
+        },
+        {
+            id: 'visualization.zoomin',
+            title: 'zoomin',
+            href: 'catalogs/visualization.html#zoomin',
+            hidden: true,
+        },
+        {
+            id: 'visualization.colortable',
+            title: 'Color Table',
+            href: 'catalogs/visualization.html#colortable',
             hidden: true,
         },
         {
@@ -285,6 +303,12 @@ const toc_visualization = {
             id: 'visualization.breakingout',
             title: 'Breaking out of the pane',
             href: 'catalogs/visualization.html#breakingout',
+        },
+        {
+            id: 'visualization.changehips',
+            title: 'Change HiPS',
+            href: 'catalogs/visualization.html#changehips',
+            hidden: true,
         },
         {
             id: 'visualization.fitships',

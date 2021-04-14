@@ -143,6 +143,12 @@ const toc_visualization = {
             hidden: true,
         },
         {
+            id: 'visualization.zoomin',
+            title: 'zoomin',
+            href: 'irsaviewer/visualization.html#zoomin',
+            hidden: true,
+        },
+        {
             id: 'visualization.rotate',
             title: 'Rotation',
             href: 'irsaviewer/visualization.html#rotateImage',
@@ -164,6 +170,12 @@ const toc_visualization = {
             id: 'visualization.ds9regions',
             title: 'ds9 Regions',
             href: 'irsaviewer/visualization.html#ds9regions',
+            hidden: true,
+        },
+        {
+            id: 'visualization.colortable',
+            title: 'Color Table',
+            href: 'irsaviewer/visualization.html#colortable',
             hidden: true,
         },
         {
@@ -226,6 +238,12 @@ const toc_visualization = {
             id: 'visualization.fitships',
             title: 'Automatic FITS-HiPS-Aitoff Transitions',
             href: 'irsaviewer/visualization.html#autozoom',
+        },
+        {
+            id: 'visualization.changehips',
+            title: 'Change HiPS',
+            href: 'irsaviewer/visualization.html#changehips',
+            hidden: true,
         },
         {
             id: 'visualization.catalogload',

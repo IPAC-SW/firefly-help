@@ -102,7 +102,7 @@ const toc_visualization = {
             hidden: true,
         },
         {
-            id: 'visualization.Rotate',
+            id: 'visualization.rotate',
             title: 'Rotate Image',
             href: 'finderchart/visualization.html#rotateImage',
             hidden: true,
@@ -120,6 +120,12 @@ const toc_visualization = {
             hidden: true,
         },
         {
+            id: 'visualization.zoomin',
+            title: 'zoomin',
+            href: 'finderchart/visualization.html#zoomin',
+            hidden: true,
+        },
+        {
             id: 'visualization.layers',
             title: 'Layers',
             href: 'finderchart/visualization.html#layers',
@@ -129,6 +135,18 @@ const toc_visualization = {
             id: 'visualization.ds9regions',
             title: 'ds9 Regions',
             href: 'finderchart/visualization.html#ds9regions',
+            hidden: true,
+        },
+        {
+            id: 'visualization.saveimage',
+            title: 'Save Image',
+            href: 'finderchart/visualization.html#saveimage',
+            hidden: true,
+        },
+        {
+            id: 'visualization.colortable',
+            title: 'Color Table',
+            href: 'finderchart/visualization.html#colortable',
             hidden: true,
         },
         {
@@ -235,7 +253,13 @@ const toc_catalogs = {
             href: 'finderchart/catalogs.html#vocatalogs',
             hidden: true,
         },
-        {
+         {
+            id: 'catalogs.voscs',
+            title: 'VO Catalogs',
+            href: 'finderchart/catalogs.html#vocatalogs',
+            hidden: true,
+        },
+       {
             id: 'catalogs.ned',
             title: 'NED Catalogs',
             href: 'finderchart/catalogs.html#nedcatalogs',

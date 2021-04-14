@@ -31,6 +31,7 @@ the order in which you might encounter them in the window.<P>
 +<A href="#fitsViewer">The FITS/HiPS Viewer</a><br>
 +<A href="#imageinfo">Image Information</a><br>
 +<A href="#toolbar">Image Toolbar</a><br>
++<a href="#stretches">Information on Color Stretches</A><br>
 +<a href="#hipsViewer">Specific HiPS features</A><br>
 +<a href="#footprints">Footprints</A> -- overlaying markers<br>
 +<a href="#catalogsandlayers">Catalogs and Layers</A><br>
@@ -238,6 +239,7 @@ HiPS images cover the sky, so fitting the image to the screen
 might not be what you want to do. <P>
 
 
+<A NAME="colortable"><!-- --></A>
 <dt><img src="img/colortable.png"> <em>Changing the color table.</em>
 <dd>This icon enables you to change the color table of the
 displayed image. (This option is only available for FITS, not HiPS,
@@ -291,7 +293,7 @@ images.) <P>
 <dd>Clicking on this icon flips the image on the y-axis. (This option
 is only available for FITS, not HiPS, images.)<P>
 
-<dt><img src="img/recenter.png"> <em>Re-center the image.
+<dt><a name="panbytablerow"><img src="img/recenter.png">  </A><em>Re-center the image.
 </em>
 <dd> Clicking this icon produces a pull-down menu:<br>
 <img src="img/recenterpulldown.png"><br>
@@ -314,6 +316,11 @@ Other choices are to center on the target of the observation, center
 the image in the window, or center on a target of your choice. For the
 last of those, you can simply center on that target, or center and
 leave a marker on the image at that location.<P>
+
+The last option may or may not appear, depending on what you have been
+doing before getting to this screen. If it can, it gives you a choice
+to center on recent positions. Move your mouse over to the black
+arrow to select from a list.<P>
 
 
 <dt><img src="img/selectregion.png"> <em>Selecting a region.</em>
@@ -489,6 +496,31 @@ syntax as the other <a href="tables.html#filters">filters</A>):<br>
 
 
 &nbsp;<P>
+
+<a name="stretches"><h3>Specific information on Color Stretches</h3></A>
+
+
+<img src="img/stretch.png"> This icon enables you to change the color
+stretch of the displayed image. (This option is only available for
+FITS, not HiPS, images.) When you click the button, a pull-down menu
+appears with a variety of choices. You can choose from a set of
+pre-selected options:<br><img src="img/stretchoptions.png"><br> If you
+pick the first one, "color stretch", you can customize the stretch. A
+pop-up window appears with a histogram of the values in the image, and
+you can change the stretch type and range. <br><img
+src="img/customstretch.png"> <BR> If you pick a color stretch from the
+pre-defined options, the pop-up window reflects this change. <P>
+
+Example: pick 'Linear stretch to 99%'. Go back to "color stretch".
+Note that it has filled out the stretch type and ranges to reflect the
+current choice. Then -- either with the pop-up window still up or not
+-- go back and pick a different pre-defined stretch from the standard
+options. Note that the values in the pop-up change to reflect this
+current choice.<P>
+
+
+&nbsp;<P>
+
 
 
 <a name="hipsViewer"><h3>Specific HiPS Features</h3></A>

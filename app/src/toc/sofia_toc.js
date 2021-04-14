@@ -185,7 +185,7 @@ const toc_visualization = {
             hidden: true,
         },
         {
-            id: 'visualization.Rotate',
+            id: 'visualization.rotate',
             title: 'Rotate Image',
             href: 'sofia/visualization.html#rotateImage',
             hidden: true,
@@ -215,18 +215,18 @@ const toc_visualization = {
             hidden: true,
         },
         {
-            id: 'visualization.hipsViewer',
-            title: 'HiPS Viewer',
-            href: 'sofia/visualization.html#hipsViewer',
-            hidden: true,
-        },
-        {
             id: 'visualization.zoomin',
             title: 'zoomin',
             href: 'sofia/visualization.html#zoomin',
             hidden: true,
         },
-        {
+         {
+            id: 'visualization.colortable',
+            title: 'Color Table',
+            href: 'sofia/visualization.html#colortable',
+            hidden: true,
+        },
+       {
             id: 'visualization.fitsViewer',
             title: 'The FITS/HiPS viewer',
             href: 'sofia/visualization.html#fitsViewer',
@@ -240,6 +240,11 @@ const toc_visualization = {
             id: 'visualization.toolbar',
             title: 'Image Toolbar',
             href: 'sofia/visualization.html#toolbar',
+        },
+        {
+            id: 'visualization.stretches',
+            title: 'Color Stretches',
+            href: 'sofia/visualization.html#stretches',
         },
         {
             id: 'visualization.hipsViewer',
@@ -265,6 +270,12 @@ const toc_visualization = {
             id: 'visualization.coverage',
             title: 'Coverage Image',
             href: 'sofia/visualization.html#coverage',
+        },
+        {
+            id: 'visualization.changehips',
+            title: 'Change HiPS',
+            href: 'sofia/visualization.html#changehips',
+            hidden: true,
         },
         {
             id: 'visualization.fitships',
@@ -392,6 +403,12 @@ const toc_catalogs = {
             id: 'catalogs.vocatalogs',
             title: 'VO Catalogs',
             href: 'sofia/catalogs.html#vocatalogs',
+        },
+        {
+            id: 'catalogs.voscs',
+            title: 'VO Catalogs',
+            href: 'sofia/catalogs.html#vocatalogs',
+             hidden: true,
         },
         {
             id: 'catalogs.nedcatalogs',
